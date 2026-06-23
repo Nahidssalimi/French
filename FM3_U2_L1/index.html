@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chapter — Regarde ce que je mange ! (E5 Food & Drink)</title>
+<style>
+  :root{--red:#7a1722;--blue:#0f2a4a;--gold:#c9a14a;--ink:#1a1a1a;--soft:#f4f6fb}
+  *{box-sizing:border-box}
+  body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:#fff;margin:0;padding:24px;max-width:1100px;margin-left:auto;margin-right:auto}
+  h1{color:var(--red);font-size:2.2rem;margin:0 0 4px}
+  h2{color:var(--blue);border-bottom:3px double var(--red);padding-bottom:6px;margin-top:32px}
+  h3{color:var(--red);margin-bottom:6px}
+  .obj{background:var(--blue);color:#fff;padding:14px 18px;border-radius:8px;margin:14px 0}
+  .obj h3{margin:0 0 6px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;font-size:.85rem}
+  .pill{display:inline-block;background:var(--red);color:#fff;padding:3px 10px;border-radius:99px;font-size:.78rem;margin-left:8px}
+  .card{background:#fff;border:1px solid #e2e6ee;border-radius:10px;padding:18px;margin:12px 0;box-shadow:0 2px 6px rgba(0,0,0,.04)}
+  button.btn{background:var(--red);color:#fff;border:none;padding:8px 14px;border-radius:6px;cursor:pointer;font-family:inherit;margin:4px 4px 4px 0}
+  button.btn.blue{background:var(--blue)}
+  .row{display:flex;flex-wrap:wrap;gap:14px}.col{flex:1 1 300px}
+  .msg{background:var(--soft);border-left:4px solid var(--red);padding:10px 14px;border-radius:6px;margin:8px 0}
+  .msg b{color:var(--blue)}
+  .match-item{display:flex;align-items:center;gap:10px;margin:6px 0;padding:8px;background:var(--soft);border-radius:6px}
+  .match-item select{flex:1;padding:6px;border-radius:4px;border:1px solid #ccc;font-family:inherit}
+  .match-item.ok{background:#d6f5d6}.match-item.no{background:#fbd6d6}
+  input.fill{padding:4px 8px;border:1px solid #ccc;border-radius:4px;font-family:inherit;width:140px}
+  input.fill.ok{background:#d6f5d6;border-color:#2d8a2d}
+  input.fill.no{background:#fbd6d6;border-color:#a02525}
+  table.gram{width:100%;border-collapse:collapse;background:#fff;margin:10px 0}
+  table.gram th,table.gram td{border:1px solid #ccd;padding:8px 10px;text-align:left}
+  table.gram th{background:var(--blue);color:#fff}
+  table.gram tr:nth-child(even) td{background:var(--soft)}
+  .vf{display:flex;gap:6px}
+  .vf button{padding:4px 10px;border:1px solid #bbb;background:#fff;border-radius:4px;cursor:pointer}
+  .vf button.sel{background:var(--blue);color:#fff}
+  .vf button.ok{background:#d6f5d6}.vf button.no{background:#fbd6d6}
+  .speak{cursor:pointer;color:var(--blue);text-decoration:underline;background:none;border:none;font-family:inherit}
+  textarea.write{width:100%;min-height:120px;border:1px solid #bbb;border-radius:6px;padding:10px;font-family:inherit;font-size:1rem}
+  .counter{font-size:.85rem;color:var(--blue)}
+  details.model{margin-top:10px;background:var(--soft);padding:10px;border-radius:6px}
+  details.model summary{cursor:pointer;color:var(--red);font-weight:bold}
+  .listening-card{background:linear-gradient(135deg,var(--blue),#1a3a6a);color:#fff;padding:14px;border-radius:8px}
+  .listening-card button{background:var(--gold);color:var(--ink)}
+  .culture{background:#fff8e6;border:1px solid var(--gold);border-radius:8px;padding:12px 16px}
+  .culture h3{color:var(--blue);margin-top:0}
+  .vocab{display:grid;grid-template-columns:1fr 2fr;background:#fff;border:1px solid #ddd;border-radius:8px;overflow:hidden}
+  .vocab div{padding:8px 12px;border-bottom:1px solid #eee}
+  .vocab div:nth-child(4n+1),.vocab div:nth-child(4n+2){background:var(--soft)}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+  .bank span{background:var(--blue);color:#fff;padding:3px 10px;border-radius:99px;font-size:.85rem}
+</style>
+</head>
+<body>
+<header>
+  <h1>2 · Regarde ce que je mange ! <span class="pill">E5 Food & Drink</span></h1>
+  <p style="color:var(--blue)">Parler des repas de fête · Utiliser le pronom <em>en</em></p>
+</header>
+
+<div class="obj"><h3>Objectifs d'apprentissage</h3>
+  <ul><li>Parler des repas de fête</li><li>Utiliser le pronom <em>en</em></li></ul>
+</div>
+
+<h2>1 · Lis les messages</h2>
+<div class="card"><div class="row">
+  <div class="col">
+    <div class="msg"><b>Message 1</b> — Voici notre repas de Noël ! De la dinde (on en mange tous les ans), suivie d'une bûche de Noël ! #Joyeux_Noël ! <button class="speak" onclick="speak(this.parentElement.textContent)">🔊</button></div>
+    <div class="msg"><b>Message 2</b> — Je suis à la crêperie pour fêter la Chandeleur. Ma troisième crêpe : bananes, chocolat, sucre glace. Tu en veux ? <button class="speak" onclick="speak(this.parentElement.textContent)">🔊</button></div>
+    <div class="msg"><b>Message 3</b> — Mon gâteau d'anniversaire au chocolat avec de la crème ! J'en garde une tranche pour toi ! <button class="speak" onclick="speak(this.parentElement.textContent)">🔊</button></div>
+  </div>
+  <div class="col">
+    <div class="msg"><b>Message 4</b> — On cherche les œufs en chocolat que Papa a cachés dans le jardin. J'en ai trouvé trois ! #Joyeuses_Pâques ! <button class="speak" onclick="speak(this.parentElement.textContent)">🔊</button></div>
+    <div class="msg"><b>Message 5</b> — Réveillon du Nouvel An ! Charcuterie, saumon fumé, salades, mini-gâteaux et verrines ! #Bonne_année ! <button class="speak" onclick="speak(this.parentElement.textContent)">🔊</button></div>
+    <div class="msg"><b>Message 6</b> — Une galette des Rois ! Le 6 janvier, on met une fève dedans : qui la trouve devient roi/reine ! <button class="speak" onclick="speak(this.parentElement.textContent)">🔊</button></div>
+  </div>
+</div></div>
+
+<h2>2 · De quelle fête s'agit-il ?</h2>
+<div class="card"><div id="match2"></div><button class="btn" onclick="checkMatch2()">Vérifier</button></div>
+
+<div class="culture"><h3>Point culture</h3>
+<ul>
+  <li><b>La Chandeleur</b> (2 février) — crêpes 🥞</li>
+  <li><b>La Fête des Rois</b> (6 janvier) — galette + fève 👑</li>
+  <li><b>Fête nationale</b> (14 juillet) — Liberté, Égalité, Fraternité 🇫🇷</li>
+</ul></div>
+
+<h2>Grammaire · Le pronom <em>en</em></h2>
+<div class="card">
+  <p><b>en</b> remplace un article partitif (<em>du, de la, des</em>) = some / of it / of them. Il va <b>devant le verbe</b>.</p>
+  <table class="gram"><thead><tr><th>Sans en</th><th>Avec en</th></tr></thead>
+  <tbody>
+    <tr><td>On mange du gâteau.</td><td>J'en garde une tranche.</td></tr>
+    <tr><td>Il y a des champignons.</td><td>Tu en veux ?</td></tr>
+    <tr><td>On mange de la dinde.</td><td>On en mange tous les ans.</td></tr>
+  </tbody></table>
+</div>
+
+<h2>3 · Louis parle de Noël — Vrai ou Faux ?</h2>
+<div class="listening-card">
+  <button class="btn" onclick="speak(louisText)">🔊 Écouter Louis</button>
+  <div id="vfList" style="margin-top:10px"></div>
+  <button class="btn" onclick="checkVF()">Vérifier</button>
+</div>
+
+<h2>4 · À toi — Ta fête préférée</h2>
+<div class="card">
+  <ul><li>Quelle est ta fête préférée et pourquoi ?</li><li>Comment et avec qui ?</li><li>Qu'est-ce que vous mangez ?</li><li>Qui prépare le repas ?</li></ul>
+  <div class="bank"><span>Ma fête préférée est…</span><span>parce que…</span><span>en famille</span><span>D'abord on mange…</span><span>suivi de…</span><span>Dedans, il y a…</span></div>
+  <textarea class="write" id="pres4" placeholder="Ma fête préférée est..."></textarea>
+  <div class="counter"><span id="wc4">0</span> mots</div>
+  <button class="btn blue" onclick="speakArea('pres4')">🔊 Écouter</button>
+  <details class="model"><summary>Voir un modèle</summary>
+    <p>Ma fête préférée est Noël parce que j'adore les cadeaux. Je la fête en famille chez ma grand-mère. D'abord on mange de la dinde, suivie d'une bûche au chocolat. C'est ma mère qui prépare le repas. Après, on s'offre des cadeaux.</p>
+  </details>
+</div>
+
+<h2>5 · Le 14 juillet chez Najoua</h2>
+<div class="card">
+  <p>Chez nous, le 14 juillet, c'est la fête nationale. Comme c'est un jour férié, j'aime préparer un grand repas. Comme cette fête a lieu en été, je fais souvent un barbecue. Le matin, je me rends au marché afin d'acheter des légumes, des fruits et des grillades comme des côtelettes d'agneau ou des biftecks. Je sers aussi une salade verte accompagnée d'une vinaigrette. L'après-midi, je prépare une salade de fruits. Comme boisson, je sers de la limonade bleue, blanche et rouge !</p>
+  <h3>Équivalents dans le texte :</h3>
+  <ol style="line-height:2">
+    <li>a · se passe → <input class="fill" data-a="a lieu"></li>
+    <li>b · vais → <input class="fill" data-a="me rends"></li>
+    <li>c · pour → <input class="fill" data-a="afin d'"></li>
+    <li>d · avec → <input class="fill" data-a="accompagnée d'"></li>
+    <li>e · également → <input class="fill" data-a="aussi"></li>
+    <li>f · tricolore → <input class="fill" data-a="bleu, blanc et rouge"></li>
+  </ol>
+  <button class="btn" onclick="checkFill()">Vérifier</button>
+</div>
+
+<h2>6 · La Chandeleur — Complète</h2>
+<div class="card">
+  <div class="bank"><span>d'abord</span><span>ses</span><span>ajoute</span><span>du</span><span>des</span><span>pour</span><span>en</span><span>la</span><span>fait</span><span>toute</span></div>
+  <p style="line-height:2.2">
+    En <input class="fill" data-a="france"> (1), le 2 février c'est la Chandeleur.
+    Pour <input class="fill" data-a="la"> (2) célébrer, Najoua prépare
+    <input class="fill" data-a="des"> (3) crêpes pour
+    <input class="fill" data-a="toute"> (4) la famille.
+    <input class="fill" data-a="d'abord"> (5), elle va au supermarché
+    <input class="fill" data-a="pour"> (6) acheter
+    <input class="fill" data-a="des"> (7) œufs,
+    <input class="fill" data-a="du"> (8) lait,
+    <input class="fill" data-a="du"> (9) chocolat.
+    Puis elle <input class="fill" data-a="fait"> (10) les crêpes et
+    <input class="fill" data-a="ajoute"> (11) les fruits.
+    D'habitude, elle <input class="fill" data-a="en"> (12) fait six.
+    Voilà, <input class="fill" data-a="ses"> (13) crêpes sont prêtes !
+  </p>
+  <button class="btn" onclick="checkFill()">Vérifier</button>
+</div>
+
+<h2>Vocabulaire</h2>
+<div class="vocab">
+  <div>la dinde</div><div>turkey</div>
+  <div>la bûche de Noël</div><div>Yule log</div>
+  <div>la galette des Rois</div><div>King's cake</div>
+  <div>la fève</div><div>porcelain figurine</div>
+  <div>le réveillon</div><div>New Year's Eve dinner</div>
+  <div>un jour férié</div><div>public holiday</div>
+  <div>donner un coup de main</div><div>to help</div>
+  <div>le sapin de Noël</div><div>Christmas tree 🎄</div>
+</div>
+
+<script>
+(function(){
+  let frVoice=null;
+  function pick(){const vs=speechSynthesis.getVoices();frVoice=vs.find(v=>v.lang&&v.lang.startsWith('fr'))||null;}
+  if('speechSynthesis' in window){pick();speechSynthesis.onvoiceschanged=pick;}
+  window.speak=function(t){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();
+    const u=new SpeechSynthesisUtterance(t);u.lang='fr-FR';u.rate=.9;if(frVoice)u.voice=frVoice;speechSynthesis.speak(u);};
+  window.speakArea=id=>{const v=document.getElementById(id).value.trim();if(v)speak(v);};
+
+  const fetes=[{n:1,a:"Noël"},{n:2,a:"la Chandeleur"},{n:3,a:"un anniversaire"},
+    {n:4,a:"Pâques"},{n:5,a:"le Nouvel An"},{n:6,a:"la Fête des Rois"}];
+  const opts=fetes.map(f=>f.a).slice().sort(()=>Math.random()-.5);
+  const m2=document.getElementById('match2');
+  fetes.forEach(f=>{
+    const o=opts.map(x=>`<option value="${x}">${x}</option>`).join('');
+    m2.insertAdjacentHTML('beforeend',
+      `<div class="match-item" data-a="${f.a}"><b style="min-width:110px">Message ${f.n}</b><select><option value="">— Choisir —</option>${o}</select></div>`);
+  });
+  window.checkMatch2=()=>document.querySelectorAll('#match2 .match-item').forEach(d=>{
+    const ok=d.querySelector('select').value===d.dataset.a;
+    d.classList.toggle('ok',ok);d.classList.toggle('no',!ok);
+  });
+
+  window.louisText="Ma fête préférée, c'est Noël. On fait un grand repas le 24 décembre. On commence par du saumon fumé, suivi d'une dinde rôtie avec pommes de terre, carottes, choux de Bruxelles et haricots verts. On finit par une bûche au chocolat et aux poires. Après, on s'offre des cadeaux et on admire le sapin que mon père a décoré.";
+  const vfs=[
+    {q:"Sa fête préférée est Pâques.",a:"F"},
+    {q:"On fait un grand repas le 24 décembre.",a:"V"},
+    {q:"Ils commencent par des pâtes.",a:"F"},
+    {q:"Il y a pommes de terre, carottes, choux de Bruxelles, haricots verts.",a:"V"},
+    {q:"Bûche au chocolat et aux poires.",a:"V"},
+    {q:"Le père a décoré le sapin.",a:"V"},
+  ];
+  const vfl=document.getElementById('vfList');
+  vfs.forEach((it,i)=>vfl.insertAdjacentHTML('beforeend',
+    `<div style="margin:6px 0;display:flex;gap:10px;align-items:center" data-a="${it.a}">
+      <span style="flex:1">${i+1}. ${it.q}</span>
+      <div class="vf"><button onclick="pickVF(this,'V')">V</button><button onclick="pickVF(this,'F')">F</button></div>
+    </div>`));
+  window.pickVF=(btn,v)=>{const w=btn.parentElement;w.querySelectorAll('button').forEach(b=>b.classList.remove('sel','ok','no'));btn.classList.add('sel');w.dataset.c=v;};
+  window.checkVF=()=>vfl.querySelectorAll('[data-a]').forEach(r=>{
+    const c=r.dataset.c;r.querySelectorAll('.vf button').forEach(b=>b.classList.remove('ok','no'));
+    if(!c)return;const b=[...r.querySelectorAll('.vf button')].find(x=>x.textContent===c);
+    b.classList.add(c===r.dataset.a?'ok':'no');
+  });
+  window.checkFill=()=>document.querySelectorAll('input.fill').forEach(i=>{
+    const ok=i.value.trim().toLowerCase()===String(i.dataset.a).toLowerCase();
+    i.classList.toggle('ok',ok);i.classList.toggle('no',!ok&&i.value.trim()!=='');
+  });
+  const ta=document.getElementById('pres4'),wc=document.getElementById('wc4');
+  if(ta)ta.addEventListener('input',()=>wc.textContent=ta.value.trim().split(/\s+/).filter(Boolean).length);
+})();
+</script>
+</body>
+</html>

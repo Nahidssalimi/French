@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Interview de Claire & Matthias — Futur complexe — IGCSE French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7fb;
+    --ink: #0e1a2b;
+    --muted: #5a6473;
+    --red: #7a1722;
+    --red-dark: #5a0f18;
+    --blue: #0f2a4a;
+    --blue-dark: #08182b;
+    --card: #fff;
+    --border: #d9dde5;
+    --shadow: 0 10px 30px rgba(8,24,43,.08);
+    --gold: #c9a227;
+    --green: #2d6a4f;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: #fff;
+    padding: 48px 24px;
+    text-align: center;
+    border-bottom: 6px solid var(--red);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: "🎙️";
+    position: absolute;
+    font-size: 12rem;
+    opacity: .08;
+    bottom: -30px;
+    right: -20px;
+    transform: rotate(-8deg);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: .2em 0;
+    position: relative;
+  }
+  header p {
+    max-width: 780px;
+    margin: 0 auto;
+    opacity: .92;
+    position: relative;
+  }
+  .badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.12);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: .85rem;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .tag {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .tag.gold {
+    background: var(--gold);
+    color: var(--blue-dark);
+  }
+  .tag.green {
+    background: var(--green);
+    color: #fff;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin: .3em 0 .5em;
+    color: var(--blue);
+  }
+  .sub {
+    color: var(--muted);
+    font-style: italic;
+    font-size: .95rem;
+    margin-bottom: 1rem;
+  }
+  .tip {
+    background: #fff7e0;
+    border-left: 5px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .tip strong {
+    color: var(--blue);
+  }
+  .grammar-box {
+    background: #eef8f2;
+    border-left: 5px solid var(--green);
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .audio-box {
+    background: linear-gradient(135deg, #eef2f8, #fff);
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    padding: 18px;
+    margin: 14px 0;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .play-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: .95rem;
+  }
+  .play-btn:hover { background: var(--red-dark); }
+  .speak-btn {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .8rem;
+  }
+  .q {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+    border-left: 4px solid var(--blue);
+  }
+  .q .qtext {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: var(--blue);
+  }
+  .q input[type="text"] {
+    padding: 7px 10px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: .95rem;
+    min-width: 200px;
+    width: auto;
+  }
+  .q input.correct {
+    border-color: #1e6b1e;
+    background: #e6f3e6;
+  }
+  .q input.wrong {
+    border-color: var(--red);
+    background: #fbeef0;
+  }
+  .check-btn, .reveal-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .reveal-btn {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+  }
+  .reveal-btn:hover {
+    background: var(--blue);
+    color: #fff;
+  }
+  .score {
+    margin-top: 12px;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 1.1rem;
+  }
+  .option-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 10px 0;
+  }
+  .option-btn {
+    background: #eef2f8;
+    padding: 6px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .option-btn.selected {
+    background: var(--blue);
+    color: white;
+  }
+  .option-btn.correct {
+    background: #1e6b1e;
+    color: white;
+  }
+  .option-btn.wrong {
+    background: var(--red);
+    color: white;
+  }
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: .9rem;
+    border-top: 1px solid var(--border);
+  }
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: .95rem;
+    resize: vertical;
+  }
+  .word-count {
+    font-size: .8rem;
+    color: var(--muted);
+    margin-top: 5px;
+  }
+  .dialogue-box {
+    background: #eef2f8;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+  .speech {
+    margin: 12px 0;
+    padding: 10px 14px;
+    background: #fff;
+    border-radius: 8px;
+    border-left: 4px solid var(--gold);
+  }
+  .speech.b {
+    border-left-color: var(--green);
+  }
+  .profile-card {
+    background: #f8f9fc;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 14px 0;
+    border: 2px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">🎙️ Interview de Claire & Matthias</span>
+  <h1>Futur simple & phrases complexes</h1>
+  <p>B4 Work, Careers and Volunteering — Si/quand + futur, verbes + à/de</p>
+  <div class="badges">
+    <span class="badge">Interview orale</span>
+    <span class="badge">Futur complexe</span>
+    <span class="badge">Portrait professionnel</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ OBJECTIFS ============ -->
+<section>
+  <div class="grammar-box">
+    <strong>🎯 OBJECTIFS D'APPRENTISSAGE</strong><br>
+    • Discuter de l'importance des langues<br>
+    • Utiliser les adverbes
+  </div>
+</section>
+
+<!-- ============ EXERCICE 1 : INTERVIEW DE CLAIRE ============ -->
+<section>
+  <span class="tag green">🎤 Exercice 1 · Interview de Claire</span>
+  <p class="sub">Mettez les questions dans l'ordre du texte (exercice 1 précédent) et faites l'interview de Claire.</p>
+
+  <div class="dialogue-box">
+    <div class="speech"><strong>Exemple :</strong></div>
+    <div class="speech">– Que faites-vous dans la vie ?</div>
+    <div class="speech b">– Je suis étudiante en BTS Tourisme, mais je travaille aussi dans un office de tourisme en Bretagne.</div>
+  </div>
+
+  <div id="interviewEx">
+    <div class="q"><p class="qtext">1. Où travaillez-vous en ce moment? → <input type="text" id="int1" data-ans="dans un office de tourisme en Bretagne" style="width:400px"></p></div>
+    <div class="q"><p class="qtext">2. Quel diplôme préparez-vous? → <input type="text" id="int2" data-ans="un BTS Tourisme" style="width:250px"></p></div>
+    <div class="q"><p class="qtext">3. Quels sont vos responsabilités au travail? → <input type="text" id="int3" data-ans="accueillir les clients, les renseigner, faire des réservations" style="width:500px"></p></div>
+    <div class="q"><p class="qtext">4. Quel est le meilleur aspect de votre métier? → <input type="text" id="int4" data-ans="le contact avec les gens" style="width:300px"></p></div>
+    <div class="q"><p class="qtext">5. Quel est le pire? → <input type="text" id="int5" data-ans="les horaires chargés" style="width:250px"></p></div>
+    <div class="q"><p class="qtext">6. Quelles langues parlez-vous? → <input type="text" id="int6" data-ans="l'anglais, l'espagnol" style="width:250px"></p></div>
+    <div class="q"><p class="qtext">7. Quels sont vos projets futurs? → <input type="text" id="int7" data-ans="travailler à plein temps, voyager aux États-Unis et en Australie" style="width:500px"></p></div>
+  </div>
+  <button class="check-btn" onclick="checkInterview()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealInterview()">Voir les réponses</button>
+  <div class="score" id="scoreInt"></div>
+</section>
+
+<!-- ============ GRAMMAIRE : PHRASES COMPLEXES AU FUTUR ============ -->
+<section>
+  <span class="tag gold">📚 Grammaire — Phrases complexes au futur</span>
+  <div class="grammar-box">
+    <p><strong>Si + présent + futur :</strong></p>
+    <p><em>Si je réussis mes examens, je travaillerai à l'étranger.</em></p>
+    <p><strong>Quand/Lorsque + futur + futur :</strong></p>
+    <p><em>Lorsque je serai directeur, je gagnerai plus d'argent.</em></p>
+    <button class="speak-btn" onclick="speakFR('Si je réussis mes examens, je travaillerai à l\'étranger. Lorsque je serai directeur, je gagnerai plus d\'argent.')">🔊 Écouter</button>
+  </div>
+
+  <div id="futureEx">
+    <div class="q"><p class="qtext">1. Si je (réussir) ___ mes examens, je (travailler) ___ à l'étranger.</p><input type="text" id="fut1a" data-ans="réussis" style="width:100px">, <input type="text" id="fut1b" data-ans="travaillerai" style="width:120px"></div>
+    <div class="q"><p class="qtext">2. Lorsque je (être) ___ directeur, je (gagner) ___ plus d'argent.</p><input type="text" id="fut2a" data-ans="serai" style="width:100px">, <input type="text" id="fut2b" data-ans="gagnerai" style="width:120px"></div>
+    <div class="q"><p class="qtext">3. Quand je (avoir) ___ mon diplôme, je (voyager) ___ autour du monde.</p><input type="text" id="fut3a" data-ans="aurai" style="width:100px">, <input type="text" id="fut3b" data-ans="voyagerai" style="width:120px"></div>
+    <div class="q"><p class="qtext">4. Si elle (parler) ___ plusieurs langues, elle (trouver) ___ un bon emploi.</p><input type="text" id="fut4a" data-ans="parle" style="width:100px">, <input type="text" id="fut4b" data-ans="trouvera" style="width:120px"></div>
+  </div>
+  <button class="check-btn" onclick="checkFuture()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealFuture()">Voir les réponses</button>
+  <div class="score" id="scoreFuture"></div>
+</section>
+
+<!-- ============ EXERCICE 2 : ÉCOUTE MATTHIAS ============ -->
+<section>
+  <span class="tag green">🎧 Exercice 2 · Écoutez Matthias</span>
+  <p class="sub">Écoutez et choisissez la bonne lettre pour chaque phrase.</p>
+
+  <div class="audio-box">
+    <button class="play-btn" onclick="playMatthias()">▶ Écouter Matthias</button>
+  </div>
+
+  <div id="matthiasEx">
+    <div class="q">
+      <p class="qtext">1. Il travaille dans …</p>
+      <div class="option-group" data-q="1" data-correct="un club de vacances">
+        <span class="option-btn" data-val="un centre de loisirs">a. un centre de loisirs</span>
+        <span class="option-btn" data-val="un club de sport">b. un club de sport</span>
+        <span class="option-btn" data-val="un club de vacances">c. un club de vacances</span>
+        <span class="option-btn" data-val="un centre pour les jeunes">d. un centre pour les jeunes</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">2. Il fait ce travail depuis …</p>
+      <div class="option-group" data-q="2" data-correct="assez longtemps">
+        <span class="option-btn" data-val="très peu de temps">a. très peu de temps</span>
+        <span class="option-btn" data-val="assez longtemps">b. assez longtemps</span>
+        <span class="option-btn" data-val="plusieurs mois">c. plusieurs mois</span>
+        <span class="option-btn" data-val="quelques jours">d. quelques jours</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">3. En parlant du programme des activités sportives, il ne mentionne pas …</p>
+      <div class="option-group" data-q="3" data-correct="l'équitation">
+        <span class="option-btn" data-val="le tir à l'arc">a. le tir à l'arc</span>
+        <span class="option-btn" data-val="la natation">b. la natation</span>
+        <span class="option-btn" data-val="l'équitation">c. l'équitation</span>
+        <span class="option-btn" data-val="le volley">d. le volley</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">4. Pour son travail, parler une langue étrangère est une compétence …</p>
+      <div class="option-group" data-q="4" data-correct="pratique">
+        <span class="option-btn" data-val="obligatoire">a. obligatoire</span>
+        <span class="option-btn" data-val="indispensable">b. indispensable</span>
+        <span class="option-btn" data-val="pratique">c. pratique</span>
+        <span class="option-btn" data-val="inutile">d. inutile</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">5. Le samedi, il se lève …</p>
+      <div class="option-group" data-q="5" data-correct="à des heures variables">
+        <span class="option-btn" data-val="de bonne humeur">a. de bonne humeur</span>
+        <span class="option-btn" data-val="tard">b. tard</span>
+        <span class="option-btn" data-val="à des heures variables">c. à des heures variables</span>
+        <span class="option-btn" data-val="tôt">d. tôt</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">6. L'allemand est une langue qu'il …</p>
+      <div class="option-group" data-q="6" data-correct="apprend">
+        <span class="option-btn" data-val="maîtrise">a. maîtrise</span>
+        <span class="option-btn" data-val="ne comprend pas">b. ne comprend pas</span>
+        <span class="option-btn" data-val="parle assez bien">c. parle assez bien</span>
+        <span class="option-btn" data-val="apprend">d. apprend</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">7. Dans l'avenir, il voudrait …</p>
+      <div class="option-group" data-q="7" data-correct="fonder son propre club de vacances pour les familles">
+        <span class="option-btn" data-val="avoir des enfants">a. avoir des enfants</span>
+        <span class="option-btn" data-val="travailler avec des enfants">b. travailler avec des enfants</span>
+        <span class="option-btn" data-val="fonder son propre club de vacances pour les familles">c. fonder son propre club de vacances pour les familles</span>
+        <span class="option-btn" data-val="fonder son propre club de vacances pour les adultes seulement">d. fonder son propre club de vacances pour les adultes seulement</span>
+      </div>
+    </div>
+  </div>
+  <button class="check-btn" onclick="checkMatthias()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealMatthias()">Voir les réponses</button>
+  <div class="score" id="scoreMatthias"></div>
+  <div class="tip"><strong>🎧 Transcription :</strong> « Je travaille dans un club de vacances depuis assez longtemps. Les activités sont le tir à l'arc, la natation et le volley. Parler une langue étrangère est une compétence pratique. Le samedi, je me lève à des heures variables. J'apprends l'allemand. Dans l'avenir, je voudrais fonder mon propre club de vacances pour les familles. »</div>
+</section>
+
+<!-- ============ EXERCICE 3 : PORTRAIT PROFESSIONNEL ============ -->
+<section>
+  <span class="tag gold">✍️ Exercice 3 · Portrait professionnel de Lola</span>
+  <p class="sub">Imaginez que vous êtes Lola. Écrivez votre portrait professionnel.</p>
+
+  <div class="profile-card">
+    <h3>📋 Portrait de Lola Martinez</h3>
+    <p><strong>Nom:</strong> Lola Martinez</p>
+    <p><strong>Métier:</strong> chef de cuisine en club de vacances</p>
+    <p><strong>Depuis:</strong> 3 ans</p>
+    <p><strong>Responsabilités:</strong> créer les menus, contrôler le budget, gérer le personnel de cuisine</p>
+    <p><strong>Compétences:</strong> être organisé, calme, savoir s'entendre avec les gens</p>
+    <p><strong>Langues étrangères:</strong> anglais, espagnol, arabe</p>
+    <p><strong>Avantages et inconvénients:</strong> bien payé, horaires lourds</p>
+  </div>
+
+  <div class="tip">
+    <strong>⭐ Show what you can do!</strong> Include examples of:<br>
+    • verbs followed by à or de + infinitive (<em>j'ai réussi à avoir … ; j'essaierai de …</em>)<br>
+    • adverbs (<em>actuellement, couramment, …</em>)<br>
+    • <strong>quand</strong> or <strong>lorsque</strong> with the future tense (<em>quand j'aurai/je serai …, je …</em>)<br>
+    • <strong>si</strong> clause (<em>si je réussis …</em>)
+  </div>
+
+  <textarea id="lolaText" rows="10" placeholder="Exemple : Je m'appelle Lola Martinez et je suis chef de cuisine dans un club de vacances. Je fais ce métier depuis trois ans. Mon travail consiste à créer les menus et à gérer le personnel. J'ai réussi à obtenir ce poste grâce à mon expérience. Actuellement, je parle couramment anglais et espagnol, et j'essaierai d'apprendre l'arabe. Si je continue à travailler dur, je deviendrai directrice de cuisine. Quand j'aurai plus d'expérience, j'ouvrirai mon propre restaurant. J'aime ce métier malgré les horaires lourds."></textarea>
+  <div class="word-count" id="lolaWordCount">0 mots</div>
+  <button class="speak-btn" onclick="speakLola()">🔊 Écouter mon portrait</button>
+  <button class="reveal-btn" onclick="showLolaModel()">Voir un modèle</button>
+  <div id="lolaModel" style="display:none; background:#eef2f8; padding:14px; border-radius:8px; margin-top:12px;">
+    <strong>📝 Modèle (105 mots) :</strong><br>
+    « Je m'appelle Lola Martinez et je suis chef de cuisine dans un club de vacances. Je fais ce métier depuis trois ans. Mon travail consiste à créer les menus, contrôler le budget et gérer le personnel de cuisine. J'ai réussi à devenir chef grâce à ma passion pour la cuisine. Actuellement, je parle couramment anglais et espagnol, et j'essaierai d'apprendre l'arabe pour communiquer avec tous les clients. Si je continue à travailler dur, je deviendrai directrice de cuisine. Quand j'aurai plus d'expérience, j'ouvrirai mon propre restaurant. Ce métier est bien payé, mais les horaires sont parfois lourds. »
+    <button class="speak-btn" onclick="speakFR('Je m\'appelle Lola Martinez. Je suis chef de cuisine depuis trois ans. J\'ai réussi à devenir chef. J\'essaierai d\'apprendre l\'arabe. Quand j\'aurai plus d\'expérience, j\'ouvrirai mon propre restaurant.')">🔊 Écouter</button>
+  </div>
+</section>
+
+<footer>
+  IGCSE French — B4 Work, Careers and Volunteering · Interview, futur complexe, portrait professionnel 🎙️
+</footer>
+
+</main>
+
+<script>
+  function speakFR(text) {
+    if (!('speechSynthesis' in window)) { alert('Audio non supporté'); return; }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR';
+    u.rate = 0.92;
+    const voices = speechSynthesis.getVoices();
+    const frVoice = voices.find(v => v.lang.startsWith('fr'));
+    if (frVoice) u.voice = frVoice;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged = () => {};
+
+  function playMatthias() {
+    speakFR("Je travaille dans un club de vacances depuis assez longtemps. Les activités sont le tir à l'arc, la natation et le volley. Parler une langue étrangère est une compétence pratique. Le samedi, je me lève à des heures variables. J'apprends l'allemand. Dans l'avenir, je voudrais fonder mon propre club de vacances pour les familles.");
+  }
+
+  function norm(s) { return (s || '').toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' '); }
+
+  // Interview
+  function checkInterview() {
+    const answers = {
+      int1: "dans un office de tourisme en Bretagne",
+      int2: "un BTS Tourisme",
+      int3: "accueillir les clients, les renseigner, faire des réservations",
+      int4: "le contact avec les gens",
+      int5: "les horaires chargés",
+      int6: "l'anglais, l'espagnol",
+      int7: "travailler à plein temps, voyager aux États-Unis et en Australie"
+    };
+    let total = 7, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      const expNorm = norm(exp);
+      if (user.includes(expNorm.substring(0,10)) || expNorm.includes(user.substring(0,10))) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreInt').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealInterview() {
+    document.getElementById('int1').value = "dans un office de tourisme en Bretagne";
+    document.getElementById('int2').value = "un BTS Tourisme";
+    document.getElementById('int3').value = "accueillir les clients, les renseigner, faire des réservations";
+    document.getElementById('int4').value = "le contact avec les gens";
+    document.getElementById('int5').value = "les horaires chargés";
+    document.getElementById('int6').value = "l'anglais, l'espagnol";
+    document.getElementById('int7').value = "travailler à plein temps, voyager aux États-Unis et en Australie";
+    checkInterview();
+  }
+
+  // Future complex
+  function checkFuture() {
+    const answers = {
+      fut1a: "réussis", fut1b: "travaillerai",
+      fut2a: "serai", fut2b: "gagnerai",
+      fut3a: "aurai", fut3b: "voyagerai",
+      fut4a: "parle", fut4b: "trouvera"
+    };
+    let total = 8, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      if (user === exp) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreFuture').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealFuture() {
+    document.getElementById('fut1a').value = "réussis";
+    document.getElementById('fut1b').value = "travaillerai";
+    document.getElementById('fut2a').value = "serai";
+    document.getElementById('fut2b').value = "gagnerai";
+    document.getElementById('fut3a').value = "aurai";
+    document.getElementById('fut3b').value = "voyagerai";
+    document.getElementById('fut4a').value = "parle";
+    document.getElementById('fut4b').value = "trouvera";
+    checkFuture();
+  }
+
+  // Matthias listening
+  let matthiasSelections = {};
+  document.querySelectorAll('#matthiasEx .option-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const group = this.closest('.option-group');
+      const qNum = group.getAttribute('data-q');
+      group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      this.classList.add('selected');
+      matthiasSelections[qNum] = this.getAttribute('data-val');
+    });
+  });
+
+  function checkMatthias() {
+    const correctMap = {
+      '1': 'un club de vacances', '2': 'assez longtemps', '3': 'l\'équitation',
+      '4': 'pratique', '5': 'à des heures variables', '6': 'apprend',
+      '7': 'fonder son propre club de vacances pour les familles'
+    };
+    let total = 7, correct = 0;
+    for (let q = 1; q <= 7; q++) {
+      const group = document.querySelector(`#matthiasEx .option-group[data-q="${q}"]`);
+      const selected = matthiasSelections[q];
+      const correctAns = correctMap[q];
+      group.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('correct', 'wrong'));
+      if (selected === correctAns) {
+        correct++;
+        const correctBtn = group.querySelector(`.option-btn[data-val="${selected}"]`);
+        if (correctBtn) correctBtn.classList.add('correct');
+      } else {
+        if (selected) {
+          const wrongBtn = group.querySelector(`.option-btn[data-val="${selected}"]`);
+          if (wrongBtn) wrongBtn.classList.add('wrong');
+        }
+        const correctBtn = group.querySelector(`.option-btn[data-val="${correctAns}"]`);
+        if (correctBtn) correctBtn.classList.add('correct');
+      }
+    }
+    document.getElementById('scoreMatthias').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealMatthias() {
+    const correctMap = {
+      '1': 'un club de vacances', '2': 'assez longtemps', '3': 'l\'équitation',
+      '4': 'pratique', '5': 'à des heures variables', '6': 'apprend',
+      '7': 'fonder son propre club de vacances pour les familles'
+    };
+    for (let q = 1; q <= 7; q++) {
+      const group = document.querySelector(`#matthiasEx .option-group[data-q="${q}"]`);
+      const correctVal = correctMap[q];
+      matthiasSelections[q] = correctVal;
+      group.querySelectorAll('.option-btn').forEach(btn => {
+        btn.classList.remove('selected');
+        if (btn.getAttribute('data-val') === correctVal) btn.classList.add('selected');
+      });
+    }
+    checkMatthias();
+  }
+
+  // Lola writing
+  const lolaTa = document.getElementById('lolaText');
+  const wordSpan = document.getElementById('lolaWordCount');
+  lolaTa.addEventListener('input', function() {
+    const words = lolaTa.value.trim().split(/\s+/).filter(Boolean).length;
+    wordSpan.innerText = `${words} mots`;
+    if (words >= 90 && words <= 130) wordSpan.style.color = '#1e6b1e';
+    else wordSpan.style.color = 'var(--muted)';
+  });
+  function speakLola() {
+    const text = lolaTa.value.trim();
+    if (text) speakFR(text);
+    else speakFR("Je n'ai pas encore écrit mon portrait.");
+  }
+  function showLolaModel() {
+    const model = document.getElementById('lolaModel');
+    model.style.display = model.style.display === 'none' ? 'block' : 'none';
+  }
+  window.addEventListener('load', () => {
+    if (lolaTa.value.trim() === '') wordSpan.innerText = '0 mots';
+  });
+</script>
+</body>
+</html>

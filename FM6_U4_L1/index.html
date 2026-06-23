@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>WRITING — School Life & Exchanges — IGCSE French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7fb;
+    --ink: #0e1a2b;
+    --muted: #5a6473;
+    --red: #7a1722;
+    --red-dark: #5a0f18;
+    --blue: #0f2a4a;
+    --blue-dark: #08182b;
+    --card: #fff;
+    --border: #d9dde5;
+    --shadow: 0 10px 30px rgba(8,24,43,.08);
+    --gold: #c9a227;
+    --green: #2d6a4f;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: #fff;
+    padding: 48px 24px;
+    text-align: center;
+    border-bottom: 6px solid var(--red);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: "✍️";
+    position: absolute;
+    font-size: 12rem;
+    opacity: .08;
+    bottom: -30px;
+    right: -20px;
+    transform: rotate(-8deg);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: .2em 0;
+    position: relative;
+  }
+  header p {
+    max-width: 780px;
+    margin: 0 auto;
+    opacity: .92;
+    position: relative;
+  }
+  .badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.12);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: .85rem;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .tag {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .tag.gold {
+    background: var(--gold);
+    color: var(--blue-dark);
+  }
+  .tag.green {
+    background: var(--green);
+    color: #fff;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin: .3em 0 .5em;
+    color: var(--blue);
+  }
+  h3 {
+    margin-top: 1.2em;
+    color: var(--red);
+  }
+  .sub {
+    color: var(--muted);
+    font-style: italic;
+    font-size: .95rem;
+    margin-bottom: 1rem;
+  }
+  .tip {
+    background: #fff7e0;
+    border-left: 5px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .tip strong {
+    color: var(--blue);
+  }
+  .exam-skill {
+    background: #eef2f8;
+    border-left: 5px solid var(--blue);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+  .q {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+    border-left: 4px solid var(--blue);
+  }
+  .q .qtext {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: var(--blue);
+  }
+  .q input[type="text"], .q textarea {
+    padding: 7px 10px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: .95rem;
+  }
+  .q input[type="text"] {
+    min-width: 200px;
+    width: auto;
+  }
+  .q input.correct {
+    border-color: #1e6b1e;
+    background: #e6f3e6;
+  }
+  .q input.wrong {
+    border-color: var(--red);
+    background: #fbeef0;
+  }
+  .check-btn, .reveal-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .reveal-btn {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+  }
+  .reveal-btn:hover {
+    background: var(--blue);
+    color: #fff;
+  }
+  .score {
+    margin-top: 12px;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 1.1rem;
+  }
+  .answer-box {
+    background: #f0f4fa;
+    padding: 16px;
+    border-radius: 12px;
+    margin: 14px 0;
+    border-left: 5px solid var(--green);
+  }
+  .option-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 10px 0;
+  }
+  .option-btn {
+    background: #eef2f8;
+    padding: 6px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .option-btn.selected {
+    background: var(--blue);
+    color: white;
+  }
+  .option-btn.correct {
+    background: #1e6b1e;
+    color: white;
+  }
+  .option-btn.wrong {
+    background: var(--red);
+    color: white;
+  }
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: .9rem;
+    border-top: 1px solid var(--border);
+  }
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: .95rem;
+    resize: vertical;
+  }
+  .word-count {
+    font-size: .8rem;
+    color: var(--muted);
+    margin-top: 5px;
+  }
+  .booster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .booster-item {
+    background: #eef2f8;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    border-left: 4px solid var(--gold);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">✍️ WRITING</span>
+  <h1>School Life & Exchanges</h1>
+  <p>B1 / B3 — Écrire un article, modifier un texte, utiliser des structures avancées</p>
+  <div class="badges">
+    <span class="badge">Échange scolaire</span>
+    <span class="badge">Answer booster</span>
+    <span class="badge">Exam practice</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ EXERCISE 1 : CONVENABLE / PAS CONVENABLE ============ -->
+<section>
+  <span class="tag green">📝 Exercise 1 · C ou PC ?</span>
+  <p class="sub">Lis la question à droite. Lis les réponses de Bernard ci-dessous. Écris C (Convenable) ou PC (Pas Convenable).</p>
+  
+  <div class="tip"><strong>Question:</strong> Tu as déjà participé à un échange scolaire?</div>
+
+  <div id="ex1">
+    <div class="q"><p class="qtext">Exemple: J'adore faire mes devoirs. → <input type="text" id="exEx" value="PC" disabled style="width:50px"> (Pas Convenable)</p></div>
+    <div class="q"><p class="qtext">1. L'année dernière je suis allé en Italie avec ma classe. → <input type="text" id="ex1a" data-ans="C" style="width:50px"></p></div>
+    <div class="q"><p class="qtext">2. Je n'aimerais pas participer à un échange scolaire. → <input type="text" id="ex1b" data-ans="PC" style="width:50px"></p></div>
+    <div class="q"><p class="qtext">3. Elle ira au cinéma. → <input type="text" id="ex1c" data-ans="PC" style="width:50px"></p></div>
+    <div class="q"><p class="qtext">4. Je me suis bien amusé. → <input type="text" id="ex1d" data-ans="C" style="width:50px"></p></div>
+    <div class="q"><p class="qtext">5. On se fait de nouveaux amis. → <input type="text" id="ex1e" data-ans="C" style="width:50px"></p></div>
+    <div class="q"><p class="qtext">6. Je travaillerai comme agriculteur. → <input type="text" id="ex1f" data-ans="PC" style="width:50px"></p></div>
+  </div>
+  <button class="check-btn" onclick="checkConvenable()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealConvenable()">Voir les réponses</button>
+  <div class="score" id="scoreConv"></div>
+</section>
+
+<!-- ============ EXERCICE 1B : RÉDIGER UNE RÉPONSE ============ -->
+<section>
+  <span class="tag gold">✏️ Exercise 1B · Écrivez une réponse</span>
+  <p class="sub">Écris une réponse de 60 à 75 mots en français au sujet des voyages scolaires. Emploie tous les quatre mots/phrase : <strong>échange / l'année dernière / avantages / visite</strong></p>
+  
+  <textarea id="voyageResponse" rows="5" placeholder="Exemple : À mon avis, les voyages scolaires sont très importants. L'année dernière, j'ai participé à un échange en Angleterre. Les avantages sont nombreux : on peut pratiquer la langue et découvrir une nouvelle culture. Nous avons fait une visite de Londres qui était fascinante. J'ai adoré cette expérience!"></textarea>
+  <div class="word-count" id="voyageWordCount">0 mots</div>
+  <button class="speak-btn" onclick="speakVoyage()">🔊 Écouter ma réponse</button>
+  <button class="reveal-btn" onclick="showVoyageModel()">Voir un modèle</button>
+  <div id="voyageModel" style="display:none; background:#eef2f8; padding:14px; border-radius:8px; margin-top:12px;">
+    <strong>📝 Modèle (68 mots) :</strong><br>
+    « À mon avis, les voyages scolaires sont une expérience inoubliable. L'année dernière, j'ai participé à un échange en Italie avec ma classe. Les avantages sont énormes : on apprend une nouvelle langue, on découvre une culture différente et on se fait de nouveaux amis. Nous avons fait une visite de Rome qui était fascinante. Je recommande vivement ce type d'expérience à tous les élèves. »
+    <button class="speak-btn" onclick="speakFR('À mon avis, les voyages scolaires sont une expérience inoubliable. L\'année dernière, j\'ai participé à un échange en Italie. Les avantages sont énormes. Nous avons fait une visite de Rome.')">🔊 Écouter</button>
+  </div>
+</section>
+
+<!-- ============ EXERCISE 2 : ANALYSE DE LA QUESTION ============ -->
+<section>
+  <span class="tag green">📋 Exercise 2 · Analyse de la question</span>
+  <p class="sub">Lis la première question sur la page suivante.</p>
+  
+  <div class="answer-box">
+    <strong>📌 Question :</strong> « Écris un article sur des écoles dans des pays différents. Tu dois mentionner les points suivants :<br>
+    • Les matières scolaires les plus intéressantes dans ton école.<br>
+    • Ton opinion sur les équipements dans ton école.<br>
+    • Quelque chose que tu as fait récemment à l'école dont tu es fier/fière.<br>
+    • Ce que tu changerais dans ton école, si tu étais le directeur/la directrice. »
+  </div>
+
+  <div id="ex2">
+    <div class="q"><p class="qtext">1. Note ce que tu dois mentionner :</p>
+      <textarea id="mentionList" rows="4" placeholder="Exemple: 1. Les matières les plus intéressantes... 2. Opinion sur les équipements... 3. Un accomplissement récent... 4. Ce que je changerais..."></textarea>
+    </div>
+    <div class="q"><p class="qtext">2. Note le(s) temps qu'il faut utiliser :</p>
+      <input type="text" id="tempsList" data-ans="présent, passé composé, futur simple, conditionnel" style="width:400px" placeholder="Ex: présent, passé composé, futur, conditionnel">
+    </div>
+  </div>
+  <button class="check-btn" onclick="checkQuestionAnalysis()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealQuestionAnalysis()">Voir les réponses</button>
+  <div class="score" id="scoreAnalysis"></div>
+</section>
+
+<!-- ============ EXERCICE 3 : SAMPLE ANSWER - PHOEBE ============ -->
+<section>
+  <span class="tag gold">📖 Exercise 3 · Réponse de Phoebe</span>
+  <p class="sub">Lis la réponse de Phoebe. Que signifient les phrases en gras en français? Trouve l'équivalent dans l'encadré.</p>
+
+  <div class="answer-box" style="background:#fef8e7;">
+    <p><strong>Pour moi, les cours les plus intéressants dans mon école sont l'anglais et l'histoire.</strong> Je suis très forte en anglais et <strong>je trouve l'histoire ancienne fascinante</strong>, car c'est ma passion. <strong>Comme je m'intéresse au passé, l'histoire me plaît.</strong> Je continuerai ces matières l'année prochaine quand je serai au lycée.</p>
+    <p><strong>Notre école est mieux aménagée beaucoup d'autres parce que nous bénéficions d'un gymnase immense.</strong> Nous avons aussi plusieurs terrains de jeux, ainsi qu'une salle de musculation. Les salles de classe sont propres et modernes <strong>mais il n'y a ni piscine ni laboratoire de langues.</strong></p>
+    <p><strong>Je suis très fière de moi</strong> car récemment, j'ai participé à un spectacle dramatique de mon école. Trois camarades de classe et moi, nous avons chanté ensemble devant plus de 200 personnes! C'était une expérience fabuleuse.</p>
+    <p><strong>Si j'étais la directrice, je changerais beaucoup de choses.</strong> D'abord, je trouve notre uniforme démodé. <strong>J'aimerais mieux porter mes propres vêtements.</strong> En plus, <strong>il y aurait une belle piscine</strong> pour ceux qui aiment la natation. Finalement, <strong>j'organiserais plus de clubs</strong> parce qu'il n'y a rien à faire pendant la pause déjeuner.</p>
+    <p style="color:var(--muted); font-size:.9rem;">(182 words)</p>
+  </div>
+
+  <div class="tip">
+    <strong>Encadré :</strong><br>
+    a. et aussi &nbsp; b. j'aime l'histoire &nbsp; c. davantage d'activités sportives et culturelles &nbsp; d. je suis satisfaite de moi &nbsp; e. on n'a pas de distraction &nbsp; f. le passé est intéressant pour moi &nbsp; g. plus d'équipement que &nbsp; h. je pense que c'est captivant &nbsp; i. l'école n'a pas de piscine et il n'y a pas de laboratoire de langues &nbsp; j. les fans de &nbsp; k. je préférerais &nbsp; l. on a
+  </div>
+
+  <div id="ex3">
+    <div class="q"><p class="qtext">a. « et aussi » → Phrase en gras: <input type="text" id="matchA" data-ans="Notre école est mieux aménagée beaucoup d'autres parce que nous bénéficions d'un gymnase immense" style="width:400px"></p></div>
+    <div class="q"><p class="qtext">b. « j'aime l'histoire » → <input type="text" id="matchB" data-ans="Comme je m'intéresse au passé, l'histoire me plaît" style="width:350px"></p></div>
+    <div class="q"><p class="qtext">c. « davantage d'activités sportives et culturelles » → <input type="text" id="matchC" data-ans="j'organiserais plus de clubs" style="width:250px"></p></div>
+    <div class="q"><p class="qtext">d. « je suis satisfaite de moi » → <input type="text" id="matchD" data-ans="Je suis très fière de moi" style="width:250px"></p></div>
+    <div class="q"><p class="qtext">f. « le passé est intéressant pour moi » → <input type="text" id="matchF" data-ans="je trouve l'histoire ancienne fascinante" style="width:350px"></p></div>
+    <div class="q"><p class="qtext">g. « plus d'équipement que » → <input type="text" id="matchG" data-ans="Notre école est mieux aménagée beaucoup d'autres" style="width:350px"></p></div>
+    <div class="q"><p class="qtext">i. « l'école n'a pas de piscine et il n'y a pas de laboratoire de langues » → <input type="text" id="matchI" data-ans="il n'y a ni piscine ni laboratoire de langues" style="width:400px"></p></div>
+    <div class="q"><p class="qtext">k. « je préférerais » → <input type="text" id="matchK" data-ans="J'aimerais mieux porter mes propres vêtements" style="width:350px"></p></div>
+    <div class="q"><p class="qtext">l. « on a » → <input type="text" id="matchL" data-ans="nous bénéficions d'un gymnase immense" style="width:350px"></p></div>
+  </div>
+  <button class="check-btn" onclick="checkMatching()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealMatching()">Voir les réponses</button>
+  <div class="score" id="scoreMatch"></div>
+
+  <div class="exam-skill">
+    <strong>📌 EXAM SKILLS:</strong> Ancien(ne)(s) peut signifier soit 'ancient' (l'histoire ancienne) soit 'former' (mon ancien collège).
+  </div>
+</section>
+
+<!-- ============ EXERCICE 4 : ANSWER BOOSTER ============ -->
+<section>
+  <span class="tag green">🚀 Exercise 4 · Answer Booster</span>
+  <p class="sub">Note huit éléments que Phoebe utilise pour produire une réponse impressionnante.</p>
+
+  <div class="booster-grid">
+    <div class="booster-item" onclick="speakFR('Différents temps : présent, passé composé, futur, conditionnel')">⏰ Différents temps (4)</div>
+    <div class="booster-item" onclick="speakFR('Opinions variées : J\'aime, je trouve, je suis passionné')">💬 Opinions variées</div>
+    <div class="booster-item" onclick="speakFR('Connecteurs : comme, car, parce que, et, ainsi que')">🔗 Connecteurs</div>
+    <div class="booster-item" onclick="speakFR('Négations : ne...pas, ne...ni...ni...')">🚫 Négations variées</div>
+    <div class="booster-item" onclick="speakFR('Structure conditionnelle : Si j\'étais... je changerais')">🎯 Conditionnel</div>
+    <div class="booster-item" onclick="speakFR('Adjectifs qualificatifs : fascinante, immense, moderne, fabuleuse')">📝 Adjectifs variés</div>
+    <div class="booster-item" onclick="speakFR('Expressions de fierté : je suis fière de moi')">🌟 Expression personnelle</div>
+    <div class="booster-item" onclick="speakFR('Comparatifs : mieux aménagée que, plus intéressants que')">📊 Comparatifs</div>
+  </div>
+</section>
+
+<!-- ============ EXERCICE 5 : MODIFIER LE TEXTE ============ -->
+<section>
+  <span class="tag gold">✏️ Exercise 5 · Modifiez les mots (a–j)</span>
+  <p class="sub">Les mots doivent respecter le sens correct de la phrase. Attention! Il n'est pas toujours nécessaire de changer les mots.</p>
+
+  <div style="background:#fef8e7; padding:20px; border-radius:12px;">
+    <p>Mon collège est suffisamment équipé. Il est vrai qu'il manque un terrain de sport, mais, en <input type="text" id="gapA" data-ans="parlant" style="width:100px"> (a) [parler] à mon prof de français, il m'a dit qu'on <input type="text" id="gapB" data-ans="construira" style="width:110px"> (b) [construire] une <input type="text" id="gapC" data-ans="nouvelle" style="width:100px"> (c) [nouveau] bibliothèque dans trois ans. Les sorties scolaires ont une valeur éducative, surtout quand il <input type="text" id="gapD" data-ans="s'agit" style="width:90px"> (d) [s'agir] d'un échange à l'étranger, mais malheureusement, nous avons peu d'occasions d'en <input type="text" id="gapE" data-ans="faire" style="width:90px"> (e) [faire]. Quand j'étais à l'école primaire, <input type="text" id="gapF" data-ans="mon" style="width:70px"> (f) [mon] institutrice <input type="text" id="gapG" data-ans="a décidé" style="width:110px"> (g) [décider] d'organiser un voyage aux États-Unis. Les élèves l'<input type="text" id="gapH" data-ans="attendaient" style="width:130px"> (h) [attendre] avec impatience depuis trois mois quand la <input type="text" id="gapI" data-ans="vieille" style="width:100px"> (i) [vieux] directrice l'a annulé à cause du prix excessif. Tout le monde <input type="text" id="gapJ" data-ans="s'est fâché" style="width:130px"> (j) [se fâcher], on était vraiment déçu!</p>
+  </div>
+  <button class="check-btn" onclick="checkGapFill()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealGapFill()">Voir les réponses</button>
+  <div class="score" id="scoreGap"></div>
+</section>
+
+<!-- ============ EXAM PRACTICE : WRITING ============ -->
+<section>
+  <span class="tag green">📝 Exam Practice · Writing</span>
+  <h2>Écris un article (130-150 mots)</h2>
+  <p class="sub">Écris un article sur des écoles dans des pays différents.</p>
+
+  <div class="tip">
+    <strong>Points à mentionner :</strong><br>
+    • Les matières scolaires les plus intéressantes dans ton école.<br>
+    • Ton opinion sur les équipements dans ton école.<br>
+    • Quelque chose que tu as fait récemment à l'école dont tu es fier/fière.<br>
+    • Ce que tu changerais dans ton école, si tu étais le directeur/la directrice.
+  </div>
+
+  <textarea id="finalArticle" rows="10" placeholder="Exemple : Dans mon école, les matières les plus intéressantes sont l'anglais et l'histoire. Je trouve l'histoire fascinante car j'aime apprendre sur le passé. Notre école est bien équipée avec un grand gymnase, mais il n'y a pas de piscine. Récemment, j'ai participé à une pièce de théâtre avec ma classe. J'étais très fière de moi ! Si j'étais la directrice, j'ajouterais plus de clubs et j'organiserais plus d'échanges avec des écoles à l'étranger. Je pense que ces expériences sont très enrichissantes."></textarea>
+  <div class="word-count" id="articleWordCount">0 mots</div>
+  <button class="speak-btn" onclick="speakFinalArticle()">🔊 Écouter mon article</button>
+  <button class="reveal-btn" onclick="showArticleModel()">Voir un modèle</button>
+  <div id="articleModel" style="display:none; background:#eef2f8; padding:14px; border-radius:8px; margin-top:12px;">
+    <strong>📝 Modèle (142 mots) :</strong><br>
+    « Dans mon école, les matières les plus intéressantes sont l'anglais et les sciences. Je suis passionné par les langues et je trouve les expériences en sciences captivantes. Notre école est assez bien équipée : nous avons un grand gymnase et des salles de classe modernes. Cependant, nous n'avons pas de laboratoire de langues ni de piscine.<br>
+    Récemment, j'ai participé à un échange scolaire en Angleterre. J'ai été fière de représenter mon école et de parler anglais avec mes correspondants.<br>
+    Si j'étais le directeur, je changerais plusieurs choses. D'abord, j'ajouterais une salle de musique moderne. Ensuite, j'organiserais plus de voyages éducatifs. Finalement, je permettrais aux élèves de porter leurs propres vêtements parce que l'uniforme est démodé. Ces changements amélioreraient l'expérience de tous. »
+    <button class="speak-btn" onclick="speakFR('Dans mon école, les matières les plus intéressantes sont l\'anglais et les sciences. Récemment, j\'ai participé à un échange. Si j\'étais le directeur, j\'ajouterais une salle de musique.')">🔊 Écouter</button>
+  </div>
+</section>
+
+<footer>
+  IGCSE French — Writing Practice · B1/B3 School Life, Exchanges, Exam Preparation ✍️
+</footer>
+
+</main>
+
+<script>
+  function speakFR(text) {
+    if (!('speechSynthesis' in window)) { alert('Audio non supporté'); return; }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR';
+    u.rate = 0.92;
+    const voices = speechSynthesis.getVoices();
+    const frVoice = voices.find(v => v.lang.startsWith('fr'));
+    if (frVoice) u.voice = frVoice;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged = () => {};
+
+  function norm(s) { return (s || '').toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' '); }
+
+  // Exercise 1: Convenable / Pas Convenable
+  function checkConvenable() {
+    const answers = { ex1a: "C", ex1b: "PC", ex1c: "PC", ex1d: "C", ex1e: "C", ex1f: "PC" };
+    let total = 6, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = inp.value.trim().toUpperCase();
+      if (user === exp) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreConv').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealConvenable() {
+    document.getElementById('ex1a').value = "C";
+    document.getElementById('ex1b').value = "PC";
+    document.getElementById('ex1c').value = "PC";
+    document.getElementById('ex1d').value = "C";
+    document.getElementById('ex1e').value = "C";
+    document.getElementById('ex1f').value = "PC";
+    checkConvenable();
+  }
+
+  // Exercise 1B: Voyage response word counter
+  const voyageTa = document.getElementById('voyageResponse');
+  const voyageSpan = document.getElementById('voyageWordCount');
+  voyageTa.addEventListener('input', function() {
+    const words = voyageTa.value.trim().split(/\s+/).filter(Boolean).length;
+    voyageSpan.innerText = `${words} mots`;
+    if (words >= 60 && words <= 75) voyageSpan.style.color = '#1e6b1e';
+    else voyageSpan.style.color = 'var(--muted)';
+  });
+  function speakVoyage() {
+    const text = voyageTa.value.trim();
+    if (text) speakFR(text);
+    else speakFR("Je n'ai pas encore écrit ma réponse.");
+  }
+  function showVoyageModel() {
+    const model = document.getElementById('voyageModel');
+    model.style.display = model.style.display === 'none' ? 'block' : 'none';
+  }
+
+  // Exercise 2: Question analysis
+  function checkQuestionAnalysis() {
+    const inp = document.getElementById('tempsList');
+    const user = norm(inp.value);
+    const expected = 'présent, passé composé, futur, conditionnel';
+    if (user.includes('présent') && user.includes('passé') && user.includes('futur') && user.includes('conditionnel')) {
+      inp.classList.add('correct'); inp.classList.remove('wrong');
+      document.getElementById('scoreAnalysis').innerText = '✅ Bonne analyse des temps !';
+    } else {
+      inp.classList.remove('correct'); inp.classList.add('wrong');
+      document.getElementById('scoreAnalysis').innerText = '❌ Pensez aux temps : présent, passé composé, futur, conditionnel.';
+    }
+  }
+  function revealQuestionAnalysis() {
+    document.getElementById('tempsList').value = "présent, passé composé, futur, conditionnel";
+    document.getElementById('mentionList').value = "1. Les matières les plus intéressantes\n2. Opinion sur les équipements\n3. Un accomplissement récent\n4. Ce que je changerais";
+    checkQuestionAnalysis();
+  }
+
+  // Exercise 3: Matching
+  function checkMatching() {
+    const answers = {
+      matchA: "notre école est mieux aménagée beaucoup d'autres parce que nous bénéficions d'un gymnase immense",
+      matchB: "comme je m'intéresse au passé, l'histoire me plaît",
+      matchC: "j'organiserais plus de clubs",
+      matchD: "je suis très fière de moi",
+      matchF: "je trouve l'histoire ancienne fascinante",
+      matchG: "notre école est mieux aménagée beaucoup d'autres",
+      matchI: "il n'y a ni piscine ni laboratoire de langues",
+      matchK: "j'aimerais mieux porter mes propres vêtements",
+      matchL: "nous bénéficions d'un gymnase immense"
+    };
+    let total = 9, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      const expNorm = norm(exp);
+      if (user === expNorm || user.includes(expNorm.substring(0,15))) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreMatch').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealMatching() {
+    document.getElementById('matchA').value = "Notre école est mieux aménagée beaucoup d'autres parce que nous bénéficions d'un gymnase immense";
+    document.getElementById('matchB').value = "Comme je m'intéresse au passé, l'histoire me plaît";
+    document.getElementById('matchC').value = "j'organiserais plus de clubs";
+    document.getElementById('matchD').value = "Je suis très fière de moi";
+    document.getElementById('matchF').value = "je trouve l'histoire ancienne fascinante";
+    document.getElementById('matchG').value = "Notre école est mieux aménagée beaucoup d'autres";
+    document.getElementById('matchI').value = "il n'y a ni piscine ni laboratoire de langues";
+    document.getElementById('matchK').value = "J'aimerais mieux porter mes propres vêtements";
+    document.getElementById('matchL').value = "nous bénéficions d'un gymnase immense";
+    checkMatching();
+  }
+
+  // Exercise 5: Gap fill
+  function checkGapFill() {
+    const answers = {
+      gapA: "parlant", gapB: "construira", gapC: "nouvelle", gapD: "s'agit",
+      gapE: "faire", gapF: "mon", gapG: "a décidé", gapH: "attendaient",
+      gapI: "vieille", gapJ: "s'est fâché"
+    };
+    let total = 10, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      const expNorm = norm(exp);
+      if (user === expNorm || (id === 'gapA' && user.includes('parl'))) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreGap').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealGapFill() {
+    document.getElementById('gapA').value = "parlant";
+    document.getElementById('gapB').value = "construira";
+    document.getElementById('gapC').value = "nouvelle";
+    document.getElementById('gapD').value = "s'agit";
+    document.getElementById('gapE').value = "faire";
+    document.getElementById('gapF').value = "mon";
+    document.getElementById('gapG').value = "a décidé";
+    document.getElementById('gapH').value = "attendaient";
+    document.getElementById('gapI').value = "vieille";
+    document.getElementById('gapJ').value = "s'est fâché";
+    checkGapFill();
+  }
+
+  // Final article
+  const articleTa = document.getElementById('finalArticle');
+  const articleSpan = document.getElementById('articleWordCount');
+  articleTa.addEventListener('input', function() {
+    const words = articleTa.value.trim().split(/\s+/).filter(Boolean).length;
+    articleSpan.innerText = `${words} mots`;
+    if (words >= 130 && words <= 155) articleSpan.style.color = '#1e6b1e';
+    else articleSpan.style.color = 'var(--muted)';
+  });
+  function speakFinalArticle() {
+    const text = articleTa.value.trim();
+    if (text) speakFR(text);
+    else speakFR("Je n'ai pas encore écrit mon article.");
+  }
+  function showArticleModel() {
+    const model = document.getElementById('articleModel');
+    model.style.display = model.style.display === 'none' ? 'block' : 'none';
+  }
+  window.addEventListener('load', () => {
+    if (voyageTa.value.trim() === '') voyageSpan.innerText = '0 mots';
+    if (articleTa.value.trim() === '') articleSpan.innerText = '0 mots';
+  });
+</script>
+</body>
+</html>

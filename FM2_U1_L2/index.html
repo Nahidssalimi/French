@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Technologie, les Films et la Télévision — GCSE French Lesson</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #7a1722;
+      --red-light: #a02030;
+      --blue: #0f2a4a;
+      --blue-light: #1a3a5a;
+      --navy: #1a2a3a;
+      --cream: #faf8f5;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --text-light: #4a4a4a;
+      --border: #e0e0e0;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-hover: 0 8px 32px rgba(0,0,0,0.12);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: var(--blue);
+      color: var(--white);
+      padding: 80px 20px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 50%;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .hero h1 span { color: var(--red-light); }
+    .hero-subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .hero-meta span {
+      background: rgba(255,255,255,0.1);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 4px; overflow-x: auto; padding: 8px 16px; }
+    .nav a {
+      white-space: nowrap;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .nav a:hover, .nav a.active { background: var(--blue); color: var(--white); }
+
+    /* ===== CONTAINER ===== */
+    .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+
+    /* ===== SECTIONS ===== */
+    .section { background: var(--white); border-radius: 16px; padding: 32px; margin-bottom: 32px; box-shadow: var(--shadow); }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--blue);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px; height: 36px;
+      background: var(--red);
+      color: var(--white);
+      border-radius: 50%;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .section-subtitle { color: var(--text-light); margin-bottom: 24px; font-size: 0.95rem; }
+
+    /* ===== LEARNING OBJECTIVE ===== */
+    .objective {
+      background: var(--blue);
+      color: var(--white);
+      padding: 20px 24px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .objective-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .objective-text { font-size: 0.95rem; }
+    .objective-text strong { display: block; font-size: 1.1rem; margin-bottom: 4px; }
+
+    /* ===== CARDS / GRID ===== */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 16px; }
+    .card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: var(--blue); }
+    .card .fr { font-weight: 600; color: var(--blue); font-size: 1.05rem; display: block; margin-bottom: 6px; }
+    .card .en { font-size: 0.85rem; color: var(--text-light); display: block; }
+    .card .speaker { position: absolute; top: 12px; right: 12px; width: 28px; height: 28px; background: var(--red); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; opacity: 0; transition: opacity 0.2s; }
+    .card:hover .speaker { opacity: 1; }
+
+    /* ===== QUIZ CARDS ===== */
+    .quiz-card { background: var(--cream); border-radius: 12px; padding: 20px; margin-bottom: 12px; border: 1px solid var(--border); }
+    .quiz-question { font-weight: 600; color: var(--blue); margin-bottom: 12px; font-size: 1rem; }
+    .quiz-options { display: flex; flex-wrap: wrap; gap: 10px; }
+    .quiz-opt {
+      padding: 8px 16px;
+      border-radius: 50px;
+      border: 2px solid var(--border);
+      background: var(--white);
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .quiz-opt:hover { border-color: var(--blue); color: var(--blue); }
+    .quiz-opt.selected { background: var(--blue); color: var(--white); border-color: var(--blue); }
+    .quiz-opt.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+    .quiz-opt.wrong { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+
+    /* ===== SENTENCE RECONSTRUCT ===== */
+    .scramble-container { background: var(--cream); border-radius: 12px; padding: 20px; margin-bottom: 12px; }
+    .scramble-words { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; min-height: 40px; }
+    .word-chip {
+      padding: 6px 14px;
+      border-radius: 50px;
+      background: var(--white);
+      border: 2px solid var(--border);
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .word-chip:hover { border-color: var(--blue); }
+    .word-chip.used { background: var(--blue); color: var(--white); border-color: var(--blue); opacity: 0.5; pointer-events: none; }
+    .answer-zone {
+      min-height: 44px;
+      border: 2px dashed var(--border);
+      border-radius: 10px;
+      padding: 10px 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+      background: var(--white);
+      margin-bottom: 8px;
+    }
+    .answer-zone .placed { background: var(--blue); color: var(--white); padding: 4px 12px; border-radius: 50px; font-size: 0.9rem; }
+    .scramble-feedback { font-size: 0.85rem; font-weight: 600; min-height: 20px; }
+    .scramble-feedback.correct { color: #28a745; }
+    .scramble-feedback.wrong { color: var(--red); }
+    .btn-check {
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.9rem;
+    }
+    .btn-check:hover { background: var(--red-light); transform: translateY(-2px); }
+
+    /* ===== LISTENING ===== */
+    .listen-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; margin-top: 16px; }
+    .listen-card { background: var(--cream); border-radius: 12px; padding: 18px; border: 1px solid var(--border); }
+    .listen-num { font-weight: 700; color: var(--red); margin-bottom: 8px; }
+    .listen-label { font-size: 0.85rem; color: var(--text-light); margin-bottom: 4px; }
+    .listen-select {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 2px solid var(--border);
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      background: var(--white);
+      cursor: pointer;
+      margin-bottom: 8px;
+    }
+
+    /* ===== TABLE ===== */
+    .verb-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    .verb-table th, .verb-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+    .verb-table th { background: var(--blue); color: var(--white); font-weight: 600; }
+    .verb-table tr:nth-child(even) { background: var(--cream); }
+    .verb-table .highlight { color: var(--red); font-weight: 600; }
+
+    /* ===== READING ===== */
+    .reading-text {
+      background: var(--cream);
+      border-left: 4px solid var(--red);
+      padding: 20px 24px;
+      border-radius: 0 12px 12px 0;
+      margin: 20px 0;
+      font-style: italic;
+      line-height: 1.9;
+    }
+
+    /* ===== WRITING ===== */
+    .writing-prompt { background: var(--blue); color: var(--white); padding: 20px 24px; border-radius: 12px; margin-bottom: 20px; }
+    .writing-prompt ul { margin-top: 10px; padding-left: 20px; }
+    .writing-prompt li { margin-bottom: 6px; }
+    .vocab-support { background: #f0f7ff; border-radius: 12px; padding: 20px; margin-bottom: 20px; border: 1px solid #cce0ff; }
+    .vocab-support h4 { color: var(--blue); margin-bottom: 12px; }
+    .vocab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+    .vocab-item { background: var(--white); padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border); font-size: 0.9rem; }
+    .vocab-item .fr { color: var(--blue); font-weight: 600; }
+    .vocab-item .en { color: var(--text-light); font-size: 0.85rem; }
+    .model-answer { margin-top: 16px; }
+    .model-answer-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--blue);
+      color: var(--white);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .model-answer-btn:hover { background: var(--blue-light); }
+    .model-answer-content {
+      display: none;
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 12px;
+      border: 1px solid var(--border);
+    }
+    .model-answer-content.show { display: block; }
+    .model-answer-content p { margin-bottom: 10px; line-height: 1.9; }
+    .model-answer-content .highlight { color: var(--red); font-weight: 600; }
+
+    /* ===== EXAM SKILLS ===== */
+    .exam-box { background: var(--navy); color: var(--white); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+    .exam-box h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .exam-box h3 .icon { font-size: 1.6rem; }
+    .exam-tip { background: rgba(255,255,255,0.08); border-radius: 10px; padding: 16px; margin-bottom: 12px; }
+    .exam-tip strong { color: var(--red-light); display: block; margin-bottom: 6px; }
+
+    /* ===== VOICE OVERLAY ===== */
+    .voice-overlay {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--navy);
+      color: var(--white);
+      padding: 14px 24px;
+      border-radius: 50px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      display: none;
+      align-items: center;
+      gap: 14px;
+      z-index: 1000;
+      max-width: 90vw;
+    }
+    .voice-overlay.active { display: flex; }
+    .voice-overlay .fr-text { font-weight: 600; }
+    .voice-overlay .en-text { opacity: 0.7; font-size: 0.9rem; }
+    .voice-overlay .close-voice {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0 4px;
+    }
+
+    /* ===== FILM GENRE CARDS ===== */
+    .genre-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 16px; }
+    .genre-card {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+    .genre-card:hover { border-color: var(--blue); transform: translateY(-2px); }
+    .genre-card .fr { font-weight: 600; color: var(--blue); }
+    .genre-card .en { font-size: 0.85rem; color: var(--text-light); }
+    .genre-card .speaker { position: absolute; top: 10px; right: 10px; width: 24px; height: 24px; background: var(--red); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; opacity: 0; transition: opacity 0.2s; }
+    .genre-card:hover .speaker { opacity: 1; }
+
+    /* ===== OPINION OPTIONS ===== */
+    .opinion-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; margin-top: 16px; }
+    .opinion-item { background: var(--cream); padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+    .opinion-letter { width: 28px; height: 28px; background: var(--blue); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; flex-shrink: 0; }
+    .opinion-text { font-size: 0.9rem; }
+
+    /* ===== TV VOCAB ===== */
+    .tv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 16px; }
+    .tv-item { background: var(--cream); padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border); }
+    .tv-item .fr { font-weight: 600; color: var(--blue); font-size: 0.9rem; }
+    .tv-item .en { font-size: 0.8rem; color: var(--text-light); }
+
+    /* ===== TENSE TABLE FOR READING ===== */
+    .tense-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    .tense-table th, .tense-table td { padding: 12px 16px; text-align: left; border: 1px solid var(--border); }
+    .tense-table th { background: var(--blue); color: var(--white); }
+    .tense-table td { background: var(--white); }
+    .tense-input {
+      width: 100%;
+      padding: 8px;
+      border: 2px solid var(--border);
+      border-radius: 6px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+    }
+    .tense-input:focus { border-color: var(--blue); outline: none; }
+
+    /* ===== TECH VOCAB ===== */
+    .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 16px; }
+    .tech-card { background: var(--cream); border-radius: 12px; padding: 18px; border: 1px solid var(--border); cursor: pointer; transition: all 0.2s; position: relative; }
+    .tech-card:hover { border-color: var(--blue); transform: translateY(-2px); }
+    .tech-card .fr { font-weight: 600; color: var(--blue); display: block; margin-bottom: 4px; }
+    .tech-card .en { font-size: 0.85rem; color: var(--text-light); }
+    .tech-card .speaker { position: absolute; top: 12px; right: 12px; width: 26px; height: 26px; background: var(--red); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; opacity: 0; transition: opacity 0.2s; }
+    .tech-card:hover .speaker { opacity: 1; }
+
+    /* ===== SURVEY CARDS ===== */
+    .survey-card { background: var(--cream); border-radius: 12px; padding: 18px; margin-bottom: 12px; border: 1px solid var(--border); }
+    .survey-question { font-weight: 600; color: var(--blue); margin-bottom: 8px; }
+    .survey-answer { font-size: 0.9rem; color: var(--text-light); }
+
+    /* ===== WRITING TEXTAREA ===== */
+    .writing-area {
+      width: 100%;
+      min-height: 200px;
+      padding: 16px;
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      resize: vertical;
+      margin-top: 16px;
+    }
+    .writing-area:focus { border-color: var(--blue); outline: none; }
+
+    /* ===== FOOTER ===== */
+    .footer { background: var(--blue); color: var(--white); text-align: center; padding: 40px 20px; margin-top: 40px; }
+    .footer h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 12px; }
+    .footer p { opacity: 0.8; font-size: 0.9rem; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.6s ease-out; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      .hero { padding: 50px 16px 40px; }
+      .section { padding: 20px; }
+      .card-grid, .genre-grid, .tv-grid, .tech-grid { grid-template-columns: 1fr; }
+      .quiz-options { flex-direction: column; }
+      .opinion-grid, .vocab-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 4px; }
+  </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-badge">GCSE / IGCSE French</div>
+  <h1>La Technologie, <span>les Films</span> et la Télévision</h1>
+  <p class="hero-subtitle">D4 The Media &mdash; D5 Information and Communication Technology &mdash; Réviser la technologie, les films et la télévision</p>
+  <div class="hero-meta">
+    <span>Speaking</span>
+    <span>Listening</span>
+    <span>Reading</span>
+    <span>Writing</span>
+  </div>
+</header>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#vocab" class="active">Vocabulary</a>
+    <a href="#ex1">Ex.1 Speaking</a>
+    <a href="#ex2">Ex.2 Sentences</a>
+    <a href="#ex3">Ex.3 Listening</a>
+    <a href="#ex4">Ex.4 Speaking</a>
+    <a href="#ex5">Ex.5 Writing</a>
+    <a href="#ex6">Ex.6 Survey</a>
+    <a href="#ex7">Ex.7 Reading</a>
+    <a href="#ex8">Ex.8 Writing</a>
+    <a href="#exam">Exam Skills</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- ===== LEARNING OBJECTIVE ===== -->
+  <div class="objective fade-up">
+    <div class="objective-icon">&#x1F4DA;</div>
+    <div class="objective-text">
+      <strong>Learning Objective</strong>
+      Réviser la technologie, les films et la télévision
+    </div>
+  </div>
+
+  <!-- ===== VOCABULARY ===== -->
+  <section class="section fade-up" id="vocab">
+    <h2 class="section-title"><span class="num">&#x1F4F1;</span> Technology Vocabulary</h2>
+    <p class="section-subtitle">Click any card to hear the pronunciation. Hover to see the speaker icon.</p>
+    <div class="tech-grid">
+      <div class="tech-card" onclick="speak('faire des selfies', 'to take selfies')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">faire des selfies</span>
+        <span class="en">to take selfies</span>
+      </div>
+      <div class="tech-card" onclick="speak('faire des vidéos', 'to make videos')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">faire des vidéos</span>
+        <span class="en">to make videos</span>
+      </div>
+      <div class="tech-card" onclick="speak('le portable', 'the mobile phone')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">le portable</span>
+        <span class="en">the mobile phone</span>
+      </div>
+      <div class="tech-card" onclick="speak('jouer sur la Xbox', 'to play on the Xbox')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">jouer sur la Xbox</span>
+        <span class="en">to play on the Xbox</span>
+      </div>
+      <div class="tech-card" onclick="speak('surfer sur Internet', 'to surf the Internet')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">surfer sur Internet</span>
+        <span class="en">to surf the Internet</span>
+      </div>
+      <div class="tech-card" onclick="speak('surfer sur la mer', 'to surf on the sea')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">surfer sur la mer</span>
+        <span class="en">to surf on the sea</span>
+      </div>
+      <div class="tech-card" onclick="speak('les réseaux sociaux', 'social media')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">les réseaux sociaux</span>
+        <span class="en">social media</span>
+      </div>
+      <div class="tech-card" onclick="speak('discuter avec tes copains', 'to chat with your friends')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">discuter avec tes copains</span>
+        <span class="en">to chat with your friends</span>
+      </div>
+      <div class="tech-card" onclick="speak('l\'ordinateur', 'the computer')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">l'ordinateur</span>
+        <span class="en">the computer</span>
+      </div>
+      <div class="tech-card" onclick="speak('poster des photos', 'to post photos')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">poster des photos</span>
+        <span class="en">to post photos</span>
+      </div>
+      <div class="tech-card" onclick="speak('commenter des photos', 'to comment on photos')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">commenter des photos</span>
+        <span class="en">to comment on photos</span>
+      </div>
+      <div class="tech-card" onclick="speak('envoyer des SMS', 'to send text messages')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">envoyer des SMS</span>
+        <span class="en">to send text messages</span>
+      </div>
+      <div class="tech-card" onclick="speak('envoyer des e-mails', 'to send emails')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">envoyer des e-mails</span>
+        <span class="en">to send emails</span>
+      </div>
+      <div class="tech-card" onclick="speak('écouter la radio', 'to listen to the radio')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">écouter la radio</span>
+        <span class="en">to listen to the radio</span>
+      </div>
+      <div class="tech-card" onclick="speak('télécharger de la musique', 'to download music')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">télécharger de la musique</span>
+        <span class="en">to download music</span>
+      </div>
+      <div class="tech-card" onclick="speak('faire des playlists', 'to make playlists')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">faire des playlists</span>
+        <span class="en">to make playlists</span>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top: 32px;"><span class="num">&#x1F3AC;</span> Film Genres</h2>
+    <p class="section-subtitle">Learn the French names for different types of films.</p>
+    <div class="genre-grid">
+      <div class="genre-card" onclick="speak('les films de gangsters', 'gangster films')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">les films de gangsters</span>
+        <span class="en">gangster films</span>
+      </div>
+      <div class="genre-card" onclick="speak('les films d\'action', 'action films')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">les films d'action</span>
+        <span class="en">action films</span>
+      </div>
+      <div class="genre-card" onclick="speak('les films d\'arts martiaux', 'martial arts films')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">les films d'arts martiaux</span>
+        <span class="en">martial arts films</span>
+      </div>
+      <div class="genre-card" onclick="speak('les films d\'aventure', 'adventure films')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">les films d'aventure</span>
+        <span class="en">adventure films</span>
+      </div>
+      <div class="genre-card" onclick="speak('les films d\'horreur', 'horror films')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">les films d'horreur</span>
+        <span class="en">horror films</span>
+      </div>
+      <div class="genre-card" onclick="speak('les films de science-fiction', 'science fiction films')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">les films de science-fiction</span>
+        <span class="en">science fiction films</span>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top: 32px;"><span class="num">&#x1F4FA;</span> TV Programmes</h2>
+    <p class="section-subtitle">Vocabulary for talking about television.</p>
+    <div class="tv-grid">
+      <div class="tv-item">
+        <span class="fr">les documentaires</span>
+        <span class="en">documentaries</span>
+      </div>
+      <div class="tv-item">
+        <span class="fr">les jeux télévisés</span>
+        <span class="en">game shows</span>
+      </div>
+      <div class="tv-item">
+        <span class="fr">les magazines</span>
+        <span class="en">magazines (TV)</span>
+      </div>
+      <div class="tv-item">
+        <span class="fr">les séries</span>
+        <span class="en">series / TV shows</span>
+      </div>
+      <div class="tv-item">
+        <span class="fr">les actualités</span>
+        <span class="en">the news</span>
+      </div>
+      <div class="tv-item">
+        <span class="fr">les émissions de musique</span>
+        <span class="en">music programmes</span>
+      </div>
+      <div class="tv-item">
+        <span class="fr">les émissions de sport</span>
+        <span class="en">sports programmes</span>
+      </div>
+      <div class="tv-item">
+        <span class="fr">les émissions pour la jeunesse</span>
+        <span class="en">youth programmes</span>
+      </div>
+      <div class="tv-item">
+        <span class="fr">les émissions de télé-réalité</span>
+        <span class="en">reality TV shows</span>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top: 32px;"><span class="num">&#x1F3A7;</span> Giving Opinions</h2>
+    <p class="section-subtitle">Useful phrases for expressing what you think about films and TV.</p>
+    <div class="opinion-grid">
+      <div class="opinion-item" onclick="speak('J\'aime les...', 'I like...')" style="cursor:pointer;">
+        <span class="opinion-letter">a</span>
+        <span class="opinion-text">J'aime les...</span>
+      </div>
+      <div class="opinion-item" onclick="speak('J\'adore les...', 'I love...')" style="cursor:pointer;">
+        <span class="opinion-letter">b</span>
+        <span class="opinion-text">J'adore les...</span>
+      </div>
+      <div class="opinion-item" onclick="speak('Je suis fan de...', 'I am a fan of...')" style="cursor:pointer;">
+        <span class="opinion-letter">c</span>
+        <span class="opinion-text">Je suis fan de...</span>
+      </div>
+      <div class="opinion-item" onclick="speak('J\'ai une passion pour les...', 'I have a passion for...')" style="cursor:pointer;">
+        <span class="opinion-letter">d</span>
+        <span class="opinion-text">J'ai une passion pour les...</span>
+      </div>
+      <div class="opinion-item" onclick="speak('Je ne suis pas fan de...', 'I am not a fan of...')" style="cursor:pointer;">
+        <span class="opinion-letter">e</span>
+        <span class="opinion-text">Je ne suis pas fan de...</span>
+      </div>
+      <div class="opinion-item" onclick="speak('J\'ai horreur des...', 'I hate...')" style="cursor:pointer;">
+        <span class="opinion-letter">f</span>
+        <span class="opinion-text">J'ai horreur des...</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXERCISE 1: SPEAKING (PAIR WORK) ===== -->
+  <section class="section fade-up" id="ex1">
+    <h2 class="section-title"><span class="num">1</span> Speaking &mdash; Pair Work Quiz</h2>
+    <p class="section-subtitle">À deux. Faites le quiz. Posez des questions à tour de rôle. (In pairs. Do the quiz. Take turns asking questions.)</p>
+    <p style="margin-bottom: 20px; background: #f0f7ff; padding: 14px 18px; border-radius: 10px; border-left: 4px solid var(--blue); font-size: 0.9rem;">
+      <strong>Exemple:</strong> Tu préfères faire des selfies ou faire des vidéos avec ton portable?
+    </p>
+    <div class="quiz-card">
+      <div class="quiz-question">Tu préfères...?</div>
+      <div class="quiz-options" data-correct="a">
+        <span class="quiz-opt" data-value="a" onclick="selectOption(this)">a) faire des selfies avec ton portable?</span>
+        <span class="quiz-opt" data-value="b" onclick="selectOption(this)">b) faire des vidéos avec ton portable?</span>
+      </div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">Tu préfères...?</div>
+      <div class="quiz-options" data-correct="a">
+        <span class="quiz-opt" data-value="a" onclick="selectOption(this)">a) jouer sur la Xbox?</span>
+        <span class="quiz-opt" data-value="b" onclick="selectOption(this)">b) jouer au foot?</span>
+      </div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">Tu préfères...?</div>
+      <div class="quiz-options" data-correct="a">
+        <span class="quiz-opt" data-value="a" onclick="selectOption(this)">a) surfer sur Internet?</span>
+        <span class="quiz-opt" data-value="b" onclick="selectOption(this)">b) surfer sur la mer?</span>
+      </div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">Tu préfères...?</div>
+      <div class="quiz-options" data-correct="a">
+        <span class="quiz-opt" data-value="a" onclick="selectOption(this)">a) retrouver les amis sur les réseaux sociaux?</span>
+        <span class="quiz-opt" data-value="b" onclick="selectOption(this)">b) discuter avec tes copains dans un café?</span>
+      </div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">Tu préfères...?</div>
+      <div class="quiz-options" data-correct="a">
+        <span class="quiz-opt" data-value="a" onclick="selectOption(this)">a) regarder des vidéos sur ton ordi?</span>
+        <span class="quiz-opt" data-value="b" onclick="selectOption(this)">b) regarder des vidéos sur ton portable?</span>
+      </div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">Tu préfères...?</div>
+      <div class="quiz-options" data-correct="a">
+        <span class="quiz-opt" data-value="a" onclick="selectOption(this)">a) poster des photos ou des vidéos?</span>
+        <span class="quiz-opt" data-value="b" onclick="selectOption(this)">b) commenter des photos ou des vidéos?</span>
+      </div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">Tu préfères...?</div>
+      <div class="quiz-options" data-correct="a">
+        <span class="quiz-opt" data-value="a" onclick="selectOption(this)">a) envoyer des SMS?</span>
+        <span class="quiz-opt" data-value="b" onclick="selectOption(this)">b) envoyer des e-mails?</span>
+      </div>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-question">Tu préfères...?</div>
+      <div class="quiz-options" data-correct="a">
+        <span class="quiz-opt" data-value="a" onclick="selectOption(this)">a) écouter la radio?</span>
+        <span class="quiz-opt" data-value="b" onclick="selectOption(this)">b) télécharger de la musique pour en faire des playlists?</span>
+      </div>
+    </div>
+    <p style="margin-top: 16px; font-size: 0.9rem; color: var(--text-light);">
+      <em>Note: In a real exam situation, there is no single correct answer &mdash; this exercise is designed for pair discussion. Choose an option and explain your preference!</em>
+    </p>
+  </section>
+
+  <!-- ===== EXERCISE 2: RECONSTRUCT SENTENCES ===== -->
+  <section class="section fade-up" id="ex2">
+    <h2 class="section-title"><span class="num">2</span> Reconstruct Sentences</h2>
+    <p class="section-subtitle">Que faites-vous quand vous êtes connecté(e)? Reconstituez ces réponses correctement. (What do you do when you are connected? Put these answers back in the correct order.)</p>
+    <p style="margin-bottom: 20px; background: #f0f7ff; padding: 14px 18px; border-radius: 10px; border-left: 4px solid var(--blue); font-size: 0.9rem;">
+      <strong>Exemple:</strong> Je fais beaucoup de choses. &rarr; fais choses Je beaucoup de. &rarr; <em>Click the words in the right order, then click Check.</em>
+    </p>
+
+    <div class="scramble-container">
+      <p style="font-weight: 600; margin-bottom: 10px;">1. Je fais beaucoup de choses.</p>
+      <div class="scramble-words" id="words-1">
+        <span class="word-chip" onclick="placeWord(this, 'ans-1')">fais</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-1')">choses</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-1')">Je</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-1')">beaucoup</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-1')">de.</span>
+      </div>
+      <div class="answer-zone" id="ans-1"></div>
+      <button class="btn-check" onclick="checkScramble('ans-1', ['Je','fais','beaucoup','de','choses.'])">Check</button>
+      <p class="scramble-feedback" id="feed-1"></p>
+    </div>
+
+    <div class="scramble-container">
+      <p style="font-weight: 600; margin-bottom: 10px;">2. Je fais des achats.</p>
+      <div class="scramble-words" id="words-2">
+        <span class="word-chip" onclick="placeWord(this, 'ans-2')">achats</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-2')">Je</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-2')">fais</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-2')">des.</span>
+      </div>
+      <div class="answer-zone" id="ans-2"></div>
+      <button class="btn-check" onclick="checkScramble('ans-2', ['Je','fais','des','achats.'])">Check</button>
+      <p class="scramble-feedback" id="feed-2"></p>
+    </div>
+
+    <div class="scramble-container">
+      <p style="font-weight: 600; margin-bottom: 10px;">3. Je fais des quiz.</p>
+      <div class="scramble-words" id="words-3">
+        <span class="word-chip" onclick="placeWord(this, 'ans-3')">des</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-3')">fais</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-3')">quiz</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-3')">Je.</span>
+      </div>
+      <div class="answer-zone" id="ans-3"></div>
+      <button class="btn-check" onclick="checkScramble('ans-3', ['Je','fais','des','quiz.'])">Check</button>
+      <p class="scramble-feedback" id="feed-3"></p>
+    </div>
+
+    <div class="scramble-container">
+      <p style="font-weight: 600; margin-bottom: 10px;">4. Je vais sur mes sites préférés.</p>
+      <div class="scramble-words" id="words-4">
+        <span class="word-chip" onclick="placeWord(this, 'ans-4')">sites</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-4')">vais</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-4')">sur</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-4')">mes</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-4')">Je</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-4')">préférés.</span>
+      </div>
+      <div class="answer-zone" id="ans-4"></div>
+      <button class="btn-check" onclick="checkScramble('ans-4', ['Je','vais','sur','mes','sites','préférés.'])">Check</button>
+      <p class="scramble-feedback" id="feed-4"></p>
+    </div>
+
+    <div class="scramble-container">
+      <p style="font-weight: 600; margin-bottom: 10px;">5. Je fais des recherches pour mes devoirs.</p>
+      <div class="scramble-words" id="words-5">
+        <span class="word-chip" onclick="placeWord(this, 'ans-5')">Je</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-5')">pour</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-5')">des</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-5')">recherches</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-5')">devoirs</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-5')">mes</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-5')">fais.</span>
+      </div>
+      <div class="answer-zone" id="ans-5"></div>
+      <button class="btn-check" onclick="checkScramble('ans-5', ['Je','fais','des','recherches','pour','mes','devoirs.'])">Check</button>
+      <p class="scramble-feedback" id="feed-5"></p>
+    </div>
+
+    <div class="scramble-container">
+      <p style="font-weight: 600; margin-bottom: 10px;">6. Je vais sur des blogs.</p>
+      <div class="scramble-words" id="words-6">
+        <span class="word-chip" onclick="placeWord(this, 'ans-6')">sur</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-6')">Je</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-6')">blogs</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-6')">des</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-6')">vais.</span>
+      </div>
+      <div class="answer-zone" id="ans-6"></div>
+      <button class="btn-check" onclick="checkScramble('ans-6', ['Je','vais','sur','des','blogs.'])">Check</button>
+      <p class="scramble-feedback" id="feed-6"></p>
+    </div>
+
+    <div class="scramble-container">
+      <p style="font-weight: 600; margin-bottom: 10px;">7. Je vais sur des forums.</p>
+      <div class="scramble-words" id="words-7">
+        <span class="word-chip" onclick="placeWord(this, 'ans-7')">vais</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-7')">des</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-7')">Je</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-7')">forums</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-7')">sur.</span>
+      </div>
+      <div class="answer-zone" id="ans-7"></div>
+      <button class="btn-check" onclick="checkScramble('ans-7', ['Je','vais','sur','des','forums.'])">Check</button>
+      <p class="scramble-feedback" id="feed-7"></p>
+    </div>
+
+    <div class="scramble-container">
+      <p style="font-weight: 600; margin-bottom: 10px;">8. J'envoie des e-mails.</p>
+      <div class="scramble-words" id="words-8">
+        <span class="word-chip" onclick="placeWord(this, 'ans-8')">e-mails</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-8')">des</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-8')">J'envoie.</span>
+      </div>
+      <div class="answer-zone" id="ans-8"></div>
+      <button class="btn-check" onclick="checkScramble('ans-8', ['J\'envoie','des','e-mails.'])">Check</button>
+      <p class="scramble-feedback" id="feed-8"></p>
+    </div>
+
+    <div class="scramble-container">
+      <p style="font-weight: 600; margin-bottom: 10px;">9. Je joue à des jeux en ligne.</p>
+      <div class="scramble-words" id="words-9">
+        <span class="word-chip" onclick="placeWord(this, 'ans-9')">des</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-9')">jeux</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-9')">joue</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-9')">à</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-9')">Je</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-9')">en</span>
+        <span class="word-chip" onclick="placeWord(this, 'ans-9')">ligne.</span>
+      </div>
+      <div class="answer-zone" id="ans-9"></div>
+      <button class="btn-check" onclick="checkScramble('ans-9', ['Je','joue','à','des','jeux','en','ligne.'])">Check</button>
+      <p class="scramble-feedback" id="feed-9"></p>
+    </div>
+  </section>
+
+  <!-- ===== EXERCISE 3: LISTENING ===== -->
+  <section class="section fade-up" id="ex3">
+    <h2 class="section-title"><span class="num">3</span> Listening</h2>
+    <p class="section-subtitle">Écoutez. Écrivez la lettre de l'opinion et du film mentionné (1&ndash;6). (Listen. Write the letter of the opinion and the film mentioned.)</p>
+    <p style="margin-bottom: 20px; background: #f0f7ff; padding: 14px 18px; border-radius: 10px; border-left: 4px solid var(--blue); font-size: 0.9rem;">
+      <strong>Exemple:</strong> 1 c, j &mdash; <em>Je suis fan de films d'aventure.</em>
+    </p>
+
+    <div class="listen-grid">
+      <div class="listen-card">
+        <div class="listen-num">2</div>
+        <div class="listen-label">Opinion:</div>
+        <select class="listen-select" onchange="this.style.borderColor=this.value?'var(--blue)':''">
+          <option value="">Select opinion...</option>
+          <option value="a">a) J'aime les...</option>
+          <option value="b">b) J'adore les...</option>
+          <option value="c">c) Je suis fan de...</option>
+          <option value="d">d) J'ai une passion pour les...</option>
+          <option value="e">e) Je ne suis pas fan de...</option>
+          <option value="f">f) J'ai horreur des...</option>
+        </select>
+        <div class="listen-label">Film type:</div>
+        <select class="listen-select" onchange="this.style.borderColor=this.value?'var(--blue)':''">
+          <option value="">Select film type...</option>
+          <option value="g">g) films de gangsters</option>
+          <option value="h">h) films d'action</option>
+          <option value="i">i) films d'arts martiaux</option>
+          <option value="j">j) films d'aventure</option>
+          <option value="k">k) films d'horreur</option>
+          <option value="l">l) films de science-fiction</option>
+        </select>
+      </div>
+      <div class="listen-card">
+        <div class="listen-num">3</div>
+        <div class="listen-label">Opinion:</div>
+        <select class="listen-select" onchange="this.style.borderColor=this.value?'var(--blue)':''">
+          <option value="">Select opinion...</option>
+          <option value="a">a) J'aime les...</option>
+          <option value="b">b) J'adore les...</option>
+          <option value="c">c) Je suis fan de...</option>
+          <option value="d">d) J'ai une passion pour les...</option>
+          <option value="e">e) Je ne suis pas fan de...</option>
+          <option value="f">f) J'ai horreur des...</option>
+        </select>
+        <div class="listen-label">Film type:</div>
+        <select class="listen-select" onchange="this.style.borderColor=this.value?'var(--blue)':''">
+          <option value="">Select film type...</option>
+          <option value="g">g) films de gangsters</option>
+          <option value="h">h) films d'action</option>
+          <option value="i">i) films d'arts martiaux</option>
+          <option value="j">j) films d'aventure</option>
+          <option value="k">k) films d'horreur</option>
+          <option value="l">l) films de science-fiction</option>
+        </select>
+      </div>
+      <div class="listen-card">
+        <div class="listen-num">4</div>
+        <div class="listen-label">Opinion:</div>
+        <select class="listen-select" onchange="this.style.borderColor=this.value?'var(--blue)':''">
+          <option value="">Select opinion...</option>
+          <option value="a">a) J'aime les...</option>
+          <option value="b">b) J'adore les...</option>
+          <option value="c">c) Je suis fan de...</option>
+          <option value="d">d) J'ai une passion pour les...</option>
+          <option value="e">e) Je ne suis pas fan de...</option>
+          <option value="f">f) J'ai horreur des...</option>
+        </select>
+        <div class="listen-label">Film type:</div>
+        <select class="listen-select" onchange="this.style.borderColor=this.value?'var(--blue)':''">
+          <option value="">Select film type...</option>
+          <option value="g">g) films de gangsters</option>
+          <option value="h">h) films d'action</option>
+          <option value="i">i) films d'arts martiaux</option>
+          <option value="j">j) films d'aventure</option>
+          <option value="k">k) films d'horreur</option>
+          <option value="l">l) films de science-fiction</option>
+        </select>
+      </div>
+      <div class="listen-card">
+        <div class="listen-num">5</div>
+        <div class="listen-label">Opinion:</div>
+        <select class="listen-select" onchange="this.style.borderColor=this.value?'var(--blue)':''">
+          <option value="">Select opinion...</option>
+          <option value="a">a) J'aime les...</option>
+          <option value="b">b) J'adore les...</option>
+          <option value="c">c) Je suis fan de...</option>
+          <option value="d">d) J'ai une passion pour les...</option>
+          <option value="e">e) Je ne suis pas fan de...</option>
+          <option value="f">f) J'ai horreur des...</option>
+        </select>
+        <div class="listen-label">Film type:</div>
+        <select class="listen-select" onchange="this.style.borderColor=this.value?'var(--blue)':''">
+          <option value="">Select film type...</option>
+          <option value="g">g) films de gangsters</option>
+          <option value="h">h) films d'action</option>
+          <option value="i">i) films d'arts martiaux</option>
+          <option value="j">j) films d'aventure</option>
+          <option value="k">k) films d'horreur</option>
+          <option value="l">l) films de science-fiction</option>
+        </select>
+      </div>
+      <div class="listen-card">
+        <div class="listen-num">6</div>
+        <div class="listen-label">Opinion:</div>
+        <select class="listen-select" onchange="this.style.borderColor=this.value?'var(--blue)':''">
+          <option value="">Select opinion...</option>
+          <option value="a">a) J'aime les...</option>
+          <option value="b">b) J'adore les...</option>
+          <option value="c">c) Je suis fan de...</option>
+          <option value="d">d) J'ai une passion pour les...</option>
+          <option value="e">e) Je ne suis pas fan de...</option>
+          <option value="f">f) J'ai horreur des...</option>
+        </select>
+        <div class="listen-label">Film type:</div>
+        <select class="listen-select" onchange="this.style.borderColor=this.value?'var(--blue)':''">
+          <option value="">Select film type...</option>
+          <option value="g">g) films de gangsters</option>
+          <option value="h">h) films d'action</option>
+          <option value="i">i) films d'arts martiaux</option>
+          <option value="j">j) films d'aventure</option>
+          <option value="k">k) films d'horreur</option>
+          <option value="l">l) films de science-fiction</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXERCISE 4: SPEAKING (PAIR WORK) ===== -->
+  <section class="section fade-up" id="ex4">
+    <h2 class="section-title"><span class="num">4</span> Speaking &mdash; Discuss Film Genres</h2>
+    <p class="section-subtitle">À deux. Discutez des genres de films de l'exercice 3. (In pairs. Discuss the film genres from Exercise 3.)</p>
+    <p style="margin-bottom: 20px; background: #f0f7ff; padding: 14px 18px; border-radius: 10px; border-left: 4px solid var(--blue); font-size: 0.9rem;">
+      <strong>Exemple:</strong><br>
+      &mdash; Comment trouves-tu les films d'aventure?<br>
+      &mdash; Je suis fan des films d'aventure. Et toi?<br>
+      &mdash; Moi, j'ai horreur des films d'aventure.
+    </p>
+    <div class="card-grid">
+      <div class="card" onclick="speak('Comment trouves-tu les films de gangsters?', 'What do you think of gangster films?')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">Comment trouves-tu les films de gangsters?</span>
+      </div>
+      <div class="card" onclick="speak('Comment trouves-tu les films d\'action?', 'What do you think of action films?')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">Comment trouves-tu les films d'action?</span>
+      </div>
+      <div class="card" onclick="speak('Comment trouves-tu les films d\'arts martiaux?', 'What do you think of martial arts films?')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">Comment trouves-tu les films d'arts martiaux?</span>
+      </div>
+      <div class="card" onclick="speak('Comment trouves-tu les films d\'aventure?', 'What do you think of adventure films?')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">Comment trouves-tu les films d'aventure?</span>
+      </div>
+      <div class="card" onclick="speak('Comment trouves-tu les films d\'horreur?', 'What do you think of horror films?')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">Comment trouves-tu les films d'horreur?</span>
+      </div>
+      <div class="card" onclick="speak('Comment trouves-tu les films de science-fiction?', 'What do you think of science fiction films?')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">Comment trouves-tu les films de science-fiction?</span>
+      </div>
+    </div>
+    <div style="margin-top: 20px; background: var(--cream); padding: 16px; border-radius: 10px;">
+      <p style="font-weight: 600; color: var(--blue); margin-bottom: 8px;">Useful responses:</p>
+      <ul style="padding-left: 20px; font-size: 0.9rem; color: var(--text-light);">
+        <li>Je suis fan de... / J'adore... / J'aime...</li>
+        <li>Je ne suis pas fan de...</li>
+        <li>J'ai horreur des...</li>
+        <li>Et toi? / Et vous?</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== EXERCISE 5: WRITING ===== -->
+  <section class="section fade-up" id="ex5">
+    <h2 class="section-title"><span class="num">5</span> Writing &mdash; TV Programme Opinions</h2>
+    <p class="section-subtitle">Écrivez quatre textes qui résument un avis personnel sur les différentes émissions de télévision. (Write four texts that summarise a personal opinion on different TV programmes.)</p>
+
+    <div class="writing-prompt">
+      <strong>Exemple:</strong>
+      <p style="margin-top: 8px;">J'aime les jeux télévisés et aussi les séries, mais je n'aime pas les émissions de télé-réalité. Mon émission préférée, c'est Money Drop.</p>
+    </div>
+
+    <div class="vocab-support">
+      <h4>Vocabulary Support</h4>
+      <div class="vocab-grid">
+        <div class="vocab-item">
+          <span class="fr">J'aime</span> <span class="en">I like</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">les documentaires</span> <span class="en">documentaries</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">et aussi...</span> <span class="en">and also...</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">J'adore</span> <span class="en">I love</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">les jeux télévisés</span> <span class="en">game shows</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">mais...</span> <span class="en">but...</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">Je préfère</span> <span class="en">I prefer</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">les magazines</span> <span class="en">magazines</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">Je n'aime pas</span> <span class="en">I don't like</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">les séries</span> <span class="en">series</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">les actualités</span> <span class="en">the news</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">les émissions de musique</span> <span class="en">music programmes</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">les émissions de sport</span> <span class="en">sports programmes</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">les émissions pour la jeunesse</span> <span class="en">youth programmes</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">les émissions de télé-réalité</span> <span class="en">reality TV shows</span>
+        </div>
+      </div>
+      <p style="margin-top: 16px; font-size: 0.9rem; color: var(--text-light);">
+        <strong>Mon émission préférée / Une émission que je ne rate jamais, c'est...</strong> (My favourite programme / A programme I never miss is...)
+      </p>
+    </div>
+
+    <div class="model-answer">
+      <button class="model-answer-btn" onclick="toggleModel(this)">
+        <span>&#x1F4DD;</span> Model Answer 1 &mdash; Documentaries
+      </button>
+      <div class="model-answer-content">
+        <p><span class="highlight">J'aime</span> les documentaires et aussi les émissions de sport, mais je n'aime pas les émissions de télé-réalité. <span class="highlight">Mon émission préférée, c'est</span> un documentaire sur la nature à la BBC.</p>
+      </div>
+    </div>
+    <div class="model-answer">
+      <button class="model-answer-btn" onclick="toggleModel(this)">
+        <span>&#x1F4DD;</span> Model Answer 2 &mdash; Music
+      </button>
+      <div class="model-answer-content">
+        <p><span class="highlight">J'adore</span> les émissions de musique et aussi les séries, mais je n'aime pas les jeux télévisés. <span class="highlight">Une émission que je ne rate jamais, c'est</span> The Voice.</p>
+      </div>
+    </div>
+    <div class="model-answer">
+      <button class="model-answer-btn" onclick="toggleModel(this)">
+        <span>&#x1F4DD;</span> Model Answer 3 &mdash; News & Sport
+      </button>
+      <div class="model-answer-content">
+        <p><span class="highlight">Je préfère</span> les actualités et aussi les émissions de sport, mais je n'aime pas les magazines. <span class="highlight">Mon émission préférée, c'est</span> le journal de 20 heures.</p>
+      </div>
+    </div>
+    <div class="model-answer">
+      <button class="model-answer-btn" onclick="toggleModel(this)">
+        <span>&#x1F4DD;</span> Model Answer 4 &mdash; Series
+      </button>
+      <div class="model-answer-content">
+        <p><span class="highlight">J'aime</span> les séries et aussi les émissions pour la jeunesse, mais j'ai horreur des émissions de télé-réalité. <span class="highlight">Mon émission préférée, c'est</span> Stranger Things sur Netflix.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXERCISE 6: SPEAKING (CLASS SURVEY) ===== -->
+  <section class="section fade-up" id="ex6">
+    <h2 class="section-title"><span class="num">6</span> Speaking &mdash; Class Survey</h2>
+    <p class="section-subtitle">Faites un sondage dans votre classe. Posez ces questions: (Do a survey in your class. Ask these questions:)</p>
+
+    <div class="survey-card" onclick="speak('Qu\'est-ce que tu regardes à la télé?', 'What do you watch on TV?')">
+      <div class="survey-question">&#x1F4FA; Qu'est-ce que tu regardes à la télé?</div>
+      <div class="survey-answer">What do you watch on TV?</div>
+    </div>
+    <div class="survey-card" onclick="speak('Qu\'est-ce que tu ne regardes jamais?', 'What do you never watch?')">
+      <div class="survey-question">&#x1F6AB; Qu'est-ce que tu ne regardes jamais?</div>
+      <div class="survey-answer">What do you never watch?</div>
+    </div>
+    <div class="survey-card" onclick="speak('Quelle est ton émission préférée?', 'What is your favourite programme?')">
+      <div class="survey-question">&#x2B50; Quelle est ton émission préférée?</div>
+      <div class="survey-answer">What is your favourite programme?</div>
+    </div>
+    <div class="survey-card" onclick="speak('Est-ce que tu aimes les séries?', 'Do you like series?')">
+      <div class="survey-question">&#x2753; Est-ce que tu aimes (les séries)?</div>
+      <div class="survey-answer">Do you like (series)?</div>
+    </div>
+    <div class="survey-card" onclick="speak('Qu\'est-ce que tu ne rates jamais?', 'What do you never miss?')">
+      <div class="survey-question">&#x1F4C5; Qu'est-ce que tu ne rates jamais?</div>
+      <div class="survey-answer">What do you never miss?</div>
+    </div>
+
+    <div style="margin-top: 20px; background: var(--cream); padding: 16px; border-radius: 10px;">
+      <p style="font-weight: 600; color: var(--blue); margin-bottom: 8px;">Useful answers for your survey:</p>
+      <ul style="padding-left: 20px; font-size: 0.9rem; color: var(--text-light);">
+        <li>Je regarde... / Je ne regarde pas...</li>
+        <li>Mon émission préférée, c'est...</li>
+        <li>Oui, j'aime... / Non, je n'aime pas...</li>
+        <li>Je ne rate jamais...</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== EXERCISE 7: READING ===== -->
+  <section class="section fade-up" id="ex7">
+    <h2 class="section-title"><span class="num">7</span> Reading &mdash; Verb Tense Identification</h2>
+    <p class="section-subtitle">Lisez le texte. Copiez et complétez le tableau. (Read the text. Copy and complete the table.)</p>
+
+    <div class="reading-text">
+      Last night the narrator watched an episode of their favourite show, Mentalist, on TV and loved it. It is an American series they never miss and they are a big fan. Regarding films, their favourite actor is Gad Elmaleh because he is charismatic and very intelligent. They do not like Russell Crowe at all, finding him useless and a poor actor. Sometimes with family they watch films, especially action or adventure films because the narrator's father loves that genre.
+    </div>
+
+    <p style="margin-bottom: 16px; font-size: 0.9rem; color: var(--text-light);">
+      <em>Now, identify the verbs in the original French text that would be in each tense. Fill in the table below with the French verbs you would expect to find:</em>
+    </p>
+
+    <table class="tense-table">
+      <tr>
+        <th>Verbes au présent</th>
+        <th>Verbes au passé composé</th>
+        <th>C'est / Ce sont</th>
+      </tr>
+      <tr>
+        <td><input type="text" class="tense-input" placeholder="e.g. aime, est..."></td>
+        <td><input type="text" class="tense-input" placeholder="e.g. ai regardé, ai adoré..."></td>
+        <td><input type="text" class="tense-input" placeholder="e.g. c'est une série..."></td>
+      </tr>
+      <tr>
+        <td><input type="text" class="tense-input" placeholder="..."></td>
+        <td><input type="text" class="tense-input" placeholder="..."></td>
+        <td><input type="text" class="tense-input" placeholder="..."></td>
+      </tr>
+      <tr>
+        <td><input type="text" class="tense-input" placeholder="..."></td>
+        <td><input type="text" class="tense-input" placeholder="..."></td>
+        <td><input type="text" class="tense-input" placeholder="..."></td>
+      </tr>
+    </table>
+
+    <div class="model-answer" style="margin-top: 24px;">
+      <button class="model-answer-btn" onclick="toggleModel(this)">
+        <span>&#x1F4DD;</span> Show Expected French Text &amp; Answers
+      </button>
+      <div class="model-answer-content">
+        <p><strong>Expected French text:</strong></p>
+        <p>Hier soir, <span class="highlight">j'ai regardé</span> un épisode de mon émission préférée, Mentalist, à la télé et <span class="highlight">j'ai adoré</span>. <span class="highlight">C'est</span> une série américaine que je ne rate jamais et <span class="highlight">je suis</span> un grand fan. En ce qui concerne les films, mon acteur préféré <span class="highlight">est</span> Gad Elmaleh parce qu'il <span class="highlight">est</span> charismatique et très intelligent. Je n'<span class="highlight">aime</span> pas du tout Russell Crowe, je le trouve inutile et mauvais acteur. Quelquefois en famille nous <span class="highlight">regardons</span> des films, surtout des films d'action ou d'aventure parce que mon père <span class="highlight">adore</span> ce genre.</p>
+        <p style="margin-top: 12px;"><strong>Table answers:</strong></p>
+        <table class="tense-table" style="margin-top: 8px;">
+          <tr>
+            <th>Verbes au présent</th>
+            <th>Verbes au passé composé</th>
+            <th>C'est / Ce sont</th>
+          </tr>
+          <tr>
+            <td>je suis, est (x2), aime, regardons, adore</td>
+            <td>j'ai regardé, j'ai adoré</td>
+            <td>C'est une série américaine...</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXERCISE 8: WRITING ===== -->
+  <section class="section fade-up" id="ex8">
+    <h2 class="section-title"><span class="num">8</span> Writing &mdash; What You Did Last Night</h2>
+    <p class="section-subtitle">Écrivez un texte entre 130 et 150 mots en français sur ce que vous avez fait hier soir. (Write a text of 130&ndash;150 words in French about what you did last night.)</p>
+
+    <div class="writing-prompt">
+      <strong>You must mention the following points:</strong>
+      <ul>
+        <li>Ce que vous avez fait hier soir (au moins trois activités) &mdash; What you did last night (at least three activities)</li>
+        <li>Ce que vous regardez d'habitude à la télé &mdash; What you usually watch on TV</li>
+        <li>Ce que vous pensez de certaines émissions &mdash; What you think of certain programmes</li>
+        <li>Ce que vous avez fait avant de vous coucher &mdash; What you did before going to bed</li>
+      </ul>
+    </div>
+
+    <div class="vocab-support">
+      <h4>Vocabulary Support</h4>
+      <div class="vocab-grid">
+        <div class="vocab-item">
+          <span class="fr">Hier soir, j'ai...</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">J'adore... je trouve ça...</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">D'abord, j'ai joué...</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">J'aime jouer... je pense que c'est...</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">Et puis j'ai fait...</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">J'adore faire... c'est...</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">Ensuite,</span>
+        </div>
+        <div class="vocab-item">
+          <span class="fr">Avant de me coucher, j'ai...</span>
+        </div>
+      </div>
+    </div>
+
+    <textarea class="writing-area" placeholder="Write your text here in French... (130-150 words)"></textarea>
+
+    <div class="model-answer" style="margin-top: 20px;">
+      <button class="model-answer-btn" onclick="toggleModel(this)">
+        <span>&#x1F4DD;</span> Model Answer
+      </button>
+      <div class="model-answer-content">
+        <p><span class="highlight">Hier soir</span>, j'ai passé une excellente soirée avec ma famille. <span class="highlight">D'abord</span>, j'ai fini mes devoirs dans ma chambre. <span class="highlight">Ensuite</span>, j'ai joué à des jeux vidéo sur la Xbox avec mon frère pendant une heure. <span class="highlight">Et puis</span>, nous avons regardé un film d'action à la télé. <span class="highlight">J'adore</span> les films d'action parce qu'ils sont passionnants et pleins de suspense.</p>
+        <p>D'habitude, je regarde les séries américaines et aussi les documentaires sur la nature. <span class="highlight">Je pense que</span> les documentaires sont très intéressants et éducatifs. Par contre, <span class="highlight">je n'aime pas du tout</span> les émissions de télé-réalité car je trouve ça ennuyeux et superficiel.</p>
+        <p><span class="highlight">Avant de me coucher</span>, j'ai lu un livre et j'ai envoyé des SMS à mes copains. Je me suis couché vers minuit.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXAM SKILLS ===== -->
+  <section class="exam-box fade-up" id="exam">
+    <h3><span class="icon">&#x1F3C6;</span> Exam Skills &mdash; IGCSE Tips</h3>
+
+    <div class="exam-tip">
+      <strong>Speaking Exam &mdash; Technology Questions</strong>
+      <p>Be ready to answer questions about how you use technology. Common topics: social media, phones, computers, the Internet. Use phrases like <em>"Je passe beaucoup de temps sur..."</em> (I spend a lot of time on...) and <em>"Je suis accro à..."</em> (I'm addicted to...).</p>
+    </div>
+
+    <div class="exam-tip">
+      <strong>Film &amp; TV Vocabulary</strong>
+      <p>Make sure you can name at least 3&ndash;4 film genres and 4&ndash;5 types of TV programmes in French. Practise giving opinions with <em>j'aime / j'adore / je préfère / je n'aime pas / j'ai horreur de</em>.</p>
+    </div>
+
+    <div class="exam-tip">
+      <strong>Writing Exam &mdash; Past Tense Narrative</strong>
+      <p>When writing about "last night" or "yesterday", use the <em>passé composé</em> (j'ai + past participle) for completed actions. Use connectives: <em>d'abord, ensuite, et puis, après, finalement</em> to structure your text clearly.</p>
+    </div>
+
+    <div class="exam-tip">
+      <strong>Listening Exam &mdash; Opinions &amp; Film Types</strong>
+      <p>Listen carefully for opinion phrases (J'aime, J'adore, Je déteste...) and match them to film types. Write down the exact letter given in the question to avoid losing marks.</p>
+    </div>
+
+    <div class="exam-tip">
+      <strong>Reading Exam &mdash; Identifying Tenses</strong>
+      <p>Look for helper verbs: <em>avoir</em> or <em>être</em> + past participle = passé composé. Look for present tense endings: <em>-e, -es, -e, -ons, -ez, -ent</em>. Knowing your verb tenses will help you answer comprehension questions accurately.</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <h3>GCSE / IGCSE French</h3>
+  <p>La Technologie, les Films et la Télévision &mdash; Conçu pour apprendre, pratiquer et briller.</p>
+</footer>
+
+<!-- ===== VOICE OVERLAY ===== -->
+<div class="voice-overlay" id="voiceOverlay">
+  <span class="fr-text" id="voiceFr"></span>
+  <span style="opacity:0.4">|</span>
+  <span class="en-text" id="voiceEn"></span>
+  <button class="close-voice" onclick="stopVoice()">&#x2715;</button>
+</div>
+
+<script>
+  // ===== VOICE SYSTEM =====
+  let currentUtterance = null;
+
+  function speak(fr, en) {
+    if (!window.speechSynthesis) {
+      alert('Text-to-speech is not supported in this browser.');
+      return;
+    }
+    window.speechSynthesis.cancel();
+
+    const overlay = document.getElementById('voiceOverlay');
+    document.getElementById('voiceFr').textContent = fr;
+    document.getElementById('voiceEn').textContent = en;
+    overlay.classList.add('active');
+
+    const utter = new SpeechSynthesisUtterance(fr);
+    utter.lang = 'fr-FR';
+    utter.rate = 0.9;
+    utter.pitch = 1;
+
+    const voices = window.speechSynthesis.getVoices();
+    const frenchVoice = voices.find(v => v.lang.startsWith('fr'));
+    if (frenchVoice) utter.voice = frenchVoice;
+
+    utter.onend = () => {
+      setTimeout(() => overlay.classList.remove('active'), 2000);
+    };
+
+    currentUtterance = utter;
+    window.speechSynthesis.speak(utter);
+  }
+
+  function stopVoice() {
+    window.speechSynthesis.cancel();
+    document.getElementById('voiceOverlay').classList.remove('active');
+  }
+
+  // Ensure voices are loaded
+  window.speechSynthesis?.getVoices();
+  if (window.speechSynthesis?.onvoiceschanged !== undefined) {
+    window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+  }
+
+  // ===== NAV ACTIVE STATE =====
+  const navLinks = document.querySelectorAll('.nav a');
+  const sections = document.querySelectorAll('.section, .exam-box');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (scrollY >= sectionTop - 100) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+  // ===== QUIZ SELECTION =====
+  function selectOption(el) {
+    const parent = el.parentElement;
+    const opts = parent.querySelectorAll('.quiz-opt');
+    opts.forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+
+  // ===== SCRAMBLE SENTENCES =====
+  function placeWord(chip, zoneId) {
+    const zone = document.getElementById(zoneId);
+    const placed = document.createElement('span');
+    placed.className = 'placed';
+    placed.textContent = chip.textContent;
+    placed.dataset.orig = chip.textContent;
+    placed.onclick = function() {
+      chip.classList.remove('used');
+      this.remove();
+    };
+    zone.appendChild(placed);
+    chip.classList.add('used');
+  }
+
+  function checkScramble(zoneId, correctOrder) {
+    const zone = document.getElementById(zoneId);
+    const placed = zone.querySelectorAll('.placed');
+    const userOrder = Array.from(placed).map(p => p.dataset.orig);
+    const feedback = document.getElementById(zoneId.replace('ans', 'feed'));
+
+    // Normalize for comparison
+    const normalize = s => s.toLowerCase().replace(/[.!?]$/, '').trim();
+    const userStr = userOrder.map(normalize).join(' ');
+    const correctStr = correctOrder.map(s => normalize(s.replace(/[.!?]$/, ''))).join(' ');
+
+    if (userOrder.length !== correctOrder.length) {
+      feedback.textContent = 'Use all the words!';
+      feedback.className = 'scramble-feedback wrong';
+      return;
+    }
+
+    if (userStr === correctStr) {
+      feedback.textContent = 'Correct! Bien joué!';
+      feedback.className = 'scramble-feedback correct';
+    } else {
+      feedback.textContent = 'Not quite. Try again!';
+      feedback.className = 'scramble-feedback wrong';
+    }
+  }
+
+  // ===== TOGGLE MODEL ANSWER =====
+  function toggleModel(btn) {
+    const content = btn.nextElementSibling;
+    content.classList.toggle('show');
+    btn.querySelector('span').textContent = content.classList.contains('show') ? '&#x1F441;' : '&#x1F4DD;';
+  }
+
+  // ===== FADE UP ANIMATION ON SCROLL =====
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>

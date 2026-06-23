@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>C'est pour un renseignement…</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --bg:#f7f7fb; --ink:#0e1a2b; --muted:#5a6473;
+    --red:#7a1722; --red-dark:#5a0f18;
+    --blue:#0f2a4a; --blue-dark:#08182b;
+    --card:#fff; --border:#d9dde5; --shadow:0 10px 30px rgba(8,24,43,.08);
+    --gold:#c9a227;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Nunito',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+  header{background:linear-gradient(135deg,var(--blue),#3b76d6);color:#fff;padding:32px 24px;text-align:center}
+  header h1{font-family:'Poppins',sans-serif;margin:0;font-size:28px;letter-spacing:.5px}
+  header p{margin:6px 0 0;opacity:.9}
+  main{max-width:960px;margin:24px auto;padding:0 16px}
+  .card{background:var(--card);border-radius:14px;padding:22px 24px;margin-bottom:22px;box-shadow:0 6px 18px rgba(20,40,80,.08)}
+  h2{font-family:'Poppins',sans-serif;color:var(--blue);border-left:6px solid var(--red);padding-left:12px;margin-top:0}
+  h3{color:var(--red);font-family:'Poppins',sans-serif;margin-bottom:6px}
+  button{background:var(--blue);color:#fff;border:0;padding:8px 14px;border-radius:8px;font-weight:700;cursor:pointer;margin:4px 4px 4px 0;font-family:'Nunito'}
+  button:hover{background:var(--red)}
+  button.small{padding:4px 10px;font-size:13px}
+  input[type=text],select,textarea{font-family:'Nunito';padding:6px 10px;border:2px solid #cfd8e7;border-radius:6px;font-size:15px}
+  input.ok,select.ok,textarea.ok{border-color:#21a85a;background:#eafbf1}
+  input.no,select.no,textarea.no{border-color:#d9362c;background:#fdecea}
+  .item{background:#eef3fb;border-left:5px solid var(--blue);padding:10px 14px;border-radius:8px;margin:8px 0}
+  .item b{color:var(--red)}
+  .q{margin:6px 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .grammar{background:#fff7ef;border:2px dashed var(--red);border-radius:10px;padding:14px 18px}
+  table{border-collapse:collapse;width:100%;margin-top:8px}
+  th,td{border:1px solid #cfd8e7;padding:6px 10px;text-align:left;font-size:14px}
+  th{background:var(--blue);color:#fff}
+  .tip{background:#fff3b0;border-left:5px solid #d4a017;padding:10px 14px;border-radius:8px;margin:10px 0;font-size:14px}
+  .idea{background:#eaf6ec;border-left:5px solid #21a85a;padding:10px 14px;border-radius:8px;margin:8px 0;font-size:14px}
+  .leaflet{background:#fdf4f2;border:2px solid var(--red);border-radius:10px;padding:12px 16px;margin:8px 0}
+  textarea{width:100%;min-height:120px}
+  .score{font-weight:800;color:var(--red);margin-left:8px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:640px){.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <h1>C'est pour un renseignement…</h1>
+  <p>A2 — Holidays, tourist information &amp; directions · Quel/Quelle/Quels/Quelles</p>
+</header>
+<main>
+
+<!-- EX 1 -->
+<section class="card">
+  <h2>Exercice 1 — Écoutez. Qui dit quoi?</h2>
+  <p>Baptiste et sa famille sont en vacances à Dinan, en Bretagne. Écrivez <b>B</b> (Baptiste), <b>P</b> (papa), <b>M</b> (maman) ou <b>S</b> (sœur).</p>
+  <button class="small" onclick="speakAll1()">🔊 Tout écouter</button>
+  <div id="ex1">
+    <div class="q">1. J'ai téléchargé l'appli de l'office de tourisme. <input type="text" data-a="B" maxlength="1" size="2"></div>
+    <div class="q">2. Je veux absolument visiter l'aquarium de Saint-Malo. <input type="text" data-a="S" maxlength="1" size="2"></div>
+    <div class="q">3. J'ai envie de faire une promenade en bateau sur le canal. <input type="text" data-a="M" maxlength="1" size="2"></div>
+    <div class="q">4. C'est moins cher de louer un bateau soi-même. <input type="text" data-a="P" maxlength="1" size="2"></div>
+    <div class="q">5. Il y a une exposition sur les films d'animation en 3D que je ne veux pas manquer. <input type="text" data-a="B" maxlength="1" size="2"></div>
+    <div class="q">6. Je tiens à monter à la Tour de l'Horloge. <input type="text" data-a="M" maxlength="1" size="2"></div>
+    <div class="q">7. Il y a un panorama magnifique et je veux me servir de mon nouvel appareil photo. <input type="text" data-a="P" maxlength="1" size="2"></div>
+    <div class="q">8. Il ne faut pas rater le spectacle son et lumière au château. <input type="text" data-a="S" maxlength="1" size="2"></div>
+  </div>
+  <button onclick="checkSimple('ex1')">Vérifier</button><span class="score" id="ex1s"></span>
+
+  <div class="row" style="margin-top:14px">
+    <div class="idea"><b>BALADES</b><br>Randonnées à pied ou à vélo, balades en bateau…</div>
+    <div class="idea"><b>LOISIRS</b><br>Festivités, expositions, loisirs nature et ludiques…</div>
+  </div>
+  <div class="idea"><b>VISITES</b> — Dinan, Léhon, châteaux et musées…</div>
+  <div class="tip">🦈 <b>le requin</b> = un poisson surnommé "les dents de la mer"!<br>🕰️ <b>la Tour de l'Horloge</b> = Clock Tower</div>
+</section>
+
+<!-- EX 2 -->
+<section class="card">
+  <h2>Exercice 2 — Choisissez la bonne fin</h2>
+  <p>Écoutez de nouveau la conversation. Choisissez la bonne fin de chaque phrase.</p>
+  <div id="ex2">
+    <div class="q">1. Baptiste et sa famille se sont renseignés…
+      <select data-a="b"><option value="">--</option><option>a</option><option>b</option><option>c</option><option>d</option></select>
+      <span>(a) à l'office de tourisme · (b) sur le mobile de Baptiste · (c) à Saint-Malo · (d) sur l'ordi du père</span>
+    </div>
+    <div class="q">2. La page d'accueil de l'appli donne des informations sur…
+      <select data-a="c"><option value="">--</option><option>a</option><option>b</option><option>c</option><option>d</option></select>
+      <span>(a) restaurants · (b) météo · (c) promenades · (d) événements sportifs</span>
+    </div>
+    <div class="q">3. L'aquarium ferme à…
+      <select data-a="b"><option value="">--</option><option>a</option><option>b</option><option>c</option><option>d</option></select>
+      <span>(a) 22h · (b) 21h30 · (c) 11€ du soir · (d) 21h</span>
+    </div>
+    <div class="q">4. Une balade en bateau pour un enfant de 8 ans coûte…
+      <select data-a="c"><option value="">--</option><option>a</option><option>b</option><option>c</option><option>d</option></select>
+      <span>(a) 13€ · (b) 13,50€ · (c) 3,50€ · (d) 3,30€</span>
+    </div>
+    <div class="q">5. Ils ont décidé de louer un bateau pour…
+      <select data-a="b"><option value="">--</option><option>a</option><option>b</option><option>c</option><option>d</option></select>
+      <span>(a) 25€ · (b) 35€ · (c) 30€ · (d) 36€</span>
+    </div>
+  </div>
+  <button onclick="checkSimple('ex2')">Vérifier</button><span class="score" id="ex2s"></span>
+</section>
+
+<!-- EX 3 -->
+<section class="card">
+  <h2>Exercice 3 — À l'oral (à trois ou à quatre)</h2>
+  <p>Discutez de ce que vous voulez faire à Dinan.</p>
+  <div class="item">
+    — Qu'est-ce qu'on va faire à Dinan?<br>
+    — Moi, je veux absolument…<br>
+    — Et toi?<br>
+    — Ça ne me dit rien. Moi, j'ai envie de…
+  </div>
+  <div class="row">
+    <table>
+      <tr><th>Pour proposer</th></tr>
+      <tr><td>Je veux absolument…</td></tr>
+      <tr><td>J'ai envie de…</td></tr>
+      <tr><td>Ça m'intéresse de…</td></tr>
+      <tr><td>Je tiens à…</td></tr>
+      <tr><td>Je voudrais…</td></tr>
+      <tr><td>J'aimerais bien…</td></tr>
+      <tr><td>Je ne veux pas rater/manquer…</td></tr>
+    </table>
+    <table>
+      <tr><th>+ verbe / lieu</th></tr>
+      <tr><td>visiter / voir / faire / aller / monter à…</td></tr>
+      <tr><td>le / la / l' / les …</td></tr>
+    </table>
+  </div>
+  <table style="margin-top:10px">
+    <tr><th>Pour répondre</th></tr>
+    <tr><td>Bonne idée. Pourquoi pas?</td></tr>
+    <tr><td>Je veux bien faire ça aussi.</td></tr>
+    <tr><td>D'accord. Ça m'est égal.</td></tr>
+    <tr><td>Ça ne me dit rien.</td></tr>
+    <tr><td>Je n'en ai pas tellement envie.</td></tr>
+    <tr><td>Ça a l'air nul!</td></tr>
+  </table>
+</section>
+
+<!-- LEAFLETS -->
+<section class="card">
+  <h2>Dépliants touristiques</h2>
+  <div class="row">
+    <div class="leaflet">
+      <h3>A — Jaman V · Promenades en bateau</h3>
+      <p>Promenade commentée · Durée: ~1 heure · Accessible aux personnes handicapées<br>
+      Du 2 avril au 30 septembre · Tous les jours sauf le lundi<br>
+      <b>Départs:</b> 11h · 14h30 · 16h · 17h30</p>
+      <p><b>Tarifs:</b> Adulte 13€ · Enfant (-12 ans) 3,50€ · Gratuit -2 ans<br>
+      🐕 Nos amis les chiens sont acceptés.</p>
+      <button class="small" onclick="speak('Jaman V, promenades en bateau, durée une heure, tarif adulte treize euros, enfant trois euros cinquante')">🔊</button>
+    </div>
+    <div class="leaflet">
+      <h3>B — La Cité des télécoms</h3>
+      <p>Juillet–août: ouvert tous les jours de 10h à 19h</p>
+      <p><b>Tarifs:</b> Adulte (18+) 7,50€ · Tarif réduit 4,50€ (12–17, étudiant, demandeur d'emploi, handicapé) · Enfant -12 ans gratuit · Famille (2+2) 19,50€</p>
+      <p>Parking 200 places · Tables de pique-nique · Cafétéria juillet–août · Boutique · 🚫 Interdit aux animaux</p>
+      <button class="small" onclick="speak('La Cité des télécoms, ouvert de dix heures à dix-neuf heures, tarif adulte sept euros cinquante')">🔊</button>
+    </div>
+  </div>
+  <div class="tip">📄 <b>le dépliant</b> = la brochure</div>
+</section>
+
+<!-- EX 4 -->
+<section class="card">
+  <h2>Exercice 4 — Reliez et copiez la question complète</h2>
+  <p>Lisez la fin de chaque question et choisissez la bonne lettre (a–g).</p>
+  <div id="ex4">
+    <div class="q">1. Vous êtes ouverts quels … <select data-a="g"><option value="">--</option><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option><option>f</option><option>g</option></select></div>
+    <div class="q">2. Quels sont … <select data-a="a"><option value="">--</option><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option><option>f</option><option>g</option></select></div>
+    <div class="q">3. Les promenades durent … <select data-a="b"><option value="">--</option><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option><option>f</option><option>g</option></select></div>
+    <div class="q">4. Est-ce que les chiens … <select data-a="c"><option value="">--</option><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option><option>f</option><option>g</option></select></div>
+    <div class="q">5. Quel est le … <select data-a="f"><option value="">--</option><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option><option>f</option><option>g</option></select></div>
+    <div class="q">6. Est-ce que c'est accessible … <select data-a="e"><option value="">--</option><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option><option>f</option><option>g</option></select></div>
+    <div class="q">7. Quelles sont les options … <select data-a="d"><option value="">--</option><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option><option>f</option><option>g</option></select></div>
+  </div>
+  <table>
+    <tr><th>Fins</th></tr>
+    <tr><td>a — les horaires d'ouverture?</td></tr>
+    <tr><td>b — combien de temps?</td></tr>
+    <tr><td>c — sont admis?</td></tr>
+    <tr><td>d — pour manger?</td></tr>
+    <tr><td>e — aux personnes handicapées?</td></tr>
+    <tr><td>f — prix d'entrée?</td></tr>
+    <tr><td>g — jours de la semaine?</td></tr>
+  </table>
+  <button onclick="checkSimple('ex4')">Vérifier</button><span class="score" id="ex4s"></span>
+</section>
+
+<!-- GRAMMAR -->
+<section class="card grammar">
+  <h2>Grammaire — Poser des questions avec <i>quel</i></h2>
+  <p>To ask <i>which…?</i> or <i>what…?</i>, use the adjective <b>quel</b>. It must agree with the noun.</p>
+  <table>
+    <tr><th>masc sg</th><th>fém sg</th><th>masc pl</th><th>fém pl</th></tr>
+    <tr><td>quel</td><td>quelle</td><td>quels</td><td>quelles</td></tr>
+  </table>
+  <ul>
+    <li><b>Quel</b> est le prix d'une visite guidée?</li>
+    <li><b>Quelle</b> heure est-il?</li>
+    <li><b>Quels</b> sont les moyens de transport ici?</li>
+    <li><b>Quelles</b> sont les activités culturelles que vous proposez?</li>
+  </ul>
+
+  <h3>À toi! — Complète avec quel / quelle / quels / quelles</h3>
+  <div id="exG">
+    <div class="q">1. <input type="text" data-a="quel" size="8"> est le tarif réduit?</div>
+    <div class="q">2. <input type="text" data-a="quelle" size="8"> est l'adresse de l'office de tourisme?</div>
+    <div class="q">3. <input type="text" data-a="quels" size="8"> sont les jours d'ouverture?</div>
+    <div class="q">4. <input type="text" data-a="quelles" size="8"> sont les activités pour enfants?</div>
+    <div class="q">5. À <input type="text" data-a="quelle" size="8"> heure ferme l'aquarium?</div>
+    <div class="q">6. <input type="text" data-a="quel" size="8"> bus va au château?</div>
+  </div>
+  <button onclick="checkSimple('exG')">Vérifier</button><span class="score" id="exGs"></span>
+</section>
+
+<!-- EX 5 -->
+<section class="card">
+  <h2>Exercice 5 — À deux. Inventez un dialogue</h2>
+  <p>Inspirez-vous des dépliants ci-dessus et utilisez les questions de l'exercice 4.</p>
+  <div class="item">
+    — Bonjour. Pouvez-vous me donner des renseignements, s'il vous plaît?<br>
+    — Que désirez-vous savoir, monsieur/madame?<br>
+    — C'est combien le prix d'entrée? Nous sommes deux adultes et…
+  </div>
+  <textarea id="dialogue" placeholder="Écrivez votre dialogue ici…"></textarea>
+  <div><button onclick="speakDialogue()">🔊 Lire mon dialogue</button>
+  <span class="score"><span id="wc">0</span> mots</span></div>
+
+  <div class="tip">
+    <b>Expressions utiles:</b><br>
+    <b>Tant mieux!</b> So much the better!<br>
+    <b>Tant pis!</b> Too bad!<br>
+    <b>Ce n'est pas la peine.</b> It's not worth it.<br>
+    <b>Ça ne fait rien.</b> Never mind.<br>
+    <b>Je vous en prie.</b> It's a pleasure.<br>
+    <b>De rien.</b> Don't mention it.
+  </div>
+</section>
+
+<script>
+function speak(t){
+  if(!('speechSynthesis' in window))return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t);u.lang='fr-FR';u.rate=.9;speechSynthesis.speak(u);
+}
+function speakAll1(){
+  const lines=[
+    "J'ai téléchargé l'appli de l'office de tourisme.",
+    "Je veux absolument visiter l'aquarium de Saint-Malo.",
+    "J'ai envie de faire une promenade en bateau sur le canal.",
+    "C'est moins cher de louer un bateau soi-même.",
+    "Il y a une exposition sur les films d'animation en 3D que je ne veux pas manquer.",
+    "Je tiens à monter à la Tour de l'Horloge.",
+    "Il y a un panorama magnifique et je veux me servir de mon nouvel appareil photo.",
+    "Il ne faut pas rater le spectacle son et lumière au château."
+  ];
+  speak(lines.join(' '));
+}
+function speakDialogue(){
+  const t=document.getElementById('dialogue').value.trim();
+  if(t)speak(t);
+}
+function checkSimple(id){
+  const root=document.getElementById(id);
+  const inputs=root.querySelectorAll('input[data-a],select[data-a]');
+  let ok=0;
+  inputs.forEach(el=>{
+    const a=(el.dataset.a||'').trim().toLowerCase();
+    const v=(el.value||'').trim().toLowerCase();
+    el.classList.remove('ok','no');
+    if(v===a){el.classList.add('ok');ok++;}else{el.classList.add('no');}
+  });
+  document.getElementById(id+'s').textContent=ok+' / '+inputs.length;
+}
+document.getElementById('dialogue').addEventListener('input',e=>{
+  const w=e.target.value.trim().split(/\s+/).filter(Boolean).length;
+  document.getElementById('wc').textContent=w;
+});
+</script>
+</main>
+</body>
+</html>

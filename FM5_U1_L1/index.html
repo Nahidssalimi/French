@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>5 LE GRAND LARGE — Holidays & Tourist Information — IGCSE French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7fb;
+    --ink: #0e1a2b;
+    --muted: #5a6473;
+    --red: #7a1722;
+    --red-dark: #5a0f18;
+    --blue: #0f2a4a;
+    --blue-dark: #08182b;
+    --card: #fff;
+    --border: #d9dde5;
+    --shadow: 0 10px 30px rgba(8,24,43,.08);
+    --gold: #c9a227;
+    --green: #2d6a4f;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: #fff;
+    padding: 48px 24px;
+    text-align: center;
+    border-bottom: 6px solid var(--red);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: "🌊";
+    position: absolute;
+    font-size: 12rem;
+    opacity: .08;
+    bottom: -30px;
+    right: -20px;
+    transform: rotate(-8deg);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: .2em 0;
+    position: relative;
+  }
+  header p {
+    max-width: 780px;
+    margin: 0 auto;
+    opacity: .92;
+    position: relative;
+  }
+  .badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.12);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: .85rem;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .tag {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .tag.gold {
+    background: var(--gold);
+    color: var(--blue-dark);
+  }
+  .tag.green {
+    background: var(--green);
+    color: #fff;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin: .3em 0 .5em;
+    color: var(--blue);
+  }
+  h3 {
+    margin: 1.2em 0 0.5em;
+    color: var(--red);
+  }
+  .sub {
+    color: var(--muted);
+    font-style: italic;
+    font-size: .95rem;
+    margin-bottom: 1rem;
+  }
+  .tip {
+    background: #fff7e0;
+    border-left: 5px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .tip strong {
+    color: var(--blue);
+  }
+  .audio-box {
+    background: linear-gradient(135deg, #eef2f8, #fff);
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    padding: 18px;
+    margin: 14px 0;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .play-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: .95rem;
+  }
+  .play-btn:hover { background: var(--red-dark); }
+  .speak-btn {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .8rem;
+  }
+  .flag-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .flag-item {
+    background: #f0f4fa;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .flag-item.selected {
+    background: var(--blue);
+    color: white;
+    border-color: var(--blue-dark);
+  }
+  .flag-item .emoji {
+    font-size: 2.2rem;
+    display: block;
+  }
+  .flag-item .country {
+    font-weight: 600;
+    margin-top: 6px;
+  }
+  .q {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+    border-left: 4px solid var(--blue);
+  }
+  .q .qtext {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: var(--blue);
+  }
+  .q input[type="text"] {
+    padding: 7px 10px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: .95rem;
+    min-width: 200px;
+    width: auto;
+  }
+  .q input.correct {
+    border-color: #1e6b1e;
+    background: #e6f3e6;
+  }
+  .q input.wrong {
+    border-color: var(--red);
+    background: #fbeef0;
+  }
+  .check-btn, .reveal-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .reveal-btn {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+  }
+  .reveal-btn:hover {
+    background: var(--blue);
+    color: #fff;
+  }
+  .score {
+    margin-top: 12px;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 1.1rem;
+  }
+  .dialogue-box {
+    background: #eef2f8;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+  .speech {
+    margin: 12px 0;
+    padding: 10px 14px;
+    background: #fff;
+    border-radius: 8px;
+    border-left: 4px solid var(--gold);
+  }
+  .speech.b {
+    border-left-color: var(--green);
+  }
+  .inline-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+  }
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: .9rem;
+    border-top: 1px solid var(--border);
+  }
+  .person-card {
+    background: #f8f9fc;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 12px 0;
+    border-left: 5px solid var(--red);
+  }
+  @media (max-width: 680px) {
+    .flag-grid { grid-template-columns: repeat(2, 1fr); }
+    .q input[type="text"] { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">🌍 5 LE GRAND LARGE ...</span>
+  <h1>Holidays, tourist information & directions</h1>
+  <p>A2 — Parler de ses vacances, voyager, décrire ses préférences</p>
+  <div class="badges">
+    <span class="badge">Drapeaux & pays</span>
+    <span class="badge">Compréhension orale</span>
+    <span class="badge">Dialogue & production</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ EXERCICE 1 : DRAPEAUX ============ -->
+<section>
+  <span class="tag green">🏁 Exercice 1 · À deux</span>
+  <h2>C'est le drapeau de quel pays?</h2>
+  <p class="sub">Discutez avec votre partenaire. Cliquez sur un drapeau pour le sélectionner, puis utilisez les expressions ci-dessous.</p>
+  
+  <div class="flag-grid" id="flagGrid">
+    <div class="flag-item" data-country="la Belgique"><span class="emoji">🇧🇪</span><div class="country">? Belgique</div></div>
+    <div class="flag-item" data-country="le pays de Galles"><span class="emoji">🏴󠁧󠁢󠁷󠁬󠁳󠁿</span><div class="country">? Pays de Galles</div></div>
+    <div class="flag-item" data-country="l'Angleterre"><span class="emoji">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span><div class="country">? Angleterre</div></div>
+    <div class="flag-item" data-country="les Pays-Bas"><span class="emoji">🇳🇱</span><div class="country">? Pays-Bas</div></div>
+    <div class="flag-item" data-country="la France"><span class="emoji">🇫🇷</span><div class="country">? France</div></div>
+    <div class="flag-item" data-country="le Pakistan"><span class="emoji">🇵🇰</span><div class="country">? Pakistan</div></div>
+    <div class="flag-item" data-country="l'Algérie"><span class="emoji">🇩🇿</span><div class="country">? Algérie</div></div>
+    <div class="flag-item" data-country="les États-Unis"><span class="emoji">🇺🇸</span><div class="country">? États-Unis</div></div>
+    <div class="flag-item" data-country="le Japon"><span class="emoji">🇯🇵</span><div class="country">? Japon</div></div>
+    <div class="flag-item" data-country="la Suisse"><span class="emoji">🇨🇭</span><div class="country">? Suisse</div></div>
+    <div class="flag-item" data-country="l'Allemagne"><span class="emoji">🇩🇪</span><div class="country">? Allemagne</div></div>
+    <div class="flag-item" data-country="la Croatie"><span class="emoji">🇭🇷</span><div class="country">? Croatie</div></div>
+    <div class="flag-item" data-country="la Pologne"><span class="emoji">🇵🇱</span><div class="country">? Pologne</div></div>
+    <div class="flag-item" data-country="l'Autriche"><span class="emoji">🇦🇹</span><div class="country">? Autriche</div></div>
+  </div>
+
+  <div class="dialogue-box">
+    <div class="speech"><strong>Modèle de dialogue :</strong><br>
+    – Alors, le numéro 4 (drapeau des Pays-Bas), je pense que c'est l'Allemagne.<br>
+    – Non, tu as tort. À mon avis, c'est les Pays-Bas. Tu vois les bandes horizontales rouge, blanche, bleue ?</div>
+    <button class="speak-btn" onclick="speakFR('Alors, le drapeau des Pays-Bas, je pense que c\'est l\'Allemagne. Non, tu as tort. À mon avis, c\'est les Pays-Bas.')">🔊 Écouter le dialogue modèle</button>
+  </div>
+
+  <div class="tip"><strong>💬 Expressions utiles :</strong> « Je pense que c’est… », « À mon avis… », « Tu as raison / Tu as tort », « Je suis d’accord / Je ne suis pas d’accord ».</div>
+  
+  <div class="audio-box">
+    <span class="icon">🎧</span>
+    <div class="info"><b>Exercice 2 · Écoutez et vérifiez</b><div class="meta">Les noms des pays (1–7)</div></div>
+    <button class="play-btn" onclick="playCountriesAudio()">▶ Écouter les pays (correction)</button>
+  </div>
+</section>
+
+<!-- ============ EXERCICE 3 : TEXTES DES VACANCES ============ -->
+<section>
+  <span class="tag gold">📖 Exercice 3 · Lisez et répondez</span>
+  <h2>Les vacances de Léonie, Karim, Zoé et Eliott</h2>
+  
+  <div class="person-card">
+    <strong>🧒 Léonie :</strong> Normalement, je passe mes vacances en Italie. Je voyage en train et je fais du camping. J’adore ça! Je vais au bord de la mer avec ma famille.
+    <button class="speak-btn" onclick="speakFR('Normalement, je passe mes vacances en Italie. Je voyage en train et je fais du camping. Je vais au bord de la mer avec ma famille.')">🔊</button>
+  </div>
+  <div class="person-card">
+    <strong>🧒 Karim :</strong> Tous les ans, je vais chez ma tante qui habite en Tunisie, à la montagne. Je voyage en avion. J’y passe tout le mois d’août. C’est génial!
+    <button class="speak-btn" onclick="speakFR('Tous les ans, je vais chez ma tante en Tunisie, à la montagne. Je voyage en avion. Je passe tout le mois d\'août.')">🔊</button>
+  </div>
+  <div class="person-card">
+    <strong>🧒 Zoé :</strong> D’habitude, je vais à la campagne en France. Je passe mes vacances dans un petit hôtel avec mes grands-parents. C’est assez ennuyeux mais il fait toujours beau.
+    <button class="speak-btn" onclick="speakFR('D\'habitude, je vais à la campagne en France. Je loge dans un petit hôtel avec mes grands-parents. C\'est assez ennuyeux.')">🔊</button>
+  </div>
+  <div class="person-card">
+    <strong>🧒 Eliott :</strong> En juillet, je passe deux semaines en Angleterre avec mes parents et mon petit frère. Je loge dans un gîte, dans un petit village. Je voyage en ferry puis en voiture. C’est extra!
+    <button class="speak-btn" onclick="speakFR('En juillet, je passe deux semaines en Angleterre avec mes parents. Je voyage en ferry puis en voiture. C\'est extra!')">🔊</button>
+  </div>
+
+  <div id="questions">
+    <div class="q">
+      <p class="qtext">1. Qui passe ses vacances au bord de la mer?</p>
+      <input type="text" id="q1" data-ans="Léonie" placeholder="Réponse">
+    </div>
+    <div class="q">
+      <p class="qtext">2. Qui va en Grande-Bretagne? (Angleterre, Pays de Galles, Écosse → ici Angleterre)</p>
+      <input type="text" id="q2" data-ans="Eliott" placeholder="Réponse">
+    </div>
+    <div class="q">
+      <p class="qtext">3. Qui reste quatre semaines en vacances? (tout le mois d'août)</p>
+      <input type="text" id="q3" data-ans="Karim" placeholder="Réponse">
+    </div>
+    <div class="q">
+      <p class="qtext">4. Qui aime faire du camping?</p>
+      <input type="text" id="q4" data-ans="Léonie" placeholder="Réponse">
+    </div>
+    <div class="q">
+      <p class="qtext">5. Qui voyage en bateau? (ferry)</p>
+      <input type="text" id="q5" data-ans="Eliott" placeholder="Réponse">
+    </div>
+    <div class="q">
+      <p class="qtext">6. Qui s’ennuie en vacances?</p>
+      <input type="text" id="q6" data-ans="Zoé" placeholder="Réponse">
+    </div>
+  </div>
+  
+  <button class="check-btn" onclick="checkReading()">Vérifier les réponses</button>
+  <button class="reveal-btn" onclick="revealReading()">Voir les réponses</button>
+  <div class="score" id="scoreReading"></div>
+</section>
+
+<!-- ============ À DEUX : DIALOGUE SUR LES VACANCES ============ -->
+<section>
+  <span class="tag green">💬 À deux · Les vacances</span>
+  <h2>Faites un dialogue</h2>
+  
+  <div class="dialogue-box">
+    <div class="speech"><strong>Élève A :</strong><br>
+      – Où vas-tu en vacances?<br>
+      – Comment voyages-tu?<br>
+      – Où loges-tu?<br>
+      – Avec qui vas-tu en vacances?<br>
+      – C’est comment?
+    </div>
+    <div class="speech b"><strong>Élève B :</strong><br>
+      – Je passe mes vacances ...<br>
+      – Je voyage ...<br>
+      – Je loge ...<br>
+      – J’y vais avec ...<br>
+      – C’est ...
+    </div>
+  </div>
+
+  <div class="tip"><strong>📝 Exemple de dialogue :</strong><br>
+  A: Où vas-tu en vacances cet été?<br>
+  B: Je vais en Espagne, à la plage.<br>
+  A: Comment voyages-tu?<br>
+  B: Je voyage en avion, c'est plus rapide.<br>
+  A: Où loges-tu?<br>
+  B: Je loge dans un hôtel près de la mer.<br>
+  A: Avec qui vas-tu?<br>
+  B: J’y vais avec ma famille.<br>
+  A: C’est comment?<br>
+  B: C’est génial, il fait toujours chaud!</div>
+  
+  <button class="speak-btn" onclick="speakDialogModel()">🔊 Écouter le dialogue modèle</button>
+  
+  <div class="audio-box">
+    <div class="info"><b>✍️ Production libre :</b> Enregistrez votre propre dialogue ou écrivez-le ci-dessous.</div>
+    <textarea id="dialogueWrite" rows="6" style="width:100%; padding:10px; border-radius:8px; border:2px solid var(--border);" placeholder="Écrivez votre dialogue ici..."></textarea>
+    <div class="word-count" id="dialogueCount">0 mots</div>
+  </div>
+</section>
+
+<!-- ============ VOCABULAIRE : MOYENS DE TRANSPORT & HÉBERGEMENT ============ -->
+<section>
+  <span class="tag gold">📚 Boîte à outils</span>
+  <h2>Vocabulaire des vacances</h2>
+  <div class="flag-grid" style="grid-template-columns: repeat(auto-fill, minmax(160px,1fr));">
+    <div class="flag-item" onclick="speakFR('voyager en train')"><span class="emoji">🚂</span><div class="country">en train</div></div>
+    <div class="flag-item" onclick="speakFR('voyager en avion')"><span class="emoji">✈️</span><div class="country">en avion</div></div>
+    <div class="flag-item" onclick="speakFR('voyager en ferry')"><span class="emoji">⛴️</span><div class="country">en ferry</div></div>
+    <div class="flag-item" onclick="speakFR('voyager en voiture')"><span class="emoji">🚗</span><div class="country">en voiture</div></div>
+    <div class="flag-item" onclick="speakFR('faire du camping')"><span class="emoji">⛺</span><div class="country">camping</div></div>
+    <div class="flag-item" onclick="speakFR('loger dans un hôtel')"><span class="emoji">🏨</span><div class="country">hôtel</div></div>
+    <div class="flag-item" onclick="speakFR('loger dans un gîte')"><span class="emoji">🏡</span><div class="country">gîte</div></div>
+    <div class="flag-item" onclick="speakFR('au bord de la mer')"><span class="emoji">🏖️</span><div class="country">bord de mer</div></div>
+    <div class="flag-item" onclick="speakFR('à la montagne')"><span class="emoji">⛰️</span><div class="country">montagne</div></div>
+    <div class="flag-item" onclick="speakFR('à la campagne')"><span class="emoji">🌾</span><div class="country">campagne</div></div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTION ÉCRITE : MES VACANCES ============ -->
+<section>
+  <span class="tag green">✍️ Production écrite</span>
+  <h2>Parle de tes vacances</h2>
+  <p class="sub">Rédige 5-6 phrases pour décrire tes vacances idéales ou tes dernières vacances. Utilise les mots de vocabulaire.</p>
+  <div class="q">
+    <textarea id="myHolidays" rows="5" style="width:100%; padding:12px; border-radius:8px; border:2px solid var(--border);" placeholder="Exemple : Normalement, je passe mes vacances en Italie. Je voyage en train et je fais du camping. Je vais au bord de la mer avec ma famille. L'année dernière, je suis allé à la montagne. C'était magnifique!"></textarea>
+    <div class="score" id="holidayWordCount">0 mots</div>
+  </div>
+  <button class="speak-btn" onclick="speakFromTextarea()">🔊 Écouter ma réponse</button>
+  <button class="reveal-btn" onclick="showHolidayModel()">Voir un modèle</button>
+  <div id="holidayModel" style="display:none; background:#eef2f8; padding:14px; border-radius:8px; margin-top:12px;">
+    <strong>📝 Modèle :</strong><br>
+    « D'habitude, je vais en France, à la campagne. Je voyage en voiture avec mes parents. Je loge dans un petit gîte. C'est tranquille et il fait toujours beau. L'été prochain, je vais aller au bord de la mer pour changer. Je ferai du camping avec mes amis. Ce sera génial! »
+    <button class="speak-btn" onclick="speakFR('D\'habitude, je vais en France à la campagne. Je voyage en voiture. Je loge dans un gîte. L\'été prochain, j\'irai au bord de la mer avec mes amis.')">🔊 Écouter</button>
+  </div>
+</section>
+
+<footer>
+  IGCSE French — A2 Holidays, Tourist Information and Directions · Parler de ses vacances, décrire ses voyages, dialoguer 🌍✈️
+</footer>
+
+</main>
+
+<script>
+  // Speech synthesis
+  function speakFR(text) {
+    if (!('speechSynthesis' in window)) { alert('Audio non supporté'); return; }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR';
+    u.rate = 0.92;
+    const voices = speechSynthesis.getVoices();
+    const frVoice = voices.find(v => v.lang.startsWith('fr'));
+    if (frVoice) u.voice = frVoice;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged = () => {};
+
+  // Audio for countries (exercise 2)
+  function playCountriesAudio() {
+    const countries = "Numéro un : la France. Numéro deux : l'Allemagne. Numéro trois : l'Italie. Numéro quatre : les Pays-Bas. Numéro cinq : l'Espagne. Numéro six : la Belgique. Numéro sept : la Suisse.";
+    speakFR(countries);
+  }
+
+  // Flag selection (for pair discussion)
+  document.querySelectorAll('.flag-item').forEach(flag => {
+    flag.addEventListener('click', function() {
+      // Toggle selection visual
+      this.classList.toggle('selected');
+    });
+  });
+
+  // Reading comprehension check
+  function checkReading() {
+    const answers = {
+      q1: "Léonie",
+      q2: "Eliott",
+      q3: "Karim",
+      q4: "Léonie",
+      q5: "Eliott",
+      q6: "Zoé"
+    };
+    let total = 6, correct = 0;
+    for (let [id, expected] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = inp.value.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      const expNorm = expected.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      if (user === expNorm || (id === 'q2' && user.includes('elio')) || (id === 'q5' && user.includes('elio'))) {
+        correct++;
+        inp.classList.add('correct');
+        inp.classList.remove('wrong');
+      } else {
+        inp.classList.remove('correct');
+        inp.classList.add('wrong');
+      }
+    }
+    document.getElementById('scoreReading').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealReading() {
+    document.getElementById('q1').value = "Léonie";
+    document.getElementById('q2').value = "Eliott";
+    document.getElementById('q3').value = "Karim";
+    document.getElementById('q4').value = "Léonie";
+    document.getElementById('q5').value = "Eliott";
+    document.getElementById('q6').value = "Zoé";
+    checkReading();
+  }
+
+  // Dialogue model speech
+  function speakDialogModel() {
+    const text = "Où vas-tu en vacances? Je vais en Espagne, à la plage. Comment voyages-tu? Je voyage en avion. Où loges-tu? Je loge dans un hôtel. Avec qui vas-tu? J'y vais avec ma famille. C'est comment? C'est génial, il fait chaud.";
+    speakFR(text);
+  }
+
+  // Word counter for dialogue textarea
+  const dialogueTa = document.getElementById('dialogueWrite');
+  const dialogueCount = document.getElementById('dialogueCount');
+  if (dialogueTa) {
+    dialogueTa.addEventListener('input', function() {
+      const words = dialogueTa.value.trim().split(/\s+/).filter(Boolean).length;
+      dialogueCount.innerText = `${words} mots`;
+    });
+  }
+
+  // Holiday production
+  const holidayTa = document.getElementById('myHolidays');
+  const holidayCount = document.getElementById('holidayWordCount');
+  if (holidayTa) {
+    holidayTa.addEventListener('input', function() {
+      const words = holidayTa.value.trim().split(/\s+/).filter(Boolean).length;
+      holidayCount.innerText = `${words} mots`;
+      if (words >= 30 && words <= 80) holidayCount.style.color = '#1e6b1e';
+      else holidayCount.style.color = 'var(--muted)';
+    });
+  }
+  function speakFromTextarea() {
+    const text = holidayTa.value.trim();
+    if (text) speakFR(text);
+    else speakFR("Je n'ai pas encore écrit ma réponse.");
+  }
+  function showHolidayModel() {
+    const model = document.getElementById('holidayModel');
+    model.style.display = model.style.display === 'none' ? 'block' : 'none';
+  }
+  
+  // Initial word counts
+  window.addEventListener('load', () => {
+    if (holidayTa && holidayTa.value.trim() === '') holidayCount.innerText = '0 mots';
+    if (dialogueTa && dialogueTa.value.trim() === '') dialogueCount.innerText = '0 mots';
+  });
+</script>
+</body>
+</html>

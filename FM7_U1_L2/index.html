@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>QUELLE ORIENTATION T'ATTIRE? — Work, Careers — IGCSE French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7fb;
+    --ink: #0e1a2b;
+    --muted: #5a6473;
+    --red: #7a1722;
+    --red-dark: #5a0f18;
+    --blue: #0f2a4a;
+    --blue-dark: #08182b;
+    --card: #fff;
+    --border: #d9dde5;
+    --shadow: 0 10px 30px rgba(8,24,43,.08);
+    --gold: #c9a227;
+    --green: #2d6a4f;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: #fff;
+    padding: 48px 24px;
+    text-align: center;
+    border-bottom: 6px solid var(--red);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: "💼";
+    position: absolute;
+    font-size: 12rem;
+    opacity: .08;
+    bottom: -30px;
+    right: -20px;
+    transform: rotate(-8deg);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: .2em 0;
+    position: relative;
+  }
+  header p {
+    max-width: 780px;
+    margin: 0 auto;
+    opacity: .92;
+    position: relative;
+  }
+  .badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.12);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: .85rem;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .tag {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .tag.gold {
+    background: var(--gold);
+    color: var(--blue-dark);
+  }
+  .tag.green {
+    background: var(--green);
+    color: #fff;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin: .3em 0 .5em;
+    color: var(--blue);
+  }
+  .sub {
+    color: var(--muted);
+    font-style: italic;
+    font-size: .95rem;
+    margin-bottom: 1rem;
+  }
+  .tip {
+    background: #fff7e0;
+    border-left: 5px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .tip strong {
+    color: var(--blue);
+  }
+  .grammar-box {
+    background: #eef8f2;
+    border-left: 5px solid var(--green);
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .audio-box {
+    background: linear-gradient(135deg, #eef2f8, #fff);
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    padding: 18px;
+    margin: 14px 0;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .play-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: .95rem;
+  }
+  .play-btn:hover { background: var(--red-dark); }
+  .speak-btn {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .8rem;
+  }
+  .q {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+    border-left: 4px solid var(--blue);
+  }
+  .q .qtext {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: var(--blue);
+  }
+  .q input[type="text"] {
+    padding: 7px 10px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: .95rem;
+    min-width: 200px;
+    width: auto;
+  }
+  .q input.correct {
+    border-color: #1e6b1e;
+    background: #e6f3e6;
+  }
+  .q input.wrong {
+    border-color: var(--red);
+    background: #fbeef0;
+  }
+  .check-btn, .reveal-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .reveal-btn {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+  }
+  .reveal-btn:hover {
+    background: var(--blue);
+    color: #fff;
+  }
+  .score {
+    margin-top: 12px;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 1.1rem;
+  }
+  .career-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+    margin: 16px 0;
+  }
+  .career-item {
+    background: #f0f4fa;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .career-item.selected {
+    background: var(--blue);
+    color: white;
+    border-color: var(--blue-dark);
+  }
+  .career-item .emoji {
+    font-size: 2rem;
+    display: block;
+  }
+  .option-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 10px 0;
+  }
+  .option-btn {
+    background: #eef2f8;
+    padding: 6px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .option-btn.selected {
+    background: var(--blue);
+    color: white;
+  }
+  .option-btn.correct {
+    background: #1e6b1e;
+    color: white;
+  }
+  .option-btn.wrong {
+    background: var(--red);
+    color: white;
+  }
+  .word-bank {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .word {
+    background: #eef2f8;
+    padding: 6px 14px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .word.selected {
+    background: var(--blue);
+    color: white;
+  }
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: .9rem;
+    border-top: 1px solid var(--border);
+  }
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: .95rem;
+    resize: vertical;
+  }
+  .word-count {
+    font-size: .8rem;
+    color: var(--muted);
+    margin-top: 5px;
+  }
+  .dialogue-box {
+    background: #eef2f8;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+  .speech {
+    margin: 12px 0;
+    padding: 10px 14px;
+    background: #fff;
+    border-radius: 8px;
+    border-left: 4px solid var(--gold);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">💼 QUELLE ORIENTATION T'ATTIRE?</span>
+  <h1>Work, Careers & Volunteering</h1>
+  <p>B4 — Discuter des orientations professionnelles, utiliser mieux/pire et le mieux/le pire</p>
+  <div class="badges">
+    <span class="badge">Secteurs professionnels</span>
+    <span class="badge">Compréhension orale</span>
+    <span class="badge">Vocabulaire & grammaire</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ OBJECTIFS ============ -->
+<section>
+  <div class="grammar-box">
+    <strong>🎯 OBJECTIFS D'APPRENTISSAGE</strong><br>
+    • Discuter des orientations professionnelles<br>
+    • Utiliser les expressions <strong>mieux/pire</strong> et <strong>le mieux/le pire</strong>
+  </div>
+</section>
+
+<!-- ============ EXERCICE 1 : ÉCOUTE (1-6) ============ -->
+<section>
+  <span class="tag green">🎧 Exercice 1 · Écoutez et notez les bonnes lettres</span>
+  <p class="sub">Écoutez les 6 personnes parler de leurs orientations professionnelles.</p>
+
+  <div class="audio-box">
+    <button class="play-btn" onclick="playListening1()">▶ Écouter les 6 personnes</button>
+  </div>
+
+  <div class="career-grid">
+    <div class="career-item" onclick="speakFR('l\'audiovisuel et les médias')"><span class="emoji">🎬</span>a. audiovisuel et médias</div>
+    <div class="career-item" onclick="speakFR('l\'informatique et les télécommunications')"><span class="emoji">💻</span>b. informatique et télécoms</div>
+    <div class="career-item" onclick="speakFR('l\'hôtellerie et la restauration')"><span class="emoji">🍽️</span>c. hôtellerie et restauration</div>
+    <div class="career-item" onclick="speakFR('les arts et la culture')"><span class="emoji">🎨</span>d. arts et culture</div>
+    <div class="career-item" onclick="speakFR('le commerce')"><span class="emoji">🛒</span>e. commerce</div>
+    <div class="career-item" onclick="speakFR('le sport et les loisirs')"><span class="emoji">⚽</span>f. sport et loisirs</div>
+    <div class="career-item" onclick="speakFR('la médecine et la santé')"><span class="emoji">🏥</span>g. médecine et santé</div>
+    <div class="career-item" onclick="speakFR('les sciences et les technologies')"><span class="emoji">🔬</span>h. sciences et technologies</div>
+  </div>
+
+  <div id="listeningEx1">
+    <div class="q"><p class="qtext">1 → <input type="text" id="list1" data-ans="f" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">2 → <input type="text" id="list2" data-ans="g" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">3 → <input type="text" id="list3" data-ans="a" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">4 → <input type="text" id="list4" data-ans="e" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">5 → <input type="text" id="list5" data-ans="c" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">6 → <input type="text" id="list6" data-ans="b" style="width:60px"></p></div>
+  </div>
+  <button class="check-btn" onclick="checkListening1()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealListening1()">Voir les réponses</button>
+  <div class="score" id="scoreListen1"></div>
+  <div class="tip"><strong>🎧 Transcriptions :</strong> 1. « Je suis passionné par le sport. Je voudrais travailler dans le sport et les loisirs. » → f<br>
+  2. « Je veux aider les autres. La médecine et la santé, c'est pour moi. » → g<br>
+  3. « J'adore le cinéma et la télé. L'audiovisuel et les médias, c'est mon rêve. » → a<br>
+  4. « J'aime parler aux gens et vendre des produits. Le commerce, c'est parfait. » → e<br>
+  5. « J'aime accueillir les gens et leur servir de bons plats. L'hôtellerie et la restauration. » → c<br>
+  6. « Je suis fasciné par les nouvelles technologies. L'informatique et les télécoms. » → b</div>
+</section>
+
+<!-- ============ EXERCICE 2 : ÉCOUTE (QUESTIONS) ============ -->
+<section>
+  <span class="tag gold">🎧 Exercice 2 · Écoutez encore</span>
+  <p class="sub">Répondez aux questions en écrivant le numéro de la personne qui parle (1–6).</p>
+
+  <div id="listeningEx2">
+    <div class="q"><p class="qtext">a. Qui s'intéresse énormément au sport? → Personne <input type="text" id="qA" data-ans="1" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">b. Qui pense qu'il est important de travailler dans un domaine où le risque du chômage n'existe pas? → Personne <input type="text" id="qB" data-ans="6" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">c. Qui pense que l'argent est important? → Personne <input type="text" id="qC" data-ans="4" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">d. Qui aime parler aux clients? → Personne <input type="text" id="qD" data-ans="5" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">e. Qui veut rendre service aux autres? → Personne <input type="text" id="qE" data-ans="2" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">f. Qui est un grand fan du cinéma? → Personne <input type="text" id="qF" data-ans="3" style="width:60px"></p></div>
+  </div>
+  <button class="check-btn" onclick="checkListening2()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealListening2()">Voir les réponses</button>
+  <div class="score" id="scoreListen2"></div>
+</section>
+
+<!-- ============ EXERCICE 3 : À QUATRE ============ -->
+<section>
+  <span class="tag green">💬 Exercice 3 · À quatre</span>
+  <h2>Parlez des secteurs qui vous intéressent</h2>
+  
+  <div class="dialogue-box">
+    <div class="speech"><strong>Élève A :</strong> Quelle orientation professionnelle t'attire le plus?</div>
+    <div class="speech"><strong>Élève B :</strong> Ça m'intéresserait de travailler dans le sport. Mon ambition est de devenir coach sportif.</div>
+    <div class="speech"><strong>Élève A :</strong> Quel est le plus important pour toi dans un métier?</div>
+    <div class="speech"><strong>Élève B :</strong> L'important pour moi est d'aider les autres et de faire un métier qui me passionne.</div>
+  </div>
+
+  <div class="tip">
+    <strong>💬 Expressions utiles :</strong><br>
+    • Ça m'intéresserait de …<br>
+    • Mon ambition est de …<br>
+    • Mon rêve serait de …<br>
+    • L'important pour moi est de …<br>
+    • Ce qui compte le plus, c'est …
+  </div>
+  <button class="speak-btn" onclick="speakFR('Ça m\'intéresserait de travailler dans la médecine. L\'important pour moi est d\'aider les autres.')">🔊 Exemple de réponse</button>
+</section>
+
+<!-- ============ EXERCICE 4 : TEXTE À COMPLÉTER ============ -->
+<section>
+  <span class="tag gold">✏️ Exercice 4 · Remplissez les blancs</span>
+  <p class="sub">Utilisez les mots donnés (a–k) pour compléter le texte.</p>
+
+  <div class="word-bank" id="wordBank">
+    <span class="word" data-word="enrichissant">a. enrichissant</span>
+    <span class="word" data-word="santé">b. santé</span>
+    <span class="word" data-word="sondage">c. sondage</span>
+    <span class="word" data-word="avoir">d. avoir</span>
+    <span class="word" data-word="attirer">e. attirer</span>
+    <span class="word" data-word="rémunéré">f. rémunéré</span>
+    <span class="word" data-word="l'informatique">g. l'informatique</span>
+    <span class="word" data-word="intellectuel">h. intellectuel</span>
+    <span class="word" data-word="souhaitent">i. souhaitent</span>
+    <span class="word" data-word="l'orientation">j. l'orientation</span>
+    <span class="word" data-word="s'intéressent">k. s'intéressent</span>
+  </div>
+
+  <div style="background:#f8f9fc; padding:20px; border-radius:12px;">
+    <p>Selon un <input type="text" id="gap1" data-ans="sondage" style="width:110px"> (c) au sujet de <input type="text" id="gap2" data-ans="l'orientation" style="width:140px"> (j) professionnelle, les jeunes Français <input type="text" id="gap3" data-ans="souhaitent" style="width:120px"> (i) avant tout <input type="text" id="gap4" data-ans="avoir" style="width:90px"> (d) un métier qui sera non seulement <input type="text" id="gap5" data-ans="enrichissant" style="width:150px"> (a) sur le plan <input type="text" id="gap6" data-ans="intellectuel" style="width:140px"> (h) mais aussi bien <input type="text" id="gap7" data-ans="rémunéré" style="width:130px"> (f). Cependant, les filles <input type="text" id="gap8" data-ans="s'intéressent" style="width:140px"> (k) surtout aux secteurs de la <input type="text" id="gap9" data-ans="santé" style="width:100px"> (b) et du social, tandis que c'est <input type="text" id="gap10" data-ans="l'informatique" style="width:150px"> (g) et les télécommunications qui <input type="text" id="gap11" data-ans="attirent" style="width:120px"> (e) les garçons.</p>
+  </div>
+  <button class="check-btn" onclick="checkGapFill()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealGapFill()">Voir les réponses</button>
+  <div class="score" id="scoreGap"></div>
+</section>
+
+<!-- ============ EXERCICE 5 : GRAMMAIRE ============ -->
+<section>
+  <span class="tag green">📚 Grammaire — mieux/pire, le mieux/le pire</span>
+  <div class="grammar-box">
+    <p><strong>Comparatifs :</strong> mieux (better) / pire (worse)</p>
+    <p><strong>Superlatifs :</strong> le mieux (the best) / le pire (the worst)</p>
+    <p><em>Exemples :</em> Ce métier paie mieux que l'autre. C'est le métier le mieux payé du secteur. Le chômage dans ce domaine est pire qu'ailleurs. C'est le pire risque professionnel.</p>
+    <button class="speak-btn" onclick="speakFR('Ce métier paie mieux que l\'autre. C\'est le mieux payé. Le chômage est pire qu\'ailleurs. C\'est le pire risque.')">🔊 Écouter</button>
+  </div>
+
+  <div id="grammarEx">
+    <div class="q"><p class="qtext">1. Ce métier est <input type="text" id="gram1" data-ans="mieux" style="width:80px"> (mieux/pire) payé que celui-là.</p></div>
+    <div class="q"><p class="qtext">2. La situation dans ce secteur est <input type="text" id="gram2" data-ans="pire" style="width:80px"> (mieux/pire) qu'en technologie.</p></div>
+    <div class="q"><p class="qtext">3. C'est <input type="text" id="gram3" data-ans="le mieux" style="width:100px"> (le mieux/le pire) métier pour ceux qui aiment les langues.</p></div>
+    <div class="q"><p class="qtext">4. Le chômage est <input type="text" id="gram4" data-ans="le pire" style="width:100px"> (le mieux/le pire) problème dans ce domaine.</p></div>
+  </div>
+  <button class="check-btn" onclick="checkGrammar()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealGrammar()">Voir les réponses</button>
+  <div class="score" id="scoreGrammar"></div>
+</section>
+
+<!-- ============ PRODUCTION ÉCRITE ============ -->
+<section>
+  <span class="tag gold">✍️ Production écrite</span>
+  <h2>Parle de ton orientation professionnelle</h2>
+  <p class="sub">Rédige 60-80 mots sur le secteur qui t'attire et pourquoi. Utilise les expressions mieux/pire et le mieux/le pire.</p>
+
+  <textarea id="careerText" rows="6" placeholder="Exemple : Le secteur qui m'attire le plus est l'informatique et les télécommunications. Je trouve que c'est un domaine passionnant. Ce métier est mieux payé que beaucoup d'autres. C'est le mieux pour quelqu'un qui aime la technologie. Cependant, il faut être prudent car le stress peut être pire qu'ailleurs. Je pense que c'est un bon choix pour l'avenir."></textarea>
+  <div class="word-count" id="careerWordCount">0 mots</div>
+  <button class="speak-btn" onclick="speakCareerText()">🔊 Écouter mon texte</button>
+  <button class="reveal-btn" onclick="showCareerModel()">Voir un modèle</button>
+  <div id="careerModel" style="display:none; background:#eef2f8; padding:14px; border-radius:8px; margin-top:12px;">
+    <strong>📝 Modèle (72 mots) :</strong><br>
+    « Le secteur qui m'attire le plus est la médecine. Je trouve que c'est un domaine enrichissant. C'est le mieux pour quelqu'un qui veut aider les autres. Un métier dans la santé est mieux payé que certains autres secteurs. Cependant, les études sont longues et le stress peut être pire que dans d'autres professions. Mais je pense que c'est un choix formidable parce que je pourrai rendre service aux gens. »
+    <button class="speak-btn" onclick="speakFR('Le secteur qui m\'attire le plus est la médecine. C\'est le mieux pour aider les autres. Le stress peut être pire qu\'ailleurs.')">🔊 Écouter</button>
+  </div>
+</section>
+
+<footer>
+  IGCSE French — B4 Work, Careers and Volunteering · Orientation professionnelle, mieux/pire, le mieux/le pire 💼
+</footer>
+
+</main>
+
+<script>
+  function speakFR(text) {
+    if (!('speechSynthesis' in window)) { alert('Audio non supporté'); return; }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR';
+    u.rate = 0.92;
+    const voices = speechSynthesis.getVoices();
+    const frVoice = voices.find(v => v.lang.startsWith('fr'));
+    if (frVoice) u.voice = frVoice;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged = () => {};
+
+  function playListening1() {
+    speakFR("Personne 1: Je suis passionné par le sport. Je voudrais travailler dans le sport et les loisirs. Personne 2: Je veux aider les autres. La médecine et la santé, c'est pour moi. Personne 3: J'adore le cinéma et la télé. L'audiovisuel et les médias, c'est mon rêve. Personne 4: J'aime parler aux gens et vendre des produits. Le commerce, c'est parfait. Personne 5: J'aime accueillir les gens et leur servir de bons plats. L'hôtellerie et la restauration. Personne 6: Je suis fasciné par les nouvelles technologies. L'informatique et les télécoms.");
+  }
+
+  function norm(s) { return (s || '').toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' '); }
+
+  // Exercise 1: Listening (letters)
+  function checkListening1() {
+    const answers = { list1: "f", list2: "g", list3: "a", list4: "e", list5: "c", list6: "b" };
+    let total = 6, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      if (user === exp) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreListen1').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealListening1() {
+    document.getElementById('list1').value = "f";
+    document.getElementById('list2').value = "g";
+    document.getElementById('list3').value = "a";
+    document.getElementById('list4').value = "e";
+    document.getElementById('list5').value = "c";
+    document.getElementById('list6').value = "b";
+    checkListening1();
+  }
+
+  // Exercise 2: Listening (person numbers)
+  function checkListening2() {
+    const answers = { qA: "1", qB: "6", qC: "4", qD: "5", qE: "2", qF: "3" };
+    let total = 6, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      if (user === exp) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreListen2').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealListening2() {
+    document.getElementById('qA').value = "1";
+    document.getElementById('qB').value = "6";
+    document.getElementById('qC').value = "4";
+    document.getElementById('qD').value = "5";
+    document.getElementById('qE').value = "2";
+    document.getElementById('qF').value = "3";
+    checkListening2();
+  }
+
+  // Exercise 4: Gap fill
+  function checkGapFill() {
+    const answers = {
+      gap1: "sondage", gap2: "l'orientation", gap3: "souhaitent", gap4: "avoir",
+      gap5: "enrichissant", gap6: "intellectuel", gap7: "rémunéré",
+      gap8: "s'intéressent", gap9: "santé", gap10: "l'informatique", gap11: "attirent"
+    };
+    let total = 11, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      const expNorm = norm(exp);
+      if (user === expNorm || (id === 'gap2' && user.includes('orientation')) || (id === 'gap10' && user.includes('informatique'))) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreGap').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealGapFill() {
+    document.getElementById('gap1').value = "sondage";
+    document.getElementById('gap2').value = "l'orientation";
+    document.getElementById('gap3').value = "souhaitent";
+    document.getElementById('gap4').value = "avoir";
+    document.getElementById('gap5').value = "enrichissant";
+    document.getElementById('gap6').value = "intellectuel";
+    document.getElementById('gap7').value = "rémunéré";
+    document.getElementById('gap8').value = "s'intéressent";
+    document.getElementById('gap9').value = "santé";
+    document.getElementById('gap10').value = "l'informatique";
+    document.getElementById('gap11').value = "attirent";
+    checkGapFill();
+  }
+
+  // Grammar exercise
+  function checkGrammar() {
+    const answers = { gram1: "mieux", gram2: "pire", gram3: "le mieux", gram4: "le pire" };
+    let total = 4, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      if (user === norm(exp)) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreGrammar').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealGrammar() {
+    document.getElementById('gram1').value = "mieux";
+    document.getElementById('gram2').value = "pire";
+    document.getElementById('gram3').value = "le mieux";
+    document.getElementById('gram4').value = "le pire";
+    checkGrammar();
+  }
+
+  // Writing production
+  const careerTa = document.getElementById('careerText');
+  const wordSpan = document.getElementById('careerWordCount');
+  careerTa.addEventListener('input', function() {
+    const words = careerTa.value.trim().split(/\s+/).filter(Boolean).length;
+    wordSpan.innerText = `${words} mots`;
+    if (words >= 60 && words <= 90) wordSpan.style.color = '#1e6b1e';
+    else wordSpan.style.color = 'var(--muted)';
+  });
+  function speakCareerText() {
+    const text = careerTa.value.trim();
+    if (text) speakFR(text);
+    else speakFR("Je n'ai pas encore écrit mon texte.");
+  }
+  function showCareerModel() {
+    const model = document.getElementById('careerModel');
+    model.style.display = model.style.display === 'none' ? 'block' : 'none';
+  }
+  window.addEventListener('load', () => {
+    if (careerTa.value.trim() === '') wordSpan.innerText = '0 mots';
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>De la ville à la campagne — IGCSE French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f7fb; --ink:#0e1a2b; --muted:#5a6473;
+    --red:#7a1722; --red-dark:#5a0f18;
+    --blue:#0f2a4a; --blue-dark:#08182b;
+    --card:#ffffff; --border:#d9dde5; --shadow:0 10px 30px rgba(8,24,43,.08);
+    --gold:#c9a227;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  header{background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:#fff;padding:48px 24px;text-align:center;border-bottom:6px solid var(--red);position:relative;overflow:hidden}
+  header::before{content:"🏞️";position:absolute;font-size:14rem;opacity:.07;top:-30px;right:-20px;transform:rotate(-12deg)}
+  header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);margin:.2em 0;position:relative}
+  header p{max-width:780px;margin:0 auto;opacity:.92;position:relative}
+  .badges{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap;position:relative}
+  .badge{background:rgba(255,255,255,.12);padding:6px 14px;border-radius:999px;font-size:.85rem;border:1px solid rgba(255,255,255,.2)}
+  main{max-width:1100px;margin:0 auto;padding:32px 20px}
+  section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:28px;box-shadow:var(--shadow)}
+  .tag{display:inline-block;background:var(--red);color:#fff;padding:4px 12px;border-radius:4px;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+  .tag.gold{background:var(--gold);color:var(--blue-dark)}
+  h2{font-family:'Playfair Display',serif;font-size:1.9rem;margin:.3em 0 .5em;color:var(--blue)}
+  h3{margin-top:1.4em;color:var(--red)}
+  .sub{color:var(--muted);font-style:italic;font-size:.95rem}
+  .objectifs{background:#eef2f8;border-left:5px solid var(--blue);padding:18px 22px;border-radius:8px}
+  .objectifs ul{margin:8px 0 0 18px;padding:0}
+  .tip{background:#fff7e0;border-left:5px solid var(--gold);padding:14px 18px;border-radius:8px;margin:14px 0}
+  .tip strong{color:var(--blue)}
+  .grammar{background:#f3eef8;border-left:5px solid var(--red);padding:16px 20px;border-radius:8px;margin:14px 0}
+  .grammar h4{margin:.2em 0;color:var(--red);font-family:'Playfair Display',serif}
+
+  .audio-box{background:linear-gradient(135deg,#eef2f8,#fff);border:2px solid var(--blue);border-radius:10px;padding:18px;margin:14px 0;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .audio-box .icon{font-size:2.4rem}
+  .audio-box .info{flex:1;min-width:200px}
+  .audio-box .info b{color:var(--blue);font-family:'Playfair Display',serif;font-size:1.1rem}
+  .audio-box .info .meta{color:var(--muted);font-size:.85rem}
+  .play-btn{background:var(--red);color:#fff;border:none;padding:10px 18px;border-radius:6px;font-weight:600;cursor:pointer;font-size:.95rem}
+  .play-btn:hover{background:var(--red-dark)}
+  .play-btn.slow{background:var(--blue)}
+  .play-btn.slow:hover{background:var(--blue-dark)}
+  .speak-btn{background:var(--blue);color:#fff;border:none;padding:6px 10px;border-radius:6px;cursor:pointer;font-weight:600;font-size:.82rem}
+  .speak-btn:hover{background:var(--red)}
+
+  .transcript{margin-top:10px;background:#fff;border:1px dashed var(--border);border-radius:8px;padding:14px;display:none;font-style:italic;color:var(--blue-dark)}
+  .transcript.show{display:block}
+  .transcript .en{margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);color:var(--muted);font-size:.9rem;font-style:italic}
+
+  .q{background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;border-left:4px solid var(--blue)}
+  .q .qtext{margin:0 0 10px;font-weight:600;color:var(--blue)}
+  .q .qtext .mark{float:right;color:var(--muted);font-weight:500;font-size:.85rem}
+  .q input[type=text], .q select{padding:7px 10px;border:2px solid var(--border);border-radius:6px;font-family:inherit;font-size:.95rem;min-width:120px}
+  .q input[type=text]:focus, .q select:focus{outline:none;border-color:var(--blue)}
+  .q input.correct, .q select.correct{border-color:#1e6b1e;background:#e6f3e6}
+  .q input.wrong, .q select.wrong{border-color:var(--red);background:#fbeef0}
+  .check-btn{background:var(--red);color:#fff;border:none;padding:10px 22px;border-radius:6px;font-weight:600;cursor:pointer;margin-top:10px}
+  .check-btn:hover{background:var(--red-dark)}
+  .reveal-btn{background:transparent;color:var(--blue);border:2px solid var(--blue);padding:8px 16px;border-radius:6px;font-weight:600;cursor:pointer;margin-top:10px;margin-left:8px}
+  .reveal-btn:hover{background:var(--blue);color:#fff}
+  .score{margin-top:10px;font-weight:700;color:var(--blue);font-family:'Playfair Display',serif;font-size:1.1rem}
+
+  .word-bank{display:flex;flex-wrap:wrap;gap:8px;background:#eef2f8;border:2px dashed var(--blue);border-radius:10px;padding:14px;margin:12px 0}
+  .word{background:#fff;border:1px solid var(--border);border-radius:6px;padding:6px 12px;font-weight:600;color:var(--blue);cursor:default;user-select:none;transition:.15s}
+
+  .photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+  .photo{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;border-top:5px solid var(--gold)}
+  .photo .emoji{font-size:3rem;display:block;margin-bottom:6px}
+  .photo .letter{display:inline-block;background:var(--red);color:#fff;border-radius:4px;padding:2px 8px;font-weight:700;font-size:.85rem;margin-right:6px}
+  .photo .label{font-weight:600;color:var(--blue);font-size:.92rem}
+
+  .weather-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:14px 0}
+  .weather{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center;cursor:pointer;transition:.2s}
+  .weather:hover{transform:translateY(-3px);border-color:var(--blue);box-shadow:var(--shadow)}
+  .weather .emoji{font-size:2.4rem;display:block}
+  .weather .fr{font-weight:600;color:var(--blue);margin-top:4px}
+  .weather .en{font-size:.8rem;color:var(--muted)}
+
+  .pair-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .pair-grid > div{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px}
+  @media(max-width:680px){.pair-grid{grid-template-columns:1fr}}
+
+  .role-play{background:#eef2f8;border-radius:10px;padding:18px;margin:14px 0}
+  .role-play .turn{margin:8px 0;padding:10px 14px;background:#fff;border-radius:8px;border-left:4px solid var(--red)}
+  .role-play .turn.b{border-left-color:var(--blue)}
+
+  footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">Module · Unité 4</span>
+  <h1>De la ville à la campagne</h1>
+  <p>Parler de là où on habite, du temps qu'il fait et des transports.</p>
+  <div class="badges">
+    <span class="badge">A1 — Life in the Town & Rural Life</span>
+    <span class="badge">D2 — Weather & Climate</span>
+    <span class="badge">Transports</span>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <span class="tag">Objectifs</span>
+  <h2>Ce que tu vas apprendre</h2>
+  <div class="objectifs">
+    <ul>
+      <li>Décrire ta région et ce qu'on peut y faire.</li>
+      <li>Utiliser les prépositions de lieu (<em>en, au, aux, à, dans</em>).</li>
+      <li>Parler du temps qu'il fait et du climat.</li>
+      <li>Décrire ton trajet et les moyens de transport (<em>à pied, en bus…</em>).</li>
+      <li>Réutiliser l'imparfait pour parler du passé.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ EXERCISE 1 ============ -->
+<section>
+  <span class="tag">Exercice 1 · Lecture & Imparfait</span>
+  <h2>Reliez les phrases</h2>
+  <p class="sub">Reliez chaque début (1–5) à sa suite (a–e). Ensuite, mettez la phrase à l'imparfait.</p>
+
+  <div id="match1">
+    <div class="q">
+      <p class="qtext">1. J'habite à la campagne, dans un petit village. <span class="mark">→</span></p>
+      <select data-ans="e"><option value="">— choisir —</option><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option></select>
+    </div>
+    <div class="q">
+      <p class="qtext">2. J'habite au bord de la mer. <span class="mark">→</span></p>
+      <select data-ans="b"><option value="">— choisir —</option><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option></select>
+    </div>
+    <div class="q">
+      <p class="qtext">3. On habite au centre-ville, alors il y a beaucoup de choses à faire. <span class="mark">→</span></p>
+      <select data-ans="d"><option value="">— choisir —</option><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option></select>
+    </div>
+    <div class="q">
+      <p class="qtext">4. Ma famille et moi habitons à la montagne. <span class="mark">→</span></p>
+      <select data-ans="a"><option value="">— choisir —</option><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option></select>
+    </div>
+    <div class="q">
+      <p class="qtext">5. J'habite dans une ville historique et touristique. <span class="mark">→</span></p>
+      <select data-ans="c"><option value="">— choisir —</option><option>a</option><option>b</option><option>c</option><option>d</option><option>e</option></select>
+    </div>
+    <button class="check-btn" onclick="checkMatch('match1','sc1')">Vérifier</button>
+    <button class="reveal-btn" onclick="revealMatch('match1')">Voir les réponses</button>
+    <div class="score" id="sc1"></div>
+  </div>
+
+  <div class="pair-grid" style="margin-top:18px">
+    <div><b>Suites possibles :</b>
+      <ul>
+        <li><b>a.</b> C'est super, car en hiver on peut faire du ski, et en été on peut faire de l'escalade.</li>
+        <li><b>b.</b> J'adore ça parce qu'on peut se baigner dans la mer ou se détendre sur la plage.</li>
+        <li><b>c.</b> Là, on peut visiter les monuments, les musées, le château ou la cathédrale.</li>
+        <li><b>d.</b> On peut faire les magasins, aller au cinéma ou au théâtre.</li>
+        <li><b>e.</b> Là, on peut faire des promenades à pied, à vélo ou à cheval.</li>
+      </ul>
+    </div>
+    <div class="grammar">
+      <h4>À l'imparfait</h4>
+      <p><b>j'habite → j'habitais</b> · <b>on peut → on pouvait</b> · <b>il y a → il y avait</b> · <b>on habite → on habitait</b>.</p>
+      <p class="sub">Exemple : <em>J'habitais à la campagne, dans un petit village. Là, on pouvait faire des promenades à pied, à vélo ou à cheval.</em></p>
+      <button class="speak-btn" onclick="speakFR(&quot;J'habitais à la campagne, dans un petit village. Là, on pouvait faire des promenades à pied, à vélo ou à cheval.&quot;)">🔊 Écouter</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GRAMMAR — PREPOSITIONS ============ -->
+<section>
+  <span class="tag gold">Grammaire</span>
+  <h2>Les prépositions de lieu</h2>
+  <div class="grammar">
+    <h4>J'habite…</h4>
+    <ul>
+      <li><b>dans</b> une ville / un village</li>
+      <li><b>au</b> centre-ville</li>
+      <li><b>en</b> ville</li>
+      <li><b>à</b> la campagne / <b>à</b> la montagne</li>
+      <li><b>au bord de</b> la mer</li>
+    </ul>
+    <h4 style="margin-top:14px">Devant un pays / une ville :</h4>
+    <ul>
+      <li><b>en</b> + pays féminin → <em>en France, en Suisse, en Angleterre, en Écosse, en Inde</em></li>
+      <li><b>au</b> + pays masculin → <em>au pays de Galles, au Portugal, au Maroc</em></li>
+      <li><b>aux</b> + pays pluriel → <em>aux États-Unis, aux Pays-Bas, aux Émirats arabes unis</em></li>
+      <li><b>à</b> + ville → <em>à Paris, à Londres, à Dubaï</em></li>
+      <li><b>dans</b> + point cardinal → <em>dans le nord, dans l'est</em></li>
+    </ul>
+    <button class="speak-btn" onclick="speakFR('J&apos;habite en France, au Portugal, aux États-Unis, à Paris, dans le nord-ouest.')">🔊 Écouter les exemples</button>
+  </div>
+</section>
+
+<!-- ============ EXERCISE 2 ============ -->
+<section>
+  <span class="tag">Exercice 2 · Écoute</span>
+  <h2>Dans ma région, il y a…</h2>
+  <p class="sub">Écoutez chaque personne et choisissez les <b>deux</b> bonnes lettres.</p>
+
+  <div class="photo-grid">
+    <div class="photo"><span class="emoji">🍇</span><span class="letter">a</span><span class="label">des vignobles</span></div>
+    <div class="photo"><span class="emoji">⛰️</span><span class="letter">b</span><span class="label">des collines</span></div>
+    <div class="photo"><span class="emoji">⚓</span><span class="letter">c</span><span class="label">un port de pêche</span></div>
+    <div class="photo"><span class="emoji">🌲</span><span class="letter">d</span><span class="label">des forêts</span></div>
+    <div class="photo"><span class="emoji">🏞️</span><span class="letter">e</span><span class="label">un lac</span></div>
+    <div class="photo"><span class="emoji">🚜</span><span class="letter">f</span><span class="label">des fermes et des champs</span></div>
+    <div class="photo"><span class="emoji">🎿</span><span class="letter">g</span><span class="label">des stations de ski</span></div>
+    <div class="photo"><span class="emoji">🌊</span><span class="letter">h</span><span class="label">une rivière / un fleuve</span></div>
+  </div>
+
+  <div id="ex2">
+    <div class="audio-box">
+      <span class="icon">🔊</span>
+      <div class="info"><b>Personne 1 — Léo</b><div class="meta">Dans ma région…</div></div>
+      <button class="play-btn" onclick="speakFR('Dans ma région, il y a des collines et des fermes avec des champs partout. C&apos;est très tranquille.')">▶ Écouter</button>
+    </div>
+    <div class="q">
+      <p class="qtext">1. Léo — deux lettres : <span class="mark">2 marks</span></p>
+      <input type="text" maxlength="1" data-ans="b" placeholder="?">
+      <input type="text" maxlength="1" data-ans="f" placeholder="?">
+    </div>
+
+    <div class="audio-box">
+      <span class="icon">🔊</span>
+      <div class="info"><b>Personne 2 — Inès</b></div>
+      <button class="play-btn" onclick="speakFR('Près de chez moi, il y a un port de pêche, et aussi un grand lac où on peut faire de la voile.')">▶ Écouter</button>
+    </div>
+    <div class="q">
+      <p class="qtext">2. Inès — deux lettres : <span class="mark">2 marks</span></p>
+      <input type="text" maxlength="1" data-ans="c" placeholder="?">
+      <input type="text" maxlength="1" data-ans="e" placeholder="?">
+    </div>
+
+    <div class="audio-box">
+      <span class="icon">🔊</span>
+      <div class="info"><b>Personne 3 — Hugo</b></div>
+      <button class="play-btn" onclick="speakFR('Dans ma région il y a beaucoup de vignobles et aussi des stations de ski dans les montagnes.')">▶ Écouter</button>
+    </div>
+    <div class="q">
+      <p class="qtext">3. Hugo — deux lettres : <span class="mark">2 marks</span></p>
+      <input type="text" maxlength="1" data-ans="a" placeholder="?">
+      <input type="text" maxlength="1" data-ans="g" placeholder="?">
+    </div>
+
+    <div class="audio-box">
+      <span class="icon">🔊</span>
+      <div class="info"><b>Personne 4 — Chloé</b></div>
+      <button class="play-btn" onclick="speakFR('Chez moi, il y a de grandes forêts et une rivière qui traverse le village.')">▶ Écouter</button>
+    </div>
+    <div class="q">
+      <p class="qtext">4. Chloé — deux lettres : <span class="mark">2 marks</span></p>
+      <input type="text" maxlength="1" data-ans="d" placeholder="?">
+      <input type="text" maxlength="1" data-ans="h" placeholder="?">
+    </div>
+
+    <button class="check-btn" onclick="checkInputs('ex2','sc2',true)">Vérifier</button>
+    <div class="score" id="sc2"></div>
+  </div>
+
+  <div class="tip">
+    <strong>💡 À noter :</strong> <em>un fleuve</em> se jette dans la mer (la Seine, la Loire). <em>une rivière</em> se jette dans une autre rivière ou dans un fleuve.
+  </div>
+</section>
+
+<!-- ============ EXERCISE 3 — ROLE PLAY ============ -->
+<section>
+  <span class="tag">Exercice 3 · À deux</span>
+  <h2>Pose les questions et réponds à tour de rôle</h2>
+  <div class="role-play">
+    <div class="turn">A : <b>Où habites-tu ?</b></div>
+    <div class="turn b">B : J'habite (dans un petit village / au bord de la mer)…</div>
+    <div class="turn">A : <b>Qu'est-ce qu'il y a dans ta région ?</b></div>
+    <div class="turn b">B : Dans ma région, il y a…</div>
+    <div class="turn">A : <b>Qu'est-ce qu'on peut faire ?</b></div>
+    <div class="turn b">B : On peut…</div>
+  </div>
+  <div class="tip">
+    <strong>🎯 Inclus une opinion + raison :</strong> <em>C'est super / J'adore ça parce que c'est pittoresque / tranquille / beau / historique / touristique / calme / agréable / merveilleux / magnifique.</em>
+    <br><button class="speak-btn" onclick="speakFR('J&apos;adore ma région parce que c&apos;est pittoresque, tranquille et magnifique.')">🔊 Modèle</button>
+  </div>
+</section>
+
+<!-- ============ EXERCISE 4 — WEATHER ============ -->
+<section>
+  <span class="tag">Exercice 4 · Le temps</span>
+  <h2>Quel temps fait-il ?</h2>
+  <p class="sub">Clique sur chaque carte pour entendre l'expression. Puis écoute les dialogues et choisis la (les) bonne(s) lettre(s).</p>
+
+  <div class="weather-grid">
+    <div class="weather" onclick="speakFR('Il fait beau.')"><span class="emoji">☀️</span><div class="fr">a. Il fait beau.</div><div class="en">It's nice</div></div>
+    <div class="weather" onclick="speakFR('Il fait chaud.')"><span class="emoji">🥵</span><div class="fr">b. Il fait chaud.</div><div class="en">It's hot</div></div>
+    <div class="weather" onclick="speakFR('Il fait froid.')"><span class="emoji">🥶</span><div class="fr">c. Il fait froid.</div><div class="en">It's cold</div></div>
+    <div class="weather" onclick="speakFR('Il fait mauvais.')"><span class="emoji">☁️</span><div class="fr">d. Il fait mauvais.</div><div class="en">Bad weather</div></div>
+    <div class="weather" onclick="speakFR('Il y a du soleil.')"><span class="emoji">🌞</span><div class="fr">e. Il y a du soleil.</div><div class="en">Sunny</div></div>
+    <div class="weather" onclick="speakFR('Il y a du brouillard.')"><span class="emoji">🌫️</span><div class="fr">f. Il y a du brouillard.</div><div class="en">Foggy</div></div>
+    <div class="weather" onclick="speakFR('Il y a du vent.')"><span class="emoji">💨</span><div class="fr">g. Il y a du vent.</div><div class="en">Windy</div></div>
+    <div class="weather" onclick="speakFR('Il y a un orage.')"><span class="emoji">⛈️</span><div class="fr">h. Il y a un orage.</div><div class="en">Stormy</div></div>
+    <div class="weather" onclick="speakFR('Il pleut.')"><span class="emoji">🌧️</span><div class="fr">i. Il pleut.</div><div class="en">It's raining</div></div>
+    <div class="weather" onclick="speakFR('Il neige.')"><span class="emoji">❄️</span><div class="fr">j. Il neige.</div><div class="en">It's snowing</div></div>
+    <div class="weather" onclick="speakFR('Il gèle.')"><span class="emoji">🧊</span><div class="fr">k. Il gèle.</div><div class="en">It's freezing</div></div>
+  </div>
+
+  <div id="ex4">
+    <div class="audio-box">
+      <span class="icon">🔊</span>
+      <div class="info"><b>Dialogue 1</b></div>
+      <button class="play-btn" onclick="speakFR('Aujourd&apos;hui il fait beau et il y a du soleil.')">▶ Écouter</button>
+    </div>
+    <div class="q"><p class="qtext">1. Lettres : <span class="mark">2 marks</span></p>
+      <input type="text" maxlength="1" data-ans="a"><input type="text" maxlength="1" data-ans="e"></div>
+
+    <div class="audio-box">
+      <span class="icon">🔊</span>
+      <div class="info"><b>Dialogue 2</b></div>
+      <button class="play-btn" onclick="speakFR('Quel temps horrible — il fait mauvais et il pleut.')">▶ Écouter</button>
+    </div>
+    <div class="q"><p class="qtext">2. Lettres : <span class="mark">2 marks</span></p>
+      <input type="text" maxlength="1" data-ans="d"><input type="text" maxlength="1" data-ans="i"></div>
+
+    <div class="audio-box">
+      <span class="icon">🔊</span>
+      <div class="info"><b>Dialogue 3</b></div>
+      <button class="play-btn" onclick="speakFR('Brrr, il fait froid et il neige beaucoup.')">▶ Écouter</button>
+    </div>
+    <div class="q"><p class="qtext">3. Lettres : <span class="mark">2 marks</span></p>
+      <input type="text" maxlength="1" data-ans="c"><input type="text" maxlength="1" data-ans="j"></div>
+
+    <div class="audio-box">
+      <span class="icon">🔊</span>
+      <div class="info"><b>Dialogue 4</b></div>
+      <button class="play-btn" onclick="speakFR('Attention, il y a un orage et il y a beaucoup de vent !')">▶ Écouter</button>
+    </div>
+    <div class="q"><p class="qtext">4. Lettres : <span class="mark">2 marks</span></p>
+      <input type="text" maxlength="1" data-ans="h"><input type="text" maxlength="1" data-ans="g"></div>
+
+    <div class="audio-box">
+      <span class="icon">🔊</span>
+      <div class="info"><b>Dialogue 5</b></div>
+      <button class="play-btn" onclick="speakFR('Ce matin il y a du brouillard et il gèle.')">▶ Écouter</button>
+    </div>
+    <div class="q"><p class="qtext">5. Lettres : <span class="mark">2 marks</span></p>
+      <input type="text" maxlength="1" data-ans="f"><input type="text" maxlength="1" data-ans="k"></div>
+
+    <div class="audio-box">
+      <span class="icon">🔊</span>
+      <div class="info"><b>Dialogue 6</b></div>
+      <button class="play-btn" onclick="speakFR('Aujourd&apos;hui il fait très chaud, on va à la plage !')">▶ Écouter</button>
+    </div>
+    <div class="q"><p class="qtext">6. Lettre : <span class="mark">1 mark</span></p>
+      <input type="text" maxlength="1" data-ans="b"></div>
+
+    <button class="check-btn" onclick="checkInputs('ex4','sc4',true)">Vérifier</button>
+    <div class="score" id="sc4"></div>
+  </div>
+</section>
+
+<!-- ============ EXERCISE 5 — GAP FILL CLIMATE ============ -->
+<section>
+  <span class="tag">Exercice 5 · Lecture</span>
+  <h2>Le climat en France</h2>
+  <p class="sub">Remplissez les blancs avec les mots de l'encadré.</p>
+
+  <div class="word-bank">
+    <div class="word">parfait</div><div class="word">faire</div><div class="word">à</div>
+    <div class="word">dans</div><div class="word">neige</div><div class="word">en</div>
+    <div class="word">au</div><div class="word">près de</div><div class="word">aussi</div>
+    <div class="word">fort</div><div class="word">il y a</div><div class="word">surtout</div>
+    <div class="word">sec</div><div class="word">hiver</div><div class="word">humide</div>
+  </div>
+
+  <div id="ex5">
+    <div class="q">
+      <p class="qtext">Texte 1 — Dieppe</p>
+      <p>J'habite <input type="text" data-ans="à"> Dieppe, dans le nord-ouest de la France,
+      <input type="text" data-ans="près de"> la Manche. Ici, le climat est
+      <input type="text" data-ans="humide"> : en hiver, il pleut beaucoup et il y a souvent du vent.
+      Quelquefois, il y a <input type="text" data-ans="aussi"> du brouillard,
+      <input type="text" data-ans="surtout"> en automne.</p>
+    </div>
+    <div class="q">
+      <p class="qtext">Texte 2 — Marseille</p>
+      <p>Moi, j'habite à Marseille, <input type="text" data-ans="dans"> le sud de la France.
+      En général, le climat est <input type="text" data-ans="sec"> et il peut
+      <input type="text" data-ans="faire"> très chaud en été. Mais
+      <input type="text" data-ans="au"> printemps, <input type="text" data-ans="il y a"> parfois un vent froid très
+      <input type="text" data-ans="fort"> qui s'appelle le Mistral.</p>
+    </div>
+    <div class="q">
+      <p class="qtext">Texte 3 — Strasbourg</p>
+      <p>J'habite à Strasbourg, dans l'est de la France. Ici, le climat est doux et il ne fait pas trop chaud
+      <input type="text" data-ans="en"> été. Par contre, en
+      <input type="text" data-ans="hiver">, il fait froid et il
+      <input type="text" data-ans="neige"> souvent, ce qui est
+      <input type="text" data-ans="parfait"> pour les sports d'hiver.</p>
+    </div>
+
+    <button class="check-btn" onclick="checkInputs('ex5','sc5',false)">Vérifier</button>
+    <button class="reveal-btn" onclick="revealInputs('ex5')">Voir les réponses</button>
+    <div class="score" id="sc5"></div>
+  </div>
+
+  <div class="tip">
+    <strong>🧭 Points cardinaux :</strong> le nord · le nord-ouest · le nord-est · l'ouest · l'est · le sud-ouest · le sud-est · le sud.
+  </div>
+</section>
+
+<!-- ============ EXERCISE 6 — TRANSPORT ============ -->
+<section>
+  <span class="tag">Exercice 6 · Transports</span>
+  <h2>Comment vont-ils au collège ?</h2>
+  <p class="sub">Écoutez et complétez avec le bon moyen de transport.</p>
+
+  <div class="word-bank">
+    <div class="word">bus</div><div class="word">train</div><div class="word">pied</div>
+    <div class="word">car</div><div class="word">voiture</div><div class="word">vélo</div>
+    <div class="word">métro</div>
+  </div>
+
+  <div id="ex6">
+    <div class="audio-box"><span class="icon">🔊</span><div class="info"><b>1 — Guadeloupe</b></div>
+      <button class="play-btn" onclick="speakFR('J&apos;habite en Guadeloupe, aux Antilles. Je vais au collège à pied. Je n&apos;ai pas le choix. Il n&apos;y a pas de bus !')">▶ Écouter</button></div>
+    <div class="q"><p>J'habite en Guadeloupe, aux Antilles. Je vais au collège à <input type="text" data-ans="pied">. Je n'ai pas le choix. Il n'y a pas de <input type="text" data-ans="bus"> !</p></div>
+
+    <div class="audio-box"><span class="icon">🔊</span><div class="info"><b>2 — Paris</b></div>
+      <button class="play-btn" onclick="speakFR('J&apos;habite à Paris. Ici, les transports en commun sont bons, alors je peux aller au lycée en bus ou en métro.')">▶ Écouter</button></div>
+    <div class="q"><p>J'habite à Paris. Ici, les transports en commun sont bons, alors je peux aller au lycée en <input type="text" data-ans="bus"> ou en <input type="text" data-ans="métro">.</p></div>
+
+    <div class="audio-box"><span class="icon">🔊</span><div class="info"><b>3 — Bordeaux</b></div>
+      <button class="play-btn" onclick="speakFR('J&apos;habite à Bordeaux, dans le sud-ouest de la France. Quand il fait beau, je vais au collège à vélo, mais quand il pleut, ma mère m&apos;emmène en voiture.')">▶ Écouter</button></div>
+    <div class="q"><p>J'habite à Bordeaux, dans le sud-ouest de la France. Quand il fait beau, je vais au collège à <input type="text" data-ans="vélo">, mais quand il pleut, ma mère m'emmène en <input type="text" data-ans="voiture">.</p></div>
+
+    <div class="audio-box"><span class="icon">🔊</span><div class="info"><b>4 — Maroc</b></div>
+      <button class="play-btn" onclick="speakFR('J&apos;habite au Maroc, en Afrique du Nord. Je prends le car de ramassage scolaire pour aller au lycée. C&apos;est assez rapide.')">▶ Écouter</button></div>
+    <div class="q"><p>J'habite au Maroc, en Afrique du Nord. Je prends le <input type="text" data-ans="car"> de ramassage scolaire pour aller au lycée. C'est assez rapide.</p></div>
+
+    <button class="check-btn" onclick="checkInputs('ex6','sc6',false)">Vérifier</button>
+    <button class="reveal-btn" onclick="revealInputs('ex6')">Voir les réponses</button>
+    <div class="score" id="sc6"></div>
+  </div>
+
+  <div class="tip"><strong>🌴 Les Antilles</strong> — les îles des Caraïbes.</div>
+
+  <div class="grammar">
+    <h4>Les prépositions devant les moyens de transport</h4>
+    <p><b>à</b> = transports ouverts (à l'extérieur) → <em>à moto, à vélo, à mobylette, à cheval, à pied</em></p>
+    <p><b>en</b> = transports fermés (à l'intérieur) → <em>en train, en avion, en bus, en métro, en bateau, en voiture, en car</em></p>
+    <button class="speak-btn" onclick="speakFR('Je vais à l&apos;école à pied, à vélo, en bus, en voiture ou en train.')">🔊 Écouter</button>
+  </div>
+</section>
+
+<!-- ============ EXERCISE 7 — WRITING ============ -->
+<section>
+  <span class="tag gold">Exercice 7 · Production écrite</span>
+  <h2>Écris un paragraphe (60–75 mots)</h2>
+  <p>Réponds aux questions :</p>
+  <ul>
+    <li>Dans quel pays habitez-vous ?</li>
+    <li>Comment est le climat ?</li>
+    <li>Comment allez-vous au collège et pourquoi ?</li>
+  </ul>
+  <textarea id="writing" style="width:100%;min-height:160px;padding:12px;border:2px solid var(--border);border-radius:8px;font-family:inherit;font-size:1rem" placeholder="Commence ici… J'habite…"></textarea>
+  <div style="display:flex;gap:10px;align-items:center;margin-top:8px;flex-wrap:wrap">
+    <span class="score" id="wordcount">0 mots</span>
+    <button class="reveal-btn" onclick="document.getElementById('model').classList.toggle('show')">Voir un modèle</button>
+  </div>
+
+  <div class="transcript" id="model">
+    <b>Modèle (≈ 70 mots) :</b><br>
+    J'habite en Angleterre, dans le nord-ouest, à Manchester. Le climat est assez humide : il pleut souvent et en hiver il fait froid. En été, il fait beau et il y a parfois du soleil, mais ce n'est pas très chaud. Je vais au collège en bus parce que c'est rapide et pratique. Quand il fait beau, je préfère y aller à pied avec mes amis. J'adore ma ville !
+    <button class="speak-btn" onclick="speakFR(document.getElementById('model').innerText.replace('Modèle (≈ 70 mots) :',''))">🔊 Écouter</button>
+  </div>
+</section>
+
+<footer>
+  GCSE / IGCSE French — <b>De la ville à la campagne</b> · Conçu pour apprendre, pratiquer et briller. 🇫🇷
+</footer>
+
+</main>
+
+<script>
+  // ---- TTS ----
+  function speakFR(text){
+    if(!('speechSynthesis' in window)){alert('Audio non supporté');return;}
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR'; u.rate = 0.95;
+    const v = speechSynthesis.getVoices().find(v=>v.lang.startsWith('fr'));
+    if(v) u.voice = v;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged = ()=>{};
+
+  // ---- Normalize ----
+  function norm(s){return (s||'').toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,' ');}
+
+  // ---- Check inputs (text) ----
+  function checkInputs(sectionId, scoreId, unordered){
+    const sec = document.getElementById(sectionId);
+    const questions = sec.querySelectorAll('.q');
+    let total=0, correct=0;
+    questions.forEach(q=>{
+      const inputs = q.querySelectorAll('input[type=text]');
+      if(unordered && inputs.length>1){
+        const answers = Array.from(inputs).map(i=>norm(i.dataset.ans));
+        const given = Array.from(inputs).map(i=>norm(i.value));
+        const used=new Array(answers.length).fill(false);
+        inputs.forEach((inp,idx)=>{
+          total++;
+          const g=given[idx]; if(!g){inp.classList.remove('correct','wrong');inp.classList.add('wrong');return;}
+          const found = answers.findIndex((a,i)=>!used[i]&&a===g);
+          if(found>=0){used[found]=true;correct++;inp.classList.remove('wrong');inp.classList.add('correct');}
+          else{inp.classList.remove('correct');inp.classList.add('wrong');}
+        });
+      } else {
+        inputs.forEach(inp=>{
+          total++;
+          if(norm(inp.value)===norm(inp.dataset.ans)){correct++;inp.classList.remove('wrong');inp.classList.add('correct');}
+          else{inp.classList.remove('correct');inp.classList.add('wrong');}
+        });
+      }
+    });
+    document.getElementById(scoreId).innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealInputs(sectionId){
+    document.querySelectorAll('#'+sectionId+' input[type=text]').forEach(i=>{i.value=i.dataset.ans;i.classList.remove('wrong');i.classList.add('correct');});
+  }
+
+  // ---- Match ----
+  function checkMatch(sectionId, scoreId){
+    const selects = document.querySelectorAll('#'+sectionId+' select');
+    let c=0;
+    selects.forEach(s=>{
+      if(s.value.toLowerCase()===s.dataset.ans){c++;s.classList.remove('wrong');s.classList.add('correct');}
+      else{s.classList.remove('correct');s.classList.add('wrong');}
+    });
+    document.getElementById(scoreId).innerText = `Score : ${c} / ${selects.length}`;
+  }
+  function revealMatch(sectionId){
+    document.querySelectorAll('#'+sectionId+' select').forEach(s=>{s.value=s.dataset.ans;s.classList.remove('wrong');s.classList.add('correct');});
+  }
+
+  // ---- Word count ----
+  const ta=document.getElementById('writing'), wc=document.getElementById('wordcount');
+  ta.addEventListener('input',()=>{
+    const n=ta.value.trim().split(/\s+/).filter(Boolean).length;
+    wc.innerText = `${n} mots`;
+    wc.style.color = (n>=60 && n<=75) ? '#1e6b1e' : 'var(--muted)';
+  });
+</script>
+
+</body>
+</html>

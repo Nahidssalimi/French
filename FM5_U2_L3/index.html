@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Vacances de rêve & le conditionnel — IGCSE French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f7fb; --ink:#0e1a2b; --muted:#5a6473;
+    --red:#7a1722; --red-dark:#5a0f18;
+    --blue:#0f2a4a; --blue-dark:#08182b;
+    --card:#fff; --border:#d9dde5; --shadow:0 10px 30px rgba(8,24,43,.08);
+    --gold:#c9a227;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  header{background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:#fff;padding:48px 24px;text-align:center;border-bottom:6px solid var(--red);position:relative;overflow:hidden}
+  header::before{content:"⛺";position:absolute;font-size:14rem;opacity:.07;top:-20px;right:-10px;transform:rotate(-10deg)}
+  header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);margin:.2em 0;position:relative}
+  header p{max-width:780px;margin:0 auto;opacity:.92;position:relative}
+  .badges{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap;position:relative}
+  .badge{background:rgba(255,255,255,.12);padding:6px 14px;border-radius:999px;font-size:.85rem;border:1px solid rgba(255,255,255,.2)}
+  main{max-width:1100px;margin:0 auto;padding:32px 20px}
+  section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:28px;box-shadow:var(--shadow)}
+  .tag{display:inline-block;background:var(--red);color:#fff;padding:4px 12px;border-radius:4px;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+  .tag.gold{background:var(--gold);color:var(--blue-dark)}
+  h2{font-family:'Playfair Display',serif;font-size:1.9rem;margin:.3em 0 .5em;color:var(--blue)}
+  h3{margin-top:1.4em;color:var(--red)}
+  .sub{color:var(--muted);font-style:italic;font-size:.95rem}
+  .objectifs{background:#eef2f8;border-left:5px solid var(--blue);padding:18px 22px;border-radius:8px}
+  .objectifs ul{margin:8px 0 0 18px;padding:0}
+  .tip{background:#fff7e0;border-left:5px solid var(--gold);padding:14px 18px;border-radius:8px;margin:14px 0}
+  .tip strong{color:var(--blue)}
+  .grammar{background:#f3eef8;border-left:5px solid var(--red);padding:16px 20px;border-radius:8px;margin:14px 0}
+  .grammar h4{margin:.2em 0;color:var(--red);font-family:'Playfair Display',serif}
+  .grammar table{width:100%;border-collapse:collapse;margin-top:8px;background:#fff;border-radius:6px;overflow:hidden}
+  .grammar th{background:var(--blue);color:#fff;padding:8px;text-align:left;font-family:'Playfair Display',serif;font-size:.9rem}
+  .grammar td{padding:7px 9px;border-top:1px solid var(--border);font-size:.92rem}
+
+  .audio-box{background:linear-gradient(135deg,#eef2f8,#fff);border:2px solid var(--blue);border-radius:10px;padding:18px;margin:14px 0;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .audio-box .icon{font-size:2.4rem}
+  .audio-box .info{flex:1;min-width:200px}
+  .audio-box .info b{color:var(--blue);font-family:'Playfair Display',serif;font-size:1.1rem}
+  .audio-box .info .meta{color:var(--muted);font-size:.85rem}
+  .play-btn{background:var(--red);color:#fff;border:none;padding:10px 18px;border-radius:6px;font-weight:600;cursor:pointer;font-size:.95rem}
+  .play-btn:hover{background:var(--red-dark)}
+  .speak-btn{background:var(--blue);color:#fff;border:none;padding:6px 10px;border-radius:6px;cursor:pointer;font-weight:600;font-size:.82rem}
+  .speak-btn:hover{background:var(--red)}
+
+  .transcript{margin-top:10px;background:#fff;border:1px dashed var(--border);border-radius:8px;padding:14px;color:var(--blue-dark);display:none}
+  .transcript.show{display:block}
+  .transcript p{margin:6px 0}
+  .transcript .who{color:var(--red);font-weight:700}
+
+  .q{background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;border-left:4px solid var(--blue)}
+  .q .qtext{margin:0 0 10px;font-weight:600;color:var(--blue)}
+  .q input[type=text], .q select{padding:7px 10px;border:2px solid var(--border);border-radius:6px;font-family:inherit;font-size:.95rem;min-width:140px}
+  .q input.correct, .q select.correct{border-color:#1e6b1e;background:#e6f3e6}
+  .q input.wrong, .q select.wrong{border-color:var(--red);background:#fbeef0}
+  .check-btn{background:var(--red);color:#fff;border:none;padding:10px 22px;border-radius:6px;font-weight:600;cursor:pointer;margin-top:10px}
+  .check-btn:hover{background:var(--red-dark)}
+  .reveal-btn{background:transparent;color:var(--blue);border:2px solid var(--blue);padding:8px 16px;border-radius:6px;font-weight:600;cursor:pointer;margin-top:10px;margin-left:8px}
+  .reveal-btn:hover{background:var(--blue);color:#fff}
+  .score{margin-top:10px;font-weight:700;color:var(--blue);font-family:'Playfair Display',serif;font-size:1.1rem}
+
+  .vf-buttons{display:flex;gap:8px;max-width:180px}
+  .vf-buttons button{flex:1;padding:8px;border:2px solid var(--border);background:#fff;border-radius:6px;font-weight:700;cursor:pointer;font-family:inherit}
+  .vf-buttons button.sel-v{background:#e6f3e6;border-color:#1e6b1e;color:#1e6b1e}
+  .vf-buttons button.sel-f{background:#fbeef0;border-color:var(--red);color:var(--red)}
+  .vf-buttons button.correct{box-shadow:0 0 0 3px #1e6b1e inset}
+  .vf-buttons button.wrong{box-shadow:0 0 0 3px var(--red) inset}
+
+  .verb-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;margin:14px 0}
+  .verb{background:#eef2f8;border-left:4px solid var(--gold);padding:8px 12px;border-radius:6px;font-weight:600;color:var(--blue)}
+  .verb span{display:block;font-weight:400;font-style:italic;color:var(--muted);font-size:.82rem}
+
+  footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">Point de départ 3</span>
+  <h1>Mes vacances de rêve</h1>
+  <p>Parle de tes vacances idéales et maîtrise le <strong>conditionnel</strong> en français.</p>
+  <div class="badges">
+    <span class="badge">D5 Travel & Tourism</span>
+    <span class="badge">Le conditionnel</span>
+    <span class="badge">Si + imparfait</span>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <span class="tag">Objectifs</span>
+  <h2>Ce que tu vas apprendre</h2>
+  <div class="objectifs">
+    <ul>
+      <li>Décrire des vacances de rêve (logement, activités, ambiance).</li>
+      <li>Conjuguer et reconnaître les verbes au <strong>conditionnel présent</strong>.</li>
+      <li>Utiliser la structure <em>Si + imparfait, … conditionnel</em>.</li>
+      <li>Accorder les adjectifs correctement dans un texte.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ EXERCISE 4 : Écoutez et lisez ============ -->
+<section>
+  <span class="tag">Exercice 4 — Compréhension orale & écrite</span>
+  <h2>Interview : les vacances de rêve de Mathilde</h2>
+  <p class="sub">Écoute l'interview, lis la transcription puis décide si chaque phrase est <strong>V</strong>raie ou <strong>F</strong>ausse.</p>
+
+  <div class="audio-box">
+    <div class="icon">🎧</div>
+    <div class="info">
+      <b>Interview : Thibault &amp; Mathilde</b>
+      <div class="meta">Niveau IGCSE · ~1 min 20</div>
+    </div>
+    <button class="play-btn" onclick="playInterview()">▶ Écouter</button>
+    <button class="play-btn" style="background:var(--blue)" onclick="stopSpeak()">⏹ Stop</button>
+    <button class="reveal-btn" onclick="toggle('tr4')">Afficher la transcription</button>
+  </div>
+
+  <div id="tr4" class="transcript">
+    <p><span class="who">Thibault :</span> Mathilde, parle-moi de tes vacances de rêve. Où logerais-tu si tu avais le choix ?</p>
+    <p><span class="who">Mathilde :</span> Voyons… Je crois que je logerais dans une simple caravane, à la montagne. Peut-être dans le Parc naturel des volcans d'Auvergne, près de Volvic. J'adore cet endroit ! Les paysages sont à couper le souffle.</p>
+    <p><span class="who">Thibault :</span> Avec qui voyagerais-tu ?</p>
+    <p><span class="who">Mathilde :</span> Je voyagerais avec ma meilleure copine ou bien seule, si elle était occupée.</p>
+    <p><span class="who">Thibault :</span> Qu'est-ce que tu y ferais ?</p>
+    <p><span class="who">Mathilde :</span> Eh bien, je me reposerais ! Je ferais des randonnées et peut-être aussi du canoë-kayak.</p>
+    <p><span class="who">Thibault :</span> Il y aurait autre chose ?</p>
+    <p><span class="who">Mathilde :</span> Je vais plutôt te dire ce qu'il n'y aurait pas ! Il n'y aurait pas beaucoup de monde, et il n'y aurait ni visites guidées ni spectacles. J'ai horreur de ça.</p>
+    <p><span class="who">Thibault :</span> Ce serait comment ?</p>
+    <p><span class="who">Mathilde :</span> Ce serait calme, tout simplement parfait ! Ce ne serait pas très luxueux mais ça ne me dérangerait pas. Je voudrais à tout prix passer des vacances comme ça.</p>
+  </div>
+
+  <div class="tip"><strong>Vocabulaire :</strong> <em>à couper le souffle</em> = <em>époustouflant</em> = <em>incroyable</em> (breathtaking).</div>
+
+  <div id="ex4q"></div>
+  <button class="check-btn" onclick="checkVF()">Vérifier mes réponses</button>
+  <div class="score" id="ex4score"></div>
+</section>
+
+<!-- ============ GRAMMAR : Le conditionnel ============ -->
+<section>
+  <span class="tag gold">Grammaire</span>
+  <h2>Le conditionnel présent</h2>
+  <p>Le conditionnel exprime ce qu'on <strong>ferait</strong> dans une situation imaginaire.</p>
+
+  <div class="grammar">
+    <h4>Formation : radical du <em>futur</em> + terminaisons de l'<em>imparfait</em></h4>
+    <table>
+      <tr><th>Pronom</th><th>Terminaison</th><th>Exemple : <em>loger</em></th></tr>
+      <tr><td>je</td><td>-ais</td><td>je loger<strong>ais</strong></td></tr>
+      <tr><td>tu</td><td>-ais</td><td>tu loger<strong>ais</strong></td></tr>
+      <tr><td>il / elle / on</td><td>-ait</td><td>elle loger<strong>ait</strong></td></tr>
+      <tr><td>nous</td><td>-ions</td><td>nous loger<strong>ions</strong></td></tr>
+      <tr><td>vous</td><td>-iez</td><td>vous loger<strong>iez</strong></td></tr>
+      <tr><td>ils / elles</td><td>-aient</td><td>ils loger<strong>aient</strong></td></tr>
+    </table>
+  </div>
+
+  <div class="grammar">
+    <h4>Verbes irréguliers (radical spécial)</h4>
+    <p style="margin:6px 0"><strong>être</strong> → je <em>serais</em> · <strong>avoir</strong> → j'<em>aurais</em> · <strong>aller</strong> → j'<em>irais</em> · <strong>faire</strong> → je <em>ferais</em> · <strong>pouvoir</strong> → je <em>pourrais</em> · <strong>vouloir</strong> → je <em>voudrais</em> · <strong>voir</strong> → je <em>verrais</em> · <strong>venir</strong> → je <em>viendrais</em>.</p>
+  </div>
+
+  <div class="tip"><strong>Structure clé :</strong> <em>Si + imparfait</em>, … <em>conditionnel</em>. → <em>Si j'<strong>avais</strong> le choix, je <strong>logerais</strong> dans une caravane.</em></div>
+</section>
+
+<!-- ============ EXERCISE 5 ============ -->
+<section>
+  <span class="tag">Exercice 5 — Conjugaison</span>
+  <h2>Les verbes au conditionnel</h2>
+
+  <h3>Partie A — Verbes utilisés par Mathilde</h3>
+  <p class="sub">Voici les verbes au conditionnel repérés dans l'interview :</p>
+  <div class="verb-list">
+    <div class="verb">je logerais <span>loger</span></div>
+    <div class="verb">tu voyagerais <span>voyager</span></div>
+    <div class="verb">je voyagerais <span>voyager</span></div>
+    <div class="verb">tu ferais <span>faire</span></div>
+    <div class="verb">je me reposerais <span>se reposer</span></div>
+    <div class="verb">je ferais <span>faire</span></div>
+    <div class="verb">il y aurait <span>avoir</span></div>
+    <div class="verb">ce serait <span>être</span></div>
+    <div class="verb">ça ne me dérangerait pas <span>déranger</span></div>
+    <div class="verb">je voudrais <span>vouloir</span></div>
+  </div>
+
+  <h3>Partie B — À toi : mets les verbes au conditionnel</h3>
+  <div id="ex5q"></div>
+  <button class="check-btn" onclick="checkEx5()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealEx5()">Voir les réponses</button>
+  <div class="score" id="ex5score"></div>
+</section>
+
+<!-- ============ EXERCISE 6 ============ -->
+<section>
+  <span class="tag gold">Exercice 6 — Expression orale</span>
+  <h2>À deux : préparez une interview</h2>
+  <p>Utilise les questions de l'exercice 4 avec un(e) partenaire. Voici un modèle :</p>
+
+  <div class="audio-box">
+    <div class="icon">💬</div>
+    <div class="info">
+      <b>Modèle de dialogue</b>
+      <div class="meta">Clique pour écouter</div>
+    </div>
+    <button class="play-btn" onclick="speakFR(modeleDialogue)">▶ Écouter</button>
+  </div>
+
+  <div class="grammar">
+    <p><span style="color:var(--red);font-weight:700">A :</span> Parle-moi de tes vacances de rêve. Où logerais-tu si tu avais le choix ?</p>
+    <p><span style="color:var(--blue);font-weight:700">B :</span> Je logerais dans une tente, sur une île déserte…</p>
+    <p><span style="color:var(--red);font-weight:700">A :</span> Avec qui voyagerais-tu ?</p>
+    <p><span style="color:var(--blue);font-weight:700">B :</span> Je voyagerais avec…</p>
+    <p><span style="color:var(--red);font-weight:700">A :</span> Qu'est-ce que tu y ferais ?</p>
+    <p><span style="color:var(--blue);font-weight:700">B :</span> Je…</p>
+    <p><span style="color:var(--red);font-weight:700">A :</span> Ce serait comment ?</p>
+    <p><span style="color:var(--blue);font-weight:700">B :</span> Ce serait…</p>
+  </div>
+
+  <div class="tip"><strong>Astuce d'examen :</strong> utilise au moins 4 verbes au conditionnel différents et ajoute une opinion (<em>j'adore, j'ai horreur de…</em>) pour gagner des points.</div>
+</section>
+
+<!-- ============ EXERCISE 7 ============ -->
+<section>
+  <span class="tag">Exercice 7 — Texte à compléter</span>
+  <h2>Accords &amp; conditionnel dans un texte</h2>
+  <p class="sub">Modifie les mots <strong>(a)–(j)</strong> pour que le texte soit correct. Attention : il n'est pas toujours nécessaire de changer le mot !</p>
+
+  <div id="ex7" style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:18px;line-height:2.2"></div>
+  <button class="check-btn" onclick="checkEx7()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealEx7()">Voir les réponses</button>
+  <div class="score" id="ex7score"></div>
+</section>
+
+<footer>
+  GCSE / IGCSE French — Vacances de rêve &amp; le conditionnel · Conçu pour apprendre, pratiquer et briller.
+</footer>
+
+<script>
+/* ============ TTS ============ */
+let voicesReady = false;
+function loadVoices(){ voicesReady = true; }
+if ('speechSynthesis' in window){
+  speechSynthesis.onvoiceschanged = loadVoices;
+  loadVoices();
+}
+function pickFR(){
+  const v = speechSynthesis.getVoices();
+  return v.find(x=>x.lang && x.lang.toLowerCase().startsWith('fr')) || null;
+}
+function speakFR(text, rate=0.92){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'fr-FR'; u.rate = rate;
+  const v = pickFR(); if(v) u.voice = v;
+  speechSynthesis.speak(u);
+}
+function stopSpeak(){ if('speechSynthesis' in window) speechSynthesis.cancel(); }
+function toggle(id){ document.getElementById(id).classList.toggle('show'); }
+
+/* ============ Interview audio (sequenced) ============ */
+const interviewLines = [
+  "Mathilde, parle-moi de tes vacances de rêve. Où logerais-tu si tu avais le choix ?",
+  "Voyons… Je crois que je logerais dans une simple caravane, à la montagne. Peut-être dans le Parc naturel des volcans d'Auvergne, près de Volvic. J'adore cet endroit ! Les paysages sont à couper le souffle.",
+  "Avec qui voyagerais-tu ?",
+  "Je voyagerais avec ma meilleure copine ou bien seule, si elle était occupée.",
+  "Qu'est-ce que tu y ferais ?",
+  "Eh bien, je me reposerais ! Je ferais des randonnées et peut-être aussi du canoë-kayak.",
+  "Il y aurait autre chose ?",
+  "Je vais plutôt te dire ce qu'il n'y aurait pas ! Il n'y aurait pas beaucoup de monde, et il n'y aurait ni visites guidées ni spectacles. J'ai horreur de ça.",
+  "Ce serait comment ?",
+  "Ce serait calme, tout simplement parfait ! Ce ne serait pas très luxueux mais ça ne me dérangerait pas. Je voudrais à tout prix passer des vacances comme ça."
+];
+function playInterview(){
+  speechSynthesis.cancel();
+  interviewLines.forEach(line=>{
+    const u = new SpeechSynthesisUtterance(line);
+    u.lang='fr-FR'; u.rate=0.92;
+    const v = pickFR(); if(v) u.voice=v;
+    speechSynthesis.speak(u);
+  });
+}
+const modeleDialogue = "Parle-moi de tes vacances de rêve. Où logerais-tu si tu avais le choix ? Je logerais dans une tente, sur une île déserte.";
+
+/* ============ Ex 4 : V/F ============ */
+const vfItems = [
+  { t:"Si elle avait le choix, elle logerait dans une caravane avec un minimum d'équipement.", a:'V' },
+  { t:"Elle voyagerait avec une amie ou seule.", a:'V' },
+  { t:"Elle écouterait la radio de temps en temps.", a:'F' },
+  { t:"Elle aime les paysages époustouflants.", a:'V' },
+  { t:"Elle ferait des activités en plein air.", a:'V' },
+  { t:"Elle irait à un spectacle.", a:'F' },
+  { t:"Elle consulterait souvent son téléphone.", a:'F' },
+  { t:"Elle cherche la paix et la tranquillité.", a:'V' }
+];
+const vfHost = document.getElementById('ex4q');
+vfItems.forEach((it,i)=>{
+  const d = document.createElement('div');
+  d.className='q';
+  d.innerHTML = `
+    <p class="qtext">${i+1}. ${it.t}</p>
+    <div class="vf-buttons" data-i="${i}">
+      <button type="button" onclick="pickVF(${i},'V',this)">Vrai</button>
+      <button type="button" onclick="pickVF(${i},'F',this)">Faux</button>
+    </div>`;
+  vfHost.appendChild(d);
+});
+const vfChoice = {};
+function pickVF(i,val,btn){
+  vfChoice[i]=val;
+  btn.parentElement.querySelectorAll('button').forEach(b=>b.className='');
+  btn.classList.add(val==='V'?'sel-v':'sel-f');
+}
+function checkVF(){
+  let s=0;
+  vfItems.forEach((it,i)=>{
+    const wrap = document.querySelector(`.vf-buttons[data-i="${i}"]`);
+    const btns = wrap.querySelectorAll('button');
+    btns.forEach(b=>b.classList.remove('correct','wrong'));
+    if(vfChoice[i]===it.a){ s++;
+      btns[it.a==='V'?0:1].classList.add('correct');
+    } else if(vfChoice[i]){
+      btns[vfChoice[i]==='V'?0:1].classList.add('wrong');
+      btns[it.a==='V'?0:1].classList.add('correct');
+    } else {
+      btns[it.a==='V'?0:1].classList.add('correct');
+    }
+  });
+  document.getElementById('ex4score').textContent = `Score : ${s} / ${vfItems.length}`;
+}
+
+/* ============ Ex 5 : conditionnel ============ */
+const ex5 = [
+  { p:'a', subj:'nous', inf:'se reposer', ans:['nous nous reposerions'] },
+  { p:'b', subj:'ils',  inf:'dormir',    ans:['ils dormiraient'] },
+  { p:'c', subj:'les filles', inf:"s'amuser", ans:["les filles s'amuseraient"] },
+  { p:'d', subj:'je',   inf:'se baigner', ans:['je me baignerais'] },
+  { p:'e', subj:'personne ne', inf:"s'ennuyer", ans:["personne ne s'ennuierait","personne ne s'ennuyerait"] },
+  { p:'f', subj:'elle', inf:'loger', ans:['elle logerait'] }
+];
+const ex5Host = document.getElementById('ex5q');
+ex5.forEach((it,i)=>{
+  const d=document.createElement('div');
+  d.className='q';
+  d.innerHTML=`<p class="qtext">${it.p}) <em>${it.subj}</em> (${it.inf})</p>
+    <input type="text" id="e5_${i}" placeholder="ta réponse complète…" style="min-width:280px">`;
+  ex5Host.appendChild(d);
+});
+function norm(s){ return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,' ').trim(); }
+function checkEx5(){
+  let s=0;
+  ex5.forEach((it,i)=>{
+    const inp=document.getElementById('e5_'+i);
+    inp.classList.remove('correct','wrong');
+    if(it.ans.some(a=>norm(a)===norm(inp.value))){ inp.classList.add('correct'); s++; }
+    else inp.classList.add('wrong');
+  });
+  document.getElementById('ex5score').textContent=`Score : ${s} / ${ex5.length}`;
+}
+function revealEx5(){
+  ex5.forEach((it,i)=>{
+    const inp=document.getElementById('e5_'+i);
+    inp.value=it.ans[0]; inp.classList.remove('wrong'); inp.classList.add('correct');
+  });
+}
+
+/* ============ Ex 7 : text gap-fill ============ */
+const ex7parts = [
+  { text:"Si j'avais le choix, je " },
+  { gap:true, k:'a', prompt:'voyager', ans:['voyagerais'] },
+  { text:" avec ma famille. Je m'entends bien avec ma sœur et mes parents sont très " },
+  { gap:true, k:'b', prompt:'gentil', ans:['gentils'] },
+  { text:". Nous " },
+  { gap:true, k:'c', prompt:'loger', ans:['logerions'] },
+  { text:" dans un hôtel quatre étoiles au bord de la mer. Ce " },
+  { gap:true, k:'d', prompt:'être', ans:['serait'] },
+  { text:" très luxueux. Il y " },
+  { gap:true, k:'e', prompt:'avoir', ans:['aurait'] },
+  { text:" une " },
+  { gap:true, k:'f', prompt:'grand', ans:['grande'] },
+  { text:" salle de jeux. Nous " },
+  { gap:true, k:'g', prompt:'se baigner', ans:['nous baignerions'] },
+  { text:" tous les jours dans une " },
+  { gap:true, k:'h', prompt:'beau', ans:['belle'] },
+  { text:" piscine et les repas servis par " },
+  { gap:true, k:'i', prompt:'être', ans:['seraient'] },
+  { text:" de délicieux. Au sous-sol de l'hôtel, il y aurait un cinéma qui resterait ouvert toute la nuit. Ma sœur adore les films, surtout les films " },
+  { gap:true, k:'j', prompt:'drôle', ans:['drôles'] },
+  { text:". Quelles vacances de rêve !" }
+];
+const ex7Host = document.getElementById('ex7');
+ex7parts.forEach((p,i)=>{
+  if(p.gap){
+    const span=document.createElement('span');
+    span.innerHTML = ` <strong style="color:var(--red)">(${p.k})</strong> <input type="text" id="e7_${p.k}" placeholder="${p.prompt}" style="min-width:130px"> `;
+    ex7Host.appendChild(span);
+  } else {
+    ex7Host.appendChild(document.createTextNode(p.text));
+  }
+});
+function checkEx7(){
+  let s=0, total=0;
+  ex7parts.filter(p=>p.gap).forEach(p=>{
+    total++;
+    const inp=document.getElementById('e7_'+p.k);
+    inp.classList.remove('correct','wrong');
+    if(p.ans.some(a=>norm(a)===norm(inp.value))){ inp.classList.add('correct'); s++; }
+    else inp.classList.add('wrong');
+  });
+  document.getElementById('ex7score').textContent=`Score : ${s} / ${total}`;
+}
+function revealEx7(){
+  ex7parts.filter(p=>p.gap).forEach(p=>{
+    const inp=document.getElementById('e7_'+p.k);
+    inp.value=p.ans[0]; inp.classList.remove('wrong'); inp.classList.add('correct');
+  });
+}
+</script>
+</body>
+</html>

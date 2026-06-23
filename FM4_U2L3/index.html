@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Le changement climatique : conséquences en France — IGCSE French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f7fb; --ink:#0e1a2b; --muted:#5a6473;
+    --red:#7a1722; --red-dark:#5a0f18;
+    --blue:#0f2a4a; --blue-dark:#08182b;
+    --card:#fff; --border:#d9dde5; --shadow:0 10px 30px rgba(8,24,43,.08);
+    --gold:#c9a227; --green:#2d6a4f;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  header{background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:#fff;padding:48px 24px;text-align:center;border-bottom:6px solid var(--red);position:relative;overflow:hidden}
+  header::before{content:"🌍";position:absolute;font-size:14rem;opacity:.07;top:-30px;right:-20px;transform:rotate(-12deg)}
+  header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);margin:.2em 0;position:relative}
+  header p{max-width:780px;margin:0 auto;opacity:.92;position:relative}
+  .badges{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap;position:relative}
+  .badge{background:rgba(255,255,255,.12);padding:6px 14px;border-radius:999px;font-size:.85rem;border:1px solid rgba(255,255,255,.2)}
+  main{max-width:1100px;margin:0 auto;padding:32px 20px}
+  section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:28px;box-shadow:var(--shadow)}
+  .tag{display:inline-block;background:var(--red);color:#fff;padding:4px 12px;border-radius:4px;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+  .tag.gold{background:var(--gold);color:var(--blue-dark)}
+  h2{font-family:'Playfair Display',serif;font-size:1.9rem;margin:.3em 0 .5em;color:var(--blue)}
+  h3{margin-top:1.4em;color:var(--red)}
+  .sub{color:var(--muted);font-style:italic;font-size:.95rem}
+  .objectifs{background:#eef2f8;border-left:5px solid var(--blue);padding:18px 22px;border-radius:8px}
+  .objectifs ul{margin:8px 0 0 18px;padding:0}
+  .tip{background:#fff7e0;border-left:5px solid var(--gold);padding:14px 18px;border-radius:8px;margin:14px 0}
+  .tip strong{color:var(--blue)}
+  .grammar{background:#eef8f2;border-left:5px solid var(--green);padding:16px 20px;border-radius:8px;margin:14px 0}
+  .grammar h4{margin:.2em 0;color:var(--green);font-family:'Playfair Display',serif}
+
+  .audio-box{background:linear-gradient(135deg,#eef2f8,#fff);border:2px solid var(--blue);border-radius:10px;padding:18px;margin:14px 0;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .audio-box .icon{font-size:2.4rem}
+  .audio-box .info{flex:1;min-width:200px}
+  .audio-box .info b{color:var(--blue);font-family:'Playfair Display',serif;font-size:1.1rem}
+  .audio-box .info .meta{color:var(--muted);font-size:.85rem}
+  .play-btn{background:var(--red);color:#fff;border:none;padding:10px 18px;border-radius:6px;font-weight:600;cursor:pointer;font-size:.95rem}
+  .play-btn:hover{background:var(--red-dark)}
+  .speak-btn{background:var(--blue);color:#fff;border:none;padding:6px 10px;border-radius:6px;cursor:pointer;font-weight:600;font-size:.82rem}
+  .speak-btn:hover{background:var(--red)}
+  .transcript{margin-top:10px;background:#fff;border:1px dashed var(--border);border-radius:8px;padding:14px;display:none;font-style:italic;color:var(--blue-dark)}
+  .transcript.show{display:block}
+  .q{background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;border-left:4px solid var(--blue)}
+  .q .qtext{margin:0 0 10px;font-weight:600;color:var(--blue)}
+  .q input[type=text], .q textarea{padding:7px 10px;border:2px solid var(--border);border-radius:6px;font-family:inherit;font-size:.95rem;width:100%}
+  .q input[type=text]{min-width:140px;width:auto}
+  .q input.correct, .q select.correct{border-color:#1e6b1e;background:#e6f3e6}
+  .q input.wrong, .q select.wrong{border-color:var(--red);background:#fbeef0}
+  .check-btn{background:var(--red);color:#fff;border:none;padding:10px 22px;border-radius:6px;font-weight:600;cursor:pointer;margin-top:10px}
+  .check-btn:hover{background:var(--red-dark)}
+  .reveal-btn{background:transparent;color:var(--blue);border:2px solid var(--blue);padding:8px 16px;border-radius:6px;font-weight:600;cursor:pointer;margin-top:10px;margin-left:8px}
+  .reveal-btn:hover{background:var(--blue);color:#fff}
+  .score{margin-top:10px;font-weight:700;color:var(--blue);font-family:'Playfair Display',serif;font-size:1.1rem}
+
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:14px 0}
+  .vocab{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center;cursor:pointer;transition:.2s;border-top:4px solid var(--gold)}
+  .vocab:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-top-color:var(--blue)}
+  .vocab .emoji{font-size:2rem;display:block}
+  .vocab .fr{font-weight:600;color:var(--blue);margin-top:4px;font-size:.95rem}
+  .vocab .en{font-size:.8rem;color:var(--muted)}
+
+  .note{background:#eef2f8;border-left:4px solid var(--gold);padding:12px 18px;border-radius:8px;margin-top:16px;font-size:.9rem;text-align:right;font-style:italic}
+  footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--border)}
+  .fact-card{background:linear-gradient(135deg,#eef2f8,#fff);border-radius:10px;padding:18px;margin-top:20px;border:1px solid var(--border)}
+  .fact-card h4{margin-top:0;color:var(--red);font-family:'Playfair Display',serif}
+  .inline-inputs{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .inline-inputs input{flex:1;min-width:140px}
+  @media (max-width:680px){.q input[type=text]{width:100%}}
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">Le changement climatique</span>
+  <h1>Quelles seront les conséquences en France ?</h1>
+  <p>Comprendre les effets du réchauffement climatique en France et ailleurs</p>
+  <div class="badges">
+    <span class="badge">Environnement</span>
+    <span class="badge">Lecture & Compréhension</span>
+    <span class="badge">Futur simple</span>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <span class="tag">Objectifs</span>
+  <h2>Ce que tu vas apprendre</h2>
+  <div class="objectifs">
+    <ul>
+      <li>Comprendre les principales conséquences du changement climatique en France (précipitations, canicules, neige).</li>
+      <li>Découvrir des exemples concrets ailleurs dans le monde (cyclone Pam).</li>
+      <li>Utiliser le futur simple pour parler de ce qui se passera (<em>aura, seront, fera</em>).</li>
+      <li>Répondre à des questions de compréhension en français.</li>
+      <li>Apprendre du vocabulaire lié au climat (<em>température, canicule, ouragan</em>).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ TEXTE PRINCIPAL ============ -->
+<section>
+  <span class="tag gold">📖 Lecture</span>
+  <h2>Les conséquences en France et dans le monde</h2>
+  <div class="fact-card" style="background:#fef7e0; border-left:8px solid var(--red);">
+    <p style="font-size:1.2rem; font-weight:800; font-family:'Playfair Display', serif; margin:0 0 12px;">🔥 Selon les scientifiques, la température mondiale augmentera de 2 à 6°C au cours du XXIème siècle.</p>
+    <button class="speak-btn" onclick="speakFR('Selon les scientifiques, la température mondiale augmentera de 2 à 6 degrés Celsius au cours du vingt et unième siècle.')">🔊 Écouter la phrase</button>
+  </div>
+  
+  <p><strong>En France</strong>, une des conséquences du changement climatique sera qu'on aura plus de pluie en hiver, mais moins de pluie en été. Il y aura plus de « canicules » ou vagues de chaleur. Enfin, il y aura moins de neige et les stations de ski situées à moins de 1 500 mètres d'altitude seront obligées de fermer leurs pistes.</p>
+  
+  <p><strong>Ailleurs dans le monde</strong>, les conséquences seront encore plus graves. Il y aura plus de tempêtes tropicales comme le cyclone Pam, un très violent ouragan qui a frappé les petites îles du Vanuatu, dans le Pacifique Sud, le 14 mars 2015. Il a causé d'énormes destructions et fait plusieurs morts.</p>
+  
+  <p><strong>Que ferons-nous pour arrêter le changement climatique ?</strong></p>
+  
+  <div class="audio-box">
+    <span class="icon">🎧</span>
+    <div class="info"><b>Écoute le texte intégral</b><div class="meta">Lecture lente</div></div>
+    <button class="play-btn" onclick="speakFR('En France, une des conséquences du changement climatique sera qu&apos;on aura plus de pluie en hiver, mais moins de pluie en été. Il y aura plus de canicules ou vagues de chaleur. Enfin, il y aura moins de neige et les stations de ski situées à moins de 1500 mètres d&apos;altitude seront obligées de fermer leurs pistes. Ailleurs dans le monde, les conséquences seront encore plus graves. Il y aura plus de tempêtes tropicales comme le cyclone Pam, un très violent ouragan qui a frappé les petites îles du Vanuatu, dans le Pacifique Sud, le 14 mars 2015. Il a causé d&apos;énormes destructions et fait plusieurs morts. Que ferons-nous pour arrêter le changement climatique?')">▶ Écouter tout le texte</button>
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Afficher le texte</button>
+    <div class="transcript">En France : plus de pluie en hiver, moins en été, canicules, moins de neige → stations de ski &lt;1500 m ferment. Ailleurs : cyclone Pam (Vanuatu, 2015) → destructions, morts.</div>
+  </div>
+  
+  <div class="note">
+    📘 <strong>augmenter</strong> = être plus haut / être en hausse
+  </div>
+</section>
+
+<!-- ============ VOCABULAIRE CLIMAT ============ -->
+<section>
+  <span class="tag gold">🌡️ Vocabulaire</span>
+  <h2>Mots clés du changement climatique</h2>
+  <div class="vocab-grid">
+    <div class="vocab" onclick="speakFR('une canicule')"><span class="emoji">☀️🔥</span><div class="fr">une canicule</div><div class="en">heatwave</div></div>
+    <div class="vocab" onclick="speakFR('une vague de chaleur')"><span class="emoji">🌡️</span><div class="fr">une vague de chaleur</div><div class="en">heatwave</div></div>
+    <div class="vocab" onclick="speakFR('le réchauffement climatique')"><span class="emoji">🌍📈</span><div class="fr">le réchauffement climatique</div><div class="en">global warming</div></div>
+    <div class="vocab" onclick="speakFR('un cyclone, un ouragan')"><span class="emoji">🌀</span><div class="fr">un cyclone / ouragan</div><div class="en">cyclone / hurricane</div></div>
+    <div class="vocab" onclick="speakFR('une tempête tropicale')"><span class="emoji">🌊💨</span><div class="fr">une tempête tropicale</div><div class="en">tropical storm</div></div>
+    <div class="vocab" onclick="speakFR('la fonte des neiges')"><span class="emoji">⛷️❄️</span><div class="fr">moins de neige</div><div class="en">less snow</div></div>
+  </div>
+  <div class="tip">
+    <strong>🗣️ Astuce :</strong> « Canicule » vient du latin « canicula » (petite chienne, étoile Sirius). On utilise aussi <em>vague de chaleur</em>.
+  </div>
+</section>
+
+<!-- ============ EXERCICE 1 : COMPRÉHENSION ============ -->
+<section>
+  <span class="tag">📝 Exercice 1 · Compréhension écrite</span>
+  <h2>Réponds aux questions</h2>
+  <p class="sub">Utilise tes propres mots quand c'est demandé.</p>
+
+  <div id="ex1">
+    <div class="q">
+      <p class="qtext">1. D'après les scientifiques, qu'est-ce qui se passera durant le vingt et unième siècle ?</p>
+      <input type="text" data-ans="la température mondiale augmentera de 2 à 6°C" style="width:100%; max-width:400px" placeholder="Réponse...">
+    </div>
+    <div class="q">
+      <p class="qtext">2. Quel sera l'impact de ceci sur les chutes de pluie en France ? Donnez <strong>deux détails</strong>.</p>
+      <div class="inline-inputs">
+        <input type="text" data-ans1="plus de pluie en hiver" placeholder="1er détail">
+        <input type="text" data-ans2="moins de pluie en été" placeholder="2ème détail">
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">3. Expliquez en utilisant vos propres mots le terme « canicule ».</p>
+      <textarea data-ans-type="free" style="width:100%" rows="2" placeholder="Explique avec tes mots..."></textarea>
+      <div class="tip" style="margin-top:8px"><small>✨ Exemple possible : "Une canicule est une période de très fortes chaleurs qui dure plusieurs jours."</small></div>
+    </div>
+    <div class="q">
+      <p class="qtext">4. Qu'est-ce que certaines stations de ski devront faire et pourquoi ?</p>
+      <input type="text" data-ans="fermer leurs pistes" style="width:100%; max-width:400px" placeholder="Action des stations">
+      <p style="margin-top:6px"><strong>Pourquoi ?</strong> <input type="text" data-ans2="il y aura moins de neige" style="width:100%; max-width:400px" placeholder="Raison"></p>
+    </div>
+    <div class="q">
+      <p class="qtext">5. Quels ont été les effets du cyclone Pam au Vanuatu ? Donnez <strong>deux détails</strong>.</p>
+      <div class="inline-inputs">
+        <input type="text" data-ans1="d'énormes destructions" placeholder="Effet 1">
+        <input type="text" data-ans2="plusieurs morts" placeholder="Effet 2">
+      </div>
+    </div>
+
+    <button class="check-btn" onclick="checkComprehension('ex1','sc1')">Vérifier les réponses</button>
+    <button class="reveal-btn" onclick="revealComprehension('ex1')">Voir les réponses</button>
+    <div class="score" id="sc1"></div>
+  </div>
+</section>
+
+<!-- ============ EXERCICE 2 : GRAMMAIRE FUTUR SIMPLE ============ -->
+<section>
+  <span class="tag">🔮 Grammaire</span>
+  <h2>Le futur simple : parler de l'avenir</h2>
+  <div class="grammar">
+    <h4>✨ Formation du futur simple</h4>
+    <p>Infinitif + terminaisons : <strong>-ai, -as, -a, -ons, -ez, -ont</strong><br>
+    Exemple : <em>augmenter</em> → j'augmenter<strong>ai</strong>, tu augmenter<strong>as</strong>, il/elle augmenter<strong>a</strong>, nous augmenter<strong>ons</strong>, vous augmenter<strong>ez</strong>, ils/elles augmenter<strong>ont</strong>.</p>
+    <p>Verbes irréguliers : <em>être → je serai, avoir → j'aurai, faire → je ferai, aller → j'irai</em>.</p>
+    <button class="speak-btn" onclick="speakFR('Il y aura plus de canicules. Nous ferons des efforts. La température augmentera.')">🔊 Écouter des exemples</button>
+  </div>
+
+  <h3>Transformer les phrases au futur simple</h3>
+  <div id="ex2">
+    <div class="q">
+      <p class="qtext">a. Aujourd'hui, il <strong>fait</strong> chaud. → Demain, il <input type="text" data-ans="fera" style="width:120px"> très chaud.</p>
+    </div>
+    <div class="q">
+      <p class="qtext">b. Nous <strong>avons</strong> des pluies abondantes. → Dans le futur, nous <input type="text" data-ans="aurons" style="width:120px"> des pluies différentes.</p>
+    </div>
+    <div class="q">
+      <p class="qtext">c. Les stations de ski <strong>sont</strong> en danger. → Les stations de ski <input type="text" data-ans="seront" style="width:120px"> obligées de fermer.</p>
+    </div>
+    <div class="q">
+      <p class="qtext">d. Que <strong>faisons</strong>-nous ? → Que <input type="text" data-ans="ferons" style="width:120px">-nous pour arrêter le changement climatique ?</p>
+    </div>
+    <button class="check-btn" onclick="checkGrammar('ex2','sc2')">Vérifier</button>
+    <button class="reveal-btn" onclick="revealGrammar('ex2')">Voir les réponses</button>
+    <div class="score" id="sc2"></div>
+  </div>
+</section>
+
+<!-- ============ EXERCICE 3 : VRAI/FAUX ============ -->
+<section>
+  <span class="tag">✅❌ Vrai ou Faux ?</span>
+  <h2>Comprendre le texte</h2>
+  <div id="ex3"></div>
+  <button class="check-btn" onclick="checkVF('ex3','sc3')">Vérifier</button>
+  <button class="reveal-btn" onclick="revealVF('ex3')">Voir les réponses</button>
+  <div class="score" id="sc3"></div>
+</section>
+
+<!-- ============ EXERCICE 4 : ORAL / PAIR WORK ============ -->
+<section>
+  <span class="tag gold">🎙️ Expression orale</span>
+  <h2>À deux : discuter des conséquences</h2>
+  <div class="role-play" style="background:#eef2f8; border-radius:10px; padding:18px">
+    <div class="turn"><b>Élève A :</b> Selon toi, quelles seront les conséquences du changement climatique en France ?</div>
+    <div class="turn b"><b>Élève B :</b> D'après le texte, il y aura plus de canicules, moins de neige, et des stations de ski fermeront.</div>
+    <button class="speak-btn" onclick="speakFR('D&apos;après le texte, il y aura plus de canicules, moins de neige, et des stations de ski fermeront.')">🔊 Modèle de réponse</button>
+  </div>
+  <div class="role-play" style="margin-top:16px">
+    <div class="turn"><b>Question bonus :</b> Que ferons-nous pour arrêter le changement climatique ? Donne ton opinion.</div>
+    <button class="speak-btn" onclick="speakFR('Nous devons réduire la pollution, utiliser des énergies renouvelables et planter des arbres.')">🔊 Exemple d'opinion</button>
+  </div>
+</section>
+
+<!-- ============ EXERCICE 5 : PRODUCTION ÉCRITE ============ -->
+<section>
+  <span class="tag">✍️ Production écrite</span>
+  <h2>Écris un paragraphe</h2>
+  <p class="sub">Rédige 40-60 mots sur les conséquences du changement climatique en France, en utilisant le futur simple.</p>
+  <div class="q">
+    <textarea id="writing" rows="5" placeholder="En France, le climat va changer… Par exemple, il y aura... Les canicules seront... Les stations de ski..."></textarea>
+    <div style="margin-top:6px"><span class="score" id="writingCount">0 mots</span></div>
+  </div>
+  <button class="reveal-btn" onclick="showWritingModel()">Voir un modèle</button>
+  <div class="transcript" id="writingModel" style="margin-top:10px">
+    <p><strong>📝 Modèle :</strong> En France, le changement climatique aura des conséquences importantes. Il y aura plus de canicules, c'est-à-dire des vagues de chaleur très fortes. En hiver, on aura plus de pluie, mais en été, il pleuvra moins. Les stations de ski situées à basse altitude fermeront à cause du manque de neige. Il faudra agir vite !</p>
+    <button class="speak-btn" onclick="speakFR('En France, le changement climatique aura des conséquences importantes. Il y aura plus de canicules, c&apos;est-à-dire des vagues de chaleur très fortes. En hiver, on aura plus de pluie, mais en été, il pleuvra moins. Les stations de ski situées à basse altitude fermeront à cause du manque de neige. Il faudra agir vite !')">🔊 Écouter</button>
+  </div>
+</section>
+
+<footer>
+  IGCSE French — <b>Le changement climatique : quelles conséquences en France ?</b> · Compréhension, vocabulaire et futur simple. 🌱
+</footer>
+</main>
+
+<script>
+  function speakFR(text){
+    if(!('speechSynthesis' in window)){alert('Audio non supporté');return;}
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang='fr-FR'; u.rate=0.92;
+    const v = speechSynthesis.getVoices().find(v=>v.lang.startsWith('fr'));
+    if(v) u.voice=v;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged=()=>{};
+
+  function norm(s){return (s||'').toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,' ');}
+  
+  // Comprehension with flexible matching
+  function checkComprehension(sectionId, scoreId){
+    const sec=document.getElementById(sectionId);
+    let total=0, correct=0;
+    const qs=sec.querySelectorAll('.q');
+    // question 1
+    const q1=qs[0].querySelector('input');
+    total++;
+    const ans1Norm=norm("la température mondiale augmentera de 2 à 6°c");
+    const user1=norm(q1.value);
+    if(user1 && (user1.includes('augmentera') || user1.includes('température') || ans1Norm===user1 || user1.includes('2 à 6'))){correct++;q1.classList.add('correct');q1.classList.remove('wrong');}
+    else{q1.classList.remove('correct');q1.classList.add('wrong');}
+    // question 2 (deux champs)
+    const q2inputs=qs[1].querySelectorAll('input');
+    const ans2a=norm('plus de pluie en hiver'), ans2b=norm('moins de pluie en été');
+    const user2a=norm(q2inputs[0].value), user2b=norm(q2inputs[1].value);
+    total+=2;
+    if(user2a && (user2a.includes('plus') && user2a.includes('hiver') || ans2a===user2a)){correct++;q2inputs[0].classList.add('correct');}else{q2inputs[0].classList.add('wrong');}
+    if(user2b && (user2b.includes('moins') && user2b.includes('été') || ans2b===user2b)){correct++;q2inputs[1].classList.add('correct');}else{q2inputs[1].classList.add('wrong');}
+    // question 3 (free text, just check if not empty)
+    const q3area=qs[2].querySelector('textarea');
+    total++;
+    if(q3area.value.trim().length>8){correct++;q3area.style.borderColor='#1e6b1e';q3area.style.background='#e6f3e6';}else{q3area.style.borderColor='var(--red)';q3area.style.background='#fbeef0';}
+    // question 4: action + reason
+    const q4action=qs[3].querySelector('input:first-of-type');
+    const q4reason=qs[3].querySelector('input:last-of-type');
+    total+=2;
+    const actNorm=norm('fermer leurs pistes');
+    const userAct=norm(q4action.value);
+    if(userAct && (userAct.includes('fermer') || actNorm===userAct)){correct++;q4action.classList.add('correct');}else{q4action.classList.add('wrong');}
+    const reasonNorm=norm('il y aura moins de neige');
+    const userReason=norm(q4reason.value);
+    if(userReason && (userReason.includes('moins de neige') || userReason.includes('neige'))){correct++;q4reason.classList.add('correct');}else{q4reason.classList.add('wrong');}
+    // question 5: deux effets
+    const q5inputs=qs[4].querySelectorAll('input');
+    const eff1=norm('d\'énormes destructions'), eff2=norm('plusieurs morts');
+    const ue1=norm(q5inputs[0].value), ue2=norm(q5inputs[1].value);
+    total+=2;
+    if(ue1 && (ue1.includes('destructions') || eff1===ue1)){correct++;q5inputs[0].classList.add('correct');}else{q5inputs[0].classList.add('wrong');}
+    if(ue2 && (ue2.includes('morts') || ue2.includes('victimes') || eff2===ue2)){correct++;q5inputs[1].classList.add('correct');}else{q5inputs[1].classList.add('wrong');}
+    document.getElementById(scoreId).innerText=`Score : ${correct} / ${total}`;
+  }
+  function revealComprehension(id){
+    const sec=document.getElementById(id);
+    const q1=sec.querySelector('.q:first-child input'); if(q1) q1.value="la température mondiale augmentera de 2 à 6°C";
+    const q2s=sec.querySelectorAll('.q:nth-child(2) input'); if(q2s.length) {q2s[0].value="plus de pluie en hiver"; q2s[1].value="moins de pluie en été";}
+    const q3area=sec.querySelector('.q:nth-child(3) textarea'); if(q3area) q3area.value="Une canicule est une période de chaleur extrême qui dure plusieurs jours.";
+    const q4a=sec.querySelector('.q:nth-child(4) input:first-of-type'); if(q4a) q4a.value="fermer leurs pistes";
+    const q4b=sec.querySelector('.q:nth-child(4) input:last-of-type'); if(q4b) q4b.value="il y aura moins de neige";
+    const q5s=sec.querySelectorAll('.q:nth-child(5) input'); if(q5s.length) {q5s[0].value="d'énormes destructions"; q5s[1].value="plusieurs morts";}
+    checkComprehension(id,'sc1');
+  }
+
+  function checkGrammar(sectionId, scoreId){
+    const inputs=document.querySelectorAll('#'+sectionId+' input');
+    let total=inputs.length, correct=0;
+    const answers=['fera','aurons','seront','ferons'];
+    inputs.forEach((inp,idx)=>{
+      const user=norm(inp.value);
+      const ans=answers[idx];
+      if(user===ans){correct++;inp.classList.add('correct');inp.classList.remove('wrong');}
+      else{inp.classList.remove('correct');inp.classList.add('wrong');}
+    });
+    document.getElementById(scoreId).innerText=`Score : ${correct} / ${total}`;
+  }
+  function revealGrammar(id){
+    const inputs=document.querySelectorAll('#'+id+' input');
+    const answers=['fera','aurons','seront','ferons'];
+    inputs.forEach((inp,i)=>{inp.value=answers[i];});
+    checkGrammar(id,'sc2');
+  }
+
+  // Build V/F dynamically
+  const vfData=[
+    {text:"La température mondiale diminuera au XXIème siècle.", correct:"F"},
+    {text:"En France, on aura plus de pluie en été.", correct:"F"},
+    {text:"Les stations de ski situées à moins de 1500 mètres fermeront à cause du manque de neige.", correct:"V"},
+    {text:"Le cyclone Pam a frappé Vanuatu en mars 2015.", correct:"V"},
+    {text:"Le cyclone Pam n'a causé aucun dégât.", correct:"F"},
+    {text:"Il y aura plus de canicules en France selon le texte.", correct:"V"}
+  ];
+  const ex3div=document.getElementById('ex3');
+  vfData.forEach((item,idx)=>{
+    const div=document.createElement('div');
+    div.className='q';
+    div.innerHTML=`<p class="qtext">${idx+1}. ${item.text}</p>
+      <div class="vf-buttons">
+        <button data-val="V" data-ans="${item.correct}" onclick="pickVF(this)">Vrai</button>
+        <button data-val="F" data-ans="${item.correct}" onclick="pickVF(this)">Faux</button>
+      </div>`;
+    ex3div.appendChild(div);
+  });
+  function pickVF(btn){
+    const buttons=btn.parentElement.querySelectorAll('button');
+    buttons.forEach(b=>b.classList.remove('sel-v','sel-f'));
+    btn.classList.add(btn.dataset.val==='V'?'sel-v':'sel-f');
+    btn.dataset.picked='1';
+    buttons.forEach(b=>{if(b!==btn) b.dataset.picked='';});
+  }
+  function checkVF(sectionId, scoreId){
+    let total=0, correct=0;
+    document.querySelectorAll('#'+sectionId+' .q').forEach(q=>{
+      total++;
+      const picked=q.querySelector('button[data-picked="1"]');
+      const ans=q.querySelector('button').dataset.ans;
+      q.querySelectorAll('button').forEach(b=>b.classList.remove('correct','wrong'));
+      if(picked && picked.dataset.val===ans){correct++;picked.classList.add('correct');}
+      else if(picked){picked.classList.add('wrong');}
+    });
+    document.getElementById(scoreId).innerText=`Score : ${correct} / ${total}`;
+  }
+  function revealVF(sectionId){
+    document.querySelectorAll('#'+sectionId+' .q').forEach(q=>{
+      const ans=q.querySelector('button').dataset.ans;
+      q.querySelectorAll('button').forEach(b=>{
+        b.classList.remove('sel-v','sel-f','correct','wrong');
+        if(b.dataset.val===ans){b.classList.add(ans==='V'?'sel-v':'sel-f','correct');b.dataset.picked='1';}
+        else b.dataset.picked='';
+      });
+    });
+  }
+
+  // word counter for writing
+  const writeArea=document.getElementById('writing');
+  const countSpan=document.getElementById('writingCount');
+  writeArea.addEventListener('input',()=>{
+    const words=writeArea.value.trim().split(/\s+/).filter(Boolean).length;
+    countSpan.innerText=`${words} mots`;
+    countSpan.style.color=(words>=40 && words<=70)?'#1e6b1e':'var(--muted)';
+  });
+  function showWritingModel(){
+    const mod=document.getElementById('writingModel');
+    mod.classList.toggle('show');
+  }
+  // initial word count
+  window.addEventListener('load',()=>{
+    if(writeArea.value.trim()==='') countSpan.innerText=`0 mots`;
+  });
+</script>
+</body>
+</html>

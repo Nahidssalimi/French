@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Le Temps des Loisirs — IGCSE French Lesson</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f7fb; --ink:#0e1a2b; --muted:#5a6473;
+    --red:#7a1722; --red-dark:#5a0f18;
+    --blue:#0f2a4a; --blue-dark:#08182b;
+    --card:#ffffff; --border:#d9dde5; --shadow:0 10px 30px rgba(8,24,43,.08);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  header{background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:#fff;padding:48px 24px;text-align:center;border-bottom:6px solid var(--red)}
+  header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);margin:.2em 0}
+  header p{max-width:760px;margin:0 auto;opacity:.92}
+  .badges{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+  .badge{background:rgba(255,255,255,.12);padding:6px 14px;border-radius:999px;font-size:.85rem;border:1px solid rgba(255,255,255,.2)}
+  main{max-width:1100px;margin:0 auto;padding:32px 20px}
+  section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:28px;box-shadow:var(--shadow)}
+  .tag{display:inline-block;background:var(--red);color:#fff;padding:4px 12px;border-radius:4px;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+  h2{font-family:'Playfair Display',serif;font-size:1.9rem;margin:.3em 0 .5em;color:var(--blue)}
+  h3{margin-top:1.4em;color:var(--red)}
+  .sub{color:var(--muted);font-style:italic;font-size:.95rem}
+  table{width:100%;border-collapse:collapse;margin:14px 0}
+  th,td{border:1px solid var(--border);padding:10px;text-align:left;vertical-align:top}
+  th{background:var(--blue);color:#fff}
+  .objectifs{background:#eef2f8;border-left:5px solid var(--blue);padding:18px 22px;border-radius:8px}
+  .objectifs ul{margin:8px 0 0 18px;padding:0}
+  .warning{background:#fbeef0;border-left:4px solid var(--red);padding:12px 16px;border-radius:6px;margin-top:14px}
+  .speak-btn{background:var(--blue);color:#fff;border:none;padding:8px 14px;border-radius:6px;cursor:pointer;font-weight:600;font-size:.85rem;display:inline-flex;align-items:center;gap:6px}
+  .speak-btn:hover{background:var(--blue-dark)}
+  .speak-btn.lg{padding:10px 18px;font-size:.95rem}
+  #subtitle{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);max-width:90%;background:rgba(8,24,43,.95);color:#fff;padding:14px 22px;border-radius:10px;font-size:1.05rem;box-shadow:0 8px 24px rgba(0,0,0,.35);display:none;z-index:9999;border-left:4px solid var(--red);text-align:center}
+  #subtitle .en{display:block;color:#bcd;font-size:.85rem;font-style:italic;margin-top:4px}
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:14px}
+  .vocab{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .vocab span{font-weight:600}
+  .pill{display:inline-block;background:var(--blue);color:#fff;padding:3px 10px;border-radius:999px;font-size:.78rem;margin-right:6px}
+  .pill.red{background:var(--red)}
+  .activity{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px;margin:10px 0;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+  input[type=text]{padding:8px 10px;border:1px solid var(--border);border-radius:6px;font-family:inherit;font-size:.95rem;min-width:120px}
+  .check-btn{background:var(--red);color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:600}
+  .check-btn:hover{background:var(--red-dark)}
+  .feedback{margin-top:8px;font-weight:600;font-size:.9rem}
+  .ok{color:#0a7a3c}.ko{color:var(--red)}
+  details{background:#eef2f8;border-radius:8px;padding:12px 16px;margin-top:12px}
+  details summary{cursor:pointer;font-weight:600;color:var(--blue)}
+  textarea{width:100%;min-height:140px;padding:10px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:.95rem}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:720px){.two-col{grid-template-columns:1fr}}
+  footer{text-align:center;padding:30px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--border);margin-top:40px}
+</style>
+</head>
+<body>
+<header>
+  <span class="tag">Point de Départ 1</span>
+  <h1>Le Temps des Loisirs</h1>
+  <p>Réviser le sport et la musique — parler de ce que tu fais pendant ton temps libre.</p>
+  <div class="badges">
+    <span class="badge">D5 ICT</span>
+    <span class="badge">E2 Hobbies, Sports & Exercise</span>
+    <span class="badge">IGCSE French</span>
+  </div>
+</header>
+
+<div id="subtitle"></div>
+
+<main>
+
+<section>
+  <span class="tag">Objectifs</span>
+  <h2>Objectifs d'apprentissage</h2>
+  <div class="objectifs">
+    <ul>
+      <li>Réviser le vocabulaire du sport et de la musique</li>
+      <li>Utiliser les verbes <em>faire</em> et <em>jouer</em> correctement</li>
+      <li>Donner son opinion sur les activités</li>
+      <li>Reconnaître présent / passé / futur dans un texte</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <span class="tag">Vocabulaire</span>
+  <h2>Qu'est-ce que tu fais pendant ton temps libre ?</h2>
+  <p class="sub">Clique sur 🔊 pour écouter chaque activité.</p>
+  <div class="vocab-grid" id="vocabGrid"></div>
+</section>
+
+<section>
+  <span class="tag">Grammaire</span>
+  <h2>Le verbe <em>faire</em> (Page 210)</h2>
+  <table>
+    <thead><tr><th>Pronom</th><th>Présent</th><th>Écouter</th></tr></thead>
+    <tbody id="faireTable"></tbody>
+  </table>
+  <p><strong>Passé composé :</strong> j'ai fait, tu as fait, il a fait, nous avons fait, vous avez fait, ils ont fait.</p>
+  <div class="warning"><strong>Astuce :</strong> on utilise <em>faire</em> + <em>du / de la / de l' / des</em> pour la plupart des sports et activités physiques.</div>
+</section>
+
+<section>
+  <span class="tag">Exercice 1</span>
+  <h2>Associez les images aux activités</h2>
+  <p class="sub">Exemple : <strong>a — Je fais du footing.</strong></p>
+  <div id="matchEx"></div>
+  <button class="check-btn" onclick="checkMatch()">Vérifier</button>
+  <div class="feedback" id="matchFb"></div>
+</section>
+
+<section>
+  <span class="tag">Exercice 2 — Oral</span>
+  <h2>À deux : demandez l'opinion de votre partenaire</h2>
+  <p><em>Que penses-tu de la natation ? — Je trouve ça génial.</em></p>
+  <div class="two-col">
+    <div><h3>Positif <span class="pill">+</span></h3>
+      <p>super • génial • passionnant • cool • bien • sensass • formidable • chouette</p></div>
+    <div><h3>Négatif <span class="pill red">–</span></h3>
+      <p>ennuyeux • barbant • nul • stupide • bête • fatigant</p></div>
+  </div>
+</section>
+
+<section>
+  <span class="tag">Exercice 3</span>
+  <h2>Complétez avec la bonne forme de <em>jouer</em></h2>
+  <p class="sub">Exemple : <strong>1 — Je <u>joue</u> de la flûte.</strong></p>
+  <div id="jouerEx"></div>
+  <button class="check-btn" onclick="checkJouer()">Vérifier</button>
+  <div class="feedback" id="jouerFb"></div>
+  <div class="warning">
+    <strong>Note grammaticale :</strong> <em>jouer <strong>à</strong></em> + sport (je joue <u>au</u> football) — <em>jouer <strong>de</strong></em> + instrument (je joue <u>de la</u> flûte).
+  </div>
+</section>
+
+<section>
+  <span class="tag">Exercice 4 — Écrit</span>
+  <h2>Écrivez 7 phrases avec <em>faire</em> + sport et 2 phrases avec <em>jouer</em> + sport collectif</h2>
+  <p class="sub">Gardez les pronoms des phrases 1 à 9 de l'exercice 3.</p>
+  <textarea placeholder="1. Je fais de la natation..."></textarea>
+  <details><summary>Voir un modèle</summary>
+    <ol>
+      <li>Je fais de la natation.</li><li>Elle fait du roller.</li>
+      <li>Nous faisons de l'escalade.</li><li>Tu fais du surf ?</li>
+      <li>Vous faites de la boxe ?</li><li>Elles font des randonnées.</li>
+      <li>Il fait du canoë-kayak.</li><li>Il joue au rugby.</li><li>On joue au basket.</li>
+    </ol>
+  </details>
+</section>
+
+<section>
+  <span class="tag">Exercice 5 — Écoute</span>
+  <h2>Écoutez et écrivez la bonne lettre (1–5)</h2>
+  <div id="listenEx"></div>
+  <button class="check-btn" onclick="checkListen()">Vérifier</button>
+  <div class="feedback" id="listenFb"></div>
+</section>
+
+<section>
+  <span class="tag">Exercice 6 — Lecture</span>
+  <h2>Le texte d'Alicia</h2>
+  <button class="speak-btn lg" onclick="speak(aliciaText,'Read Alicia\'s text aloud')">🔊 Écouter le texte</button>
+  <p id="aliciaP" style="margin-top:14px"></p>
+  <h3>Complétez le tableau</h3>
+  <table>
+    <thead><tr><th>Verbes au présent</th><th>Verbes au passé</th><th>Verbes au futur</th></tr></thead>
+    <tbody><tr><td>ma mère adore<br><span class="sub">(à compléter…)</span></td>
+      <td><span class="sub">(à compléter…)</span></td><td><span class="sub">(à compléter…)</span></td></tr></tbody>
+  </table>
+  <details><summary>Voir les réponses</summary>
+    <table><tr><th>Présent</th><th>Passé</th><th>Futur</th></tr>
+      <tr><td>ma mère adore, j'aime, je trouve, ça me donne envie</td>
+      <td>je suis allée, l'ambiance était, on a dansé, on est allées, j'ai pris, j'ai téléchargé</td>
+      <td>je vais aller voir Julien Doré en concert</td></tr></table>
+  </details>
+</section>
+
+<section>
+  <span class="tag">Exercice 7</span>
+  <h2>Vrai ou Faux ?</h2>
+  <div id="vfEx"></div>
+  <button class="check-btn" onclick="checkVF()">Vérifier</button>
+  <div class="feedback" id="vfFb"></div>
+</section>
+
+<section>
+  <span class="tag">Exercice 8 — Production écrite</span>
+  <h2>Quelle musique écoutez-vous ?</h2>
+  <div class="two-col">
+    <div><h3>Vocabulaire utile</h3>
+      <ul>
+        <li>Mon chanteur préféré, c'est… car j'aime ses paroles / ses mélodies.</li>
+        <li>J'aime aussi la musique de…</li>
+        <li>Ça me donne envie de danser / chanter.</li>
+        <li>Ça me rend heureux / triste.</li>
+        <li>J'ai téléchargé… / J'ai acheté…</li>
+        <li>Je n'aime pas du tout… Je déteste…</li>
+      </ul></div>
+    <div><textarea placeholder="Mon chanteur préféré, c'est..."></textarea>
+      <details style="margin-top:10px"><summary>Voir un modèle</summary>
+        <p>Mon chanteur préféré, c'est Stromae car j'aime ses paroles et ses mélodies originales. J'aime aussi la musique d'Aya Nakamura, ça me donne envie de danser et ça me rend heureuse. J'ai téléchargé tous ses albums. Par contre, je n'aime pas du tout la musique classique, je trouve ça ennuyeux. Le week-end prochain, je vais aller à un concert avec mes amis. Je suis très impatiente !</p>
+      </details></div>
+  </div>
+</section>
+
+<footer>GCSE / IGCSE French — Le Temps des Loisirs · Conçu pour apprendre, pratiquer et briller.</footer>
+</main>
+
+<script>
+let voicesReady = [];
+function loadVoices(){ voicesReady = speechSynthesis.getVoices(); }
+if (typeof speechSynthesis !== 'undefined'){ loadVoices(); speechSynthesis.onvoiceschanged = loadVoices; }
+function speak(fr, en){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(fr);
+  u.lang='fr-FR'; u.rate=.92;
+  const v = voicesReady.find(v=>v.lang.startsWith('fr')); if(v) u.voice=v;
+  const bar=document.getElementById('subtitle');
+  bar.innerHTML = fr + '<span class="en">'+en+'</span>';
+  bar.style.display='block';
+  u.onend = ()=>setTimeout(()=>bar.style.display='none',800);
+  speechSynthesis.speak(u);
+}
+const vocab = [
+  ['du vélo / cyclisme','cycling'],['du roller','rollerblading'],['du footing','jogging'],
+  ['du patinage','ice skating'],['du hockey sur glace','ice hockey'],['du canoë-kayak','canoeing'],
+  ['du surf','surfing'],['de la musculation','weight training'],['de la danse','dancing'],
+  ['de la natation','swimming'],['de la boxe','boxing'],['de la planche à voile','windsurfing'],
+  ['de l\u2019escalade','climbing'],['de l\u2019équitation','horse riding'],['des randonnées','hikes']
+];
+document.getElementById('vocabGrid').innerHTML = vocab.map(v=>
+  `<div class="vocab"><span>Je fais ${v[0]}</span>
+   <button class="speak-btn" onclick="speak('Je fais ${v[0]}','I do ${v[1]}')">🔊</button></div>`).join('');
+const faire = [['je','fais'],['tu','fais'],['il / elle / on','fait'],['nous','faisons'],['vous','faites'],['ils / elles','font']];
+document.getElementById('faireTable').innerHTML = faire.map(r=>
+  `<tr><td>${r[0]}</td><td><strong>${r[1]}</strong></td>
+  <td><button class="speak-btn" onclick="speak('${r[0]} ${r[1]}','${r[0]}')">🔊</button></td></tr>`).join('');
+const matchItems = [
+  ['a','Je fais du footing.','footing'],['b','Je fais de la natation.','natation'],
+  ['c','Je joue au tennis.','tennis'],['d','Je fais de l\u2019équitation.','équitation'],
+  ['e','Je fais du vélo.','vélo'],['f','Je joue de la guitare.','guitare']
+];
+document.getElementById('matchEx').innerHTML = matchItems.map(m=>
+  `<div class="activity"><span><strong>${m[0]}.</strong> Image — ${m[2]}</span>
+   <select data-ans="${m[1]}"><option value="">— choisir —</option>
+   ${matchItems.map(x=>`<option>${x[1]}</option>`).join('')}</select>
+   <button class="speak-btn" onclick="speak('${m[1]}','')">🔊</button></div>`).join('');
+function checkMatch(){
+  const sels=document.querySelectorAll('#matchEx select'); let ok=0;
+  sels.forEach(s=>{ if(s.value===s.dataset.ans){ok++; s.style.borderColor='#0a7a3c'} else s.style.borderColor='var(--red)'; });
+  document.getElementById('matchFb').innerHTML=`<span class="${ok===sels.length?'ok':'ko'}">${ok}/${sels.length} correct</span>`;
+}
+const jouerItems = [
+  ['Je','de la flûte','joue'],['Elle','du saxophone','joue'],['Nous','de la trompette','jouons'],
+  ['Tu','de la guitare ?','joues'],['Vous','du violon ?','jouez'],['Elles','de l\u2019accordéon','jouent'],
+  ['Il','du piano','joue'],['Il','quelquefois de la batterie','joue'],['On','de la clarinette','joue']
+];
+document.getElementById('jouerEx').innerHTML = jouerItems.map((j,i)=>
+  `<div class="activity"><span>${i+1}. ${j[0]} <input type="text" data-ans="${j[2]}" size="8"> ${j[1]}</span>
+   <button class="speak-btn" onclick="speak('${j[0]} ${j[2]} ${j[1]}','')">🔊</button></div>`).join('');
+function checkJouer(){
+  const ins=document.querySelectorAll('#jouerEx input'); let ok=0;
+  ins.forEach(i=>{ if(i.value.trim().toLowerCase()===i.dataset.ans){ok++;i.style.borderColor='#0a7a3c'}else i.style.borderColor='var(--red)'; });
+  document.getElementById('jouerFb').innerHTML=`<span class="${ok===ins.length?'ok':'ko'}">${ok}/${ins.length} correct</span>`;
+}
+const listen = [
+  ['Normalement, j\u2019écoute ma musique sur mon ordi.','a'],
+  ['Moi, j\u2019écoute ma musique sur mon téléphone portable avec mes écouteurs.','b'],
+  ['Je crée des playlists que je partage avec mes amis sur les réseaux sociaux.','c'],
+  ['Je regarde de plus en plus de clips vidéo pour écouter ma musique.','d'],
+  ['En général, j\u2019écoute ma musique sur une tablette.','e']
+];
+document.getElementById('listenEx').innerHTML = listen.map((l,i)=>
+  `<div class="activity"><span>${i+1}. <button class="speak-btn" onclick="speak('${l[0]}','Listening ${i+1}')">🔊 Écouter</button></span>
+   <select data-ans="${l[1]}"><option value="">— image —</option>
+   <option>a</option><option>b</option><option>c</option><option>d</option><option>e</option></select></div>`).join('');
+function checkListen(){
+  const sels=document.querySelectorAll('#listenEx select'); let ok=0;
+  sels.forEach(s=>{ if(s.value===s.dataset.ans){ok++;s.style.borderColor='#0a7a3c'}else s.style.borderColor='var(--red)'; });
+  document.getElementById('listenFb').innerHTML=`<span class="${ok===sels.length?'ok':'ko'}">${ok}/${sels.length} correct</span>`;
+}
+const aliciaText = "L\u2019année dernière, je suis allée à un concert de Taylor Swift avec ma mère. Ma mère adore la musique de Taylor Swift et moi aussi. L\u2019ambiance était fantastique et on a dansé toute la soirée. Après, on est allées au restaurant et j\u2019ai pris une pizza. Un de mes chanteurs préférés, c\u2019est Julien Doré, je le trouve G-É-N-I-A-L ! J\u2019ai téléchargé toute sa musique. J\u2019aime les paroles de ses chansons et ça me donne envie de danser. L\u2019année prochaine, je vais aller voir Julien Doré en concert. Je suis très impatiente !";
+document.getElementById('aliciaP').textContent = aliciaText;
+const vf = [
+  ['L\u2019année dernière, Alicia est allée à un concert de Taylor Swift avec son père.','F'],
+  ['Sa mère est fan de la musique de Taylor Swift.','V'],
+  ['Alicia n\u2019aime pas trop la musique de Taylor Swift.','F'],
+  ['Un des chanteurs préférés d\u2019Alicia, c\u2019est Julien Doré.','V'],
+  ['La semaine prochaine, elle va aller à un concert de Julien Doré.','F']
+];
+document.getElementById('vfEx').innerHTML = vf.map((q,i)=>
+  `<div class="activity"><span>${i+1}. ${q[0]}</span>
+   <select data-ans="${q[1]}"><option value="">—</option><option>V</option><option>F</option></select></div>`).join('');
+function checkVF(){
+  const sels=document.querySelectorAll('#vfEx select'); let ok=0;
+  sels.forEach(s=>{ if(s.value===s.dataset.ans){ok++;s.style.borderColor='#0a7a3c'}else s.style.borderColor='var(--red)'; });
+  document.getElementById('vfFb').innerHTML=`<span class="${ok===sels.length?'ok':'ko'}">${ok}/${sels.length} correct</span>`;
+}
+</script>
+</body>
+</html>

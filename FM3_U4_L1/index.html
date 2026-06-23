@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Une Visite — GCSE French Lesson</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #7a1722;
+      --red-light: #a02030;
+      --blue: #0f2a4a;
+      --blue-light: #1a3a5a;
+      --navy: #1a2a3a;
+      --cream: #faf8f5;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --text-light: #4a4a4a;
+      --border: #e0e0e0;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-hover: 0 8px 32px rgba(0,0,0,0.12);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: var(--blue);
+      color: var(--white);
+      padding: 80px 20px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 50%;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .hero h1 span { color: var(--red-light); }
+    .hero-subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .hero-meta span {
+      background: rgba(255,255,255,0.1);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 4px; overflow-x: auto; padding: 8px 16px; }
+    .nav a {
+      white-space: nowrap;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .nav a:hover, .nav a.active { background: var(--blue); color: var(--white); }
+
+    /* ===== CONTAINER ===== */
+    .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+
+    /* ===== SECTIONS ===== */
+    .section { background: var(--white); border-radius: 16px; padding: 32px; margin-bottom: 32px; box-shadow: var(--shadow); }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--blue);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px; height: 36px;
+      background: var(--red);
+      color: var(--white);
+      border-radius: 50%;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .section-subtitle { color: var(--text-light); margin-bottom: 24px; font-size: 0.95rem; }
+
+    /* ===== LEARNING OBJECTIVE ===== */
+    .objective {
+      background: var(--blue);
+      color: var(--white);
+      padding: 20px 24px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .objective-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .objective-text { font-size: 0.95rem; }
+    .objective-text strong { display: block; font-size: 1.1rem; margin-bottom: 4px; }
+
+    /* ===== READING TEXT ===== */
+    .reading-text {
+      background: var(--cream);
+      border-left: 4px solid var(--red);
+      padding: 20px 24px;
+      border-radius: 0 12px 12px 0;
+      margin: 20px 0;
+      font-style: italic;
+      line-height: 1.9;
+    }
+    .reading-author {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    /* ===== QUESTIONS ===== */
+    .question-list { margin-top: 20px; }
+    .question-item {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      border: 1px solid var(--border);
+    }
+    .question-label {
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .question-input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+    }
+    .question-input:focus { border-color: var(--blue); outline: none; }
+
+    /* ===== EXAM SKILLS ===== */
+    .exam-box { background: var(--navy); color: var(--white); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+    .exam-box h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .exam-box h3 .icon { font-size: 1.6rem; }
+    .exam-tip { background: rgba(255,255,255,0.08); border-radius: 10px; padding: 16px; margin-bottom: 12px; }
+    .exam-tip strong { color: var(--red-light); display: block; margin-bottom: 6px; }
+
+    /* ===== CARDS / GRID ===== */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 16px; }
+    .card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: var(--blue); }
+    .card .fr { font-weight: 600; color: var(--blue); font-size: 1.05rem; display: block; margin-bottom: 6px; }
+    .card .en { font-size: 0.85rem; color: var(--text-light); display: block; }
+    .card .speaker { position: absolute; top: 12px; right: 12px; width: 28px; height: 28px; background: var(--red); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; opacity: 0; transition: opacity 0.2s; }
+    .card:hover .speaker { opacity: 1; }
+
+    /* ===== MODEL ANSWER ===== */
+    .model-answer { margin-top: 16px; }
+    .model-answer-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--blue);
+      color: var(--white);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .model-answer-btn:hover { background: var(--blue-light); }
+    .model-answer-content {
+      display: none;
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 12px;
+      border: 1px solid var(--border);
+    }
+    .model-answer-content.show { display: block; }
+    .model-answer-content p { margin-bottom: 10px; line-height: 1.9; }
+    .model-answer-content .highlight { color: var(--red); font-weight: 600; }
+
+    /* ===== VOICE OVERLAY ===== */
+    .voice-overlay {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--navy);
+      color: var(--white);
+      padding: 14px 24px;
+      border-radius: 50px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      display: none;
+      align-items: center;
+      gap: 14px;
+      z-index: 1000;
+      max-width: 90vw;
+    }
+    .voice-overlay.active { display: flex; }
+    .voice-overlay .fr-text { font-weight: 600; }
+    .voice-overlay .en-text { opacity: 0.7; font-size: 0.9rem; }
+    .voice-overlay .close-voice {
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0 4px;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer { background: var(--blue); color: var(--white); text-align: center; padding: 40px 20px; margin-top: 40px; }
+    .footer h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 12px; }
+    .footer p { opacity: 0.8; font-size: 0.9rem; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp 0.6s ease-out; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      .hero { padding: 50px 16px 40px; }
+      .section { padding: 20px; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 4px; }
+  </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<<header class="hero">
+  <div class="hero-badge">GCSE / IGCSE French</div>
+  <h1>Une <span>Visite</span></h1>
+  <p class="hero-subtitle">Lire et comprendre des textes français — Le petit Nicolas & La Fête de la Crêpe</p>
+  <div class="hero-meta">
+    <span>Reading</span>
+    <span>Comprehension</span>
+    <span>Writing</span>
+    <span>Exam Skills</span>
+  </div>
+</header>
+
+<!-- ===== NAV ===== -->
+<<nav class="nav">
+  <div class="nav-inner">
+    <a href="#ex1" class="active">Ex.1 Le petit Nicolas</a>
+    <a href="#ex2">Ex.2 Les crêpes</a>
+    <a href="#vocab">Vocabulary</a>
+    <a href="#exam">Exam Skills</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- ===== LEARNING OBJECTIVE ===== -->
+  <div class="objective fade-up">
+    <div class="objective-icon">&#x1F4DA;</div>
+    <div class="objective-text">
+      <strong>Learning Objective</strong>
+      Lire et comprendre des textes français — Réviser la famille, la nourriture et les traditions
+    </div>
+  </div>
+
+  <!-- ===== EXERCISE 1: LE PETIT NICOLAS ===== -->
+  <section class="section fade-up" id="ex1">
+    <h2 class="section-title"><span class="num">1</span> Lis l'extrait du texte</h2>
+    <p class="section-subtitle">La grand-mère de Nicolas lui rend visite. Lisez le texte et prenez des notes en français.</p>
+
+    <div class="reading-text">
+      <span class="reading-author">Sempé-Goscinny: Le petit Nicolas, c'est Noël! (abrégé)</span>
+      <p>Il y avait des tas de bonbons dans le sac de mémé, <span class="highlight">des en chocolat</span> et <span class="highlight">des en caramel</span>. Elle est vraiment chouette, mémé. J'aime bien papa et maman, mais ils ne me donnent jamais autant de bonbons. J'ai mangé un bonbon en chocolat, puis un bonbon en caramel, puis un autre bonbon en chocolat, et puis encore un autre, et puis...</p>
+      <p style="margin-top: 12px;">Comme c'était l'heure du dîner, papa est redescendu dans le salon. Moi, j'avais fini les bonbons, et, c'est drôle, j'avais la bouche toute sucrée et un peu mal au ventre.</p>
+      <p style="margin-top: 12px;">– Le dîner est servi, a dit maman.</p>
+      <p style="margin-top: 12px;">Nous nous sommes mis à table dans la salle à manger. Maman avait préparé un repas terrible avec des tas de hors d'œuvre et de la mayonnaise, que j'aime beaucoup. Mais là, je ne sais pas pourquoi, je n'avais plus faim. [...]</p>
+      <p style="margin-top: 12px;">– Alors, mange un petit peu pour faire plaisir à mémé, a dit mémé.</p>
+      <p style="margin-top: 12px;">– Il ne faut pas le forcer, a dit papa. [...]</p>
+      <p style="margin-top: 12px;">Quand le dîner s'est terminé, maman m'a envoyé me coucher tout de suite, et j'ai été très malade. Très, très malade.</p>
+    </div>
+
+    <div style="margin-top: 20px; background: #f0f7ff; padding: 14px 18px; border-radius: 10px; border-left: 4px solid var(--blue); font-size: 0.9rem;">
+      <strong>Exemple:</strong> Le contenu du sac de la grand-mère de Nicolas: <em>des tas de bonbons</em>
+    </div>
+
+    <div class="question-list">
+      <div class="question-item">
+        <span class="question-label">a) Type de bonbons: ____ , ____ (2 marks)</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+      <div class="question-item">
+        <span class="question-label">b) Ce que Nicolas pense de sa grand-mère: ____ (1 mark)</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+      <div class="question-item">
+        <span class="question-label">c) Personnalité de sa grand-mère: ____ (1 mark)</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+      <div class="question-item">
+        <span class="question-label">d) Personne dans le salon: ____ (1 mark)</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+      <div class="question-item">
+        <span class="question-label">e) Ce que Nicolas a mangé: ____ (1 mark)</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+      <div class="question-item">
+        <span class="question-label">f) Ce qui ne va pas avec Nicolas: ____ (1 mark)</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+      <div class="question-item">
+        <span class="question-label">g) Repas: ____ (1 mark)</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+      <div class="question-item">
+        <span class="question-label">h) Pièce où ils mangent: ____ (1 mark)</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+      <div class="question-item">
+        <span class="question-label">i) Ce que Nicolas a fait juste après le repas: ____ (1 mark)</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+      <p style="margin-top: 12px; font-weight: 600; color: var(--text-light); font-size: 0.9rem;">(Total for Question 1 = 10 marks)</p>
+    </div>
+
+    <div class="model-answer" style="margin-top: 24px;">
+      <button class="model-answer-btn" onclick="toggleModel(this)">
+        <span>&#x1F4DD;</span> Show Answers
+      </button>
+      <div class="model-answer-content">
+        <p><span class="highlight">a)</span> du chocolat, du caramel (ou: en chocolat, en caramel)</p>
+        <p><span class="highlight">b)</span> Elle est vraiment chouette / Elle est chouette</p>
+        <p><span class="highlight">c)</span> Elle est gentille / généreuse (elle lui donne beaucoup de bonbons)</p>
+        <p><span class="highlight">d)</span> papa / son père</p>
+        <p><span class="highlight">e)</span> des bonbons / des tas de bonbons</p>
+        <p><span class="highlight">f)</span> Il a mal au ventre / Il n'a plus faim</p>
+        <p><span class="highlight">g)</span> un repas terrible / des tas de hors d'œuvre et de la mayonnaise</p>
+        <p><span class="highlight">h)</span> la salle à manger</p>
+        <p><span class="highlight">i)</span> Il s'est couché / Il est allé se coucher (maman l'a envoyé se coucher)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXERCISE 2: LA FÊTE DE LA CRÊPE ===== -->
+  <section class="section fade-up" id="ex2">
+    <h2 class="section-title"><span class="num">2</span> Les crêpes</h2>
+    <p class="section-subtitle">Réponds aux questions suivantes en français. Il n'est pas nécessaire d'écrire des phrases complètes.</p>
+
+    <div class="reading-text">
+      <span class="reading-author">La Fête de la Crêpe</span>
+      <p>Les Français mangent des milliers de crêpes et il y a plus de 4 000 crêperies (des restaurants spécialisés dans les crêpes) en France. La popularité des crêpes est due au fait qu'elles sont rapides à préparer et que les ingrédients ne coûtent pas cher. Pour les crêpes sucrées, les ingrédients les plus souvent utilisés sont le beurre, le sucre, le chocolat et la confiture. Cependant, une des recettes les plus populaires est la «galette de sarrasin», une crêpe salée qui contient du fromage râpé et un œuf.</p>
+      <p style="margin-top: 12px;">Les Français adorent aussi fêter les crêpes! À part la Chandeleur en février, une Fête de la Crêpe est organisée tous les ans, en juillet. Bien sûr, cette fête a lieu en Bretagne, puisque la crêpe est le plat traditionnel de cette région. Le moment le plus attendu de cette fête est sans doute le concours mondial de la plus grande crêpe! Le record est détenu depuis 2015 par un Néerlandais qui a gagné le concours avec une crêpe de 91 centimètres!</p>
+    </div>
+
+    <div class="question-list">
+      <div class="question-item">
+        <span class="question-label">a) Il y a combien de crêperies en France? ____ (1 mark)</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+      <div class="question-item">
+        <span class="question-label">b) Pourquoi est-ce que les crêpes sont populaires en France? ____ (2 marks)</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+      <div class="question-item">
+        <span class="question-label">c) Quels sont deux ingrédients populaires d'une crêpe sucrée? ____ (2 marks)</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+      <div class="question-item">
+        <span class="question-label">d) Quels sont deux ingrédients d'une galette de sarrasin? ____ (2 marks)</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+      <div class="question-item">
+        <span class="question-label">e) Quand se passe la Fête de la Crêpe? ____ (1 mark)</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+      <div class="question-item">
+        <span class="question-label">f) Pourquoi est-ce que cette fête a lieu en Bretagne? ____ (1 mark)</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+      <div class="question-item">
+        <span class="question-label">g) Qu'est-ce qu'un Néerlandais a fait en 2015? ____ (1 mark)</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+    </div>
+
+    <div class="model-answer" style="margin-top: 24px;">
+      <button class="model-answer-btn" onclick="toggleModel(this)">
+        <span>&#x1F4DD;</span> Show Answers
+      </button>
+      <div class="model-answer-content">
+        <p><span class="highlight">a)</span> Il y a plus de quatre mille crêperies / plus de 4 000 crêperies.</p>
+        <p><span class="highlight">b)</span> Elles sont rapides à préparer et les ingrédients ne coûtent pas cher.</p>
+        <p><span class="highlight">c)</span> Le beurre et le sucre / le chocolat et la confiture / le beurre et le chocolat (any two).</p>
+        <p><span class="highlight">d)</span> Du fromage râpé et un œuf.</p>
+        <p><span class="highlight">e)</span> En juillet / Tous les ans en juillet.</p>
+        <p><span class="highlight">f)</span> Parce que la crêpe est le plat traditionnel de cette région / de la Bretagne.</p>
+        <p><span class="highlight">g)</span> Il a gagné le concours mondial de la plus grande crêpe / Il a fait une crêpe de 91 centimètres.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== KEY VOCABULARY ===== -->
+  <section class="section fade-up" id="vocab">
+    <h2 class="section-title"><span class="num">&#x1F4D6;</span> Key Vocabulary from the Texts</h2>
+    <p class="section-subtitle">Click any card to hear the pronunciation. Hover to see the speaker icon.</p>
+    <div class="card-grid">
+      <div class="card" onclick="speak('rendre visite', 'to visit')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">rendre visite</span>
+        <span class="en">to visit</span>
+      </div>
+      <div class="card" onclick="speak('la grand-mère', 'the grandmother')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">la grand-mère</span>
+        <span class="en">the grandmother</span>
+      </div>
+      <div class="card" onclick="speak('un bonbon', 'a sweet / candy')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">un bonbon</span>
+        <span class="en">a sweet / candy</span>
+      </div>
+      <div class="card" onclick="speak('le chocolat', 'chocolate')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">le chocolat</span>
+        <span class="en">chocolate</span>
+      </div>
+      <div class="card" onclick="speak('le caramel', 'caramel')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">le caramel</span>
+        <span class="en">caramel</span>
+      </div>
+      <div class="card" onclick="speak('chouette', 'great / nice')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">chouette</span>
+        <span class="en">great / nice (slang)</span>
+      </div>
+      <div class="card" onclick="speak('le dîner', 'dinner')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">le dîner</span>
+        <span class="en">dinner</span>
+      </div>
+      <div class="card" onclick="speak('la salle à manger', 'the dining room')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">la salle à manger</span>
+        <span class="en">the dining room</span>
+      </div>
+      <div class="card" onclick="speak('un repas', 'a meal')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">un repas</span>
+        <span class="en">a meal</span>
+      </div>
+      <div class="card" onclick="speak('les hors d\'œuvre', 'starters / appetisers')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">les hors d'œuvre</span>
+        <span class="en">starters / appetisers</span>
+      </div>
+      <div class="card" onclick="speak('la mayonnaise', 'mayonnaise')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">la mayonnaise</span>
+        <span class="en">mayonnaise</span>
+      </div>
+      <div class="card" onclick="speak('avoir mal au ventre', 'to have a stomach ache')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">avoir mal au ventre</span>
+        <span class="en">to have a stomach ache</span>
+      </div>
+      <div class="card" onclick="speak('se coucher', 'to go to bed')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">se coucher</span>
+        <span class="en">to go to bed</span>
+      </div>
+      <div class="card" onclick="speak('une crêperie', 'a crêpe restaurant')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">une crêperie</span>
+        <span class="en">a crêpe restaurant</span>
+      </div>
+      <div class="card" onclick="speak('les ingrédients', 'ingredients')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">les ingrédients</span>
+        <span class="en">ingredients</span>
+      </div>
+      <div class="card" onclick="speak('le beurre', 'butter')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">le beurre</span>
+        <span class="en">butter</span>
+      </div>
+      <div class="card" onclick="speak('le sucre', 'sugar')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">le sucre</span>
+        <span class="en">sugar</span>
+      </div>
+      <div class="card" onclick="speak('la confiture', 'jam')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">la confiture</span>
+        <span class="en">jam</span>
+      </div>
+      <div class="card" onclick="speak('du fromage râpé', 'grated cheese')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">du fromage râpé</span>
+        <span class="en">grated cheese</span>
+      </div>
+      <div class="card" onclick="speak('un œuf', 'an egg')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">un œuf</span>
+        <span class="en">an egg</span>
+      </div>
+      <div class="card" onclick="speak('avoir lieu', 'to take place')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">avoir lieu</span>
+        <span class="en">to take place</span>
+      </div>
+      <div class="card" onclick="speak('la tradition', 'tradition')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">la tradition</span>
+        <span class="en">tradition</span>
+      </div>
+      <div class="card" onclick="speak('le record', 'the record')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">le record</span>
+        <span class="en">the record</span>
+      </div>
+      <div class="card" onclick="speak('détenir', 'to hold')">
+        <span class="speaker">&#x25B6;</span>
+        <span class="fr">détenir</span>
+        <span class="en">to hold</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXAM SKILLS ===== -->
+  <section class="exam-box fade-up" id="exam">
+    <h3><span class="icon">&#x1F3C6;</span> Exam Skills &mdash; IGCSE Tips</h3>
+
+    <div class="exam-tip">
+      <strong>Reading Exam — Always start by reading the question</strong>
+      <p>Before you read the text, look at the questions. They will give you an idea of what the text is about, and they will tell you exactly what information you need to find. This saves time and helps you focus.</p>
+    </div>
+
+    <div class="exam-tip">
+      <strong>Reading Exam — Spotting key information</strong>
+      <p>Look for numbers, names, and dates in the text first — these are often the easiest answers to find. Then scan for opinion words (adjectives) and actions (verbs) to answer the remaining questions.</p>
+    </div>
+
+    <div class="exam-tip">
+      <strong>Writing Exam — Short answers</strong>
+      <p>When the question says "Il n'est pas nécessaire d'écrire des phrases complètes" (It is not necessary to write complete sentences), keep your answers brief and directly from the text. Do not waste time writing full sentences if you don't need to.</p>
+    </div>
+
+    <div class="exam-tip">
+      <strong>Reading Exam — Passé composé clues</strong>
+      <p>Look for the auxiliary verb <em>avoir</em> or <em>être</em> + past participle to identify actions in the past. Words like <em>hier, la semaine dernière, quand</em> often signal the passé composé.</p>
+    </div>
+
+    <div class="exam-tip">
+      <strong>Writing Exam — Lifting from the text</strong>
+      <p>For reading comprehension questions, it is often acceptable to "lift" short phrases directly from the text. Make sure your spelling matches the text exactly to avoid losing marks.</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<<footer class="footer">
+  <h3>GCSE / IGCSE French</h3>
+  <p>Une Visite — Conçu pour apprendre, pratiquer et briller.</p>
+</footer>
+
+<!-- ===== VOICE OVERLAY ===== -->
+<div class="voice-overlay" id="voiceOverlay">
+  <span class="fr-text" id="voiceFr"></span>
+  <span style="opacity:0.4">|</span>
+  <span class="en-text" id="voiceEn"></span>
+  <button class="close-voice" onclick="stopVoice()">&#x2715;</button>
+</div>
+
+<script>
+  // ===== VOICE SYSTEM =====
+  let currentUtterance = null;
+
+  function speak(fr, en) {
+    if (!window.speechSynthesis) {
+      alert('Text-to-speech is not supported in this browser.');
+      return;
+    }
+    window.speechSynthesis.cancel();
+
+    const overlay = document.getElementById('voiceOverlay');
+    document.getElementById('voiceFr').textContent = fr;
+    document.getElementById('voiceEn').textContent = en;
+    overlay.classList.add('active');
+
+    const utter = new SpeechSynthesisUtterance(fr);
+    utter.lang = 'fr-FR';
+    utter.rate = 0.9;
+    utter.pitch = 1;
+
+    const voices = window.speechSynthesis.getVoices();
+    const frenchVoice = voices.find(v => v.lang.startsWith('fr'));
+    if (frenchVoice) utter.voice = frenchVoice;
+
+    utter.onend = () => {
+      setTimeout(() => overlay.classList.remove('active'), 2000);
+    };
+
+    currentUtterance = utter;
+    window.speechSynthesis.speak(utter);
+  }
+
+  function stopVoice() {
+    window.speechSynthesis.cancel();
+    document.getElementById('voiceOverlay').classList.remove('active');
+  }
+
+  // Ensure voices are loaded
+  window.speechSynthesis?.getVoices();
+  if (window.speechSynthesis?.onvoiceschanged !== undefined) {
+    window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+  }
+
+  // ===== NAV ACTIVE STATE =====
+  const navLinks = document.querySelectorAll('.nav a');
+  const sections = document.querySelectorAll('.section, .exam-box');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (scrollY >= sectionTop - 100) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+  // ===== MODEL ANSWER TOGGLE =====
+  function toggleModel(btn) {
+    const content = btn.nextElementSibling;
+    content.classList.toggle('show');
+    btn.innerHTML = content.classList.contains('show')
+      ? '<span>&#x1F4DD;</span> Hide Answer'
+      : '<span>&#x1F4DD;</span> Show Answer';
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EN ROUTE! — Travel & Transport — IGCSE French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7fb;
+    --ink: #0e1a2b;
+    --muted: #5a6473;
+    --red: #7a1722;
+    --red-dark: #5a0f18;
+    --blue: #0f2a4a;
+    --blue-dark: #08182b;
+    --card: #fff;
+    --border: #d9dde5;
+    --shadow: 0 10px 30px rgba(8,24,43,.08);
+    --gold: #c9a227;
+    --green: #2d6a4f;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: #fff;
+    padding: 48px 24px;
+    text-align: center;
+    border-bottom: 6px solid var(--red);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: "✈️";
+    position: absolute;
+    font-size: 12rem;
+    opacity: .08;
+    bottom: -30px;
+    right: -20px;
+    transform: rotate(-8deg);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: .2em 0;
+    position: relative;
+  }
+  header p {
+    max-width: 780px;
+    margin: 0 auto;
+    opacity: .92;
+    position: relative;
+  }
+  .badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.12);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: .85rem;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .tag {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .tag.gold {
+    background: var(--gold);
+    color: var(--blue-dark);
+  }
+  .tag.green {
+    background: var(--green);
+    color: #fff;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin: .3em 0 .5em;
+    color: var(--blue);
+  }
+  .sub {
+    color: var(--muted);
+    font-style: italic;
+    font-size: .95rem;
+    margin-bottom: 1rem;
+  }
+  .tip {
+    background: #fff7e0;
+    border-left: 5px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .tip strong {
+    color: var(--blue);
+  }
+  .grammar-box {
+    background: #eef8f2;
+    border-left: 5px solid var(--green);
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .audio-box {
+    background: linear-gradient(135deg, #eef2f8, #fff);
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    padding: 18px;
+    margin: 14px 0;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .play-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: .95rem;
+  }
+  .play-btn:hover { background: var(--red-dark); }
+  .speak-btn {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .8rem;
+  }
+  .q {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+    border-left: 4px solid var(--blue);
+  }
+  .q .qtext {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: var(--blue);
+  }
+  .q input[type="text"] {
+    padding: 7px 10px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: .95rem;
+    min-width: 200px;
+    width: auto;
+  }
+  .q input.correct {
+    border-color: #1e6b1e;
+    background: #e6f3e6;
+  }
+  .q input.wrong {
+    border-color: var(--red);
+    background: #fbeef0;
+  }
+  .check-btn, .reveal-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .reveal-btn {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+  }
+  .reveal-btn:hover {
+    background: var(--blue);
+    color: #fff;
+  }
+  .score {
+    margin-top: 12px;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 1.1rem;
+  }
+  .transport-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+    justify-content: center;
+  }
+  .transport-card {
+    background: #f8f9fc;
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+    width: 160px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .transport-card.selected {
+    background: var(--blue);
+    color: white;
+    border-color: var(--blue-dark);
+  }
+  .transport-card .emoji {
+    font-size: 3rem;
+    display: block;
+  }
+  .phrase-builder {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin: 14px 0;
+  }
+  .phrase-builder select, .phrase-builder input {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 2px solid var(--border);
+    font-family: inherit;
+  }
+  .avis-card {
+    background: #fef8e7;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 12px 0;
+    border-left: 5px solid var(--gold);
+  }
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: .9rem;
+    border-top: 1px solid var(--border);
+  }
+  .option-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 10px 0;
+  }
+  .option-btn {
+    background: #eef2f8;
+    padding: 6px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .option-btn.selected {
+    background: var(--blue);
+    color: white;
+  }
+  .option-btn.correct {
+    background: #1e6b1e;
+    color: white;
+  }
+  .option-btn.wrong {
+    background: var(--red);
+    color: white;
+  }
+  .word-count {
+    font-size: .8rem;
+    color: var(--muted);
+    margin-top: 5px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">✈️ EN ROUTE!</span>
+  <h1>Travel & Transport</h1>
+  <p>Parler des voyages, moyens de transport, utiliser "avant de + infinitif"</p>
+  <div class="badges">
+    <span class="badge">Moyens de transport</span>
+    <span class="badge">Avant de + infinitif</span>
+    <span class="badge">Conditionnel (je voyagerais)</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ OBJECTIFS ============ -->
+<section>
+  <div class="grammar-box">
+    <strong>🎯 OBJECTIFS D'APPRENTISSAGE</strong><br>
+    • Parler des voyages et des moyens de transport<br>
+    • Utiliser <strong>avant de</strong> + l'infinitif
+  </div>
+</section>
+
+<!-- ============ EXERCICE 1 : AVANT DE... ============ -->
+<section>
+  <span class="tag green">📖 Exercice 1 · Lisez et trouvez la bonne fin</span>
+  <h2>Complétez les phrases avec la bonne fin</h2>
+
+  <div id="avantDeEx">
+    <div class="q">
+      <p class="qtext">1. Avant de prendre le train, …</p>
+      <div class="option-group" data-q="1" data-correct="acheter un billet">
+        <span class="option-btn" data-val="acheter un billet">a. acheter un billet</span>
+        <span class="option-btn" data-val="mettre sa ceinture">b. mettre sa ceinture</span>
+        <span class="option-btn" data-val="embarquer">c. embarquer</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">2. Avant de prendre le métro, …</p>
+      <div class="option-group" data-q="2" data-correct="valider son ticket">
+        <span class="option-btn" data-val="valider son ticket">a. valider son ticket</span>
+        <span class="option-btn" data-val="faire le plein">b. faire le plein</span>
+        <span class="option-btn" data-val="prendre son passeport">c. prendre son passeport</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">3. Avant d'aller sur l'autoroute, …</p>
+      <div class="option-group" data-q="3" data-correct="faire le plein">
+        <span class="option-btn" data-val="faire le plein">a. faire le plein</span>
+        <span class="option-btn" data-val="acheter un billet">b. acheter un billet</span>
+        <span class="option-btn" data-val="enregistrer ses bagages">c. enregistrer ses bagages</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">4. Avant de démarrer sa voiture, …</p>
+      <div class="option-group" data-q="4" data-correct="mettre sa ceinture">
+        <span class="option-btn" data-val="mettre sa ceinture">a. mettre sa ceinture</span>
+        <span class="option-btn" data-val="prendre le volant">b. prendre le volant</span>
+        <span class="option-btn" data-val="consulter la carte">c. consulter la carte</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">5. Avant de visiter un autre pays, …</p>
+      <div class="option-group" data-q="5" data-correct="prendre son passeport">
+        <span class="option-btn" data-val="prendre son passeport">a. prendre son passeport</span>
+        <span class="option-btn" data-val="attendre le bus">b. attendre le bus</span>
+        <span class="option-btn" data-val="payer le péage">c. payer le péage</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">6. Avant de monter dans l'avion, …</p>
+      <div class="option-group" data-q="6" data-correct="enregistrer ses bagages">
+        <span class="option-btn" data-val="enregistrer ses bagages">a. enregistrer ses bagages</span>
+        <span class="option-btn" data-val="acheter un ticket">b. acheter un ticket</span>
+        <span class="option-btn" data-val="conduire prudemment">c. conduire prudemment</span>
+      </div>
+    </div>
+  </div>
+  <button class="check-btn" onclick="checkAvantDe()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealAvantDe()">Voir les réponses</button>
+  <div class="score" id="scoreAvantDe"></div>
+  
+  <div class="audio-box">
+    <button class="play-btn" onclick="playAvantDeAudio()">▶ Écouter et vérifier les réponses</button>
+  </div>
+  
+  <div class="grammar-box">
+    <strong>📚 Avant de + infinitif</strong><br>
+    Utilisez <strong>avant de</strong> + infinitif pour dire "before doing something".<br>
+    <em>Exemple : Avant de prendre le métro, j'ai acheté un ticket.</em>
+    <button class="speak-btn" onclick="speakFR('Avant de prendre le train, j\'achète un billet. Avant de démarrer ma voiture, je mets ma ceinture.')">🔊 Écouter des exemples</button>
+  </div>
+</section>
+
+<!-- ============ AVIS DE ZIA ET AMANDINE ============ -->
+<section>
+  <span class="tag gold">📝 Avis de voyageurs</span>
+  <h2>Zia et Amandine donnent leur avis</h2>
+  
+  <div class="avis-card">
+    <strong>✈️ Zia :</strong> « Si j'avais le choix, je voyagerais toujours en avion car c'est rapide et confortable et on arrive plus vite! Ce n'est pas du tout fatigant. J'aime beaucoup. »
+    <button class="speak-btn" onclick="speakFR('Si j\'avais le choix, je voyagerais toujours en avion car c\'est rapide et confortable.')">🔊 Écouter Zia</button>
+  </div>
+  
+  <div class="avis-card">
+    <strong>⛴️ Amandine :</strong> « Si j'avais le choix, je voyagerais toujours en bateau car c'est pratique et c'est la classe! Il y a beaucoup de place, ce n'est pas du tout ennuyeux, et, en plus, on vous sert les repas! »
+    <button class="speak-btn" onclick="speakFR('Si j\'avais le choix, je voyagerais toujours en bateau car c\'est pratique et c\'est la classe. On vous sert les repas.')">🔊 Écouter Amandine</button>
+  </div>
+</section>
+
+<!-- ============ EXERCICE 2 : QUESTIONS SUR LES AVIS ============ -->
+<section>
+  <span class="tag green">❓ Exercice 2 · Qui a dit quoi?</span>
+  <p class="sub">Répondez en donnant le nom de la personne (Zia ou Amandine).</p>
+  
+  <div id="avisQuestions">
+    <div class="q"><p class="qtext">Exemple: 1 Camille (non applicable)</p></div>
+    <div class="q"><p class="qtext">1. Qui a l'esprit aventurier? (Les deux aiment voyager)</p><input type="text" id="avis1" data-ans="Zia et Amandine" style="width:200px"></div>
+    <div class="q"><p class="qtext">2. Qui aime voyager dans le ciel?</p><input type="text" id="avis2" data-ans="Zia" style="width:100px"></div>
+    <div class="q"><p class="qtext">3. Qui pense à l'environnement? (Aucune des deux)</p><input type="text" id="avis3" data-ans="personne" style="width:120px"></div>
+    <div class="q"><p class="qtext">4. Qui préfère un moyen de transport spacieux?</p><input type="text" id="avis4" data-ans="Amandine" style="width:120px"></div>
+    <div class="q"><p class="qtext">5. Qui préfère le moyen de transport le plus rapide?</p><input type="text" id="avis5" data-ans="Zia" style="width:100px"></div>
+    <div class="q"><p class="qtext">6. Qui pense aux coûts des moyens de transport? (Aucune des deux)</p><input type="text" id="avis6" data-ans="personne" style="width:120px"></div>
+    <div class="q"><p class="qtext">7. Qui pense à manger pendant le voyage?</p><input type="text" id="avis7" data-ans="Amandine" style="width:120px"></div>
+    <div class="q"><p class="qtext">8. Qui pense que le moyen de transport qu'il/elle choisirait serait très chic?</p><input type="text" id="avis8" data-ans="Amandine" style="width:120px"></div>
+  </div>
+  <button class="check-btn" onclick="checkAvis()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealAvis()">Voir les réponses</button>
+  <div class="score" id="scoreAvis"></div>
+</section>
+
+<!-- ============ TRANSPORT VOCABULARY ============ -->
+<section>
+  <span class="tag gold">🚗 Moyens de transport</span>
+  <div class="transport-grid">
+    <div class="transport-card" onclick="speakFR('en avion')"><span class="emoji">✈️</span><div>en avion</div></div>
+    <div class="transport-card" onclick="speakFR('en train')"><span class="emoji">🚂</span><div>en train</div></div>
+    <div class="transport-card" onclick="speakFR('en bateau')"><span class="emoji">⛴️</span><div>en bateau</div></div>
+    <div class="transport-card" onclick="speakFR('en voiture')"><span class="emoji">🚗</span><div>en voiture</div></div>
+    <div class="transport-card" onclick="speakFR('en métro')"><span class="emoji">🚇</span><div>en métro</div></div>
+    <div class="transport-card" onclick="speakFR('à moto')"><span class="emoji">🏍️</span><div>à moto</div></div>
+  </div>
+</section>
+
+<!-- ============ EXERCICE 3 : PRODUCTION - DONNER SON AVIS ============ -->
+<section>
+  <span class="tag green">✍️ Exercice 3 · Donnez votre avis</span>
+  <h2>Écrivez une phrase de 20 mots sur votre moyen de transport préféré</h2>
+  
+  <div class="phrase-builder">
+    <span>Si j'avais le choix, pour aller</span>
+    <select id="countrySelect">
+      <option value="en Inde">en Inde</option>
+      <option value="en Russie">en Russie</option>
+      <option value="en Chine">en Chine</option>
+      <option value="au Sénégal">au Sénégal</option>
+      <option value="au Brésil">au Brésil</option>
+    </select>
+    <span>je voyagerais</span>
+    <select id="transportSelect">
+      <option value="en avion">en avion</option>
+      <option value="en train">en train</option>
+      <option value="en bateau">en bateau</option>
+      <option value="en voiture">en voiture</option>
+      <option value="à moto">à moto</option>
+    </select>
+    <span>car</span>
+    <input type="text" id="opinionReason" placeholder="c'est rapide/confortable/pas fatigant" style="min-width:200px">
+  </div>
+  
+  <div class="q">
+    <p class="qtext">Votre phrase complète :</p>
+    <input type="text" id="fullOpinion" readonly style="width:100%; background:#eef2f8;">
+  </div>
+  
+  <button class="speak-btn" onclick="speakOpinion()">🔊 Écouter mon avis</button>
+  
+  <div class="tip"><strong>💡 Exemples :</strong> « Si j'avais le choix, pour aller au Brésil, je voyagerais en avion car c'est rapide et confortable. »<br>
+  « Si j'avais le choix, pour aller en Chine, je voyagerais en bateau car c'est une aventure et ce n'est pas fatigant. »</div>
+</section>
+
+<!-- ============ EXERCICE 4 : PRODUCTION ÉCRITE LIBRE ============ -->
+<section>
+  <span class="tag gold">✍️ Exercice 4 · Parlez de vos préférences de voyage</span>
+  <p class="sub">Rédigez 50-70 mots sur votre moyen de transport préféré et pourquoi. Utilisez le conditionnel (je voyagerais) et "avant de".</p>
+  
+  <textarea id="travelText" rows="5" placeholder="Exemple : Si j'avais le choix, je voyagerais toujours en train car c'est confortable et on peut regarder le paysage. Ce n'est pas du tout fatigant. Avant de prendre le train, j'achète un billet et je prends un livre. Je trouve que c'est le meilleur moyen de transport."></textarea>
+  <div class="word-count" id="travelWordCount">0 mots</div>
+  <button class="speak-btn" onclick="speakTravelText()">🔊 Écouter mon texte</button>
+  <button class="reveal-btn" onclick="showTravelModel()">Voir un modèle</button>
+  <div id="travelModel" style="display:none; background:#eef2f8; padding:14px; border-radius:8px; margin-top:12px;">
+    <strong>📝 Modèle (65 mots) :</strong><br>
+    « Si j'avais le choix, je voyagerais toujours en avion car c'est rapide et confortable. Ce n'est pas du tout fatigant. Avant de monter dans l'avion, j'enregistre mes bagages et je passe la sécurité. Je trouve que c'est la classe! Cependant, c'est cher. Mais pour les longues distances, c'est le meilleur choix. »
+    <button class="speak-btn" onclick="speakFR('Si j\'avais le choix, je voyagerais toujours en avion car c\'est rapide. Avant de monter dans l\'avion, j\'enregistre mes bagages.')">🔊 Écouter</button>
+  </div>
+</section>
+
+<footer>
+  IGCSE French — Travel and Transport · Avant de + infinitif, conditionnel, moyens de transport ✈️🚂⛴️
+</footer>
+
+</main>
+
+<script>
+  // Speech synthesis
+  function speakFR(text) {
+    if (!('speechSynthesis' in window)) { alert('Audio non supporté'); return; }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR';
+    u.rate = 0.92;
+    const voices = speechSynthesis.getVoices();
+    const frVoice = voices.find(v => v.lang.startsWith('fr'));
+    if (frVoice) u.voice = frVoice;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged = () => {};
+
+  function playAvantDeAudio() {
+    speakFR("Avant de prendre le train, j'achète un billet. Avant de prendre le métro, je valide mon ticket. Avant d'aller sur l'autoroute, je fais le plein. Avant de démarrer ma voiture, je mets ma ceinture. Avant de visiter un autre pays, je prends mon passeport. Avant de monter dans l'avion, j'enregistre mes bagages.");
+  }
+
+  function norm(s) { return (s || '').toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' '); }
+
+  // Avant de exercise with option buttons
+  let avantDeSelections = {};
+  document.querySelectorAll('.option-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const group = this.closest('.option-group');
+      const qNum = group.getAttribute('data-q');
+      group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      this.classList.add('selected');
+      avantDeSelections[qNum] = this.getAttribute('data-val');
+    });
+  });
+
+  function checkAvantDe() {
+    const correctMap = { '1': 'acheter un billet', '2': 'valider son ticket', '3': 'faire le plein', '4': 'mettre sa ceinture', '5': 'prendre son passeport', '6': 'enregistrer ses bagages' };
+    let total = 6, correct = 0;
+    for (let q = 1; q <= 6; q++) {
+      const group = document.querySelector(`.option-group[data-q="${q}"]`);
+      const selected = avantDeSelections[q];
+      const correctAns = correctMap[q];
+      group.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('correct', 'wrong'));
+      if (selected === correctAns) {
+        correct++;
+        const correctBtn = group.querySelector(`.option-btn[data-val="${selected}"]`);
+        if (correctBtn) correctBtn.classList.add('correct');
+      } else {
+        if (selected) {
+          const wrongBtn = group.querySelector(`.option-btn[data-val="${selected}"]`);
+          if (wrongBtn) wrongBtn.classList.add('wrong');
+        }
+        const correctBtn = group.querySelector(`.option-btn[data-val="${correctAns}"]`);
+        if (correctBtn) correctBtn.classList.add('correct');
+      }
+    }
+    document.getElementById('scoreAvantDe').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealAvantDe() {
+    const correctMap = { '1': 'acheter un billet', '2': 'valider son ticket', '3': 'faire le plein', '4': 'mettre sa ceinture', '5': 'prendre son passeport', '6': 'enregistrer ses bagages' };
+    for (let q = 1; q <= 6; q++) {
+      const group = document.querySelector(`.option-group[data-q="${q}"]`);
+      const correctVal = correctMap[q];
+      avantDeSelections[q] = correctVal;
+      group.querySelectorAll('.option-btn').forEach(btn => {
+        btn.classList.remove('selected');
+        if (btn.getAttribute('data-val') === correctVal) btn.classList.add('selected');
+      });
+    }
+    checkAvantDe();
+  }
+
+  // Avis questions
+  function checkAvis() {
+    const answers = {
+      avis1: "Zia et Amandine", avis2: "Zia", avis3: "personne", avis4: "Amandine",
+      avis5: "Zia", avis6: "personne", avis7: "Amandine", avis8: "Amandine"
+    };
+    let total = 8, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      const expNorm = norm(exp);
+      if (user === expNorm || (id === 'avis1' && user.includes('zia'))) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreAvis').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealAvis() {
+    document.getElementById('avis1').value = "Zia et Amandine";
+    document.getElementById('avis2').value = "Zia";
+    document.getElementById('avis3').value = "personne";
+    document.getElementById('avis4').value = "Amandine";
+    document.getElementById('avis5').value = "Zia";
+    document.getElementById('avis6').value = "personne";
+    document.getElementById('avis7').value = "Amandine";
+    document.getElementById('avis8').value = "Amandine";
+    checkAvis();
+  }
+
+  // Phrase builder for opinion
+  const countrySelect = document.getElementById('countrySelect');
+  const transportSelect = document.getElementById('transportSelect');
+  const reasonInput = document.getElementById('opinionReason');
+  const fullOpinion = document.getElementById('fullOpinion');
+
+  function updateFullOpinion() {
+    const country = countrySelect.value;
+    const transport = transportSelect.value;
+    const reason = reasonInput.value.trim();
+    let phrase = `Si j'avais le choix, pour aller ${country}, je voyagerais ${transport}`;
+    if (reason) phrase += ` car ${reason}.`;
+    else phrase += `.`;
+    fullOpinion.value = phrase;
+  }
+  countrySelect.addEventListener('change', updateFullOpinion);
+  transportSelect.addEventListener('change', updateFullOpinion);
+  reasonInput.addEventListener('input', updateFullOpinion);
+  updateFullOpinion();
+
+  function speakOpinion() {
+    if (fullOpinion.value) speakFR(fullOpinion.value);
+    else speakFR("Je n'ai pas encore d'avis.");
+  }
+
+  // Writing production
+  const travelTa = document.getElementById('travelText');
+  const wordSpan = document.getElementById('travelWordCount');
+  travelTa.addEventListener('input', function() {
+    const words = travelTa.value.trim().split(/\s+/).filter(Boolean).length;
+    wordSpan.innerText = `${words} mots`;
+    if (words >= 45 && words <= 80) wordSpan.style.color = '#1e6b1e';
+    else wordSpan.style.color = 'var(--muted)';
+  });
+  function speakTravelText() {
+    const text = travelTa.value.trim();
+    if (text) speakFR(text);
+    else speakFR("Je n'ai pas encore écrit mon texte.");
+  }
+  function showTravelModel() {
+    const model = document.getElementById('travelModel');
+    model.style.display = model.style.display === 'none' ? 'block' : 'none';
+  }
+  window.addEventListener('load', () => {
+    if (travelTa.value.trim() === '') wordSpan.innerText = '0 mots';
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Merci, j'apprécie vos services!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f7fb; --ink:#0e1a2b; --muted:#5a6473;
+    --red:#7a1722; --red-dark:#5a0f18;
+    --blue:#0f2a4a; --blue-dark:#08182b;
+    --card:#ffffff; --border:#d9dde5; --shadow:0 10px 30px rgba(8,24,43,.08);
+  }
+  *{box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);margin:0;padding:30px;line-height:1.6}
+  .wrap{max-width:1100px;margin:0 auto}
+  header{background:linear-gradient(135deg,var(--blue),#110254);color:#fff;padding:40px;border-radius:16px;box-shadow:0 10px 30px rgba(10,61,145,.2)}
+  header h1{font-family:'Playfair Display',serif;font-size:2.4rem;margin:0 0 10px}
+  header .tag{display:inline-block;background:var(--red);padding:5px 14px;border-radius:20px;font-size:.85rem;font-weight:600;margin-bottom:14px}
+  header ul{margin:10px 0 0 18px;padding:0}
+  section{background:var(--card);margin:24px 0;padding:30px;border-radius:14px;box-shadow:0 4px 14px rgba(0,0,0,.05);border-left:6px solid var(--blue)}
+  section h2{font-family:'Playfair Display',serif;color:var(--blue);margin-top:0;font-size:1.6rem;display:flex;align-items:center;gap:12px}
+  section h2 .num{background:var(--red);color:#fff;width:38px;height:38px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:1.1rem}
+  .lead{color:var(--muted);font-style:italic;margin-bottom:18px}
+  button.audio{background:var(--blue);color:#fff;border:none;padding:8px 14px;border-radius:8px;cursor:pointer;font-weight:600;font-size:.9rem;margin:4px 6px 4px 0}
+  button.audio:hover{background:#082f6f}
+  button.check{background:var(--red);color:#fff;border:none;padding:10px 22px;border-radius:8px;cursor:pointer;font-weight:700;margin-top:14px}
+  button.check:hover{background:#a51e1e}
+  .score{display:inline-block;margin-left:14px;font-weight:700;color:var(--blue)}
+  .match-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+  .person{background:var(--blue-light);padding:14px;border-radius:10px;border-left:4px solid var(--blue)}
+  .person .name{font-weight:700;color:var(--blue);margin-bottom:4px}
+  .person select{margin-top:8px;width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;font-family:inherit}
+  .person.ok{background:#e6f7ed;border-left-color:var(--ok)}
+  .person.no{background:var(--red-light);border-left-color:var(--no)}
+  .places{background:#fff8e1;padding:12px 16px;border-radius:8px;margin-bottom:14px;font-size:.9rem}
+  .mcq{background:#fafbfd;border:1px solid var(--border);border-radius:10px;padding:14px;margin:10px 0}
+  .mcq .q{font-weight:600;margin-bottom:8px}
+  .mcq label{display:block;padding:6px 10px;border-radius:6px;cursor:pointer;margin:2px 0}
+  .mcq label:hover{background:var(--blue-light)}
+  .mcq.ok{background:#e6f7ed;border-color:var(--ok)}
+  .mcq.no{background:var(--red-light);border-color:var(--no)}
+  table{width:100%;border-collapse:collapse;margin-top:12px}
+  th,td{border:1px solid var(--border);padding:10px;text-align:left;vertical-align:top}
+  th{background:var(--blue);color:#fff;font-weight:600}
+  td input{width:100%;border:none;background:transparent;font-family:inherit}
+  td input:focus{outline:1px solid var(--blue);background:#fff}
+  .letters{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-bottom:18px}
+  .letter{background:var(--blue-light);padding:14px;border-radius:10px;border-left:4px solid var(--blue)}
+  .letter .from{font-weight:700;color:var(--blue);margin-bottom:6px}
+  .questions .q{margin:10px 0;padding:10px;background:#fafbfd;border-radius:8px;border:1px solid var(--border)}
+  .questions input{width:100%;padding:8px;border:1px solid var(--border);border-radius:6px;margin-top:6px;font-family:inherit}
+  .gram{background:linear-gradient(135deg,#fff8e1,#fff3c4);border-left:6px solid var(--gold);padding:20px;border-radius:10px;margin:18px 0}
+  .gram h3{margin-top:0;color:var(--blue);font-family:'Playfair Display',serif}
+  .gram code{background:#fff;padding:2px 6px;border-radius:4px;color:var(--red);font-weight:600}
+  .gap{background:#fafbfd;padding:12px;border-radius:8px;border:1px solid var(--border);margin:8px 0}
+  .gap input{padding:5px 10px;border:1.5px solid var(--blue);border-radius:6px;width:80px;text-align:center;font-weight:600;color:var(--red)}
+  .gap.ok input{border-color:var(--ok);background:#e6f7ed}
+  .gap.no input{border-color:var(--no);background:var(--red-light)}
+  textarea{width:100%;min-height:150px;padding:12px;border:1.5px solid var(--border);border-radius:8px;font-family:inherit;font-size:1rem;resize:vertical}
+  textarea:focus{border-color:var(--blue);outline:none}
+  .count{font-size:.85rem;color:var(--muted);margin-top:6px}
+  .vocab-table td{background:#fafbfd}
+  .vocab-table th{background:var(--red)}
+  .model{background:#e6f7ed;border-left:4px solid var(--ok);padding:14px;border-radius:8px;margin-top:12px;display:none}
+  .model.show{display:block}
+  footer{text-align:center;color:var(--muted);margin-top:30px;padding:20px;font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="tag">A3 SERVICES (BANK, POST OFFICE)</span>
+  <h1>1 Merci, j'apprécie vos services!</h1>
+  <p><b>Objectifs d'apprentissage:</b></p>
+  <ul>
+    <li>Comprendre les services de banque, de poste et des objets trouvés</li>
+    <li>Utiliser les pronoms compléments d'objet direct avec le passé composé</li>
+  </ul>
+</header>
+
+<section>
+  <h2><span class="num">1</span> Reliez les textes aux services</h2>
+  <p class="lead">Où doivent-ils aller pour ce service? Exemple: <b>1 → le bureau de change</b></p>
+  <div class="places"><b>Lieux:</b> a) le bureau de poste · b) le bureau des objets trouvés · c) la banque · d) le commissariat de police · e) la bibliothèque · f) le distributeur automatique de billets · g) le bureau de change</div>
+  <div class="match-grid" id="matchGrid"></div>
+  <button class="check" onclick="checkMatch()">Vérifier</button>
+  <span class="score" id="matchScore"></span>
+</section>
+
+<section>
+  <h2><span class="num">2</span> Interview sur la banque</h2>
+  <p class="lead">Écoutez l'interview puis choisissez la bonne réponse.</p>
+  <button class="audio" onclick="speakInterview()">▶ Écouter l'interview</button>
+  <div id="mcqList"></div>
+  <button class="check" onclick="checkMCQ()">Vérifier</button>
+  <span class="score" id="mcqScore"></span>
+</section>
+
+<section>
+  <h2><span class="num">3</span> Au bureau de poste — Quelle somme?</h2>
+  <p class="lead">Écoutez les trois conversations et choisissez la somme payée.</p>
+  <button class="audio" onclick="speakPoste()">▶ Écouter les conversations</button>
+  <div id="posteList"></div>
+  <button class="check" onclick="checkPoste()">Vérifier</button>
+  <span class="score" id="posteScore"></span>
+</section>
+
+<section>
+  <h2><span class="num">4</span> Complétez le tableau</h2>
+  <p class="lead">Écoutez de nouveau et complétez en français.</p>
+  <table>
+    <thead><tr><th>Conv.</th><th>Destination</th><th>Objet envoyé</th><th>Autres détails</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><input placeholder="ex: Espagne"></td><td>une lettre</td><td><input></td></tr>
+      <tr><td>2</td><td><input></td><td><input placeholder="ex: un colis"></td><td><input></td></tr>
+      <tr><td>3</td><td><input></td><td><input></td><td><input></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2><span class="num">5</span> Les objets perdus</h2>
+  <p class="lead">Lisez les déclarations et répondez en français.</p>
+  <div class="letters">
+    <div class="letter"><div class="from">📧 Céline Dubois</div>J'ai perdu mon sac il y a une semaine. Je pense que je l'ai laissé dans le bus que je prenais samedi dernier. Mon sac était en cuir vert foncé et assez petit. À l'intérieur il y avait mon porte-monnaie.</div>
+    <div class="letter"><div class="from">📧 Arthur Faure</div>J'ai perdu mes clefs il y a quinze jours. Je crois que je les ai perdues dans le Parc de Procé quand j'y étais avec mes amis.</div>
+    <div class="letter"><div class="from">📧 Dounia Dati</div>J'ai perdu mon portefeuille et ma carte bancaire. Je les ai sûrement perdus quand je faisais du shopping samedi dernier dans le rayon cuisine des Galeries Lafayette.</div>
+  </div>
+  <div class="questions" id="qList"></div>
+  <button class="check" onclick="checkQ()">Vérifier</button>
+  <span class="score" id="qScore"></span>
+</section>
+
+<section>
+  <div class="gram">
+    <h3>📘 Les pronoms compléments d'objet direct au passé composé</h3>
+    <p>The pronoun goes <b>before</b> avoir/être. Past participle agrees with <code>la</code> or <code>les</code>.</p>
+    <ul>
+      <li>J'ai perdu mon portefeuille. → Je <b>l'</b>ai perdu.</li>
+      <li>Il a perdu sa carte. → Il <b>l'</b>a perdu<b>e</b>.</li>
+      <li>Nous avons oublié nos gants. → Nous <b>les</b> avons oublié<b>s</b>.</li>
+      <li>Elles ont laissé leurs sacs. → Elles <b>les</b> ont laissé<b>s</b>.</li>
+      <li>Ils ont laissé leurs baskets. → Ils <b>les</b> ont laissé<b>es</b>.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">6</span> L'accord du participe passé</h2>
+  <p class="lead">Complétez avec l'accord (sinon, écrivez ✗).</p>
+  <div id="gapList"></div>
+  <button class="check" onclick="checkGaps()">Vérifier</button>
+  <span class="score" id="gapScore"></span>
+</section>
+
+<section>
+  <h2><span class="num">7</span> À vous d'écrire (60–75 mots)</h2>
+  <p class="lead">Employez <b>tous</b> les mots ci-dessous.</p>
+  <table class="vocab-table">
+    <thead><tr><th>services</th><th>hier</th><th>opinion</th><th>la semaine prochaine</th></tr></thead>
+    <tbody><tr><td>banque, poste…</td><td>je suis allé(e)…</td><td>à mon avis…</td><td>je vais aller…</td></tr></tbody>
+  </table>
+  <textarea id="essay" placeholder="Commencez ici…"></textarea>
+  <div class="count"><span id="wc">0</span> mots</div>
+  <button class="audio" onclick="speakEssay()">▶ Écouter mon texte</button>
+  <button class="check" onclick="document.getElementById('model').classList.toggle('show')">Voir un modèle</button>
+  <div class="model" id="model"><b>Modèle:</b> Hier, je suis allé à la banque pour retirer de l'argent. Ensuite, je suis passé au bureau de poste pour envoyer un colis à ma grand-mère. À mon avis, les services dans ma ville sont rapides et efficaces, mais je trouve que la banque est parfois impersonnelle. La semaine prochaine, je vais aller à la bibliothèque pour emprunter des livres. J'adore lire!</div>
+</section>
+
+<footer>GCSE / IGCSE French — Services · Banque, Poste et Objets Trouvés</footer>
+</div>
+
+<script>
+function speak(t){window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='fr-FR';u.rate=.9;speechSynthesis.speak(u);}
+const people=[
+  {n:'1 Mohamed',t:"Il me faut des dollars pour les États-Unis, le taux de change à ma banque est mauvais.",a:'g'},
+  {n:'2 Sandrine',t:"Je vais envoyer un cadeau à ma tante.",a:'a'},
+  {n:'3 Thierry',t:"Ma banque est fermée mais je dois retirer de l'argent.",a:'f'},
+  {n:'4 Luc et Léa',t:"Nous préférons emprunter des livres.",a:'e'},
+  {n:'5 Yasmine',t:"Je peux enfin ouvrir un compte bancaire.",a:'c'},
+  {n:'6 Thérèse',t:"J'ai perdu mon portefeuille.",a:'b'},
+  {n:'7 Sven',t:"Un jeune homme a volé mon portable!",a:'d'}
+];
+const places={a:'bureau de poste',b:'objets trouvés',c:'banque',d:'commissariat',e:'bibliothèque',f:'distributeur',g:'bureau de change'};
+const mg=document.getElementById('matchGrid');
+people.forEach((p,i)=>{const opts=Object.entries(places).map(([k,v])=>`<option value="${k}">${k}) ${v}</option>`).join('');mg.innerHTML+=`<div class="person"><div class="name">${p.n} <button class="audio" onclick="speak('${p.t}')">▶</button></div><div>${p.t}</div><select><option value="">— choisir —</option>${opts}</select></div>`;});
+function checkMatch(){let s=0;document.querySelectorAll('#matchGrid .person').forEach((el,i)=>{const v=el.querySelector('select').value;el.classList.remove('ok','no');if(v===people[i].a){el.classList.add('ok');s++}else if(v)el.classList.add('no');});document.getElementById('matchScore').textContent=`Score: ${s}/${people.length}`;}
+
+const mcqs=[
+  {q:"1 Tania à l'intention…",opts:["d'acheter des choses inutiles","de dépenser son argent","d'économiser son argent","d'étudier l'économie"],a:2},
+  {q:"2 Nadim ne contacte pas sa banque…",opts:["par téléphone","par courriel","sur le site web","par lettre"],a:3},
+  {q:"3 Il utilise le sans contact quand il…",opts:["n'a pas de liquide","prend le train","n'a pas de chéquier","paie plus de 30 €"],a:0},
+  {q:"4 La banque de Victor est fermée…",opts:["le week-end","2 jours/semaine","le dimanche","un jour et demi/semaine"],a:3},
+  {q:"5 Victor va à sa banque…",opts:["pour de l'argent","rarement","consulter son compte","pour un problème"],a:1},
+  {q:"6 Samia a présenté…",opts:["deux pièces d'identité","trois","quatre","une"],a:0},
+  {q:"7 Le contact avec sa banque est…",opts:["simple","impersonnel","amical","rapide"],a:1}
+];
+const ml=document.getElementById('mcqList');
+mcqs.forEach((m,i)=>{ml.innerHTML+=`<div class="mcq"><div class="q">${m.q}</div>${m.opts.map((o,j)=>`<label><input type="radio" name="m${i}" value="${j}"> ${String.fromCharCode(97+j)}) ${o}</label>`).join('')}</div>`;});
+function speakInterview(){speak("Tania économise son argent. Nadim contacte sa banque par téléphone, courriel ou site web, jamais par lettre. Il utilise le sans contact sans liquide. La banque de Victor ferme un jour et demi. Victor y va rarement. Samia a présenté deux pièces d'identité. Le contact est impersonnel.");}
+function checkMCQ(){let s=0;document.querySelectorAll('#mcqList .mcq').forEach((el,i)=>{const sel=el.querySelector('input:checked');el.classList.remove('ok','no');if(sel&&+sel.value===mcqs[i].a){el.classList.add('ok');s++}else if(sel)el.classList.add('no');});document.getElementById('mcqScore').textContent=`Score: ${s}/${mcqs.length}`;}
+
+const poste=[
+  {q:"Conv. 1 — Total:",opts:["10,15 €","6,15 €","10,14 €","10,16 €"],a:0},
+  {q:"Conv. 2 — Total:",opts:["33,70 €","33,76 €","33,66 €","60,16 €"],a:1},
+  {q:"Conv. 3 — Total:",opts:["12,85 €","12,45 €","10,80 €","2,85 €"],a:0}
+];
+const pl=document.getElementById('posteList');
+poste.forEach((m,i)=>{pl.innerHTML+=`<div class="mcq"><div class="q">${m.q}</div>${m.opts.map((o,j)=>`<label><input type="radio" name="p${i}" value="${j}"> ${String.fromCharCode(97+j)}) ${o}</label>`).join('')}</div>`;});
+function speakPoste(){speak("Un: envoyer une lettre en Espagne, dix euros quinze. Deux: un colis en Italie, trente-trois euros soixante-seize. Trois: deux cartes postales au Canada, douze euros quatre-vingt-cinq.");}
+function checkPoste(){let s=0;document.querySelectorAll('#posteList .mcq').forEach((el,i)=>{const sel=el.querySelector('input:checked');el.classList.remove('ok','no');if(sel&&+sel.value===poste[i].a){el.classList.add('ok');s++}else if(sel)el.classList.add('no');});document.getElementById('posteScore').textContent=`Score: ${s}/${poste.length}`;}
+
+const qs=[
+  {q:"1 Qui a perdu quelque chose dans les transports en commun?",a:["céline","celine"]},
+  {q:"2 Qui a perdu quelque chose dans un grand magasin?",a:["dounia"]},
+  {q:"3 Qui a perdu quelque chose il y a deux semaines?",a:["arthur"]},
+  {q:"4 Qu'y avait-il dans le sac de Céline?",a:["porte-monnaie"]},
+  {q:"5 Où Arthur a-t-il perdu ses clefs?",a:["parc de procé","parc de proce"]},
+  {q:"6 Où Dounia a-t-elle perdu sa carte bancaire?",a:["galeries lafayette","rayon cuisine"]}
+];
+const ql=document.getElementById('qList');
+qs.forEach((m,i)=>ql.innerHTML+=`<div class="q"><b>${m.q}</b><input placeholder="Votre réponse…"></div>`);
+function checkQ(){let s=0;document.querySelectorAll('#qList .q').forEach((el,i)=>{const v=el.querySelector('input').value.toLowerCase().trim();const ok=qs[i].a.some(x=>v.includes(x));el.style.background=ok?'#e6f7ed':v?'#fdecec':'#fafbfd';if(ok)s++;});document.getElementById('qScore').textContent=`Score: ${s}/${qs.length}`;}
+
+const gaps=[
+  {pre:"J'ai perdu mes lunettes. Je les ai perdu",post:" sur la plage.",a:["es"]},
+  {pre:"Mes chaussures rouges? Je les ai vu",post:" dans le salon!",a:["es"]},
+  {pre:"Ma sœur a perdu son sac. Elle l'a laissé",post:" dans le bus.",a:["","✗","x"]},
+  {pre:"Mon fils a perdu sa carte. Il l'a perdu",post:" avant-hier.",a:["e"]},
+  {pre:"Mon parapluie? Non, je ne l'ai pas perdu",post:".",a:["","✗","x"]},
+  {pre:"Les sandwichs? Ils les ont mangé",post:" avant le pique-nique!",a:["s"]}
+];
+const gl=document.getElementById('gapList');
+gaps.forEach((g,i)=>gl.innerHTML+=`<div class="gap">${g.pre}<input maxlength="3">${g.post}</div>`);
+function checkGaps(){let s=0;document.querySelectorAll('#gapList .gap').forEach((el,i)=>{const v=el.querySelector('input').value.trim().toLowerCase();el.classList.remove('ok','no');if(gaps[i].a.includes(v)){el.classList.add('ok');s++}else el.classList.add('no');});document.getElementById('gapScore').textContent=`Score: ${s}/${gaps.length}`;}
+
+const ta=document.getElementById('essay');
+ta.addEventListener('input',()=>document.getElementById('wc').textContent=ta.value.trim().split(/\s+/).filter(Boolean).length);
+function speakEssay(){speak(ta.value||"Écrivez d'abord.");}
+</script>
+</body>
+</html>

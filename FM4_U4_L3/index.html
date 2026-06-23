@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EXAM PRACTICE: SPEAKING — Picture-based discussion & Conversation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7fb;
+    --ink: #0e1a2b;
+    --muted: #5a6473;
+    --red: #7a1722;
+    --red-dark: #5a0f18;
+    --blue: #0f2a4a;
+    --blue-dark: #08182b;
+    --card: #fff;
+    --border: #d9dde5;
+    --shadow: 0 10px 30px rgba(8,24,43,.08);
+    --gold: #c9a227;
+    --green: #2d6a4f;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: #fff;
+    padding: 48px 24px;
+    text-align: center;
+    border-bottom: 6px solid var(--red);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: "🗣️";
+    position: absolute;
+    font-size: 12rem;
+    opacity: .08;
+    bottom: -30px;
+    right: -20px;
+    transform: rotate(-8deg);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: .2em 0;
+    position: relative;
+  }
+  header p {
+    max-width: 780px;
+    margin: 0 auto;
+    opacity: .92;
+    position: relative;
+  }
+  .badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.12);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: .85rem;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .tag {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .tag.gold {
+    background: var(--gold);
+    color: var(--blue-dark);
+  }
+  .tag.green {
+    background: var(--green);
+    color: #fff;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin: .3em 0 .5em;
+    color: var(--blue);
+  }
+  h3 {
+    margin: 1.2em 0 0.5em;
+    color: var(--red);
+  }
+  .sub {
+    color: var(--muted);
+    font-style: italic;
+    font-size: .95rem;
+    margin-bottom: 1rem;
+  }
+  .tip {
+    background: #fff7e0;
+    border-left: 5px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .tip strong {
+    color: var(--blue);
+  }
+  .exam-skill {
+    background: #eef2f8;
+    border-left: 5px solid var(--blue);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-weight: 500;
+  }
+  .audio-box {
+    background: linear-gradient(135deg, #eef2f8, #fff);
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    padding: 18px;
+    margin: 14px 0;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .play-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: .95rem;
+  }
+  .play-btn:hover { background: var(--red-dark); }
+  .speak-btn {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .8rem;
+  }
+  .photo-mock {
+    background: linear-gradient(145deg, #cbd5e1, #e2e8f0);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    margin: 20px 0;
+    border: 2px dashed var(--blue);
+  }
+  .question-grid {
+    margin: 20px 0;
+  }
+  .q {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+    border-left: 4px solid var(--blue);
+  }
+  .q .qtext {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: var(--blue);
+  }
+  .q textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: .95rem;
+    resize: vertical;
+  }
+  .q input[type="text"] {
+    padding: 7px 10px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: .95rem;
+    width: 100%;
+  }
+  .check-btn, .reveal-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .reveal-btn {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+  }
+  .reveal-btn:hover {
+    background: var(--blue);
+    color: #fff;
+  }
+  .score {
+    margin-top: 12px;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 1.1rem;
+  }
+  .two-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin: 20px 0;
+  }
+  .photo-card {
+    flex: 1;
+    min-width: 280px;
+    background: #f8f9fc;
+    border-radius: 20px;
+    padding: 20px;
+    border-top: 6px solid var(--gold);
+    box-shadow: var(--shadow);
+  }
+  .evaluation-words {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .eval-word {
+    background: #eef2f8;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: .85rem;
+    font-weight: 500;
+  }
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: .9rem;
+    border-top: 1px solid var(--border);
+  }
+  .word-count {
+    font-size: .8rem;
+    color: var(--muted);
+    margin-top: 5px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">🎤 EXAM PRACTICE: SPEAKING</span>
+  <h1>Picture-based discussion & General conversation</h1>
+  <p>A5 Everyday life, traditions and communities · Fête des voisins · Décrire, évaluer, argumenter</p>
+  <div class="badges">
+    <span class="badge">Photo 1 & 2</span>
+    <span class="badge">Opinion & évaluation</span>
+    <span class="badge">Temps différents</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ EXAM SKILLS ============ -->
+<section>
+  <div class="exam-skill">
+    📌 <strong>EXAM SKILLS — Opinion and evaluation</strong><br>
+    • La quatrième question demande votre opinion. Préparez une opinion, même si vous n'en avez pas réellement une !<br>
+    • La cinquième question vous encourage à évaluer un aspect. Parlez des deux côtés de l'argument. Utilisez : <strong>par contre, d'un autre côté, d'une part… d'autre part, néanmoins, cependant, mais</strong>.
+  </div>
+  <div class="exam-skill">
+    🕰️ <strong>EXAM SKILLS — Différents temps</strong><br>
+    Développez votre réponse en introduisant différents temps. Posez-vous : « Puis-je parler d'événements passés ? Puis-je parler de projets futurs ? »
+  </div>
+</section>
+
+<!-- ============ TASK A : PHOTO 1 ============ -->
+<section>
+  <span class="tag green">📸 Task A — Photo 1</span>
+  <h2>Fête des voisins (Photo 1)</h2>
+  <div class="photo-mock">
+    <span style="font-size: 5rem;">🏘️🧑‍🤝‍🧑🎈🍰</span>
+    <p style="margin-top: 10px;"><em>Des voisins qui célèbrent ensemble dans une rue décorée — femmes en tenue festive, enfants jouant, tables partagées</em></p>
+  </div>
+
+  <div class="question-grid" id="photo1">
+    <div class="q">
+      <p class="qtext">1. Décris cette image.</p>
+      <textarea id="p1q1" rows="3" placeholder="Exemple : Sur cette image, je vois des voisins qui célèbrent une fête dans la rue. Il y a des adultes et des enfants. La rue est décorée avec des guirlandes..."></textarea>
+    </div>
+    <div class="q">
+      <p class="qtext">2. Que porte la femme à gauche pour la fête?</p>
+      <textarea id="p1q2" rows="2" placeholder="Exemple : La femme à gauche porte une robe élégante et un chapeau festif. Elle a aussi un collier coloré."></textarea>
+    </div>
+    <div class="q">
+      <p class="qtext">3. Qu'est-ce qu'ils vont faire après la fête?</p>
+      <textarea id="p1q3" rows="2" placeholder="Exemple : Après la fête, ils vont probablement ranger les tables et aider à nettoyer la rue. Certains iront peut-être se promener ensemble."></textarea>
+    </div>
+    <div class="q">
+      <p class="qtext">4. Qu'est-ce que tu penses des fêtes des voisins? (Donne ton opinion)</p>
+      <textarea id="p1q4" rows="3" placeholder="Exemple : À mon avis, les fêtes des voisins sont une excellente idée parce qu'elles permettent de créer des liens. Cependant, certaines personnes timides peuvent se sentir mal à l'aise."></textarea>
+    </div>
+    <div class="q">
+      <p class="qtext">5. Dans quelle mesure est-il important de passer du temps dans sa communauté locale avec ses voisins? (Évalue les deux côtés)</p>
+      <textarea id="p1q5" rows="3" placeholder="D'une part, c'est très important car cela réduit l'isolement et crée un sentiment d'appartenance. D'autre part, on peut préférer garder son intimité. Néanmoins, je pense que les avantages l'emportent sur les inconvénients."></textarea>
+      <div class="evaluation-words">
+        <span class="eval-word">d'une part</span>
+        <span class="eval-word">d'autre part</span>
+        <span class="eval-word">cependant</span>
+        <span class="eval-word">par contre</span>
+        <span class="eval-word">néanmoins</span>
+        <span class="eval-word">mais</span>
+      </div>
+    </div>
+  </div>
+  <button class="speak-btn" onclick="speakPhoto1()">🔊 Écouter un exemple de réponse (Photo 1)</button>
+  <button class="reveal-btn" onclick="showPhoto1Model()">Voir un modèle</button>
+  <div id="photo1Model" style="display:none; background:#eef2f8; padding:14px; border-radius:8px; margin-top:10px;">
+    <strong>📝 Modèle Photo 1 :</strong><br>
+    <strong>1.</strong> Sur l'image, je vois une rue animée où les voisins se réunissent pour une fête. Il y a des adultes qui discutent et des enfants qui jouent. Des guirlandes colorées décorent la rue.<br>
+    <strong>2.</strong> La femme à gauche porte une robe légère et un chapeau de fête. Elle a un grand sourire et tient un verre à la main.<br>
+    <strong>3.</strong> Après la fête, ils vont probablement ranger les chaises et les tables. Certains iront chez un voisin pour continuer la soirée.<br>
+    <strong>4.</strong> Je pense que les fêtes des voisins sont formidables parce qu'elles renforcent la solidarité. Par contre, pour les personnes introverties, cela peut être stressant.<br>
+    <strong>5.</strong> D'une part, passer du temps avec ses voisins est très important pour créer une communauté soudée. D'autre part, on a besoin d'intimité. Cependant, je crois qu'un équilibre est possible : participer de temps en temps sans perdre sa liberté.
+  </div>
+</section>
+
+<!-- ============ TASK A : PHOTO 2 ============ -->
+<section>
+  <span class="tag green">📸 Task A — Photo 2</span>
+  <h2>Préparation de la fête (Photo 2)</h2>
+  <div class="photo-mock">
+    <span style="font-size: 5rem;">🧑‍🍳🥘🍷🎉</span>
+    <p style="margin-top: 10px;"><em>Un homme qui prépare un plat dans sa cuisine — ingrédients sur le plan de travail, tablier, sourire</em></p>
+  </div>
+
+  <div class="question-grid" id="photo2">
+    <div class="q">
+      <p class="qtext">1. Qu'est-ce que tu vois sur cette image?</p>
+      <textarea id="p2q1" rows="3" placeholder="Exemple : Sur cette image, je vois un homme dans une cuisine. Il porte un tablier et prépare de la nourriture. Il y a des légumes, des ustensiles..."></textarea>
+    </div>
+    <div class="q">
+      <p class="qtext">2. Que fait l'homme?</p>
+      <textarea id="p2q2" rows="2" placeholder="Exemple : L'homme coupe des légumes et semble cuisiner un plat pour une fête. Il a l'air concentré et heureux."></textarea>
+    </div>
+    <div class="q">
+      <p class="qtext">3. Qu'est-ce qu'ils ont fait avant la fête?</p>
+      <textarea id="p2q3" rows="2" placeholder="Exemple : Avant la fête, ils ont probablement décoré la rue, préparé des invitations et fait les courses. Ils ont aussi nettoyé leur maison."></textarea>
+    </div>
+    <div class="q">
+      <p class="qtext">4. Quelles sont les qualités d'un bon voisin?</p>
+      <textarea id="p2q4" rows="3" placeholder="Exemple : Un bon voisin est respectueux, discret et serviable. Il dit bonjour, ne fait pas trop de bruit et propose son aide quand quelqu'un en a besoin."></textarea>
+    </div>
+    <div class="q">
+      <p class="qtext">5. Quels sont les avantages et les inconvénients de faire la connaissance des voisins?</p>
+      <textarea id="p2q5" rows="3" placeholder="Avantages : sécurité, entraide, convivialité. Inconvénients : perte d'intimité, parfois des conflits. Néanmoins, les avantages sont souvent plus importants."></textarea>
+    </div>
+  </div>
+  <button class="speak-btn" onclick="speakPhoto2()">🔊 Écouter un exemple de réponse (Photo 2)</button>
+  <button class="reveal-btn" onclick="showPhoto2Model()">Voir un modèle</button>
+  <div id="photo2Model" style="display:none; background:#eef2f8; padding:14px; border-radius:8px; margin-top:10px;">
+    <strong>📝 Modèle Photo 2 :</strong><br>
+    <strong>1.</strong> Sur cette image, je vois un homme dans une cuisine bien équipée. Il porte un tablier et prépare un repas. Des ingrédients frais sont sur la table.<br>
+    <strong>2.</strong> L'homme coupe des tomates et des oignons. Il cuisine probablement un plat pour ses voisins.<br>
+    <strong>3.</strong> Avant la fête, ils ont envoyé des invitations, organisé les jeux pour les enfants et acheté des boissons.<br>
+    <strong>4.</strong> Les qualités d'un bon voisin sont la gentillesse, la discrétion, l'honnêteté et la disponibilité pour aider en cas d'urgence.<br>
+    <strong>5.</strong> Les avantages : on se sent plus en sécurité, on peut s'entraider. Les inconvénients : on peut perdre son intimité et parfois il y a des disputes. Cependant, je pense que connaître ses voisins est essentiel.
+  </div>
+</section>
+
+<!-- ============ TASK B/C : GENERAL CONVERSATION ============ -->
+<section>
+  <span class="tag gold">💬 Task B/C — General conversation</span>
+  <h2>Questions fréquentes à l'examen</h2>
+  <p class="sub">Préparez vos réponses en utilisant différents temps (présent, passé composé, futur simple).</p>
+
+  <div id="convo">
+    <div class="q">
+      <p class="qtext">1. Parle-moi de ta ville/ton village.</p>
+      <textarea id="conv1" rows="3" placeholder="Exemple : J'habite à Marseille, une grande ville au bord de la mer. C'est animé et il y a beaucoup de soleil. J'y habite depuis dix ans."></textarea>
+    </div>
+    <div class="q">
+      <p class="qtext">2. Comment est ta maison ou ton appartement?</p>
+      <textarea id="conv2" rows="3" placeholder="Exemple : Mon appartement est assez petit mais confortable. Il y a deux chambres, un salon lumineux et une petite cuisine. Mon endroit préféré est le balcon."></textarea>
+    </div>
+    <div class="q">
+      <p class="qtext">3. Qu'est-ce qu'il y a à faire dans ta région?</p>
+      <textarea id="conv3" rows="3" placeholder="Exemple : Dans ma région, on peut aller à la plage, visiter des musées, faire du vélo ou randonner dans les calanques. Le week-end, il y a aussi des marchés."></textarea>
+    </div>
+    <div class="q">
+      <p class="qtext">4. Qu'est-ce que tu feras ce week-end dans ta ville/ton village? (futur)</p>
+      <textarea id="conv4" rows="3" placeholder="Exemple : Ce week-end, je vais retrouver des amis au cinéma. Dimanche, je ferai du shopping et j'irai au parc s'il fait beau."></textarea>
+    </div>
+    <div class="q">
+      <p class="qtext">5. Parle-moi d'une région que tu connais bien.</p>
+      <textarea id="conv5" rows="3" placeholder="Exemple : Je connais bien la Bretagne. J'y vais chaque été. Il y a de magnifiques côtes, des crêpes délicieuses et un climat doux. L'année dernière, j'ai visité Saint-Malo."></textarea>
+    </div>
+    <div class="q">
+      <p class="qtext">6. Est-ce que tu as participé à un projet local?</p>
+      <textarea id="conv6" rows="3" placeholder="Exemple : Oui, l'année dernière j'ai participé à un nettoyage de plage avec mon école. Nous avons ramassé des déchets. C'était très enrichissant."></textarea>
+    </div>
+    <div class="q">
+      <p class="qtext">7. Que penses-tu du Service Civique?</p>
+      <textarea id="conv7" rows="3" placeholder="Exemple : Je trouve que le Service Civique est une excellente opportunité. D'une part, cela permet d'aider les autres. D'autre part, on gagne de l'expérience. Cependant, six mois peuvent être longs pour certains."></textarea>
+    </div>
+  </div>
+  
+  <button class="speak-btn" onclick="speakAllConversation()">🔊 Écouter un exemple complet (réponses types)</button>
+  <button class="reveal-btn" onclick="showConversationModel()">Voir un modèle de réponses</button>
+  <div id="convoModel" style="display:none; background:#eef2f8; padding:14px; border-radius:8px; margin-top:10px;">
+    <strong>📝 Modèle de conversation :</strong><br>
+    <strong>1.</strong> J'habite à Lyon, une grande ville dans l'est de la France. C'est dynamique et culturel. J'y suis né et j'adore me promener dans les vieux quartiers.<br>
+    <strong>2.</strong> Ma maison est une maison traditionnelle avec un petit jardin. Il y a trois chambres et un salon spacieux. Ce que je préfère, c'est la terrasse.<br>
+    <strong>3.</strong> Dans ma région, on peut visiter des musées, aller au cinéma, faire du sport ou simplement se balader le long du fleuve. Le week-end dernier, je suis allé à un concert.<br>
+    <strong>4.</strong> Ce week-end, je vais aider mes voisins à organiser une fête. Samedi, je ferai les courses et dimanche, nous décorerons la rue.<br>
+    <strong>5.</strong> Je connais bien la Provence. J'y vais souvent en été. Le climat est chaud et il y a des champs de lavande. L'année prochaine, je visiterai le Verdon.<br>
+    <strong>6.</strong> Oui, j'ai participé à un projet de jardin partagé. Nous avons planté des légumes. C'était très gratifiant de voir le résultat.<br>
+    <strong>7.</strong> Je suis très favorable au Service Civique car cela aide les jeunes à s'engager. Cependant, il faudrait mieux le rémunérer. Néanmoins, c'est une belle expérience humaine.
+  </div>
+</section>
+
+<!-- ============ CHECKLIST / SELF-ASSESSMENT ============ -->
+<section>
+  <span class="tag green">✅ Auto-évaluation</span>
+  <h2>Prêt pour l'examen ?</h2>
+  <div class="tip">
+    <strong>Checklist pour chaque réponse :</strong><br>
+    ☐ J'ai utilisé le présent, le passé composé (ou imparfait) et le futur simple.<br>
+    ☐ J'ai donné mon opinion (à mon avis, je pense que, selon moi).<br>
+    ☐ J'ai évalué les deux côtés (d'une part... d'autre part... cependant).<br>
+    ☐ J'ai développé ma réponse (ne pas répondre juste "oui" ou "non").<br>
+    ☐ J'ai utilisé des connecteurs : parce que, donc, puis, ensuite, néanmoins.
+  </div>
+  <div class="audio-box">
+    <button class="play-btn" onclick="speakFR('Bonjour, je suis prêt pour mon examen de français. Je vais décrire une image, donner mon opinion et parler de ma ville en utilisant différents temps.')">🔊 Écouter un exemple d'introduction</button>
+  </div>
+</section>
+
+<footer>
+  IGCSE French Speaking Practice — Picture-based discussion (Photos 1 & 2) + General conversation (7 questions) · Préparez-vous à décrire, opiner, évaluer ! 🗣️🇫🇷
+</footer>
+
+</main>
+
+<script>
+  // Speech synthesis
+  function speakFR(text) {
+    if (!('speechSynthesis' in window)) { alert('Audio non supporté'); return; }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR';
+    u.rate = 0.9;
+    const voices = speechSynthesis.getVoices();
+    const frVoice = voices.find(v => v.lang.startsWith('fr'));
+    if (frVoice) u.voice = frVoice;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged = () => {};
+
+  // Photo 1 example speech
+  function speakPhoto1() {
+    const text = "Pour la photo 1 : Sur l'image, je vois des voisins qui célèbrent une fête dans la rue. La femme à gauche porte une robe élégante et un chapeau. Après la fête, ils vont ranger et continuer la soirée chez un voisin. À mon avis, les fêtes des voisins sont excellentes car elles créent des liens. D'une part, c'est important pour la communauté, d'autre part, on peut préférer son intimité. Cependant, je pense que l'équilibre est possible.";
+    speakFR(text);
+  }
+  function speakPhoto2() {
+    const text = "Pour la photo 2 : Sur cette image, un homme cuisine dans sa cuisine. Il porte un tablier et prépare un plat. Avant la fête, ils ont décoré et fait les courses. Un bon voisin est respectueux et serviable. Les avantages de connaître ses voisins sont la sécurité et l'entraide. Les inconvénients sont la perte d'intimité. Néanmoins, les avantages l'emportent.";
+    speakFR(text);
+  }
+  function speakAllConversation() {
+    const text = "Pour la conversation : J'habite à Lyon, une grande ville. Ma maison a un jardin. Dans ma région, on peut visiter des musées. Ce week-end, j'irai au parc. Je connais bien la Bretagne. J'ai participé à un nettoyage de plage. Je pense que le Service Civique est une bonne opportunité.";
+    speakFR(text);
+  }
+  function showPhoto1Model() {
+    const el = document.getElementById('photo1Model');
+    el.style.display = el.style.display === 'none' ? 'block' : 'none';
+  }
+  function showPhoto2Model() {
+    const el = document.getElementById('photo2Model');
+    el.style.display = el.style.display === 'none' ? 'block' : 'none';
+  }
+  function showConversationModel() {
+    const el = document.getElementById('convoModel');
+    el.style.display = el.style.display === 'none' ? 'block' : 'none';
+  }
+
+  // Optional word counters for textareas
+  const allTextareas = document.querySelectorAll('textarea');
+  allTextareas.forEach(ta => {
+    const counterSpan = document.createElement('span');
+    counterSpan.className = 'word-count';
+    counterSpan.style.display = 'block';
+    counterSpan.style.fontSize = '.75rem';
+    counterSpan.style.color = 'var(--muted)';
+    counterSpan.innerText = '0 mots';
+    ta.parentNode.appendChild(counterSpan);
+    ta.addEventListener('input', function() {
+      const words = ta.value.trim().split(/\s+/).filter(Boolean).length;
+      counterSpan.innerText = `${words} mots`;
+    });
+    // initial count
+    setTimeout(() => {
+      const words = ta.value.trim().split(/\s+/).filter(Boolean).length;
+      counterSpan.innerText = `${words} mots`;
+    }, 100);
+  });
+</script>
+</body>
+</html>

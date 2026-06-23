@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vacances de rêve — Conditionnel & Interview — IGCSE French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7fb;
+    --ink: #0e1a2b;
+    --muted: #5a6473;
+    --red: #7a1722;
+    --red-dark: #5a0f18;
+    --blue: #0f2a4a;
+    --blue-dark: #08182b;
+    --card: #fff;
+    --border: #d9dde5;
+    --shadow: 0 10px 30px rgba(8,24,43,.08);
+    --gold: #c9a227;
+    --green: #2d6a4f;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: #fff;
+    padding: 48px 24px;
+    text-align: center;
+    border-bottom: 6px solid var(--red);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: "🏔️";
+    position: absolute;
+    font-size: 12rem;
+    opacity: .08;
+    bottom: -30px;
+    right: -20px;
+    transform: rotate(-8deg);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: .2em 0;
+    position: relative;
+  }
+  header p {
+    max-width: 780px;
+    margin: 0 auto;
+    opacity: .92;
+    position: relative;
+  }
+  .badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.12);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: .85rem;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .tag {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .tag.gold {
+    background: var(--gold);
+    color: var(--blue-dark);
+  }
+  .tag.green {
+    background: var(--green);
+    color: #fff;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin: .3em 0 .5em;
+    color: var(--blue);
+  }
+  .sub {
+    color: var(--muted);
+    font-style: italic;
+    font-size: .95rem;
+    margin-bottom: 1rem;
+  }
+  .tip {
+    background: #fff7e0;
+    border-left: 5px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .tip strong {
+    color: var(--blue);
+  }
+  .audio-box {
+    background: linear-gradient(135deg, #eef2f8, #fff);
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    padding: 18px;
+    margin: 14px 0;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .play-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: .95rem;
+  }
+  .play-btn:hover { background: var(--red-dark); }
+  .speak-btn {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .8rem;
+  }
+  .q {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+    border-left: 4px solid var(--blue);
+  }
+  .q .qtext {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: var(--blue);
+  }
+  .q input[type="text"] {
+    padding: 7px 10px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: .95rem;
+    min-width: 200px;
+    width: auto;
+  }
+  .q input.correct {
+    border-color: #1e6b1e;
+    background: #e6f3e6;
+  }
+  .q input.wrong {
+    border-color: var(--red);
+    background: #fbeef0;
+  }
+  .check-btn, .reveal-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .reveal-btn {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+  }
+  .reveal-btn:hover {
+    background: var(--blue);
+    color: #fff;
+  }
+  .score {
+    margin-top: 12px;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 1.1rem;
+  }
+  .inline-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+  }
+  .dialogue-box {
+    background: #eef2f8;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+  .speech {
+    margin: 12px 0;
+    padding: 10px 14px;
+    background: #fff;
+    border-radius: 8px;
+    border-left: 4px solid var(--gold);
+  }
+  .person-card {
+    background: #f8f9fc;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 14px 0;
+    border-left: 5px solid var(--red);
+    font-style: italic;
+  }
+  .truefalse-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    margin: 12px 0;
+  }
+  .tf-btn {
+    background: #eef2f8;
+    padding: 6px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .tf-btn.selected {
+    background: var(--blue);
+    color: white;
+  }
+  .tf-btn.correct {
+    background: #1e6b1e;
+    color: white;
+  }
+  .tf-btn.wrong {
+    background: var(--red);
+    color: white;
+  }
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: .9rem;
+    border-top: 1px solid var(--border);
+  }
+  .verb-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 12px 0;
+  }
+  .verb-item {
+    background: #f0f4fa;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-family: monospace;
+    font-size: .9rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">🏔️ Vacances de rêve</span>
+  <h1>Mathilde & Thibault — Le conditionnel</h1>
+  <p>Parler de ses vacances idéales, utiliser le conditionnel, interviewer un partenaire</p>
+  <div class="badges">
+    <span class="badge">Conditionnel présent</span>
+    <span class="badge">Compréhension orale</span>
+    <span class="badge">Interview & production</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ INTERVIEW : MATHILDE & THIBAULT ============ -->
+<section>
+  <span class="tag green">🎙️ Lisez et écoutez l'interview</span>
+  <h2>Mathilde et Thibault parlent de leurs vacances de rêve</h2>
+  
+  <div class="audio-box">
+    <button class="play-btn" onclick="playInterview()">▶ Écouter l'interview complète</button>
+  </div>
+
+  <div class="person-card">
+    <strong>🗣️ Thibault:</strong> Mathilde, parle-moi de tes vacances de rêve. Où logerais-tu si tu avais le choix?<br><br>
+    <strong>🗣️ Mathilde:</strong> Voyons … Je crois que je logerais dans une simple caravane, à la montagne. Peut-être dans le Parc naturel des volcans d'Auvergne, près de Volvic. J'adore cet endroit! Les paysages sont à couper le souffle.<br><br>
+    <strong>🗣️ Thibault:</strong> Avec qui voyagerais-tu?<br><br>
+    <strong>🗣️ Mathilde:</strong> Je voyagerais avec ma meilleure copine ou bien seule, si elle était occupée.<br><br>
+    <strong>🗣️ Thibault:</strong> Qu'est-ce que tu y ferais?<br><br>
+    <strong>🗣️ Mathilde:</strong> Eh bien, je me reposerais! Je ferais des randonnées et peut-être aussi du canoë-kayak.<br><br>
+    <strong>🗣️ Thibault:</strong> Je profiterais du silence et je lirais aussi. Je ne regarderais mon portable qu'une fois par jour.<br><br>
+    <strong>🗣️ Mathilde:</strong> Il y aurait autre chose?<br><br>
+    <strong>🗣️ Thibault:</strong> Je vais plutôt te dire ce qu'il n'y aurait pas! Il n'y aurait pas beaucoup de monde, et il n'y aurait ni visites guidées ni spectacles. J'ai horreur de ça.<br><br>
+    <strong>🗣️ Mathilde:</strong> Ce serait comment?<br><br>
+    <strong>🗣️ Thibault:</strong> Ce serait calme, tout simplement parfait! Ce ne serait pas très luxueux mais ça ne me dérangerait pas. Je voudrais à tout prix passer des vacances comme ça.
+  </div>
+  <div class="tip"><strong>📖 époustouflant</strong> = incroyable, à couper le souffle</div>
+</section>
+
+<!-- ============ EXERCICE 1 : VRAI / FAUX ============ -->
+<section>
+  <span class="tag gold">✅❌ Exercice 1 · Vrai ou faux ?</span>
+  <h2>D'après l'interview</h2>
+  
+  <div id="vfSection">
+    <div class="q">
+      <p class="qtext">1. Si elle avait le choix, elle logerait dans une caravane avec un minimum d'équipement.</p>
+      <div class="truefalse-row" data-statement="1" data-correct="V">
+        <span class="tf-btn" data-val="V">Vrai</span>
+        <span class="tf-btn" data-val="F">Faux</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">2. Elle voyagerait avec une amie ou seule.</p>
+      <div class="truefalse-row" data-statement="2" data-correct="V">
+        <span class="tf-btn" data-val="V">Vrai</span>
+        <span class="tf-btn" data-val="F">Faux</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">3. Elle écouterait la radio de temps en temps.</p>
+      <div class="truefalse-row" data-statement="3" data-correct="F">
+        <span class="tf-btn" data-val="V">Vrai</span>
+        <span class="tf-btn" data-val="F">Faux</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">4. Elle aime les paysages époustouflants.</p>
+      <div class="truefalse-row" data-statement="4" data-correct="V">
+        <span class="tf-btn" data-val="V">Vrai</span>
+        <span class="tf-btn" data-val="F">Faux</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">5. Elle ferait des activités en plein air.</p>
+      <div class="truefalse-row" data-statement="5" data-correct="V">
+        <span class="tf-btn" data-val="V">Vrai</span>
+        <span class="tf-btn" data-val="F">Faux</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">6. Elle irait à un spectacle.</p>
+      <div class="truefalse-row" data-statement="6" data-correct="F">
+        <span class="tf-btn" data-val="V">Vrai</span>
+        <span class="tf-btn" data-val="F">Faux</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">7. Elle consulterait souvent son téléphone.</p>
+      <div class="truefalse-row" data-statement="7" data-correct="F">
+        <span class="tf-btn" data-val="V">Vrai</span>
+        <span class="tf-btn" data-val="F">Faux</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">8. Elle cherche la paix et la tranquillité.</p>
+      <div class="truefalse-row" data-statement="8" data-correct="V">
+        <span class="tf-btn" data-val="V">Vrai</span>
+        <span class="tf-btn" data-val="F">Faux</span>
+      </div>
+    </div>
+  </div>
+  <button class="check-btn" onclick="checkTrueFalse()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealTrueFalse()">Voir les réponses</button>
+  <div class="score" id="scoreVF"></div>
+</section>
+
+<!-- ============ EXERCICE 2 : VERBES AU CONDITIONNEL ============ -->
+<section>
+  <span class="tag green">📝 Exercice 2 · Verbes au conditionnel</span>
+  <h2>Relisez l'interview. Listez les verbes au conditionnel utilisés par Mathilde.</h2>
+  <div class="verb-list" id="verbList">
+    <span class="verb-item">logerais</span>
+    <span class="verb-item">voyagerais</span>
+    <span class="verb-item">reposerais</span>
+    <span class="verb-item">ferais</span>
+  </div>
+  <p class="sub">Puis mettez les infinitifs suivants au conditionnel :</p>
+  <div id="condEx">
+    <div class="q"><p class="qtext">nous (se reposer) → <input type="text" id="cond1" data-ans="nous nous reposerions" style="width:200px"></p></div>
+    <div class="q"><p class="qtext">ils (dormir) → <input type="text" id="cond2" data-ans="ils dormiraient" style="width:180px"></p></div>
+    <div class="q"><p class="qtext">les filles (s'amuser) → <input type="text" id="cond3" data-ans="les filles s'amuseraient" style="width:220px"></p></div>
+    <div class="q"><p class="qtext">je (se baigner) → <input type="text" id="cond4" data-ans="je me baignerais" style="width:180px"></p></div>
+    <div class="q"><p class="qtext">personne ne (s'ennuyer) → <input type="text" id="cond5" data-ans="personne ne s'ennuierait" style="width:240px"></p></div>
+    <div class="q"><p class="qtext">elle (loger) → <input type="text" id="cond6" data-ans="elle logerait" style="width:160px"></p></div>
+  </div>
+  <button class="check-btn" onclick="checkConditionalVerbs()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealConditionalVerbs()">Voir les réponses</button>
+  <div class="score" id="scoreCond"></div>
+</section>
+
+<!-- ============ EXERCICE 3 : À DEUX (INTERVIEW) ============ -->
+<section>
+  <span class="tag gold">💬 Exercice 3 · À deux</span>
+  <h2>Préparez des interviews sur les vacances de rêve</h2>
+  <div class="dialogue-box">
+    <div class="speech"><strong>Élève A :</strong> Parle-moi de tes vacances de rêve. Où logerais-tu si tu avais le choix?</div>
+    <div class="speech"><strong>Élève B :</strong> Je logerais dans une tente, sur une île déserte …</div>
+    <button class="speak-btn" onclick="speakFR('Je logerais dans une tente sur une île déserte. Je voyagerais seul. Je me reposerais et je nagerais avec les poissons. Ce serait parfait.')">🔊 Exemple de réponse</button>
+  </div>
+  <div class="tip"><strong>💡 Questions possibles :</strong> « Avec qui voyagerais-tu ? », « Qu'est-ce que tu y ferais ? », « Il y aurait quoi ? », « Ce serait comment ? »</div>
+</section>
+
+<!-- ============ EXERCICE 4 : TEXTE À MODIFIER (a–j) ============ -->
+<section>
+  <span class="tag green">✏️ Exercice 4 · Modifiez les mots (a–j)</span>
+  <h2>Texte à compléter au conditionnel ou à la forme correcte</h2>
+  <div class="person-card" style="background:#fef8e7;">
+    <p>Si j’avais le choix, je (a) <input type="text" id="gapA" data-ans="voyagerais" style="width:100px"> [voyager] avec ma famille. Je m’entends bien avec ma sœur et mes parents sont très (b) <input type="text" id="gapB" data-ans="gentils" style="width:100px"> [gentil]. Nous (c) <input type="text" id="gapC" data-ans="logerions" style="width:100px"> [loger] dans un hôtel quatre étoiles au bord de la mer. Ce (d) <input type="text" id="gapD" data-ans="serait" style="width:80px"> [être] très luxueux. Il y (e) <input type="text" id="gapE" data-ans="aurait" style="width:80px"> [avoir] une (f) <input type="text" id="gapF" data-ans="grande" style="width:90px"> [grand] salle de jeux. Nous (g) <input type="text" id="gapG" data-ans="nous baignerions" style="width:140px"> [se baigner] tous les jours dans une (h) <input type="text" id="gapH" data-ans="belle" style="width:90px"> [beau] piscine et les repas servis par l’hôtel (i) <input type="text" id="gapI" data-ans="seraient" style="width:100px"> [être] délicieux. Au sous-sol de l’hôtel, il y aurait un cinéma qui resterait ouvert toute la nuit. Ma sœur adore les films, surtout les films (j) <input type="text" id="gapJ" data-ans="drôles" style="width:90px"> [drôle]. Quelles vacances de rêve!</p>
+  </div>
+  <button class="check-btn" onclick="checkGapFill()">Vérifier le texte</button>
+  <button class="reveal-btn" onclick="revealGapFill()">Voir les réponses</button>
+  <div class="score" id="scoreGap"></div>
+</section>
+
+<!-- ============ PRODUCTION ÉCRITE ============ -->
+<section>
+  <span class="tag gold">✍️ Production écrite</span>
+  <h2>Mes vacances de rêve</h2>
+  <p class="sub">Rédigez un paragraphe (80-100 mots) sur vos vacances idéales. Utilisez le conditionnel.</p>
+  <div class="q">
+    <textarea id="dreamText" rows="6" placeholder="Exemple : Si j'avais le choix, je passerais mes vacances au Canada. Je logerais dans un chalet en bois au bord d'un lac. Je voyagerais avec mes meilleurs amis. Nous ferions du canoë et nous nous promènerions dans la forêt. Le soir, nous regarderions les étoiles. Il n'y aurait pas de bruit, seulement le chant des oiseaux. Ce serait reposant et magique. Je ne regarderais pas mon téléphone. Ce serait parfait !"></textarea>
+    <div class="word-count" id="dreamWordCount" style="margin-top:5px; font-size:.8rem; color:var(--muted);">0 mots</div>
+  </div>
+  <button class="speak-btn" onclick="speakDreamText()">🔊 Écouter mon texte</button>
+  <button class="reveal-btn" onclick="showDreamModel()">Voir un modèle</button>
+  <div id="dreamModel" style="display:none; background:#eef2f8; padding:14px; border-radius:8px; margin-top:12px;">
+    <strong>📝 Modèle (95 mots) :</strong><br>
+    « Si j'avais le choix, je passerais mes vacances en Écosse. Je logerais dans une petite cabane près d'un loch. Je voyagerais avec ma meilleure amie. Nous nous promènerions dans les montagnes et nous ferions du vélo. Le soir, nous lirions des livres au coin du feu. Il n'y aurait pas de télévision ni de Wi-Fi. Ce serait calme et reposant. Je me reposerais vraiment et je profiterais de la nature. Je ne consulterais mon portable qu'une fois par jour. Ce serait simplement parfait ! »
+    <button class="speak-btn" onclick="speakFR('Si j\'avais le choix, je passerais mes vacances en Écosse. Je logerais dans une cabane. Je voyagerais avec ma meilleure amie. Nous nous promènerions dans les montagnes. Ce serait calme et reposant.')">🔊 Écouter</button>
+  </div>
+</section>
+
+<footer>
+  IGCSE French — Vacances de rêve · Conditionnel · Interview et production écrite 🏔️
+</footer>
+
+</main>
+
+<script>
+  // Speech synthesis
+  function speakFR(text) {
+    if (!('speechSynthesis' in window)) { alert('Audio non supporté'); return; }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR';
+    u.rate = 0.92;
+    const voices = speechSynthesis.getVoices();
+    const frVoice = voices.find(v => v.lang.startsWith('fr'));
+    if (frVoice) u.voice = frVoice;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged = () => {};
+
+  function playInterview() {
+    speakFR("Mathilde, parle-moi de tes vacances de rêve. Où logerais-tu? Je logerais dans une simple caravane à la montagne. Avec qui voyagerais-tu? Avec ma meilleure copine ou seule. Qu'est-ce que tu y ferais? Je me reposerais, je ferais des randonnées. Ce serait calme et parfait.");
+  }
+
+  function norm(s) { return (s || '').toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' '); }
+
+  // Vrai/Faux logic
+  let tfSelections = {};
+  document.querySelectorAll('.tf-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const row = this.closest('.truefalse-row');
+      const stmt = row.getAttribute('data-statement');
+      const val = this.getAttribute('data-val');
+      row.querySelectorAll('.tf-btn').forEach(b => b.classList.remove('selected'));
+      this.classList.add('selected');
+      tfSelections[stmt] = val;
+    });
+  });
+
+  function checkTrueFalse() {
+    const correctMap = { '1': 'V', '2': 'V', '3': 'F', '4': 'V', '5': 'V', '6': 'F', '7': 'F', '8': 'V' };
+    let total = 8, correct = 0;
+    for (let i = 1; i <= 8; i++) {
+      const row = document.querySelector(`.truefalse-row[data-statement="${i}"]`);
+      const selected = tfSelections[i];
+      const correctAns = correctMap[i];
+      row.querySelectorAll('.tf-btn').forEach(btn => btn.classList.remove('correct', 'wrong'));
+      if (selected === correctAns) {
+        correct++;
+        const selectedBtn = row.querySelector(`.tf-btn[data-val="${selected}"]`);
+        if (selectedBtn) selectedBtn.classList.add('correct');
+      } else {
+        if (selected) {
+          const wrongBtn = row.querySelector(`.tf-btn[data-val="${selected}"]`);
+          if (wrongBtn) wrongBtn.classList.add('wrong');
+        }
+        const correctBtn = row.querySelector(`.tf-btn[data-val="${correctAns}"]`);
+        if (correctBtn) correctBtn.classList.add('correct');
+      }
+    }
+    document.getElementById('scoreVF').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealTrueFalse() {
+    const correctMap = { '1': 'V', '2': 'V', '3': 'F', '4': 'V', '5': 'V', '6': 'F', '7': 'F', '8': 'V' };
+    for (let i = 1; i <= 8; i++) {
+      const row = document.querySelector(`.truefalse-row[data-statement="${i}"]`);
+      const correctVal = correctMap[i];
+      tfSelections[i] = correctVal;
+      row.querySelectorAll('.tf-btn').forEach(btn => {
+        btn.classList.remove('selected');
+        if (btn.getAttribute('data-val') === correctVal) btn.classList.add('selected');
+      });
+    }
+    checkTrueFalse();
+  }
+
+  // Conditional verbs exercise
+  function checkConditionalVerbs() {
+    const answers = {
+      cond1: "nous nous reposerions", cond2: "ils dormiraient", cond3: "les filles s'amuseraient",
+      cond4: "je me baignerais", cond5: "personne ne s'ennuierait", cond6: "elle logerait"
+    };
+    let total = 6, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      const expNorm = norm(exp);
+      if (user === expNorm || (id === 'cond1' && user.includes('reposerions')) || (id === 'cond3' && user.includes('amuseraient'))) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreCond').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealConditionalVerbs() {
+    document.getElementById('cond1').value = "nous nous reposerions";
+    document.getElementById('cond2').value = "ils dormiraient";
+    document.getElementById('cond3').value = "les filles s'amuseraient";
+    document.getElementById('cond4').value = "je me baignerais";
+    document.getElementById('cond5').value = "personne ne s'ennuierait";
+    document.getElementById('cond6').value = "elle logerait";
+    checkConditionalVerbs();
+  }
+
+  // Gap fill exercise (text modification)
+  function checkGapFill() {
+    const answers = {
+      gapA: "voyagerais", gapB: "gentils", gapC: "logerions", gapD: "serait",
+      gapE: "aurait", gapF: "grande", gapG: "nous baignerions", gapH: "belle",
+      gapI: "seraient", gapJ: "drôles"
+    };
+    let total = 10, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      const expNorm = norm(exp);
+      if (user === expNorm || (id === 'gapG' && user.includes('baignerions'))) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreGap').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealGapFill() {
+    document.getElementById('gapA').value = "voyagerais";
+    document.getElementById('gapB').value = "gentils";
+    document.getElementById('gapC').value = "logerions";
+    document.getElementById('gapD').value = "serait";
+    document.getElementById('gapE').value = "aurait";
+    document.getElementById('gapF').value = "grande";
+    document.getElementById('gapG').value = "nous baignerions";
+    document.getElementById('gapH').value = "belle";
+    document.getElementById('gapI').value = "seraient";
+    document.getElementById('gapJ').value = "drôles";
+    checkGapFill();
+  }
+
+  // Writing production
+  const dreamTa = document.getElementById('dreamText');
+  const wordSpan = document.getElementById('dreamWordCount');
+  dreamTa.addEventListener('input', function() {
+    const words = dreamTa.value.trim().split(/\s+/).filter(Boolean).length;
+    wordSpan.innerText = `${words} mots`;
+    if (words >= 70 && words <= 120) wordSpan.style.color = '#1e6b1e';
+    else wordSpan.style.color = 'var(--muted)';
+  });
+  function speakDreamText() {
+    const text = dreamTa.value.trim();
+    if (text) speakFR(text);
+    else speakFR("Je n'ai pas encore écrit mon texte.");
+  }
+  function showDreamModel() {
+    const model = document.getElementById('dreamModel');
+    model.style.display = model.style.display === 'none' ? 'block' : 'none';
+  }
+  window.addEventListener('load', () => {
+    if (dreamTa.value.trim() === '') wordSpan.innerText = '0 mots';
+  });
+</script>
+</body>
+</html>

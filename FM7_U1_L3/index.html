@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Métiers & orientation — Hôtesse de l'air & Chef de cuisine — IGCSE French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7fb;
+    --ink: #0e1a2b;
+    --muted: #5a6473;
+    --red: #7a1722;
+    --red-dark: #5a0f18;
+    --blue: #0f2a4a;
+    --blue-dark: #08182b;
+    --card: #fff;
+    --border: #d9dde5;
+    --shadow: 0 10px 30px rgba(8,24,43,.08);
+    --gold: #c9a227;
+    --green: #2d6a4f;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: #fff;
+    padding: 48px 24px;
+    text-align: center;
+    border-bottom: 6px solid var(--red);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: "✈️";
+    position: absolute;
+    font-size: 12rem;
+    opacity: .08;
+    bottom: -30px;
+    right: -20px;
+    transform: rotate(-8deg);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: .2em 0;
+    position: relative;
+  }
+  header p {
+    max-width: 780px;
+    margin: 0 auto;
+    opacity: .92;
+    position: relative;
+  }
+  .badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.12);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: .85rem;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .tag {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .tag.gold {
+    background: var(--gold);
+    color: var(--blue-dark);
+  }
+  .tag.green {
+    background: var(--green);
+    color: #fff;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin: .3em 0 .5em;
+    color: var(--blue);
+  }
+  .sub {
+    color: var(--muted);
+    font-style: italic;
+    font-size: .95rem;
+    margin-bottom: 1rem;
+  }
+  .tip {
+    background: #fff7e0;
+    border-left: 5px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .tip strong {
+    color: var(--blue);
+  }
+  .grammar-box {
+    background: #eef8f2;
+    border-left: 5px solid var(--green);
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .audio-box {
+    background: linear-gradient(135deg, #eef2f8, #fff);
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    padding: 18px;
+    margin: 14px 0;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .play-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: .95rem;
+  }
+  .play-btn:hover { background: var(--red-dark); }
+  .speak-btn {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .8rem;
+  }
+  .q {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+    border-left: 4px solid var(--blue);
+  }
+  .q .qtext {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: var(--blue);
+  }
+  .q input[type="text"] {
+    padding: 7px 10px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: .95rem;
+    min-width: 200px;
+    width: auto;
+  }
+  .q input.correct {
+    border-color: #1e6b1e;
+    background: #e6f3e6;
+  }
+  .q input.wrong {
+    border-color: var(--red);
+    background: #fbeef0;
+  }
+  .check-btn, .reveal-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .reveal-btn {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+  }
+  .reveal-btn:hover {
+    background: var(--blue);
+    color: #fff;
+  }
+  .score {
+    margin-top: 12px;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 1.1rem;
+  }
+  .option-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 10px 0;
+  }
+  .option-btn {
+    background: #eef2f8;
+    padding: 6px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .option-btn.selected {
+    background: var(--blue);
+    color: white;
+  }
+  .option-btn.correct {
+    background: #1e6b1e;
+    color: white;
+  }
+  .option-btn.wrong {
+    background: var(--red);
+    color: white;
+  }
+  .career-card {
+    background: #f8f9fc;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 14px 0;
+    border-left: 5px solid var(--gold);
+  }
+  .career-card h3 {
+    color: var(--blue);
+    margin-bottom: 10px;
+  }
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: .9rem;
+    border-top: 1px solid var(--border);
+  }
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: .95rem;
+    resize: vertical;
+  }
+  .word-count {
+    font-size: .8rem;
+    color: var(--muted);
+    margin-top: 5px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  th {
+    background: var(--blue);
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+  }
+  td {
+    border: 1px solid var(--border);
+    padding: 10px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">✈️ Métiers & orientation</span>
+  <h1>Hôtesse de l'air & Chef de cuisine</h1>
+  <p>Lire, comprendre, comparer — Mieux/pire, le mieux/le pire</p>
+  <div class="badges">
+    <span class="badge">Maëlle & Kader</span>
+    <span class="badge">Compréhension écrite</span>
+    <span class="badge">Comparatifs</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ TEXTES ============ -->
+<section>
+  <span class="tag green">📖 Lisez les textes</span>
+  <h2>Maëlle (hôtesse de l'air) & Kader (chef de cuisine)</h2>
+
+  <div class="career-card">
+    <h3>✈️ Maëlle, hôtesse de l'air</h3>
+    <p>Je suis hôtesse de l'air depuis trois ans. C'est un métier stimulant, surtout si on aime voyager, mais la chose qui me plaît le plus, c'est le contact avec les clients. L'inconvénient, c'est que les horaires sont très longs, donc c'est fatigant. Malgré cela, je suis assez satisfaite de mon travail. Avant, j'étais employée de bureau dans une compagnie d'assurances et c'était pire! C'était mal payé et le travail était monotone.</p>
+    <button class="speak-btn" onclick="speakFR('Je suis hôtesse de l\'air depuis trois ans. C\'est stimulant. Le contact avec les clients me plaît beaucoup. Les horaires sont longs mais c\'est mieux qu\'avant.')">🔊 Écouter Maëlle</button>
+  </div>
+
+  <div class="career-card">
+    <h3>🍳 Kader, chef de cuisine</h3>
+    <p>Il y a cinq ans, je travaillais comme serveur dans un restaurant et c'était affreux! C'était stressant et il n'y avait aucune possibilité d'avancement. En plus, je m'entendais mal avec mon patron qui était toujours de mauvaise humeur. Alors, j'ai décidé de suivre une formation de chef de cuisine et maintenant, je suis diplômé. Mon nouveau boulot est plus créatif et mes collègues sont tous très sympa. C'est beaucoup mieux.</p>
+    <button class="speak-btn" onclick="speakFR('Il y a cinq ans, j\'étais serveur et c\'était affreux. Maintenant, je suis chef de cuisine. C\'est plus créatif et mes collègues sont sympas. C\'est beaucoup mieux.')">🔊 Écouter Kader</button>
+  </div>
+</section>
+
+<!-- ============ EXERCICE 1 : CHOISIR LA BONNE FIN ============ -->
+<section>
+  <span class="tag gold">✅ Exercice 1 · Choisissez la bonne fin</span>
+  <p class="sub">Lisez les textes et sélectionnez la bonne réponse pour chaque phrase.</p>
+
+  <div id="readingEx">
+    <div class="q">
+      <p class="qtext">1. Pour Maëlle, le mieux dans son travail, c'est …</p>
+      <div class="option-group" data-q="1" data-correct="les voyages">
+        <span class="option-btn" data-val="le salaire">a. le salaire</span>
+        <span class="option-btn" data-val="les voyages">b. les voyages</span>
+        <span class="option-btn" data-val="les horaires">c. les horaires</span>
+        <span class="option-btn" data-val="les loisirs">d. les loisirs</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">2. Le travail qu'elle faisait avant était …</p>
+      <div class="option-group" data-q="2" data-correct="moins dur">
+        <span class="option-btn" data-val="mieux payé">a. mieux payé</span>
+        <span class="option-btn" data-val="plus satisfaisant">b. plus satisfaisant</span>
+        <span class="option-btn" data-val="plus stressé">c. plus stressé</span>
+        <span class="option-btn" data-val="moins dur">d. moins dur</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">3. Dans son nouveau travail, Kader est …</p>
+      <div class="option-group" data-q="3" data-correct="plus heureux">
+        <span class="option-btn" data-val="plus heureux">a. plus heureux</span>
+        <span class="option-btn" data-val="mal payé">b. mal payé</span>
+        <span class="option-btn" data-val="plus stressé">c. plus stressé</span>
+        <span class="option-btn" data-val="toujours fatigué">d. toujours fatigué</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">4. Travailler comme serveur était …</p>
+      <div class="option-group" data-q="4" data-correct="pire qu'être chef de cuisine">
+        <span class="option-btn" data-val="plus enrichissant">a. plus enrichissant</span>
+        <span class="option-btn" data-val="une bonne expérience">b. une bonne expérience</span>
+        <span class="option-btn" data-val="moins difficile">c. moins difficile</span>
+        <span class="option-btn" data-val="pire qu'être chef de cuisine">d. pire qu'être chef de cuisine</span>
+      </div>
+    </div>
+  </div>
+  <button class="check-btn" onclick="checkReading()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealReading()">Voir les réponses</button>
+  <div class="score" id="scoreReading"></div>
+</section>
+
+<!-- ============ EXERCICE 2 : ÉCOUTE ============ -->
+<section>
+  <span class="tag green">🎧 Exercice 2 · Écoutez et complétez</span>
+  <p class="sub">Écoutez et complétez le tableau en français.</p>
+
+  <div class="audio-box">
+    <button class="play-btn" onclick="playListeningTable()">▶ Écouter le tableau</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>métier</th><th>le mieux</th><th>le pire</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1 infirmière</td><td><input type="text" id="table1Mieux" data-ans="le contact avec les gens" style="width:100%"></td><td><input type="text" id="table1Pire" data-ans="les horaires difficiles" style="width:100%"></td></tr>
+      <tr><td>2 prof</td><td><input type="text" id="table2Mieux" data-ans="transmettre des connaissances" style="width:100%"></td><td><input type="text" id="table2Pire" data-ans="le stress" style="width:100%"></td></tr>
+      <tr><td>3 pilote</td><td><input type="text" id="table3Mieux" data-ans="voyager partout dans le monde" style="width:100%"></td><td><input type="text" id="table3Pire" data-ans="être loin de sa famille" style="width:100%"></td></tr>
+    </tbody>
+  </table>
+  <button class="check-btn" onclick="checkTable()">Vérifier le tableau</button>
+  <button class="reveal-btn" onclick="revealTable()">Voir les réponses</button>
+  <div class="score" id="scoreTable"></div>
+  <div class="tip"><strong>🎧 Transcriptions :</strong><br>
+    Infirmière : « Le mieux, c'est le contact avec les gens. Le pire, ce sont les horaires difficiles. »<br>
+    Prof : « Le mieux, c'est transmettre des connaissances. Le pire, c'est le stress. »<br>
+    Pilote : « Le mieux, c'est voyager partout dans le monde. Le pire, c'est être loin de sa famille. »</div>
+</section>
+
+<!-- ============ GRAMMAIRE : MIEUX / PIRE ============ -->
+<section>
+  <span class="tag gold">📚 Grammaire — mieux/pire, le mieux/le pire</span>
+  <div class="grammar-box">
+    <p><strong>Mieux/pire</strong> (comparatifs)</p>
+    <p><em>Mon nouveau boulot est plus créatif. C'est mieux.</em></p>
+    <p><em>Mon ancien boulot était très monotone. C'était pire.</em></p>
+    <p><strong>le mieux/le pire</strong> (superlatifs)</p>
+    <p><em>le mieux, c'est les vacances; le pire, c'est ma patronne!</em></p>
+    <button class="speak-btn" onclick="speakFR('Mon nouveau boulot est mieux. Mon ancien boulot était pire. Le mieux, c\'est les vacances. Le pire, c\'est ma patronne.')">🔊 Écouter</button>
+  </div>
+</section>
+
+<!-- ============ EXERCICE 3 : PRODUCTION ÉCRITE ============ -->
+<section>
+  <span class="tag green">✍️ Exercice 3 · Production écrite</span>
+  <h2>Écrivez un paragraphe (130-150 mots)</h2>
+  <p class="sub">Écrivez un paragraphe sur l'orientation et les métiers qui vous intéressent.</p>
+
+  <div class="tip">
+    <strong>Points à mentionner :</strong><br>
+    • L'orientation qui vous intéresse.<br>
+    • Ce qui est important pour vous dans un emploi.<br>
+    • Un travail que vous aimeriez faire ou n'aimeriez pas faire et pourquoi.<br>
+    • Ce qui serait le mieux et le pire dans votre travail.
+  </div>
+
+  <textarea id="careerEssay" rows="10" placeholder="Exemple : Le métier qui m'intéresse le plus est celui de professeur. J'aime l'idée de transmettre des connaissances et d'aider les jeunes à apprendre. Pour moi, l'important dans un emploi est de se sentir utile et d'avoir un bon équilibre entre vie professionnelle et vie personnelle. Je n'aimerais pas travailler dans un bureau toute la journée car je trouverais ça monotone. Le mieux dans le métier de professeur serait le contact avec les élèves. Le pire serait le stress et les corrections le week-end. Malgré cela, je pense que ce serait un métier enrichissant."></textarea>
+  <div class="word-count" id="essayWordCount">0 mots</div>
+  <button class="speak-btn" onclick="speakEssay()">🔊 Écouter mon texte</button>
+  <button class="reveal-btn" onclick="showEssayModel()">Voir un modèle</button>
+  <div id="essayModel" style="display:none; background:#eef2f8; padding:14px; border-radius:8px; margin-top:12px;">
+    <strong>📝 Modèle (138 mots) :</strong><br>
+    « Le métier qui m'intéresse le plus est celui de médecin. J'ai toujours voulu aider les gens et la médecine me passionne. Pour moi, l'important dans un emploi est de se sentir utile et d'avoir un bon salaire. Je n'aimerais pas travailler dans le commerce car je n'aime pas vendre des produits. Le mieux dans le métier de médecin serait de sauver des vies et de voir les patients guérir. Le pire serait les longues études et les horaires de nuit. Cependant, je pense que ce serait un métier très gratifiant. J'admire aussi le travail des infirmières qui ont un contact direct avec les patients. Finalement, je suis convaincu que la médecine est la bonne voie pour moi. »
+    <button class="speak-btn" onclick="speakFR('Le métier qui m\'intéresse le plus est celui de médecin. Le mieux serait de sauver des vies. Le pire serait les longues études.')">🔊 Écouter</button>
+  </div>
+</section>
+
+<footer>
+  IGCSE French — Métiers et orientation · Maëlle (hôtesse de l'air), Kader (chef de cuisine) · mieux/pire, le mieux/le pire ✈️🍳
+</footer>
+
+</main>
+
+<script>
+  function speakFR(text) {
+    if (!('speechSynthesis' in window)) { alert('Audio non supporté'); return; }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR';
+    u.rate = 0.92;
+    const voices = speechSynthesis.getVoices();
+    const frVoice = voices.find(v => v.lang.startsWith('fr'));
+    if (frVoice) u.voice = frVoice;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged = () => {};
+
+  function playListeningTable() {
+    speakFR("Infirmière: le mieux, c'est le contact avec les gens. Le pire, ce sont les horaires difficiles. Prof: le mieux, c'est transmettre des connaissances. Le pire, c'est le stress. Pilote: le mieux, c'est voyager partout dans le monde. Le pire, c'est être loin de sa famille.");
+  }
+
+  function norm(s) { return (s || '').toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' '); }
+
+  // Reading comprehension with options
+  let readingSelections = {};
+  document.querySelectorAll('#readingEx .option-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const group = this.closest('.option-group');
+      const qNum = group.getAttribute('data-q');
+      group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      this.classList.add('selected');
+      readingSelections[qNum] = this.getAttribute('data-val');
+    });
+  });
+
+  function checkReading() {
+    const correctMap = { '1': 'les voyages', '2': 'moins dur', '3': 'plus heureux', '4': 'pire qu\'être chef de cuisine' };
+    let total = 4, correct = 0;
+    for (let q = 1; q <= 4; q++) {
+      const group = document.querySelector(`#readingEx .option-group[data-q="${q}"]`);
+      const selected = readingSelections[q];
+      const correctAns = correctMap[q];
+      group.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('correct', 'wrong'));
+      if (selected === correctAns) {
+        correct++;
+        const correctBtn = group.querySelector(`.option-btn[data-val="${selected}"]`);
+        if (correctBtn) correctBtn.classList.add('correct');
+      } else {
+        if (selected) {
+          const wrongBtn = group.querySelector(`.option-btn[data-val="${selected}"]`);
+          if (wrongBtn) wrongBtn.classList.add('wrong');
+        }
+        const correctBtn = group.querySelector(`.option-btn[data-val="${correctAns}"]`);
+        if (correctBtn) correctBtn.classList.add('correct');
+      }
+    }
+    document.getElementById('scoreReading').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealReading() {
+    const correctMap = { '1': 'les voyages', '2': 'moins dur', '3': 'plus heureux', '4': 'pire qu\'être chef de cuisine' };
+    for (let q = 1; q <= 4; q++) {
+      const group = document.querySelector(`#readingEx .option-group[data-q="${q}"]`);
+      const correctVal = correctMap[q];
+      readingSelections[q] = correctVal;
+      group.querySelectorAll('.option-btn').forEach(btn => {
+        btn.classList.remove('selected');
+        if (btn.getAttribute('data-val') === correctVal) btn.classList.add('selected');
+      });
+    }
+    checkReading();
+  }
+
+  // Table check
+  function checkTable() {
+    const answers = {
+      table1Mieux: "le contact avec les gens", table1Pire: "les horaires difficiles",
+      table2Mieux: "transmettre des connaissances", table2Pire: "le stress",
+      table3Mieux: "voyager partout dans le monde", table3Pire: "être loin de sa famille"
+    };
+    let total = 6, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      const expNorm = norm(exp);
+      if (user === expNorm || (id === 'table1Mieux' && user.includes('contact')) || (id === 'table3Mieux' && user.includes('voyager'))) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreTable').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealTable() {
+    document.getElementById('table1Mieux').value = "le contact avec les gens";
+    document.getElementById('table1Pire').value = "les horaires difficiles";
+    document.getElementById('table2Mieux').value = "transmettre des connaissances";
+    document.getElementById('table2Pire').value = "le stress";
+    document.getElementById('table3Mieux').value = "voyager partout dans le monde";
+    document.getElementById('table3Pire').value = "être loin de sa famille";
+    checkTable();
+  }
+
+  // Essay writing
+  const essayTa = document.getElementById('careerEssay');
+  const wordSpan = document.getElementById('essayWordCount');
+  essayTa.addEventListener('input', function() {
+    const words = essayTa.value.trim().split(/\s+/).filter(Boolean).length;
+    wordSpan.innerText = `${words} mots`;
+    if (words >= 130 && words <= 155) wordSpan.style.color = '#1e6b1e';
+    else wordSpan.style.color = 'var(--muted)';
+  });
+  function speakEssay() {
+    const text = essayTa.value.trim();
+    if (text) speakFR(text);
+    else speakFR("Je n'ai pas encore écrit mon texte.");
+  }
+  function showEssayModel() {
+    const model = document.getElementById('essayModel');
+    model.style.display = model.style.display === 'none' ? 'block' : 'none';
+  }
+  window.addEventListener('load', () => {
+    if (essayTa.value.trim() === '') wordSpan.innerText = '0 mots';
+  });
+</script>
+</body>
+</html>

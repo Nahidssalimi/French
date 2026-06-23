@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Tu Es Plutôt Foot, Tennis ou Basket? — IGCSE French Lesson</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f7fb; --ink:#0e1a2b; --muted:#5a6473;
+    --red:#7a1722; --red-dark:#5a0f18;
+    --blue:#0f2a4a; --blue-dark:#08182b;
+    --card:#ffffff; --border:#d9dde5; --shadow:0 10px 30px rgba(8,24,43,.08);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  header{background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:#fff;padding:48px 24px;text-align:center;border-bottom:6px solid var(--red)}
+  header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);margin:.2em 0}
+  header p{max-width:760px;margin:0 auto;opacity:.92}
+  .badges{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+  .badge{background:rgba(255,255,255,.12);padding:6px 14px;border-radius:999px;font-size:.85rem;border:1px solid rgba(255,255,255,.2)}
+  main{max-width:1100px;margin:0 auto;padding:32px 20px}
+  section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:28px;box-shadow:var(--shadow)}
+  .tag{display:inline-block;background:var(--red);color:#fff;padding:4px 12px;border-radius:4px;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+  h2{font-family:'Playfair Display',serif;font-size:1.9rem;margin:.3em 0 .5em;color:var(--blue)}
+  h3{margin-top:1.4em;color:var(--red)}
+  .sub{color:var(--muted);font-style:italic;font-size:.95rem}
+  table{width:100%;border-collapse:collapse;margin:14px 0}
+  th,td{border:1px solid var(--border);padding:10px;text-align:left;vertical-align:top}
+  th{background:var(--blue);color:#fff}
+  .objectifs{background:#eef2f8;border-left:5px solid var(--blue);padding:18px 22px;border-radius:8px}
+  .objectifs ul{margin:8px 0 0 18px;padding:0}
+  .warning{background:#fbeef0;border-left:4px solid var(--red);padding:12px 16px;border-radius:6px;margin-top:14px}
+  .tip{background:#eef2f8;border-left:4px solid var(--blue);padding:12px 16px;border-radius:6px;margin-top:14px}
+
+  /* Interactive Speakers Carousel */
+  .speakers{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}
+  .speaker{background:#fff;border:2px solid var(--border);border-radius:10px;padding:16px;cursor:pointer;transition:.25s;border-top:5px solid var(--blue);text-align:center}
+  .speaker:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-top-color:var(--red)}
+  .speaker.active{border-color:var(--red);background:#fbeef0}
+  .speaker h4{margin:6px 0 4px;font-family:'Playfair Display',serif;color:var(--blue);font-size:1.4rem}
+  .speaker .sport{color:var(--red);font-weight:600;font-size:.95rem}
+  .speaker-detail{margin-top:18px;background:#fff;border:2px solid var(--red);border-radius:10px;padding:20px;display:none}
+  .speaker-detail.show{display:block;animation:fadeIn .4s}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .speaker-detail h3{margin-top:0;color:var(--red)}
+  .speaker-detail .fr-text{font-size:1.05rem;color:var(--ink);margin:8px 0}
+  .speaker-detail .en-text{color:var(--muted);font-style:italic;border-top:1px dashed var(--border);padding-top:10px;margin-top:10px}
+  .speak-btn{margin-top:12px;background:var(--blue);color:#fff;border:none;padding:10px 18px;border-radius:6px;cursor:pointer;font-weight:600}
+  .speak-btn:hover{background:var(--blue-dark)}
+
+  /* Vocabulary cards */
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:16px}
+  .vocab-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px;cursor:pointer;transition:.2s;border-left:4px solid var(--blue)}
+  .vocab-card:hover{border-left-color:var(--red);transform:translateY(-2px);box-shadow:var(--shadow)}
+  .vocab-card .fr{font-weight:700;font-size:1.05rem;color:var(--blue)}
+  .vocab-card .en{color:var(--muted);font-size:.85rem;font-style:italic}
+
+  /* Quizzes */
+  .q{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px;margin:12px 0;border-left:4px solid var(--blue)}
+  .q p.qtext{margin:0 0 8px;font-weight:600;color:var(--blue)}
+  .opt{display:block;padding:8px 12px;margin:5px 0;background:#f3f5f9;border-radius:5px;cursor:pointer;border:2px solid transparent}
+  .opt:hover{border-color:var(--blue)}
+  .opt input{margin-right:8px}
+  .opt.correct{background:#e6f3e6;border-color:#1e6b1e;color:#0d3d0d}
+  .opt.wrong{background:#f8d7da;border-color:var(--red);color:var(--red-dark)}
+  .check-btn{background:var(--red);color:#fff;border:none;padding:10px 22px;border-radius:6px;font-weight:600;cursor:pointer;margin-top:8px}
+  .check-btn:hover{background:var(--red-dark)}
+  .feedback{margin-top:10px;padding:10px;border-radius:5px;font-weight:600;display:none}
+  .feedback.show{display:block}
+  .feedback.good{background:#e6f3e6;color:#0d3d0d;border:1px solid #1e6b1e}
+  .feedback.bad{background:#f8d7da;color:var(--red-dark);border:1px solid var(--red)}
+  input[type=text]{padding:8px 10px;border:2px solid var(--border);border-radius:5px;font-family:inherit;font-size:.95rem;width:260px;max-width:100%}
+  input[type=text]:focus{outline:none;border-color:var(--blue)}
+  input[type=text].correct{border-color:#1e6b1e;background:#e6f3e6}
+  input[type=text].wrong{border-color:var(--red);background:#f8d7da}
+
+  /* Grammar boxes */
+  .grammar{background:#eef2f8;border:2px solid var(--blue);border-radius:10px;padding:18px 22px;margin:18px 0}
+  .grammar h3{color:var(--blue);margin-top:0}
+  .grammar .example{background:#fff;padding:10px 14px;border-radius:6px;border-left:4px solid var(--red);margin:8px 0;font-style:italic}
+
+  /* True/False */
+  .tf-item{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--border);border-radius:6px;padding:12px 14px;margin:8px 0}
+  .tf-item.correct{background:#e6f3e6;border-color:#1e6b1e}
+  .tf-item.wrong{background:#f8d7da;border-color:var(--red)}
+  .tf-btns button{background:#f3f5f9;border:2px solid var(--border);padding:6px 14px;border-radius:5px;cursor:pointer;margin-left:6px;font-weight:600}
+  .tf-btns button.sel{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+  /* Score */
+  .score{display:inline-block;margin-left:10px;background:var(--blue);color:#fff;padding:4px 12px;border-radius:999px;font-weight:600;font-size:.9rem}
+
+  footer{text-align:center;color:var(--muted);padding:30px 20px;font-size:.9rem;border-top:1px solid var(--border);background:#fff}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="tag" style="background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.25)">IGCSE French · E2 Sports</div>
+  <h1>Tu Es Plutôt Foot, Tennis ou Basket ?</h1>
+  <p>Hobbies, Interests, Sports and Exercise — Talk about sports in French and use <em>depuis</em> with the present tense.</p>
+  <div class="badges">
+    <span class="badge">Interactive Speakers</span>
+    <span class="badge">Audio in French</span>
+    <span class="badge">English Subtitles</span>
+    <span class="badge">5 Activities</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- OBJECTIFS -->
+  <section>
+    <span class="tag">Objectifs</span>
+    <h2>Learning Objectives</h2>
+    <div class="objectifs">
+      <strong>À la fin de cette leçon, tu vas pouvoir :</strong>
+      <ul>
+        <li>Parler des sports — <em>Talk about sports</em></li>
+        <li>Utiliser <strong>depuis</strong> avec les verbes au présent — <em>Use "depuis" (for/since) with present tense verbs</em></li>
+        <li>Décrire un sport avec des adjectifs — <em>Describe a sport using adjectives</em></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- VOCAB -->
+  <section>
+    <span class="tag">Vocabulaire — Les sports</span>
+    <h2>Sports Vocabulary</h2>
+    <p class="sub">Click each card to hear the French pronunciation. English is shown below.</p>
+    <div class="vocab-grid" id="vocabGrid"></div>
+
+    <h3>Expressions utiles — Useful expressions</h3>
+    <div class="vocab-grid" id="expGrid"></div>
+
+    <div class="warning">
+      <strong>Vocabulary notes :</strong><br>
+      <em>oublier ses soucis</em> = oublier ses problèmes (to forget one's worries)<br>
+      <em>décompresser</em> = se détendre (to relax / unwind)<br>
+      <em>ludique</em> = marrant (fun / playful)<br>
+      <em>fédérateur</em> = unifiant (unifying)<br>
+      <em>tandis que</em> = alors que, mais (whereas)
+    </div>
+  </section>
+
+  <!-- GRAMMAR DEPUIS -->
+  <section>
+    <span class="tag">Grammaire</span>
+    <h2>Depuis + le présent</h2>
+    <div class="grammar">
+      <h3>Règle / Rule</h3>
+      <p>In French, we use <strong>depuis + the present tense</strong> to say how long something has been happening. In English we use the present perfect ("have been doing"), but in French we keep the <strong>present tense</strong>.</p>
+      <div class="example">Je joue au tennis <strong>depuis</strong> cinq ans.<br><span class="sub">I have been playing tennis for five years.</span></div>
+      <div class="example">Elle fait de l'escrime <strong>depuis</strong> quatre ans.<br><span class="sub">She has been doing fencing for four years.</span></div>
+      <div class="example">Nous faisons du basket <strong>depuis</strong> trois ans.<br><span class="sub">We have been doing basketball for three years.</span></div>
+    </div>
+  </section>
+
+  <!-- GRAMMAR ADJ -->
+  <section>
+    <span class="tag">Grammaire</span>
+    <h2>La position des adjectifs</h2>
+    <div class="grammar">
+      <p><strong>Most adjectives come AFTER the noun:</strong></p>
+      <div class="example">C'est un sport <strong>rapide</strong>. — <span class="sub">It's a fast sport.</span></div>
+      <div class="example">Un joueur <strong>motivé</strong>. — <span class="sub">A motivated player.</span></div>
+      <p><strong>However, some adjectives come BEFORE the noun</strong> (BAGS: Beauty, Age, Goodness, Size) — e.g. <em>beau, bon, petit, grand, jeune, vieux, joli, nouveau</em>:</p>
+      <div class="example">C'est un <strong>beau</strong> sport. — <span class="sub">It's a beautiful sport.</span></div>
+      <div class="example">Cela demande une <strong>bonne</strong> coordination. — <span class="sub">It requires good coordination.</span></div>
+      <div class="example">Il faut de <strong>bons</strong> réflexes. — <span class="sub">You need good reflexes.</span></div>
+    </div>
+  </section>
+
+  <!-- EX 1 - LISTENING & READING (Interactive Speakers) -->
+  <section>
+    <span class="tag">Exercice 1 — Écouter et Lire</span>
+    <h2>Quatre personnes parlent de leur sport</h2>
+    <p class="sub">Click on each speaker to read their statement in French, hear it spoken, and see the English subtitle.</p>
+
+    <div class="speakers" id="speakersList"></div>
+    <div class="speaker-detail" id="speakerDetail"></div>
+
+    <h3>Tableau récapitulatif — Summary Table</h3>
+    <table>
+      <thead><tr><th>Nom</th><th>Activité</th><th>Depuis quand</th><th>Opinion</th><th>Détails supplémentaires</th></tr></thead>
+      <tbody>
+        <tr><td>Léa</td><td>l'escrime</td><td>quatre ans</td><td>elle préfère les sports individuels</td><td>demande de la souplesse, bon pour le corps et le mental</td></tr>
+        <tr><td>Erwann</td><td>le jogging</td><td>un an</td><td>il adore courir</td><td>développe une excellente forme physique</td></tr>
+        <tr><td>Mariam</td><td>le trampoline</td><td>deux ans</td><td>elle est passionnée</td><td>facile, ludique, bon pour la concentration et le cœur</td></tr>
+        <tr><td>Arthur</td><td>le basket</td><td>trois ans</td><td>vraiment sympa</td><td>sport rapide, demande des efforts et de bons réflexes</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- EX 3 - LISTENING (Noah) -->
+  <section>
+    <span class="tag">Exercice 3 — Écouter (Noah)</span>
+    <h2>Noah parle de son sport</h2>
+    <p class="sub">Listen to Noah talk about his sport, then complete the sentences.</p>
+
+    <div style="background:#fff;border:2px solid var(--blue);border-radius:10px;padding:18px;margin:12px 0">
+      <p><strong>Texte (FR) :</strong><br>
+      « Je fais du karaté depuis six ans. Le karaté est un sport rapide qui demande beaucoup de concentration et de bons réflexes. Je préfère le karaté car c'est un sport indépendant. Le karaté m'aide à décompresser. Depuis un moment, la France est très forte en karaté au niveau international. »</p>
+      <button class="speak-btn" onclick="speakFR(this.previousElementSibling.innerText)">Écouter en français</button>
+      <p class="sub" style="margin-top:14px"><strong>English:</strong> I have been doing karate for six years. Karate is a fast sport that requires a lot of concentration and good reflexes. I prefer karate because it is an independent sport. Karate helps me to unwind. For a while now, France has been very strong in karate internationally.</p>
+    </div>
+
+    <div class="tip"><strong>Listening tip :</strong> In listening exercises, you sometimes have to change the first person (<em>je</em> form) into the third person (<em>il/elle</em> form). Example: <em>je fais</em> → <em>Noah fait</em>.</div>
+
+    <h3>Complétez les phrases — Fill in the gaps</h3>
+    <div id="ex3"></div>
+    <button class="check-btn" onclick="checkEx3()">Vérifier</button>
+    <span class="score" id="ex3Score">0 / 5</span>
+    <div class="feedback" id="ex3Feedback"></div>
+  </section>
+
+  <!-- EX 4 - READING TRUE/FALSE -->
+  <section>
+    <span class="tag">Exercice 4 — Lire</span>
+    <h2>Le sport en France</h2>
+    <p class="sub">Read the three short texts, then identify the three true statements.</p>
+
+    <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;margin:10px 0;border-left:5px solid var(--blue)">
+      <h4 style="color:var(--red);margin:0 0 6px">Texte 1</h4>
+      <p>Tout le monde sait que le Sud-Ouest est le pays du rugby et qu'en Bretagne on joue beaucoup au foot. Les Alpes et les Pyrénées produisent des champions de ski. Mais quels sont les sports les plus pratiqués en France ?</p>
+      <button class="speak-btn" onclick="speakFR(this.previousElementSibling.innerText)">Écouter</button>
+      <p class="sub" style="margin-top:10px;border-top:1px dashed var(--border);padding-top:8px"><em>Everyone knows that the South-West is rugby country and that in Brittany people play a lot of football. The Alps and Pyrenees produce ski champions. But what are the most practiced sports in France?</em></p>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;margin:10px 0;border-left:5px solid var(--blue)">
+      <h4 style="color:var(--red);margin:0 0 6px">Texte 2</h4>
+      <p>Le foot est le sport national de la France. On le trouve partout. C'est un sport fédérateur. Chaque petit village a une équipe de foot, tandis que le tennis, premier sport individuel, se joue surtout dans les zones urbaines, notamment à Paris, Lyon et Bordeaux.</p>
+      <button class="speak-btn" onclick="speakFR(this.previousElementSibling.innerText)">Écouter</button>
+      <p class="sub" style="margin-top:10px;border-top:1px dashed var(--border);padding-top:8px"><em>Football is France's national sport. It is found everywhere. It is a unifying sport. Every small village has a football team, whereas tennis — the leading individual sport — is played mostly in urban areas, notably in Paris, Lyon and Bordeaux.</em></p>
+    </div>
+
+    <div style="background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;margin:10px 0;border-left:5px solid var(--blue)">
+      <h4 style="color:var(--red);margin:0 0 6px">Texte 3</h4>
+      <p>Le basket est le deuxième sport collectif le plus pratiqué en France. Il se pratique presque partout dans le pays. Les grands événements sportifs en France sont : Roland-Garros, le marathon de Paris, les 24 Heures du Mans et bien sûr le Tour de France.</p>
+      <button class="speak-btn" onclick="speakFR(this.previousElementSibling.innerText)">Écouter</button>
+      <p class="sub" style="margin-top:10px;border-top:1px dashed var(--border);padding-top:8px"><em>Basketball is the second most practiced team sport in France. It is played almost everywhere in the country. The major sporting events in France are: Roland-Garros, the Paris Marathon, the 24 Hours of Le Mans and of course the Tour de France.</em></p>
+    </div>
+
+    <h3>Vrai ou Faux ? — Choose the three TRUE statements</h3>
+    <div id="ex4"></div>
+    <button class="check-btn" onclick="checkEx4()">Vérifier</button>
+    <span class="score" id="ex4Score">0 / 6</span>
+    <div class="feedback" id="ex4Feedback"></div>
+  </section>
+
+  <!-- EX 5 - WRITING GAP FILL -->
+  <section>
+    <span class="tag">Exercice 5 — Écrire</span>
+    <h2>Le texte de Ronan — Transformations grammaticales</h2>
+    <p class="sub">Copy this text, changing the words (a)–(j) where necessary. <strong>Be careful — it is not always necessary to change the word.</strong></p>
+
+    <div style="background:#eef2f8;border:2px solid var(--blue);border-radius:10px;padding:18px;line-height:2.2">
+      <p>Ronan <input type="text" id="g_a" placeholder="(a) jouer" data-ans="joue"> au hockey sur glace depuis six ans. C'est un sport rapide qui <input type="text" id="g_b" placeholder="(b) demander" data-ans="demande"> de <input type="text" id="g_c" placeholder="(c) bon" data-ans="bons"> réflexes. Quand il joue, il oublie ses soucis. Ronan adore les sports <input type="text" id="g_d" placeholder="(d) collectif" data-ans="collectifs"> mais, quand il <input type="text" id="g_e" placeholder="(e) être" data-ans="était"> plus jeune, il pratiquait un sport <input type="text" id="g_f" placeholder="(f) individuel" data-ans="individuel"> avec son père — le vélo. En été, ils <input type="text" id="g_g" placeholder="(g) faire" data-ans="faisaient"> souvent de <input type="text" id="g_h" placeholder="(h) beau" data-ans="belles"> balades à vélo en montagne. Le jour de son seizième anniversaire, Ronan et son père <input type="text" id="g_i" placeholder="(i) aller" data-ans="sont allés"> à un match de hockey sur glace. Ronan a adoré le match et ce jour-là, il <input type="text" id="g_j" placeholder="(j) décider" data-ans="a décidé"> que le hockey sur glace était le sport pour lui.</p>
+    </div>
+
+    <button class="check-btn" onclick="checkEx5()">Vérifier</button>
+    <span class="score" id="ex5Score">0 / 10</span>
+    <div class="feedback" id="ex5Feedback"></div>
+
+    <details style="margin-top:14px">
+      <summary style="cursor:pointer;color:var(--red);font-weight:600">Voir les explications grammaticales</summary>
+      <ul style="margin-top:10px">
+        <li><strong>(a) joue</strong> — present tense with <em>depuis</em> (3rd person singular).</li>
+        <li><strong>(b) demande</strong> — present tense, 3rd person singular (le sport).</li>
+        <li><strong>(c) bons</strong> — adjective agrees with masculine plural <em>réflexes</em>; BAGS adjective before noun.</li>
+        <li><strong>(d) collectifs</strong> — masculine plural agreement with <em>sports</em>.</li>
+        <li><strong>(e) était</strong> — imperfect tense (description in the past).</li>
+        <li><strong>(f) individuel</strong> — no change needed; masculine singular agrees with <em>un sport</em>.</li>
+        <li><strong>(g) faisaient</strong> — imperfect tense, 3rd person plural (habitual past action).</li>
+        <li><strong>(h) belles</strong> — feminine plural agreement with <em>balades</em>; BAGS adjective before noun.</li>
+        <li><strong>(i) sont allés</strong> — passé composé with <em>être</em>; masculine plural agreement.</li>
+        <li><strong>(j) a décidé</strong> — passé composé with <em>avoir</em>; specific completed action.</li>
+      </ul>
+    </details>
+  </section>
+
+  <!-- EX 2 - SPEAKING / WRITING PRODUCTION -->
+  <section>
+    <span class="tag">Exercice 2 — Parler / Écrire</span>
+    <h2>À toi ! — Présente ton sport</h2>
+    <p class="sub">Using the vocabulary support below, write or say a presentation about a sport you do (real or imagined). Then click to reveal a model answer.</p>
+
+    <div class="grammar">
+      <h3>Support vocabulaire</h3>
+      <ul>
+        <li><strong>Je fais du / de la / de l'…</strong> depuis x mois / ans</li>
+        <li><strong>Je pratique le / la / l'…</strong></li>
+        <li>J'aime beaucoup ça car c'est <em>facile / ludique / sympa / marrant / amusant / rapide / beau</em></li>
+        <li>C'est un sport qui est bon pour <em>le corps / le mental / le cœur / la concentration</em>…</li>
+        <li>…et qui demande <em>une excellente forme physique / une bonne coordination / de l'endurance / de bons réflexes</em></li>
+        <li>Ça m'aide à décompresser / Je décompresse / Je me détends</li>
+        <li>Ça me fait du bien</li>
+      </ul>
+    </div>
+
+    <textarea id="myAnswer" rows="6" placeholder="Écris ta présentation ici…" style="width:100%;padding:12px;border:2px solid var(--border);border-radius:8px;font-family:inherit;font-size:1rem;margin-top:12px"></textarea>
+
+    <details style="margin-top:14px">
+      <summary style="cursor:pointer;color:var(--red);font-weight:600">Voir un modèle de réponse</summary>
+      <div style="background:#fff;border:2px solid var(--red);border-radius:10px;padding:16px;margin-top:10px">
+        <p><strong>Modèle :</strong> Je fais du tennis depuis sept ans. Je pratique ce sport deux fois par semaine au club de mon quartier. J'aime beaucoup ça car c'est un sport rapide et ludique. C'est un sport qui est bon pour le corps et la concentration, et qui demande de bons réflexes et une bonne coordination. Quand je joue, j'oublie mes soucis et je décompresse. Ça me fait du bien. Je préfère les sports individuels car on est responsable de ses propres efforts.</p>
+        <button class="speak-btn" onclick="speakFR(this.previousElementSibling.innerText)">Écouter le modèle</button>
+        <p class="sub" style="margin-top:10px"><em>Model: I have been playing tennis for seven years. I practice this sport twice a week at my local club. I love it because it is a fast and fun sport. It is a sport that is good for the body and concentration, and that requires good reflexes and good coordination. When I play, I forget my worries and I unwind. It does me good. I prefer individual sports because you are responsible for your own efforts.</em></p>
+      </div>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  IGCSE French — Tu Es Plutôt Foot, Tennis ou Basket ? · Conçu pour apprendre, pratiquer et briller.
+</footer>
+
+<script>
+/* ---------- Audio (French speech synthesis) ---------- */
+function speakFR(text){
+  if(!('speechSynthesis' in window)){alert('Speech synthesis not supported in this browser.');return;}
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'fr-FR';
+  u.rate = 0.92;
+  const voices = window.speechSynthesis.getVoices();
+  const fr = voices.find(v=>v.lang.startsWith('fr'));
+  if(fr) u.voice = fr;
+  window.speechSynthesis.speak(u);
+}
+if('speechSynthesis' in window){ window.speechSynthesis.onvoiceschanged = ()=>{}; }
+
+/* ---------- Vocabulary ---------- */
+const vocab = [
+  {fr:"le football / le foot", en:"football"},
+  {fr:"le tennis", en:"tennis"},
+  {fr:"le basket", en:"basketball"},
+  {fr:"le rugby", en:"rugby"},
+  {fr:"le ski", en:"skiing"},
+  {fr:"le jogging", en:"jogging"},
+  {fr:"l'escrime (f)", en:"fencing"},
+  {fr:"le trampoline", en:"trampolining"},
+  {fr:"le karaté", en:"karate"},
+  {fr:"le hockey sur glace", en:"ice hockey"},
+  {fr:"le vélo / le cyclisme", en:"cycling"},
+  {fr:"la natation", en:"swimming"}
+];
+const expressions = [
+  {fr:"un sport individuel", en:"an individual sport"},
+  {fr:"un sport collectif", en:"a team sport"},
+  {fr:"un sport rapide", en:"a fast sport"},
+  {fr:"une bonne coordination", en:"good coordination"},
+  {fr:"de bons réflexes", en:"good reflexes"},
+  {fr:"de l'endurance", en:"stamina / endurance"},
+  {fr:"oublier ses soucis", en:"to forget one's worries"},
+  {fr:"décompresser", en:"to unwind / relax"},
+  {fr:"ça me fait du bien", en:"it does me good"},
+  {fr:"ludique", en:"fun / playful"},
+  {fr:"fédérateur", en:"unifying"},
+  {fr:"tandis que", en:"whereas"}
+];
+function renderVocab(id, arr){
+  const c = document.getElementById(id);
+  c.innerHTML = arr.map(v=>`<div class="vocab-card" onclick="speakFR('${v.fr.replace(/'/g,"\\'")}')">
+    <div class="fr">${v.fr}</div><div class="en">${v.en}</div></div>`).join('');
+}
+renderVocab('vocabGrid', vocab);
+renderVocab('expGrid', expressions);
+
+/* ---------- Speakers (Ex 1) ---------- */
+const speakers = [
+  {
+    name:"Léa", sport:"l'escrime",
+    fr:"Personnellement, je préfère les sports individuels. Je fais de l'escrime depuis quatre ans. C'est un sport qui demande de la souplesse et une bonne coordination. C'est bon pour le corps et le mental. Je respire de l'air frais et je me fixe des objectifs. Ça me fait du bien.",
+    en:"Personally, I prefer individual sports. I have been doing fencing for four years. It's a sport that requires suppleness and good coordination. It's good for the body and the mind. I breathe fresh air and I set myself goals. It does me good."
+  },
+  {
+    name:"Erwann", sport:"le jogging",
+    fr:"Je fais du jogging tous les jours et j'en fais depuis un an. C'est un sport qui développe une excellente forme physique. J'adore courir, respirer de l'air frais et me fixer des objectifs. Ça me fait du bien.",
+    en:"I go jogging every day and I have been doing it for a year. It's a sport that develops excellent physical fitness. I love running, breathing fresh air and setting myself goals. It does me good."
+  },
+  {
+    name:"Mariam", sport:"le trampoline",
+    fr:"Je fais du trampoline depuis deux ans et je suis passionnée. C'est facile et ludique. Quand je saute, j'oublie mes soucis et je décompresse. C'est un sport qui est bon pour la concentration et aussi bon pour le cœur.",
+    en:"I have been doing trampolining for two years and I am passionate about it. It is easy and fun. When I jump I forget my worries and I unwind. It's a sport that is good for concentration and also good for the heart."
+  },
+  {
+    name:"Arthur", sport:"le basket",
+    fr:"Mon équipe joue au basket ensemble et nous le faisons depuis trois ans. C'est vraiment sympa. Le basket est un sport rapide qui demande beaucoup d'efforts et de très bons réflexes. Travailler en équipe, ça motive.",
+    en:"My team plays basketball together and we have been doing so for three years. It's really nice. Basketball is a fast sport that requires a lot of effort and very good reflexes. Working as a team is motivating."
+  }
+];
+const sl = document.getElementById('speakersList');
+sl.innerHTML = speakers.map((s,i)=>`<div class="speaker" data-i="${i}" onclick="showSpeaker(${i})">
+  <h4>${s.name}</h4><div class="sport">${s.sport}</div></div>`).join('');
+function showSpeaker(i){
+  document.querySelectorAll('.speaker').forEach(el=>el.classList.remove('active'));
+  document.querySelector(`.speaker[data-i="${i}"]`).classList.add('active');
+  const s = speakers[i];
+  const d = document.getElementById('speakerDetail');
+  d.innerHTML = `<h3>${s.name} — ${s.sport}</h3>
+    <p class="fr-text">${s.fr}</p>
+    <button class="speak-btn" onclick="speakFR(${JSON.stringify(s.fr)})">Écouter en français</button>
+    <p class="en-text"><strong>English:</strong> ${s.en}</p>`;
+  d.classList.add('show');
+}
+
+/* ---------- Exercice 3 ---------- */
+const ex3Q = [
+  {q:"Noah fait du karaté…", a:"depuis six ans", hint:"depuis combien de temps ?"},
+  {q:"Le karaté est un sport… qui demande… et…", a:"rapide, de la concentration, de bons réflexes", hint:"un adjectif + deux choses"},
+  {q:"Noah préfère le karaté car c'est un sport…", a:"indépendant", hint:"un adjectif"},
+  {q:"Le karaté aide Noah à…", a:"décompresser", hint:"un verbe"},
+  {q:"Depuis un moment, la France est…", a:"très forte en karaté", hint:"description"}
+];
+document.getElementById('ex3').innerHTML = ex3Q.map((it,i)=>`
+  <div class="q">
+    <p class="qtext">${i+1}. ${it.q}</p>
+    <input type="text" id="ex3_${i}" placeholder="${it.hint}" data-ans="${it.a}">
+  </div>`).join('');
+function norm(s){return (s||'').toLowerCase().replace(/[.,!?;:'"]/g,'').replace(/\s+/g,' ').trim();}
+function checkEx3(){
+  let score = 0;
+  ex3Q.forEach((it,i)=>{
+    const el = document.getElementById('ex3_'+i);
+    const v = norm(el.value);
+    const ans = norm(it.a);
+    const keywords = ans.split(/[, ]+/).filter(w=>w.length>2);
+    const matches = keywords.filter(k=>v.includes(k)).length;
+    if(matches >= Math.ceil(keywords.length*0.5) && v.length>0){
+      el.classList.add('correct');el.classList.remove('wrong');score++;
+    } else {
+      el.classList.add('wrong');el.classList.remove('correct');
+    }
+  });
+  document.getElementById('ex3Score').textContent = `${score} / ${ex3Q.length}`;
+  const fb = document.getElementById('ex3Feedback');
+  fb.className = 'feedback show ' + (score===ex3Q.length?'good':'bad');
+  fb.innerHTML = score===ex3Q.length
+    ? "Excellent ! Toutes les réponses sont correctes."
+    : `Tu as ${score} / ${ex3Q.length}. Réponses attendues :<br>` + ex3Q.map((it,i)=>`<strong>${i+1}.</strong> ${it.a}`).join('<br>');
+}
+
+/* ---------- Exercice 4 — True/False ---------- */
+const ex4 = [
+  {t:"a) Le Sud-Est est une région où on joue beaucoup au rugby.", correct:false, why:"Faux — c'est le Sud-OUEST, pas le Sud-Est."},
+  {t:"b) Beaucoup de champions de ski viennent de Bretagne.", correct:false, why:"Faux — les champions de ski viennent des Alpes et des Pyrénées."},
+  {t:"c) Le foot est le sport le plus populaire en France.", correct:true, why:"Vrai — c'est le sport national, on le trouve partout."},
+  {t:"d) On joue beaucoup au tennis dans les grandes villes.", correct:true, why:"Vrai — surtout à Paris, Lyon et Bordeaux."},
+  {t:"e) Le basket est populaire dans toute la France.", correct:true, why:"Vrai — il se pratique presque partout dans le pays."},
+  {t:"f) Il y a très peu d'événements sportifs en France.", correct:false, why:"Faux — Roland-Garros, marathon de Paris, 24 Heures du Mans, Tour de France…"}
+];
+const ex4Sel = {};
+document.getElementById('ex4').innerHTML = ex4.map((it,i)=>`
+  <div class="tf-item" id="tf_${i}">
+    <span>${it.t}</span>
+    <span class="tf-btns">
+      <button onclick="pickTF(${i},true,this)">Vrai</button>
+      <button onclick="pickTF(${i},false,this)">Faux</button>
+    </span>
+  </div>`).join('');
+function pickTF(i,v,btn){
+  ex4Sel[i] = v;
+  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+function checkEx4(){
+  let score=0;
+  ex4.forEach((it,i)=>{
+    const row = document.getElementById('tf_'+i);
+    row.classList.remove('correct','wrong');
+    if(ex4Sel[i]===it.correct){row.classList.add('correct');score++;}
+    else{row.classList.add('wrong');}
+  });
+  document.getElementById('ex4Score').textContent = `${score} / ${ex4.length}`;
+  const fb = document.getElementById('ex4Feedback');
+  fb.className='feedback show '+(score===ex4.length?'good':'bad');
+  fb.innerHTML = score===ex4.length
+    ? "Parfait ! Tu as identifié les bonnes phrases."
+    : "Explications :<br>" + ex4.map((it,i)=>`<strong>${it.t.split(')')[0]})</strong> ${it.why}`).join('<br>');
+}
+
+/* ---------- Exercice 5 — Gap fill ---------- */
+function checkEx5(){
+  const ids=['g_a','g_b','g_c','g_d','g_e','g_f','g_g','g_h','g_i','g_j'];
+  let score=0;
+  ids.forEach(id=>{
+    const el = document.getElementById(id);
+    const v = norm(el.value);
+    const ans = norm(el.dataset.ans);
+    if(v===ans){el.classList.add('correct');el.classList.remove('wrong');score++;}
+    else{el.classList.add('wrong');el.classList.remove('correct');}
+  });
+  document.getElementById('ex5Score').textContent=`${score} / 10`;
+  const fb = document.getElementById('ex5Feedback');
+  fb.className='feedback show '+(score===10?'good':'bad');
+  fb.innerHTML = score===10
+    ? "Bravo ! Tu maîtrises les temps et les accords."
+    : `Tu as ${score} / 10. Vérifie les réponses en surbrillance rouge et consulte les explications grammaticales ci-dessous.`;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Au Collège — Leçon de Français</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#7a1722; --red-2:#5a0f18;
+    --blue:#0f2a4a; --blue-2:#0a1d36;
+    --cream:#f6f1e7; --paper:#fbf8f1;
+    --ink:#0e1626; --muted:#5b6478;
+    --line:rgba(15,42,74,.18);
+    --good:#0f7a3a; --bad:#8a1020;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.55}
+  h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;color:var(--blue);margin:0 0 .4em}
+  h1{font-size:2.4rem} h2{font-size:1.6rem;color:var(--red)} h3{font-size:1.2rem;color:var(--blue)}
+  .wrap{max-width:1080px;margin:0 auto;padding:24px}
+  header.hero{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-2) 60%,var(--red) 100%);color:var(--cream);padding:42px 28px;border-radius:18px;margin-bottom:28px;box-shadow:0 12px 40px rgba(15,42,74,.25)}
+  header.hero h1{color:#fff}
+  .pill{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:4px 12px;border-radius:999px;font-size:.8rem;margin-right:6px}
+  section.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;margin:18px 0;box-shadow:0 4px 14px rgba(15,42,74,.06)}
+  section.card.dark{background:var(--blue);color:var(--cream)}
+  section.card.dark h2,section.card.dark h3{color:#fff}
+  .objectives{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:10px}
+  .obj{background:var(--cream);border-left:4px solid var(--red);padding:12px 14px;border-radius:8px;font-weight:500}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  button.btn{background:var(--red);color:#fff;border:none;padding:9px 16px;border-radius:8px;cursor:pointer;font-weight:600;font-family:inherit;font-size:.92rem}
+  button.btn:hover{background:var(--red-2)}
+  button.ghost{background:transparent;color:var(--blue);border:1.5px solid var(--blue)}
+  button.ghost:hover{background:var(--blue);color:#fff}
+  button.mini{padding:4px 10px;font-size:.78rem;border-radius:6px;background:var(--blue);color:#fff;border:none;cursor:pointer;font-family:inherit}
+  .sub{color:var(--muted);font-size:.92rem}
+  .vocab{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin-top:12px}
+  .vcard{background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+  .vcard:hover{box-shadow:0 6px 16px rgba(122,23,34,.18);border-color:var(--red)}
+  .vcard .fr{font-weight:600;color:var(--blue)}
+  .vcard .en{display:block;color:var(--muted);font-size:.84rem}
+  table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.9rem;background:#fff}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:center}
+  th{background:var(--blue);color:#fff}
+  td.day{background:var(--cream);font-weight:600;color:var(--red)}
+  td.break{background:#ecd9a8;font-style:italic;color:var(--blue-2);font-weight:600}
+  td input.gap{width:100%;border:none;border-bottom:2px solid var(--red);background:transparent;font-family:inherit;font-size:.9rem;text-align:center;padding:4px 2px}
+  td input.gap.ok{border-bottom-color:var(--good);background:#e7f6ec;color:var(--good);font-weight:600}
+  td input.gap.no{border-bottom-color:var(--bad);background:#fce8ea;color:var(--bad);font-weight:600}
+  .categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
+  .catbox{background:var(--cream);border:2px dashed var(--blue);border-radius:12px;padding:12px;min-height:140px}
+  .catbox h4{margin:0 0 8px;color:var(--red);font-family:'Inter',sans-serif;font-weight:700}
+  .catbox.over{background:#fff3d6;border-color:var(--red)}
+  .draglist{display:flex;flex-wrap:wrap;gap:6px;min-height:30px}
+  .chip{background:#fff;border:1.5px solid var(--blue);border-radius:999px;padding:5px 12px;font-size:.85rem;cursor:grab;color:var(--blue);font-weight:500}
+  .pool{background:var(--blue);color:#fff;padding:14px;border-radius:12px;margin-top:12px}
+  .pool h4{color:#fff;margin:0 0 8px;font-family:'Inter',sans-serif}
+  .pool .chip{background:#fff;color:var(--blue);border-color:transparent}
+  .feedback{margin-top:10px;padding:10px 12px;border-radius:8px;font-weight:600;display:none}
+  .feedback.show{display:block}
+  .feedback.good{background:#e7f6ec;color:var(--good);border:1px solid var(--good)}
+  .feedback.bad{background:#fce8ea;color:var(--bad);border:1px solid var(--bad)}
+  .vf{display:grid;grid-template-columns:1fr auto auto auto;gap:8px;align-items:center;margin:6px 0;padding:8px 10px;background:var(--cream);border-radius:8px}
+  .vf .pick{padding:4px 12px;border-radius:6px;border:1.5px solid var(--blue);background:#fff;color:var(--blue);cursor:pointer;font-weight:600;font-family:inherit}
+  .vf .pick.sel{background:var(--blue);color:#fff}
+  .vf .pick.correct{background:var(--good);color:#fff;border-color:var(--good)}
+  .vf .pick.wrong{background:var(--bad);color:#fff;border-color:var(--bad)}
+  .vf .why{grid-column:1/-1;font-size:.85rem;color:var(--bad);margin-top:4px;display:none}
+  .vf .why.show{display:block}
+  .reading{background:var(--cream);padding:16px;border-radius:12px;border-left:5px solid var(--red);font-size:.98rem}
+  .grammar-box{background:linear-gradient(135deg,#fff,var(--cream));border:1.5px solid var(--red);border-radius:12px;padding:16px;margin-top:12px}
+  .grammar-box h4{color:var(--red);margin:0 0 6px}
+  .grammar-box .ex{background:#fff;border-left:3px solid var(--blue);padding:6px 10px;margin:6px 0;border-radius:4px;font-size:.92rem}
+  textarea{width:100%;min-height:120px;border:1.5px solid var(--line);border-radius:8px;padding:10px;font-family:inherit;font-size:.95rem;resize:vertical}
+  textarea:focus{outline:none;border-color:var(--red)}
+  .model{background:var(--cream);border-left:4px solid var(--blue);padding:12px;border-radius:6px;margin-top:10px;display:none;font-size:.93rem}
+  .model.show{display:block}
+  .footer{text-align:center;color:var(--muted);font-size:.85rem;padding:24px 0}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;font-weight:700;font-family:'Playfair Display',serif;margin-right:8px}
+  .opinion{display:flex;gap:8px;align-items:center;padding:6px 10px;background:var(--cream);border-radius:8px;margin:5px 0}
+  .opinion select{padding:5px 8px;border:1.5px solid var(--blue);border-radius:6px;font-family:inherit;background:#fff;color:var(--blue);font-weight:500}
+  .who{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+  .who button{padding:6px 14px;border:1.5px solid var(--blue);background:#fff;color:var(--blue);border-radius:6px;cursor:pointer;font-family:inherit;font-weight:500}
+  .who button.sel{background:var(--blue);color:#fff}
+  .who button.correct{background:var(--good);color:#fff;border-color:var(--good)}
+  .who button.wrong{background:var(--bad);color:#fff;border-color:var(--bad)}
+  .listenItem{background:var(--cream);padding:10px 12px;border-radius:8px;margin:8px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="pill">B1 — School Life & Routine</span>
+  <span class="pill">Niveau Collège</span>
+  <h1>Au Collège</h1>
+  <p>Réviser les matières · Parler de son emploi du temps</p>
+  <p class="sub" style="opacity:.85;margin-top:10px">Audio en français · sous-titres anglais · activités interactives</p>
+</header>
+
+<section class="card">
+  <h2>Objectifs d'apprentissage</h2>
+  <div class="objectives">
+    <div class="obj">Réviser le vocabulaire des matières scolaires</div>
+    <div class="obj">Parler de son emploi du temps</div>
+    <div class="obj">Exprimer ses opinions sur les matières</div>
+    <div class="obj">Utiliser l'article défini (le/la/les)</div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Les matières — Vocabulaire</h2>
+  <p class="sub">Cliquez sur chaque carte pour entendre la prononciation.</p>
+  <div class="vocab" id="vocab"></div>
+  <div style="margin-top:14px">
+    <strong style="color:var(--red)">obligatoire</strong> = imposé(e), qu'on doit faire ·
+    <strong style="color:var(--red)">facultatif/-ive</strong> = optionnel(le), qu'on peut choisir
+  </div>
+</section>
+
+<section class="card">
+  <h2><span class="num">1</span>Catégorisez les matières</h2>
+  <p class="sub">Glissez chaque matière dans la bonne catégorie.</p>
+  <div class="pool"><h4>Réserve de matières</h4><div class="draglist" id="pool"></div></div>
+  <div class="categories" id="cats">
+    <div class="catbox" data-cat="langues"><h4>1. Les langues</h4><div class="draglist"></div></div>
+    <div class="catbox" data-cat="sciences"><h4>2. Les sciences</h4><div class="draglist"></div></div>
+    <div class="catbox" data-cat="obligatoires"><h4>3. Mes matières obligatoires</h4><div class="draglist"></div></div>
+    <div class="catbox" data-cat="facultatives"><h4>4. Mes matières facultatives</h4><div class="draglist"></div></div>
+    <div class="catbox" data-cat="pasfaites"><h4>5. Matières que je ne fais pas</h4><div class="draglist"></div></div>
+  </div>
+  <div class="row" style="margin-top:14px">
+    <button class="btn" onclick="checkCats()">Vérifier</button>
+    <button class="ghost btn" onclick="resetCats()">Recommencer</button>
+  </div>
+  <div class="feedback" id="catFb"></div>
+</section>
+
+<section class="card">
+  <h2><span class="num">2</span>L'emploi du temps de Chadia</h2>
+  <p class="sub">Complétez les cases vides (utilisez le contexte pour deviner).</p>
+  <div style="overflow-x:auto">
+    <table id="edt">
+      <thead><tr><th></th><th>lundi</th><th>mardi</th><th>mercredi</th><th>jeudi</th><th>vendredi</th></tr></thead>
+      <tbody>
+        <tr><td class="day">8h</td><td><input class="gap" data-a="anglais"></td><td>anglais</td><td><input class="gap" data-a="anglais"></td><td><input class="gap" data-a="français"></td><td><input class="gap" data-a="maths"></td></tr>
+        <tr><td class="day">9h</td><td>français</td><td>maths</td><td><input class="gap" data-a="français"></td><td>maths</td><td>français</td></tr>
+        <tr><td class="day">10h</td><td colspan="5" class="break">RÉCRÉATION</td></tr>
+        <tr><td class="day">10h15</td><td>anglais</td><td>arts plastiques</td><td>maths</td><td>maths</td><td>français</td></tr>
+        <tr><td class="day">11h15</td><td><input class="gap" data-a="musique"></td><td><input class="gap" data-a="histoire-géo"></td><td>histoire-géo</td><td>allemand</td><td>allemand</td></tr>
+        <tr><td class="day">12h15</td><td colspan="5" class="break">DÉJEUNER</td></tr>
+        <tr><td class="day">13h30</td><td><input class="gap" data-a="EPS"></td><td><input class="gap" data-a="EPS"></td><td>sciences vie et terre</td><td>sciences physiques</td><td></td></tr>
+        <tr><td class="day">14h30</td><td><input class="gap" data-a="EPS"></td><td>latin</td><td></td><td><input class="gap" data-a="musique"></td><td><input class="gap" data-a="allemand"></td></tr>
+        <tr><td class="day">15h30</td><td>sciences vie et terre</td><td>histoire-géo</td><td></td><td><input class="gap" data-a="latin"></td><td><input class="gap" data-a="EPS"></td></tr>
+        <tr><td class="day">16h30</td><td>EPS</td><td></td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row" style="margin-top:12px">
+    <button class="btn" onclick="checkEdt()">Vérifier</button>
+    <button class="ghost btn" onclick="showEdt()">Montrer les réponses</button>
+  </div>
+  <div class="feedback" id="edtFb"></div>
+  <p class="sub" style="margin-top:10px"><em>Le saviez-vous ?</em> En France, <strong>le français</strong> n'est pas <em>une langue vivante</em>. Les langues vivantes sont l'anglais, l'allemand et l'espagnol.</p>
+</section>
+
+<section class="card">
+  <h2><span class="num">3</span>Vrai ou Faux ? (selon l'emploi du temps)</h2>
+  <div id="vfList"></div>
+  <div class="row" style="margin-top:12px"><button class="btn" onclick="checkVF()">Vérifier</button></div>
+  <div class="feedback" id="vfFb"></div>
+</section>
+
+<section class="card dark">
+  <h2><span class="num">4</span>À deux — Posez des questions</h2>
+  <p class="sub">Travaillez à deux. Posez et répondez à tour de rôle.</p>
+  <div class="grammar-box" style="background:rgba(255,255,255,.08);border-color:#fff;color:#fff">
+    <h4 style="color:#fff">Exemple de dialogue</h4>
+    <div class="ex" style="background:rgba(0,0,0,.2);color:#fff;border-left-color:var(--red)">
+      <strong>A :</strong> Qu'est-ce que tu as, le lundi ?<br>
+      <strong>B :</strong> Lundi matin, à 9 heures, j'ai anglais. Puis, à 10 heures 15, j'ai religion. Après, à 11 heures 20, j'ai deux heures de maths.
+    </div>
+    <button class="mini" onclick="speakFR(`Qu'est-ce que tu as, le lundi ? Lundi matin, à 9 heures, j'ai anglais.`)">Écouter</button>
+  </div>
+</section>
+
+<section class="card">
+  <h2><span class="num">5</span>Le texte d'Hugo</h2>
+  <div class="reading" id="hugoText">
+    <p>Au collège, ma matière préférée, c'est <strong>l'EPS</strong>. Je suis fort en sport. J'aime aussi <strong>le français</strong> car c'est facile et le prof est très marrant : il nous fait rire. Je trouve <strong>l'art dramatique</strong> ennuyeux. La prof est trop impatiente. Je pense que <strong>l'allemand</strong> est très utile. Pour moi, <strong>les maths</strong>, c'est difficile. Je suis aussi faible en <strong>histoire</strong> : on a trop de devoirs. J'aime <strong>les Sciences de la Vie et de la Terre</strong> parce que c'est passionnant mais je ne suis pas doué en <strong>sciences physiques</strong>.</p>
+  </div>
+  <div class="row" style="margin-top:10px">
+    <button class="btn" onclick="speakFR(document.getElementById('hugoText').innerText)">Écouter le texte</button>
+    <button class="ghost btn" onclick="document.getElementById('hugoEn').classList.toggle('show')">Sous-titres anglais</button>
+  </div>
+  <div class="model" id="hugoEn"><strong>English:</strong> At school, my favourite subject is PE...</div>
+
+  <h3 style="margin-top:18px">Complétez le tableau</h3>
+  <div id="opinionList"></div>
+  <div class="row" style="margin-top:10px"><button class="btn" onclick="checkOpinions()">Vérifier</button></div>
+  <div class="feedback" id="opFb"></div>
+
+  <div class="grammar-box" style="margin-top:18px">
+    <h4>Utiliser l'article défini</h4>
+    <p>En français, on utilise toujours l'article défini (le/la/les) devant le nom quand on parle de ses goûts.</p>
+    <div class="ex">J'adore <strong>le</strong> français.</div>
+    <div class="ex">J'aime <strong>les</strong> langues.</div>
+  </div>
+</section>
+
+<section class="card">
+  <h2><span class="num">6</span>Complétez les opinions d'Hugo</h2>
+  <div id="ex6"></div>
+  <div class="row" style="margin-top:12px"><button class="btn" onclick="checkEx6()">Vérifier</button></div>
+  <div class="feedback" id="ex6Fb"></div>
+</section>
+
+<section class="card">
+  <h2><span class="num">7</span>Qui parle ?</h2>
+  <p class="sub">Écoutez chaque témoignage et identifiez la personne.</p>
+  <div id="speakerList"></div>
+  <div class="row" style="margin-top:12px"><button class="btn" onclick="checkSpeakers()">Vérifier</button></div>
+  <div class="feedback" id="spFb"></div>
+</section>
+
+<section class="card dark">
+  <h2><span class="num">8</span>À deux — Discutez de vos matières</h2>
+  <div class="grammar-box" style="background:rgba(255,255,255,.08);border-color:#fff;color:#fff">
+    <h4 style="color:#fff">Boîte à phrases</h4>
+    <div class="ex" style="background:rgba(0,0,0,.2);color:#fff"><strong>Ma matière préférée est</strong> … parce que c'est facile / fascinant / difficile / utile.</div>
+    <div class="ex" style="background:rgba(0,0,0,.2);color:#fff"><strong>Je suis</strong> fort(e) / faible / doué(e) / nul(le) <strong>en</strong> …</div>
+    <div class="ex" style="background:rgba(0,0,0,.2);color:#fff"><strong>Le/la prof est</strong> bon(ne) / sympa / marrant(e) / sévère.</div>
+  </div>
+  <h3 style="color:#fff;margin-top:18px">Écrivez votre réponse</h3>
+  <textarea id="prod" placeholder="Quelle est ta matière préférée ? Pourquoi ?"></textarea>
+  <div class="row" style="margin-top:10px">
+    <button class="btn" onclick="document.getElementById('prodModel').classList.toggle('show')">Voir un modèle</button>
+    <button class="ghost btn" style="border-color:#fff;color:#fff" onclick="speakFR(document.getElementById('prodModelTxt').innerText)">Écouter</button>
+  </div>
+  <div class="model" id="prodModel">
+    <p id="prodModelTxt">Ma matière préférée, c'est l'anglais parce que c'est facile et le prof est très marrant. J'aime aussi les sciences de la vie et de la terre car c'est passionnant. Par contre, je n'aime pas les maths : je trouve cette matière difficile. Je déteste la chimie — la prof est trop sévère et on a trop de devoirs. Et toi, quelles matières aimes-tu ?</p>
+  </div>
+</section>
+
+<div class="footer">GCSE / B1 French — Au Collège · Conçu pour apprendre, pratiquer et briller.</div>
+</div>
+
+<script>
+function speakFR(text){
+  if(!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang='fr-FR'; u.rate=0.92;
+  const v = speechSynthesis.getVoices().find(v=>v.lang.startsWith('fr'));
+  if(v) u.voice=v;
+  speechSynthesis.speak(u);
+}
+if('speechSynthesis' in window) speechSynthesis.onvoiceschanged=()=>{};
+
+const SUBJECTS = [
+  {fr:"le dessin",en:"art",cat:["facultatives"]},{fr:"la musique",en:"music",cat:["facultatives"]},
+  {fr:"les arts ménagers",en:"home economics",cat:["facultatives"]},{fr:"la physique",en:"physics",cat:["sciences","obligatoires"]},
+  {fr:"l'allemand",en:"German",cat:["langues","facultatives"]},{fr:"l'EPS",en:"PE",cat:["obligatoires"]},
+  {fr:"l'éducation civique",en:"citizenship",cat:["obligatoires"]},{fr:"le commerce",en:"business",cat:["facultatives"]},
+  {fr:"la religion",en:"RE",cat:["facultatives"]},{fr:"l'art dramatique",en:"drama",cat:["facultatives"]},
+  {fr:"l'histoire",en:"history",cat:["obligatoires"]},{fr:"l'espagnol",en:"Spanish",cat:["langues","facultatives"]},
+  {fr:"l'histoire-géo",en:"history-geog",cat:["obligatoires"]},{fr:"l'économie",en:"economics",cat:["facultatives"]},
+  {fr:"le français",en:"French",cat:["obligatoires"]},{fr:"la chimie",en:"chemistry",cat:["sciences","obligatoires"]},
+  {fr:"les maths",en:"maths",cat:["obligatoires"]},{fr:"la biologie",en:"biology",cat:["sciences","obligatoires"]},
+  {fr:"l'anglais",en:"English",cat:["langues","obligatoires"]},{fr:"la géographie",en:"geography",cat:["obligatoires"]},
+  {fr:"les arts plastiques",en:"visual arts",cat:["facultatives"]},{fr:"l'italien",en:"Italian",cat:["langues","facultatives"]},
+  {fr:"l'informatique",en:"IT",cat:["facultatives"]},{fr:"l'étude des médias",en:"media studies",cat:["facultatives"]},
+  {fr:"la technologie",en:"technology",cat:["facultatives"]},{fr:"la sociologie",en:"sociology",cat:["facultatives"]},
+  {fr:"le latin",en:"Latin",cat:["langues","facultatives"]}
+];
+const vocabEl=document.getElementById('vocab');
+SUBJECTS.forEach(s=>{const d=document.createElement('div');d.className='vcard';
+  d.innerHTML=`<span class="fr">${s.fr}</span><span class="en">${s.en}</span>`;
+  d.onclick=()=>speakFR(s.fr); vocabEl.appendChild(d);});
+
+const pool=document.getElementById('pool');
+SUBJECTS.forEach((s,i)=>{const c=document.createElement('div');c.className='chip';c.draggable=true;
+  c.textContent=s.fr;c.dataset.cats=s.cat.join(',');c.dataset.i=i;
+  c.ondragstart=e=>e.dataTransfer.setData('text/plain',s.fr); pool.appendChild(c);});
+document.querySelectorAll('.catbox').forEach(box=>{
+  box.ondragover=e=>{e.preventDefault();box.classList.add('over')};
+  box.ondragleave=()=>box.classList.remove('over');
+  box.ondrop=e=>{e.preventDefault();box.classList.remove('over');
+    const fr=e.dataTransfer.getData('text/plain');
+    const chip=[...document.querySelectorAll('.chip')].find(c=>c.textContent===fr);
+    if(chip) box.querySelector('.draglist').appendChild(chip);};
+});
+function checkCats(){let ok=0,tot=0;
+  document.querySelectorAll('.catbox').forEach(box=>{const cat=box.dataset.cat;
+    box.querySelectorAll('.chip').forEach(chip=>{tot++;
+      const cats=chip.dataset.cats.split(',');
+      const accept = cat==='pasfaites' ? true : cats.includes(cat);
+      if(accept){chip.style.background='#e7f6ec';chip.style.borderColor='var(--good)';chip.style.color='var(--good)';ok++;}
+      else{chip.style.background='#fce8ea';chip.style.borderColor='var(--bad)';chip.style.color='var(--bad)';}
+    });});
+  const fb=document.getElementById('catFb');
+  fb.className='feedback show '+(ok===tot&&tot?'good':'bad');
+  fb.textContent=tot?`${ok}/${tot} bien classées.`:'Glissez d\'abord des matières.';
+}
+function resetCats(){document.querySelectorAll('.catbox .chip').forEach(c=>{c.style.cssText='';pool.appendChild(c);});
+  document.getElementById('catFb').className='feedback';}
+
+function norm(s){return(s||'').toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
+function checkEdt(){let ok=0,tot=0;
+  document.querySelectorAll('#edt input.gap').forEach(inp=>{tot++;
+    if(norm(inp.value)===norm(inp.dataset.a)){inp.classList.add('ok');inp.classList.remove('no');ok++;}
+    else{inp.classList.add('no');inp.classList.remove('ok');}});
+  const fb=document.getElementById('edtFb');fb.className='feedback show '+(ok===tot?'good':'bad');
+  fb.textContent=`${ok}/${tot} correctes.`;}
+function showEdt(){document.querySelectorAll('#edt input.gap').forEach(i=>{i.value=i.dataset.a;i.classList.add('ok');});}
+
+const VF=[
+  {q:"Mercredi, à 11h15, j'ai histoire-géo.",a:"V"},
+  {q:"J'ai deux heures de musique par semaine.",a:"V"},
+  {q:"Je n'ai pas de cours de religion.",a:"V"},
+  {q:"J'ai quatre heures de sport par semaine.",a:"V"},
+  {q:"J'apprends quatre langues vivantes.",a:"F",why:"Faux — deux langues vivantes (anglais, allemand). Le latin est une langue ancienne."},
+  {q:"Mes cours finissent à 16h30 tous les jours.",a:"F",why:"Faux — seulement le lundi."},
+  {q:"J'ai cinq heures de maths par semaine.",a:"V"},
+  {q:"Je n'ai pas cours le mercredi après-midi.",a:"F",why:"Faux — il y a SVT à 13h30."}
+];
+const vfList=document.getElementById('vfList');
+VF.forEach((v,i)=>{const d=document.createElement('div');d.className='vf';d.dataset.i=i;
+  d.innerHTML=`<div><strong>${i+1}.</strong> ${v.q}</div>
+    <button class="pick" data-p="V">Vrai</button><button class="pick" data-p="F">Faux</button>
+    <button class="mini" onclick="speakFR(\`${v.q.replace(/`/g,"'")}\`)">Écouter</button>
+    <div class="why">${v.why||''}</div>`;
+  d.querySelectorAll('.pick').forEach(b=>b.onclick=()=>{d.querySelectorAll('.pick').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');});
+  vfList.appendChild(d);});
+function checkVF(){let ok=0;document.querySelectorAll('#vfList .vf').forEach(d=>{
+  const i=+d.dataset.i,sel=d.querySelector('.pick.sel');
+  d.querySelectorAll('.pick').forEach(b=>b.classList.remove('correct','wrong'));
+  d.querySelector('.why').classList.remove('show');
+  if(!sel)return;
+  if(sel.dataset.p===VF[i].a){sel.classList.add('correct');ok++;}
+  else{sel.classList.add('wrong');if(VF[i].why)d.querySelector('.why').classList.add('show');}});
+  const fb=document.getElementById('vfFb');fb.className='feedback show '+(ok===VF.length?'good':'bad');
+  fb.textContent=`${ok}/${VF.length} correctes.`;}
+
+const HUGO=[
+  {s:"l'EPS",a:"like"},{s:"le français",a:"like"},{s:"l'art dramatique",a:"dislike"},
+  {s:"l'allemand",a:"like"},{s:"les maths",a:"dislike"},{s:"l'histoire",a:"dislike"},
+  {s:"les sciences de la vie et de la terre",a:"like"},{s:"les sciences physiques",a:"dislike"}
+];
+const opEl=document.getElementById('opinionList');
+HUGO.forEach((h,i)=>{const d=document.createElement('div');d.className='opinion';
+  d.innerHTML=`<strong style="min-width:230px">${i+1}. ${h.s}</strong>
+    <select data-i="${i}"><option value="">— choisir —</option>
+    <option value="like">aime / adore</option><option value="dislike">n'aime pas / faible</option></select>`;
+  opEl.appendChild(d);});
+function checkOpinions(){let ok=0;opEl.querySelectorAll('select').forEach(sel=>{
+  const i=+sel.dataset.i;sel.style.borderColor=sel.value===HUGO[i].a?'var(--good)':'var(--bad)';
+  if(sel.value===HUGO[i].a)ok++;});
+  const fb=document.getElementById('opFb');fb.className='feedback show '+(ok===HUGO.length?'good':'bad');
+  fb.textContent=`${ok}/${HUGO.length} correctes.`;}
+
+const EX6=[
+  {t:"La matière que j'aime le plus, c'est ___.",a:"i"},
+  {t:"J'ai du mal à comprendre ___.",a:"d"},
+  {t:"J'adore les langues ___.",a:"b"},
+  {t:"___ me plaît aussi.",a:"a"},
+  {t:"Les SVT, c'est une matière ___.",a:"g"},
+  {t:"___ nous fait travailler trop dur.",a:"f"},
+  {t:"___ est drôle.",a:"e"},
+  {t:"___ manque de patience.",a:"c"},
+  {t:"Je trouve ___ barbant.",a:"h"}
+];
+const OPTS={a:"le français",b:"vivantes",c:"la prof d'art dramatique",d:"les maths",e:"le prof de français",f:"la prof d'histoire",g:"super intéressante",h:"l'art dramatique",i:"l'EPS"};
+const ex6El=document.getElementById('ex6');
+EX6.forEach((q,i)=>{const d=document.createElement('div');d.className='opinion';
+  let o=`<option value="">— choisir —</option>`;
+  Object.entries(OPTS).forEach(([k,v])=>o+=`<option value="${k}">${k}. ${v}</option>`);
+  d.innerHTML=`<strong style="min-width:30px">${i+1}.</strong><span style="flex:1">${q.t}</span><select data-i="${i}">${o}</select>`;
+  ex6El.appendChild(d);});
+function checkEx6(){let ok=0;ex6El.querySelectorAll('select').forEach(sel=>{
+  const i=+sel.dataset.i;sel.style.borderColor=sel.value===EX6[i].a?'var(--good)':'var(--bad)';
+  if(sel.value===EX6[i].a)ok++;});
+  const fb=document.getElementById('ex6Fb');fb.className='feedback show '+(ok===EX6.length?'good':'bad');
+  fb.textContent=`${ok}/${EX6.length} correctes.`;}
+
+const SPEAKERS=[{name:"Géraldine"},{name:"Charlène"},{name:"Laurent"},{name:"Thomas"},{name:"Hassiba"},{name:"Kai"}];
+const CLIPS=[
+  {id:1,fr:"J'adore l'italien et l'anglais. Mais je n'aime pas le dessin ni la musique.",who:"Géraldine"},
+  {id:2,fr:"Ma matière préférée, c'est le français, et j'aime aussi l'histoire. Je déteste les maths et l'EPS.",who:"Charlène"},
+  {id:3,fr:"Je suis fort en maths et j'adore l'informatique. Par contre, l'EPS, c'est trop fatigant.",who:"Laurent"},
+  {id:4,fr:"Les sciences et la technologie, c'est passionnant. Je n'aime pas les langues.",who:"Thomas"},
+  {id:5,fr:"J'aime l'économie, le dessin et l'EPS. La musique ne me plaît pas.",who:"Hassiba"},
+  {id:6,fr:"La musique, c'est la vie ! Mais je déteste l'anglais et l'italien.",who:"Kai"}
+];
+const spEl=document.getElementById('speakerList');
+CLIPS.forEach((c,idx)=>{const d=document.createElement('div');d.className='listenItem';d.dataset.i=idx;
+  const buttons=SPEAKERS.map(s=>`<button data-name="${s.name}">${s.name}</button>`).join('');
+  d.innerHTML=`<div class="row" style="justify-content:space-between"><strong>Témoignage ${c.id}</strong>
+    <button class="mini" onclick="speakFR(\`${c.fr.replace(/`/g,"'")}\`)">Écouter</button></div>
+    <div class="who">${buttons}</div>`;
+  d.querySelectorAll('.who button').forEach(b=>b.onclick=()=>{
+    d.querySelectorAll('.who button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');});
+  spEl.appendChild(d);});
+function checkSpeakers(){let ok=0;document.querySelectorAll('#speakerList .listenItem').forEach(d=>{
+  const i=+d.dataset.i,sel=d.querySelector('.who button.sel');
+  d.querySelectorAll('.who button').forEach(b=>b.classList.remove('correct','wrong'));
+  if(!sel)return;
+  if(sel.dataset.name===CLIPS[i].who){sel.classList.add('correct');ok++;}
+  else{sel.classList.add('wrong');d.querySelectorAll('.who button').forEach(b=>{if(b.dataset.name===CLIPS[i].who)b.classList.add('correct');});}});
+  const fb=document.getElementById('spFb');fb.className='feedback show '+(ok===CLIPS.length?'good':'bad');
+  fb.textContent=`${ok}/${CLIPS.length} correctes.`;}
+</script>
+</body>
+</html>

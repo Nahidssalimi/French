@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>On peut se tutoyer ? · L'alimentation en France</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  :root{--red:#7a1722;--blue:#0f2a4a;--gold:#c9a14a;--ink:#1a1a1a;--soft:#f4f6fb}
+  *{box-sizing:border-box}
+  body{font-family:Georgia,'Times New Roman',serif;color:var(--ink);background:#fff;margin:0;padding:24px;max-width:1100px;margin-left:auto;margin-right:auto}
+  h1{color:var(--red);font-size:2.2rem;margin:0 0 4px;letter-spacing:.5px}
+  h2{color:var(--blue);border-bottom:3px double var(--red);padding-bottom:6px;margin-top:32px}
+  h3{color:var(--red);margin-bottom:6px}
+  .obj{background:var(--blue);color:#fff;padding:14px 18px;border-radius:8px;margin:14px 0}
+  .obj h3{margin:0 0 6px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;font-size:.85rem}
+  .obj ul{margin:0;padding-left:20px}
+  .pill{display:inline-block;background:var(--red);color:#fff;padding:3px 10px;border-radius:99px;font-size:.78rem;margin-left:8px;vertical-align:middle}
+  .card{background:#fff;border:1px solid #e2e6ee;border-radius:10px;padding:18px;margin:12px 0;box-shadow:0 2px 6px rgba(0,0,0,.04)}
+  button.btn{background:var(--red);color:#fff;border:none;padding:8px 14px;border-radius:6px;cursor:pointer;font-family:inherit;margin:4px 4px 4px 0}
+  button.btn:hover{background:#5a1018}
+  button.btn.blue{background:var(--blue)}
+  button.btn.blue:hover{background:#081a30}
+  button.btn.gold{background:var(--gold);color:var(--ink)}
+  .row{display:flex;flex-wrap:wrap;gap:14px}
+  .col{flex:1 1 300px}
+  input.fill{padding:4px 8px;border:1px solid #ccc;border-radius:4px;font-family:inherit;width:180px}
+  input.fill.ok{background:#d6f5d6;border-color:#2d8a2d}
+  input.fill.no{background:#fbd6d6;border-color:#a02525}
+  select.sel{padding:6px;border-radius:4px;border:1px solid #ccc;font-family:inherit}
+  select.sel.ok{background:#d6f5d6}
+  select.sel.no{background:#fbd6d6}
+  table.gram{width:100%;border-collapse:collapse;background:#fff;margin:10px 0}
+  table.gram th,table.gram td{border:1px solid #ccd;padding:8px 10px;text-align:left}
+  table.gram th{background:var(--blue);color:#fff}
+  table.gram tr:nth-child(even) td{background:var(--soft)}
+  .speak{cursor:pointer;color:var(--blue);text-decoration:underline;background:none;border:none;font-family:inherit;font-size:1rem;padding:0 4px}
+  .comic{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+  .bubble{background:var(--soft);border:1px solid #ddd;border-radius:14px;padding:10px 12px;position:relative}
+  .bubble b{color:var(--red);display:block;font-size:.8rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+  textarea.write{width:100%;min-height:140px;border:1px solid #bbb;border-radius:6px;padding:10px;font-family:inherit;font-size:1rem}
+  .counter{font-size:.85rem;color:var(--blue);margin-top:4px}
+  details.model{margin-top:10px;background:var(--soft);padding:10px;border-radius:6px}
+  details.model summary{cursor:pointer;color:var(--red);font-weight:bold}
+  .listening-card{background:linear-gradient(135deg,var(--blue),#1a3a6a);color:#fff;padding:14px;border-radius:8px;margin:8px 0}
+  .vf{display:flex;align-items:center;gap:8px;margin:6px 0;padding:8px;background:var(--soft);border-radius:6px}
+  .vf.ok{background:#d6f5d6}.vf.no{background:#fbd6d6}
+  .stats{background:#fff7e6;border-left:4px solid var(--gold);padding:10px 14px;border-radius:4px;margin:8px 0}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Chapitre · On peut se tutoyer ? <span class="pill">A4 / E5</span></h1>
+  <p style="color:var(--blue);margin:4px 0">Politesse · Questions avec <em>tu</em> et <em>vous</em> · L'alimentation en France</p>
+</header>
+
+<div class="obj">
+  <h3>Objectifs d'apprentissage</h3>
+  <ul>
+    <li>Utiliser les expressions de politesse</li>
+    <li>Poser des questions avec <em>tu</em> et <em>vous</em></li>
+    <li>Comprendre des chiffres et des statistiques sur les repas en France</li>
+  </ul>
+</div>
+
+<!-- ===== Partie A ===== -->
+<h2>Partie A · Léo chez les parents de Sarah</h2>
+
+<h3>1 · Écoutez et lisez la BD</h3>
+<div class="card">
+  <p>Léo est invité chez sa meilleure copine pour la première fois. Cliquez sur chaque bulle pour l'écouter.</p>
+  <div class="comic" id="comic"></div>
+  <button class="btn blue" onclick="speakAll()">🔊 Écouter toute la BD</button>
+</div>
+
+<h3>Qu'est-ce qu'on dit … ?</h3>
+<div class="card">
+  <p>Reliez chaque situation à la bonne expression.</p>
+  <div id="match"></div>
+  <button class="btn" onclick="checkMatch()">Vérifier</button>
+</div>
+
+<h2>Grammaire · Poser des questions avec <em>tu</em> et <em>vous</em></h2>
+<div class="card">
+  <ul>
+    <li><b>vous</b> = personnes que vous ne connaissez pas bien, ou plusieurs personnes.</li>
+    <li><b>tu</b> = jeunes, famille, ou si la personne vous y invite.</li>
+    <li>Question par inversion : <b>verbe-sujet</b>. <em>Que fais-tu pendant ton temps libre ?</em></li>
+    <li>Avec <b>il / elle</b>, on ajoute un <b>-t-</b> : <em>A-<b>t</b>-il des tatouages ?</em></li>
+  </ul>
+</div>
+
+<h3>2 · Formulez ces questions au présent</h3>
+<div class="card">
+  <p>Écrivez chaque question <b>a)</b> avec <em>tu</em> et <b>b)</b> avec <em>vous</em>.</p>
+  <ol id="q2"></ol>
+  <button class="btn" onclick="checkFill()">Vérifier</button>
+</div>
+
+<h3>3 · À deux — Jeu de rôle</h3>
+<div class="card">
+  <p>Imaginez que vous êtes Léo et que vous posez des questions au père ou à la mère de Sarah. Utilisez d'abord <em>vous</em>, puis passez à <em>tu</em> quand il/elle dit : « Tu peux me tutoyer ». Inventez des réponses.</p>
+  <textarea class="write" id="dialogue" placeholder="— Bonsoir madame, aimez-vous la musique rock ?..."></textarea>
+  <div class="counter"><span id="wcD">0</span> mots</div>
+  <button class="btn blue" onclick="speakArea('dialogue')">🔊 Écouter mon dialogue</button>
+</div>
+
+<!-- ===== Partie B ===== -->
+<h2>Partie B · L'alimentation en France</h2>
+
+<div class="card">
+  <h3>Selon un sondage…</h3>
+  <p><b>① Trois repas traditionnels :</b> à 8h00, 13 % prennent leur petit-déjeuner ; à 13h00, la moitié déjeunent ; à 20h15, un tiers dînent.</p>
+  <p><b>② Grignotage et télé :</b> 29 % des jeunes grignotent souvent. Une personne sur dix regarde la télé en mangeant le matin ; une sur quatre le soir.</p>
+  <p><b>③ Plaisir :</b> le repas est l'un des moments les plus agréables, surtout en famille.</p>
+  <p style="font-size:.9rem;color:var(--blue)"><b>grignoter</b> = manger un casse-croûte · <b>en mangeant</b> = pendant le repas</p>
+</div>
+
+<div class="stats">
+  <b>Comprendre les chiffres :</b>
+  un quart = ¼ · la moitié = ½ · un tiers = ⅓ · trois quarts = ¾ · une personne sur cinq = 1 in 5 · dix pour cent = 10 %
+</div>
+
+<h3>4 · Complétez avec la bonne expression</h3>
+<div class="card">
+  <p>Banque : <em>peu d' / cinquante pour cent / presqu'un tiers / 13% / trois quarts / 30% / dix pour cent / vingt-cinq pour cent / beaucoup d'</em></p>
+  <ol id="q4"></ol>
+  <button class="btn" onclick="checkSel()">Vérifier</button>
+</div>
+
+<h2>5 · Écoute — Interview d'un père de famille</h2>
+<div class="listening-card">
+  <p>Écoutez l'interview, puis identifiez les <b>quatre phrases vraies</b>.</p>
+  <button class="btn gold" onclick="speak('Du lundi au vendredi je prends le petit-déjeuner à sept heures... (etc.)')">🔊 Écouter</button>
+  <div id="vf"></div>
+  <button class="btn" onclick="checkVF()">Vérifier</button>
+</div>
+
+<h2>6 · À l'écrit — 130 à 150 mots</h2>
+<div class="card">
+  <p>Mentionnez vos repas, la télé en mangeant, ce que vous avez mangé hier, et ce que vous aimiez/n'aimiez pas étant petit(e).</p>
+  <textarea class="write" id="essay" placeholder="Chez moi, je prends mon petit-déjeuner à..."></textarea>
+  <div class="counter"><span id="wcE">0</span> mots (objectif : 130–150)</div>
+  <button class="btn blue" onclick="speakArea('essay')">🔊 Écouter mon texte</button>
+  <details class="model"><summary>Voir un modèle (≈ 145 mots)</summary>
+    <p>Chez moi, je prends mon petit-déjeuner à sept heures du matin... À mon avis, les repas en famille sont les meilleurs moments de la journée.</p>
+  </details>
+</div>
+
+<script>
+(function(){
+  let frVoice=null;
+  function pick(){const vs=speechSynthesis.getVoices();frVoice=vs.find(v=>v.lang.startsWith('fr'))||null;}
+  if('speechSynthesis' in window){pick();speechSynthesis.onvoiceschanged=pick;}
+  window.speak=function(t){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='fr-FR';u.rate=.9;if(frVoice)u.voice=frVoice;speechSynthesis.speak(u);};
+  window.speakArea=function(id){const v=document.getElementById(id).value.trim();if(v)window.speak(v);};
+
+  const bd=[
+    ["Léo","Bonsoir, monsieur. Enchanté."],
+    ["Léo","Aimez-vous les fleurs, madame ?"],
+    ["La mère","Oh là là ! J'y suis allergique ! Mais il ne fallait pas ! Merci."],
+    ["Le père","À table, tout le monde ! Léo et Sarah, asseyez-vous là."],
+    ["Léo","Merci, madame, vous êtes très gentille."],
+    ["La mère","Bon appétit ! C'est du saumon avec des épinards. Aimes-tu ça, Léo ?"],
+    ["Léo (pense)","J'ai horreur de ça ! Mais il faut être poli."],
+    ["Léo","Oui, madame, j'adore ça. Merci."],
+    ["Le père","Alors, Léo, que fais-tu pendant ton temps libre ?"],
+    ["Léo","Je chante dans un groupe de rock."],
+    ["La mère","Quelle horreur ! A-t-il des tatouages ou des piercings ?"],
+    ["Léo","Merci, madame, c'était délicieux. Je peux vous aider ?"],
+    ["Le père","Mais il est charmant, quand même !"],
+    ["La mère","Tu peux me tutoyer si tu veux."],
+  ];
+  const c=document.getElementById('comic');
+  bd.forEach(b=>{const safe=b[1].replace(/'/g,"\\'");c.insertAdjacentHTML('beforeend',`<div class="bubble"><b>${b[0]}</b>${b[1]} <button class="speak" onclick="speak('${safe}')">🔊</button></div>`);});
+  window.speakAll=function(){window.speak(bd.map(b=>b[1]).join(' '));};
+
+  const pairs=[
+    {q:"… quand on rencontre quelqu'un pour la première fois ?",a:"Bonsoir, monsieur. Enchanté."},
+    {q:"… quand on reçoit un cadeau inattendu ?",a:"Oh là là ! Mais il ne fallait pas ! Merci."},
+    {q:"… quand on demande à ses invités de venir manger ?",a:"À table, tout le monde !"},
+    {q:"… à ses invités avant de commencer le repas ?",a:"Bon appétit !"},
+    {q:"… à l'hôtesse, à la fin du repas ?",a:"Merci, madame, c'était délicieux."},
+    {q:"… quand on donne la permission à un jeune d'utiliser le tutoiement ?",a:"Tu peux me tutoyer si tu veux."},
+  ];
+  const opts=pairs.map(p=>p.a).sort(()=>Math.random()-.5);
+  const m=document.getElementById('match');
+  pairs.forEach(p=>{const o=opts.map(x=>`<option value="${x}">${x}</option>`).join('');m.insertAdjacentHTML('beforeend',`<div class="vf" data-a="${p.a}"><span style="flex:1">${p.q}</span><select class="sel"><option value="">— Choisir —</option>${o}</select></div>`);});
+  window.checkMatch=function(){document.querySelectorAll('#match .vf').forEach(d=>{const s=d.querySelector('select');const ok=s.value===d.dataset.a;d.classList.toggle('ok',ok);d.classList.toggle('no',!ok);s.classList.toggle('ok',ok);s.classList.toggle('no',!ok);});};
+
+  const q2=[
+    {tu:"Aimes-tu la musique rock ?",vous:"Aimez-vous la musique rock ?",hint:"[Aimer] la musique rock ?"},
+    {tu:"Depuis quand habites-tu ici ?",vous:"Depuis quand habitez-vous ici ?",hint:"Depuis quand [habiter] ici ?"},
+    {tu:"Quel genre de livres lis-tu ?",vous:"Quel genre de livres lisez-vous ?",hint:"Quel genre de livres [lire] ?"},
+    {tu:"D'habitude, où vas-tu en vacances ?",vous:"D'habitude, où allez-vous en vacances ?",hint:"D'habitude, où [aller] en vacances ?"},
+    {tu:"Que veux-tu boire : de l'eau ou du vin rouge ?",vous:"Que voulez-vous boire : de l'eau ou du vin rouge ?",hint:"Que [vouloir] boire ?"},
+    {tu:"Que fais-tu normalement le samedi soir ?",vous:"Que faites-vous normalement le samedi soir ?",hint:"Que [faire] le samedi soir ?"},
+  ];
+  const q2el=document.getElementById('q2');
+  q2.forEach(q=>{q2el.insertAdjacentHTML('beforeend',`<li style="margin:8px 0"><i>${q.hint}</i><br>a) <input class="fill" style="width:340px" data-a="${q.tu.toLowerCase()}" placeholder="tu…"> b) <input class="fill" style="width:340px" data-a="${q.vous.toLowerCase()}" placeholder="vous…"></li>`);});
+
+  const q4=[
+    {t:"À une heure de l'après-midi, ___ des Français déjeunent.",a:"cinquante pour cent"},
+    {t:"À huit heures du matin, ___ des Français prennent leur premier repas.",a:"13%"},
+    {t:"___ des Français mange entre les repas.",a:"presqu'un tiers"},
+    {t:"___ des Français prennent leur repas du soir devant le petit écran.",a:"vingt-cinq pour cent"},
+    {t:"Les Français attachent ___ importance aux repas pris en famille.",a:"beaucoup d'"},
+  ];
+  const bank=["peu d'","cinquante pour cent","presqu'un tiers","13%","trois quarts","30%","dix pour cent","vingt-cinq pour cent","beaucoup d'"];
+  const q4el=document.getElementById('q4');
+  q4.forEach(q=>{const o=bank.map(b=>`<option value="${b}">${b}</option>`).join('');q4el.insertAdjacentHTML('beforeend',`<li style="margin:8px 0" class="vf" data-a="${q.a}"><span style="flex:1">${q.t.replace('___',`<select class="sel"><option value="">—</option>${o}</select>`)}</span></li>`);});
+  window.checkSel=function(){document.querySelectorAll('#q4 .vf').forEach(d=>{const s=d.querySelector('select');const ok=s.value===d.dataset.a;d.classList.toggle('ok',ok);d.classList.toggle('no',!ok);s.classList.toggle('ok',ok);s.classList.toggle('no',!ok);});};
+
+  const vfData=[
+    {t:"Du lundi au vendredi, il prend le petit-déjeuner à 7h00.",v:true},
+    {t:"Le week-end, il prend son petit-déjeuner plus tard.",v:true},
+    {t:"Il prend toujours son déjeuner à 13h00.",v:false},
+    {t:"Il ne grignote jamais en dehors des repas.",v:false},
+    {t:"D'habitude, dans sa famille, on ne regarde pas la télé en mangeant.",v:true},
+    {t:"Ses enfants n'aiment pas manger à table mais il insiste.",v:false},
+  ];
+  const vfel=document.getElementById('vf');
+  vfData.forEach((x,i)=>{vfel.insertAdjacentHTML('beforeend',`<div class="vf" data-v="${x.v}" style="color:#000"><label style="flex:1"><input type="checkbox"> ${x.t}</label></div>`);});
+  window.checkVF=function(){document.querySelectorAll('#vf .vf').forEach(d=>{const checked=d.querySelector('input').checked;const truth=d.dataset.v==='true';const ok=checked===truth;d.classList.toggle('ok',ok);d.classList.toggle('no',!ok);});};
+
+  window.checkFill=function(){document.querySelectorAll('input.fill').forEach(i=>{const a=String(i.dataset.a||'').toLowerCase().replace(/\s+/g,' ').trim();const v=i.value.toLowerCase().replace(/\s+/g,' ').trim();const ok=v===a;i.classList.toggle('ok',ok);i.classList.toggle('no',!ok&&v!=='');});};
+
+  function wc(id,out){const ta=document.getElementById(id);if(!ta)return;ta.addEventListener('input',()=>{document.getElementById(out).textContent=ta.value.trim().split(/\s+/).filter(Boolean).length;});}
+  wc('dialogue','wcD');wc('essay','wcE');
+})();
+</script>
+</body>
+</html>

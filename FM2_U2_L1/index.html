@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ma Vie d'Internaute — IGCSE French Lesson</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f7fb; --ink:#0e1a2b; --muted:#5a6473;
+    --red:#7a1722; --red-dark:#5a0f18;
+    --blue:#0f2a4a; --blue-dark:#08182b;
+    --card:#ffffff; --border:#d9dde5; --shadow:0 10px 30px rgba(8,24,43,.08);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  header{background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:#fff;padding:48px 24px;text-align:center;border-bottom:6px solid var(--red)}
+  header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);margin:.2em 0}
+  header p{max-width:760px;margin:0 auto;opacity:.92}
+  .badges{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+  .badge{background:rgba(255,255,255,.12);padding:6px 14px;border-radius:999px;font-size:.85rem;border:1px solid rgba(255,255,255,.2)}
+  main{max-width:1100px;margin:0 auto;padding:32px 20px}
+  section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:28px;box-shadow:var(--shadow)}
+  .tag{display:inline-block;background:var(--red);color:#fff;padding:4px 12px;border-radius:4px;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+  h2{font-family:'Playfair Display',serif;font-size:1.9rem;margin:.3em 0 .5em;color:var(--blue)}
+  h3{margin-top:1.4em;color:var(--red)}
+  .sub{color:var(--muted);font-style:italic;font-size:.95rem}
+  table{width:100%;border-collapse:collapse;margin:14px 0}
+  th,td{border:1px solid var(--border);padding:10px;text-align:left;vertical-align:top}
+  th{background:var(--blue);color:#fff}
+  .objectifs{background:#eef2f8;border-left:5px solid var(--blue);padding:18px 22px;border-radius:8px}
+  .objectifs ul{margin:8px 0 0 18px;padding:0}
+  .warning{background:#fbeef0;border-left:4px solid var(--red);padding:12px 16px;border-radius:6px;margin-top:14px}
+
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:16px}
+  .vocab-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px;cursor:pointer;transition:.2s;border-left:4px solid var(--blue)}
+  .vocab-card:hover{border-left-color:var(--red);transform:translateY(-2px);box-shadow:var(--shadow)}
+  .vocab-card .fr{font-weight:700;font-size:1.05rem;color:var(--blue)}
+  .vocab-card .en{color:var(--muted);font-size:.85rem;font-style:italic}
+  .vocab-card .room-tag{display:inline-block;background:var(--red);color:#fff;font-size:.7rem;padding:2px 8px;border-radius:3px;margin-bottom:6px;letter-spacing:.04em}
+
+  .text-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;border-left:5px solid var(--blue)}
+  .text-card h4{margin:0 0 6px;color:var(--red);font-size:1.1rem}
+  .text-card .en-translation{margin-top:10px;padding-top:10px;border-top:1px dashed var(--border);color:var(--muted);font-style:italic;font-size:.92rem}
+
+  .speak-btn{margin-top:10px;background:var(--blue);color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:600;font-size:.9rem}
+  .speak-btn:hover{background:var(--blue-dark)}
+  .speak-btn.playing{background:var(--red)}
+
+  .subtitle-box{margin-top:12px;padding:12px;background:#08182b;color:#fff;border-radius:6px;min-height:50px;font-style:italic;display:none}
+  .subtitle-box.show{display:block}
+  .subtitle-box .word{transition:background .2s;padding:0 2px;border-radius:3px}
+  .subtitle-box .word.active{background:var(--red);color:#fff;font-weight:700}
+
+  .q{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px;margin:12px 0;border-left:4px solid var(--blue)}
+  .q p.qtext{margin:0 0 8px;font-weight:600;color:var(--blue)}
+  .opt{display:block;padding:8px 12px;margin:5px 0;background:#f3f5f9;border-radius:5px;cursor:pointer;border:2px solid transparent}
+  .opt:hover{border-color:var(--blue)}
+  .opt input{margin-right:8px}
+  .opt.correct{background:#e6f3e6;border-color:#1e6b1e;color:#0d3d0d}
+  .opt.wrong{background:#f8d7da;border-color:var(--red);color:var(--red-dark)}
+  .check-btn{background:var(--red);color:#fff;border:none;padding:10px 22px;border-radius:6px;font-weight:600;cursor:pointer;margin-top:8px}
+  .check-btn:hover{background:var(--red-dark)}
+  .feedback{margin-top:10px;padding:10px;border-radius:5px;font-weight:600;display:none}
+  .feedback.show{display:block}
+  .feedback.good{background:#e6f3e6;color:#0d3d0d;border-left:4px solid #1e6b1e}
+  .feedback.bad{background:#fbeef0;color:var(--red-dark);border-left:4px solid var(--red)}
+  input[type=text]{padding:6px 10px;border:2px solid var(--border);border-radius:5px;font-family:inherit;font-size:1rem;width:220px}
+  input[type=text].ok{border-color:#1e6b1e;background:#eaf7ec}
+  input[type=text].no{border-color:var(--red);background:#fbeaec}
+
+  .match-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  @media(max-width:640px){.match-wrap{grid-template-columns:1fr}}
+  .match-col h4{margin:0 0 8px;color:var(--blue);text-align:center;background:#eef2f8;padding:6px;border-radius:4px}
+  .match-item{background:#fff;border:2px solid var(--border);padding:10px;border-radius:6px;margin:6px 0;cursor:pointer;transition:.2s}
+  .match-item:hover{border-color:var(--blue)}
+  .match-item.selected{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .match-item.matched{background:#e6f3e6;border-color:#1e6b1e;color:#0d3d0d;cursor:default}
+  .match-item.wrong{background:#f8d7da;border-color:var(--red)}
+
+  .tf{display:flex;align-items:center;gap:10px;padding:10px;background:#fff;border:1px solid var(--border);border-radius:6px;margin:8px 0;border-left:4px solid var(--blue);flex-wrap:wrap}
+  .tf .stmt{flex:1;min-width:240px}
+  .tf button{background:#f3f5f9;border:2px solid var(--border);padding:6px 14px;border-radius:5px;cursor:pointer;font-weight:600}
+  .tf button.sel{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .tf .res{font-weight:700;min-width:30px}
+
+  textarea{width:100%;min-height:140px;padding:12px;border:2px solid var(--border);border-radius:6px;font-family:inherit;font-size:1rem}
+  textarea:focus{outline:none;border-color:var(--blue)}
+  details summary{cursor:pointer;color:var(--red);font-weight:600}
+  details .model{background:#eef2f8;padding:14px;border-radius:6px;margin-top:8px;border-left:4px solid var(--blue)}
+
+  .exam-tip{background:#08182b;color:#fff;padding:20px;border-radius:10px;border-left:5px solid var(--red);margin-top:18px}
+  .exam-tip h3{color:#fff;margin-top:0}
+  .exam-tip ul{margin:8px 0 0 18px}
+
+  .grammar-box{background:#eef2f8;border:2px solid var(--blue);border-radius:10px;padding:18px;margin-top:14px}
+  .grammar-box h3{margin-top:0;color:var(--blue)}
+  .formula{background:#fff;border:2px dashed var(--red);padding:10px 14px;border-radius:6px;font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--red-dark);text-align:center;margin:10px 0}
+
+  .scenario{background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;border-left:5px solid var(--red)}
+  .scenario h4{margin:0 0 8px;color:var(--red)}
+  .scenario ul{margin:6px 0 0 18px}
+
+  footer{text-align:center;padding:30px;background:var(--blue-dark);color:#cdd5e2;margin-top:40px;font-size:.9rem}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badges">
+    <span class="badge">Niveau : IGCSE</span>
+    <span class="badge">Durée : environ 60 min</span>
+    <span class="badge">D5 — Information & Communication Technology</span>
+  </div>
+  <h1>Ma Vie d'Internaute</h1>
+  <p>Parler de sa vie en ligne et utiliser les adjectifs comparatifs.<br>
+  Talk about your online life and use comparative adjectives.</p>
+</header>
+
+<main>
+
+<!-- OBJECTIVES -->
+<section>
+  <span class="tag">Objectif d'apprentissage</span>
+  <h2>Ce que tu vas apprendre</h2>
+  <p class="sub">What you will learn</p>
+  <div class="objectifs">
+    <ul>
+      <li>Parler de ta vie en ligne (talk about your online life: blogs, channels, social media)</li>
+      <li>Utiliser les adjectifs comparatifs : <b>plus / moins … que</b></li>
+      <li>Utiliser le pronom relatif <b>que</b> pour créer des phrases plus longues</li>
+      <li>Comprendre des textes et des conversations sur les projets en ligne</li>
+      <li>Présenter ton propre projet en ligne à l'oral</li>
+    </ul>
+  </div>
+</section>
+
+<!-- LESSON 1 — VOCAB -->
+<section>
+  <span class="tag">Leçon 1</span>
+  <h2>Vocabulaire essentiel — La vie en ligne</h2>
+  <p class="sub">Click any card to hear the French pronunciation.</p>
+  <div class="vocab-grid" id="vocabGrid"></div>
+</section>
+
+<!-- LESSON 2 — GRAMMAR -->
+<section>
+  <span class="tag">Leçon 2</span>
+  <h2>Grammaire — Les adjectifs comparatifs</h2>
+  <p class="sub">Use comparative adjectives to compare two people, places or things.</p>
+
+  <div class="grammar-box">
+    <h3>Comment ça marche ?</h3>
+    <div class="formula">plus + adjectif + que = more … than</div>
+    <div class="formula">moins + adjectif + que = less … than</div>
+    <p><b>Exemples :</b></p>
+    <ul>
+      <li>Instagram est <b>plus simple que</b> Snapchat. → <i>Instagram is simpler than Snapchat.</i></li>
+      <li>Mon ami est <b>moins arrogant que</b> moi. → <i>My friend is less arrogant than me.</i></li>
+      <li>Ma sœur est <b>plus organisée que</b> moi. → <i>My sister is more organised than me.</i> (note: adjective agrees: organisée)</li>
+    </ul>
+    <div class="warning"><b>⚠️ Attention :</b> the adjective must agree in gender and number with the noun it describes. <b>créatif → créative</b>, <b>patient → patiente</b>, <b>optimistes</b> (plural).</div>
+  </div>
+
+  <div class="grammar-box" style="margin-top:18px">
+    <h3>Le pronom relatif <i>que</i></h3>
+    <p><b>Que</b> = who / which / that, when it is the <b>object</b> of the verb. It joins two sentences into one.</p>
+    <ul>
+      <li>J'y mets toutes les photos <b>que</b> j'aime et <b>que</b> je veux partager. <br><span class="sub">I put all the photos (that) I like and (that) I want to share.</span></li>
+    </ul>
+    <p><b>Question :</b> <i>Que</i> in a question always means <b>what</b>:</p>
+    <ul>
+      <li><b>Que</b> fais-tu ? / <b>Qu'est-ce que</b> tu fais ? → What are you doing?</li>
+    </ul>
+  </div>
+</section>
+
+<!-- LESSON 3 — READING -->
+<section>
+  <span class="tag">Exercice 1 — Lecture</span>
+  <h2>Lisez les textes</h2>
+  <p class="sub">Read about three teenagers and their online projects. Click 🔊 to hear each text with synchronised subtitles.</p>
+
+  <div class="text-card" data-key="emma">
+    <h4>Emma — La Reine de la Musique 🎵</h4>
+    <p>Emma adore la musique et a créé une station de radio qui s'appelle « La Reine de la Musique ». Ça marche très bien et elle prend beaucoup de plaisir. Elle a beaucoup d'abonnés et beaucoup de « J'aime ». L'année prochaine, elle va travailler avec son prof de français pour créer une station de radio pour la classe. Elle est <b>moins technophobe que</b> son prof, mais son prof est <b>plus sérieux</b> et <b>plus créatif qu'</b>elle. Ça va être un projet intéressant, certainement <b>plus intéressant que</b> les cours !</p>
+    <div class="en-translation"><b>English:</b> Emma loves music and created a radio station called "La Reine de la Musique". It works very well and she really enjoys it. She has lots of subscribers and lots of "Likes". Next year she will work with her French teacher to create a radio station for the class. She is less technophobic than her teacher, but her teacher is more serious and more creative than her. It will be an interesting project — certainly more interesting than lessons!</div>
+    <button class="speak-btn" onclick="speakText(this,'emma')">🔊 Écoute le texte</button>
+    <div class="subtitle-box" id="sub-emma"></div>
+  </div>
+
+  <div class="text-card" data-key="jade">
+    <h4>Jade — La photographie 📸</h4>
+    <p>Jade est passionnée de photographie et l'année dernière, elle a créé une page Facebook pour ses photos. Elle y met toutes les photos qu'elle aime et qu'elle veut partager avec les autres. Elle met ses photos sur Instagram parce que c'est <b>plus simple</b> et <b>plus professionnel que</b> Snapchat. Elle va aussi travailler avec sa sœur sur un projet amusant parce que sa sœur est <b>plus organisée qu'</b>elle. Elles vont bien s'amuser ensemble !</p>
+    <div class="en-translation"><b>English:</b> Jade is passionate about photography and last year she created a Facebook page for her photos. She puts all the photos she likes and wants to share with others. She puts her photos on Instagram because it is simpler and more professional than Snapchat. She is also going to work with her sister on a fun project because her sister is more organised than her. They will have fun together!</div>
+    <button class="speak-btn" onclick="speakText(this,'jade')">🔊 Écoute le texte</button>
+    <div class="subtitle-box" id="sub-jade"></div>
+  </div>
+
+  <div class="text-card" data-key="lucas">
+    <h4>Lucas — Le YouTubeur 🎬</h4>
+    <p>Le meilleur ami de Lucas est YouTubeur. Il a créé sa chaîne il y a six mois mais ça ne marche pas très bien. Il n'a pas beaucoup d'abonnés ni beaucoup de « J'aime », mais il continue malgré tout. Il est <b>plus énergique</b>, <b>plus optimiste</b>, <b>plus patient</b> et <b>plus créatif que</b> Lucas, c'est certain. Il est aussi <b>moins arrogant</b> et <b>plus modeste</b>. Lucas admire sa persévérance.</p>
+    <div class="en-translation"><b>English:</b> Lucas's best friend is a YouTuber. He created his channel six months ago but it is not working very well. He doesn't have many subscribers or many "Likes", but he keeps going anyway. He is more energetic, more optimistic, more patient and more creative than Lucas, that's for sure. He is also less arrogant and more modest. Lucas admires his perseverance.</div>
+    <button class="speak-btn" onclick="speakText(this,'lucas')">🔊 Écoute le texte</button>
+    <div class="subtitle-box" id="sub-lucas"></div>
+  </div>
+
+  <div class="warning"><b>Vocabulaire :</b> <i>créer = fonder</i> · <i>un abonné = une personne qui s'inscrit à quelque chose (a subscriber)</i></div>
+</section>
+
+<!-- COMPREHENSION QUESTIONS -->
+<section>
+  <span class="tag">Activité 1 — Compréhension</span>
+  <h2>Réponds aux questions en français</h2>
+  <p class="sub">Type your answer in French, then click "Vérifier" to see a model answer.</p>
+
+  <div class="q">
+    <p class="qtext">1. Qu'est-ce qui indique que la station de radio d'Emma a eu du succès ?</p>
+    <textarea id="cq1" placeholder="Écris ta réponse en français..."></textarea>
+    <button class="check-btn" onclick="showModel('cq1','Elle a beaucoup d\'abonnés et beaucoup de « J\'aime ». Ça marche très bien.')">Voir le modèle</button>
+    <div class="feedback good" id="cq1-fb"></div>
+  </div>
+
+  <div class="q">
+    <p class="qtext">2. Quelles sont les qualités différentes d'Emma et de sa prof ?</p>
+    <textarea id="cq2" placeholder="Écris ta réponse en français..."></textarea>
+    <button class="check-btn" onclick="showModel('cq2','Emma est moins technophobe que sa prof, mais sa prof est plus sérieuse et plus créative qu\'Emma.')">Voir le modèle</button>
+    <div class="feedback good" id="cq2-fb"></div>
+  </div>
+
+  <div class="q">
+    <p class="qtext">3. Comment est-ce que Jade partage ses photos ?</p>
+    <textarea id="cq3" placeholder="Écris ta réponse en français..."></textarea>
+    <button class="check-btn" onclick="showModel('cq3','Elle partage ses photos sur une page Facebook et sur Instagram.')">Voir le modèle</button>
+    <div class="feedback good" id="cq3-fb"></div>
+  </div>
+
+  <div class="q">
+    <p class="qtext">4. Pourquoi va-t-elle travailler avec sa sœur sur un projet ?</p>
+    <textarea id="cq4" placeholder="Écris ta réponse en français..."></textarea>
+    <button class="check-btn" onclick="showModel('cq4','Parce que sa sœur est plus organisée qu\'elle.')">Voir le modèle</button>
+    <div class="feedback good" id="cq4-fb"></div>
+  </div>
+
+  <div class="q">
+    <p class="qtext">5. Qu'est-ce que le meilleur ami de Lucas a fait il y a six mois ?</p>
+    <textarea id="cq5" placeholder="Écris ta réponse en français..."></textarea>
+    <button class="check-btn" onclick="showModel('cq5','Il a créé sa chaîne YouTube il y a six mois.')">Voir le modèle</button>
+    <div class="feedback good" id="cq5-fb"></div>
+  </div>
+
+  <div class="q">
+    <p class="qtext">6. Pourquoi Lucas admire-t-il son ami ?</p>
+    <textarea id="cq6" placeholder="Écris ta réponse en français..."></textarea>
+    <button class="check-btn" onclick="showModel('cq6','Lucas admire sa persévérance, parce qu\'il continue malgré tout, même s\'il n\'a pas beaucoup d\'abonnés.')">Voir le modèle</button>
+    <div class="feedback good" id="cq6-fb"></div>
+  </div>
+</section>
+
+<!-- LISTENING — FATIMATOU -->
+<section>
+  <span class="tag">Exercice 2 — Écoute</span>
+  <h2>Fatimatou parle de son projet</h2>
+  <p class="sub">Click 🔊 to listen. Then complete the notes in French.</p>
+
+  <div class="text-card">
+    <h4>🎙️ Fatimatou</h4>
+    <p><i>(Hidden — listen first, then read.)</i></p>
+    <button class="speak-btn" onclick="speakText(this,'fati')">🔊 Écoute Fatimatou</button>
+    <div class="subtitle-box" id="sub-fati"></div>
+    <details style="margin-top:12px"><summary>Voir le texte (after listening)</summary>
+      <div class="model">Salut ! Je m'appelle Fatimatou. Je suis passionnée d'animation image par image, c'est-à-dire le stop-motion. Il y a trois mois, j'ai créé une chaîne YouTube avec mon frère. Mon frère est plus créatif et plus patient que moi, mais je suis plus organisée que lui. Cet été, nous allons créer un grand projet ensemble : un petit film en stop-motion qui dure cinq minutes. Ça va être génial !</div>
+    </details>
+  </div>
+
+  <div class="warning"><b>Vocabulaire :</b> <i>animation image par image = le stop-motion</i></div>
+
+  <div class="q">
+    <p class="qtext">a) Son projet : <i>(What is her project?)</i></p>
+    <textarea id="fa" placeholder="Note en français..."></textarea>
+    <button class="check-btn" onclick="showModel('fa','Elle a créé une chaîne YouTube de stop-motion (animation image par image) il y a trois mois.')">Voir le modèle</button>
+    <div class="feedback good" id="fa-fb"></div>
+  </div>
+  <div class="q">
+    <p class="qtext">b) Son frère :</p>
+    <textarea id="fb" placeholder="Note en français..."></textarea>
+    <button class="check-btn" onclick="showModel('fb','Son frère est plus créatif et plus patient qu\'elle, mais elle est plus organisée que lui.')">Voir le modèle</button>
+    <div class="feedback good" id="fb-fb"></div>
+  </div>
+  <div class="q">
+    <p class="qtext">c) L'été :</p>
+    <textarea id="fc" placeholder="Note en français..."></textarea>
+    <button class="check-btn" onclick="showModel('fc','Cet été, ils vont créer un petit film en stop-motion de cinq minutes ensemble.')">Voir le modèle</button>
+    <div class="feedback good" id="fc-fb"></div>
+  </div>
+</section>
+
+<!-- MATCH SENTENCES -->
+<section>
+  <span class="tag">Exercice 3 — Reliez</span>
+  <h2>Relie le début à la fin de chaque phrase</h2>
+  <p class="sub">Click a beginning on the left, then click the matching ending on the right.</p>
+  <div class="match-wrap">
+    <div class="match-col">
+      <h4>Début</h4>
+      <div class="match-item" data-side="L" data-id="1">1. Ils sont…</div>
+      <div class="match-item" data-side="L" data-id="2">2. Ma prof est…</div>
+      <div class="match-item" data-side="L" data-id="3">3. Snapchat est…</div>
+      <div class="match-item" data-side="L" data-id="4">4. Mes amies sont généralement…</div>
+      <div class="match-item" data-side="L" data-id="5">5. Mon prof est…</div>
+    </div>
+    <div class="match-col">
+      <h4>Fin</h4>
+      <div class="match-item" data-side="R" data-id="d">d. plus patients que beaucoup d'autres gens</div>
+      <div class="match-item" data-side="R" data-id="e">e. plus organisée que moi</div>
+      <div class="match-item" data-side="R" data-id="a">a. plus marrant qu'Instagram</div>
+      <div class="match-item" data-side="R" data-id="b">b. plus optimistes et créatives que moi</div>
+      <div class="match-item" data-side="R" data-id="c">c. moins arrogant mais plus technophobe que moi</div>
+    </div>
+  </div>
+  <div class="feedback" id="match-fb"></div>
+</section>
+
+<!-- SPEAKING SCENARIOS -->
+<section>
+  <span class="tag">Exercice 4 — Production orale</span>
+  <h2>À deux — Préparez ces présentations</h2>
+  <p class="sub">Use the prompts to prepare two short presentations with a partner.</p>
+
+  <div class="scenario">
+    <h4>Scénario 1</h4>
+    <ul>
+      <li>photographie — <b>2 ans</b></li>
+      <li>il y a <b>6 mois</b> — un blog</li>
+      <li>cet été — mon copain : <b>+ optimiste, − technophobe</b></li>
+    </ul>
+  </div>
+  <div class="scenario">
+    <h4>Scénario 2</h4>
+    <ul>
+      <li>cinéma — <b>5 ans</b></li>
+      <li>il y a <b>1 an</b> — une station de radio</li>
+      <li>cet été — ma copine : <b>+ patiente, − arrogante</b></li>
+    </ul>
+  </div>
+
+  <div class="grammar-box">
+    <h3>Vocabulaire support</h3>
+    <ul>
+      <li>Je suis passionné(e) de … depuis …</li>
+      <li>Il y a … j'ai créé …</li>
+      <li>Ça marche très bien / Ça ne marche pas très bien</li>
+      <li>J'ai / je n'ai pas beaucoup d'abonnés / beaucoup de mentions « j'aime »</li>
+      <li>L'été prochain, je vais travailler avec …</li>
+      <li>… car il/elle est <b>plus</b> énergique / optimiste / patient(e) / créatif(-ive)</li>
+      <li>… et il/elle est <b>moins</b> arrogant(e) / technophobe</li>
+      <li>Nous allons créer …</li>
+    </ul>
+  </div>
+
+  <details style="margin-top:14px"><summary>Voir un exemple (Scénario 1)</summary>
+    <div class="model">Je suis passionné de photographie depuis deux ans. Il y a six mois, j'ai créé un blog qui marche très bien. J'ai beaucoup d'abonnés et pas mal de mentions « J'aime ». L'été prochain, je vais travailler avec mon copain sur un nouveau projet, car il est plus optimiste et moins technophobe que moi. Nous allons créer une page Instagram pour partager nos plus belles photos !</div>
+  </details>
+</section>
+
+<!-- LISTENING — ENZO MULTIPLE CHOICE -->
+<section>
+  <span class="tag">Exercice 5 — Écoute</span>
+  <h2>Enzo et sa chaîne YouTube</h2>
+  <p class="sub">Listen to Enzo, then choose the correct ending for each sentence.</p>
+
+  <div class="text-card">
+    <h4>🎙️ Enzo</h4>
+    <button class="speak-btn" onclick="speakText(this,'enzo')">🔊 Écoute Enzo</button>
+    <div class="subtitle-box" id="sub-enzo"></div>
+    <details style="margin-top:12px"><summary>Voir le texte (after listening)</summary>
+      <div class="model">Salut, moi c'est Enzo. J'ai créé ma chaîne YouTube tout seul, il y a deux ans. Sur ma chaîne, je teste des objets télécommandés : des voitures, des bateaux, et plus récemment, des drones. Quand je teste des voitures télécommandées, je veux toujours savoir si un modèle est plus rapide qu'un autre. J'ai choisi YouTube parce que sur Instagram, c'est moins facile d'avoir beaucoup de vues.</div>
+    </details>
+  </div>
+
+  <div class="q" data-correct="c">
+    <p class="qtext">1. Enzo a créé sa chaîne…</p>
+    <label class="opt"><input type="radio" name="q1" value="a"> a. avec ses copains</label>
+    <label class="opt"><input type="radio" name="q1" value="b"> b. avec son frère</label>
+    <label class="opt"><input type="radio" name="q1" value="c"> c. seul</label>
+  </div>
+  <div class="q" data-correct="b">
+    <p class="qtext">2. Enzo teste…</p>
+    <label class="opt"><input type="radio" name="q2" value="a"> a. des robots</label>
+    <label class="opt"><input type="radio" name="q2" value="b"> b. des objets télécommandés</label>
+    <label class="opt"><input type="radio" name="q2" value="c"> c. des appareils électroménagers</label>
+  </div>
+  <div class="q" data-correct="b">
+    <p class="qtext">3. Pour les voitures, il veut savoir si un modèle est…</p>
+    <label class="opt"><input type="radio" name="q3" value="a"> a. plus simple qu'un autre</label>
+    <label class="opt"><input type="radio" name="q3" value="b"> b. plus rapide qu'un autre</label>
+    <label class="opt"><input type="radio" name="q3" value="c"> c. plus cher qu'un autre</label>
+  </div>
+  <div class="q" data-correct="a">
+    <p class="qtext">4. Récemment, Enzo a testé…</p>
+    <label class="opt"><input type="radio" name="q4" value="a"> a. des drones</label>
+    <label class="opt"><input type="radio" name="q4" value="b"> b. des sous-marins</label>
+    <label class="opt"><input type="radio" name="q4" value="c"> c. des avions</label>
+  </div>
+  <div class="q" data-correct="c">
+    <p class="qtext">5. Enzo a choisi YouTube car…</p>
+    <label class="opt"><input type="radio" name="q5" value="a"> a. il préfère le look</label>
+    <label class="opt"><input type="radio" name="q5" value="b"> b. c'est plus pratique</label>
+    <label class="opt"><input type="radio" name="q5" value="c"> c. c'est moins facile d'avoir beaucoup de vues sur Instagram</label>
+  </div>
+  <button class="check-btn" onclick="checkMCQ()">Vérifier les réponses</button>
+  <div class="feedback" id="mcq-fb"></div>
+</section>
+
+<!-- REWRITE 3RD PERSON -->
+<section>
+  <span class="tag">Exercice 6 — Réécriture</span>
+  <h2>Réécris le texte à la troisième personne</h2>
+  <p class="sub">Change <b>je → elle</b>, possessive adjectives (<b>mon/ma → son/sa</b>) and verb endings.</p>
+
+  <div class="text-card">
+    <h4>Texte original (1ère personne)</h4>
+    <p><i>« Je suis passionnée de généalogie depuis un an. Il y a cinq mois, j'ai créé un blog qui marche très bien. J'ai beaucoup d'abonnés et pas mal de mentions « J'aime ». Je prends plaisir à écrire mon blog car j'apprends beaucoup de choses. L'année prochaine, je vais travailler avec ma mère sur mon nouveau projet. »</i></p>
+  </div>
+
+  <p>Complete the rewrite by typing the correct word(s) in each gap:</p>
+
+  <div class="q">
+    <p>1. <input type="text" id="r1" data-ans="Elle est"> passionnée de généalogie depuis un an.</p>
+  </div>
+  <div class="q">
+    <p>2. Il y a cinq mois, <input type="text" id="r2" data-ans="elle a créé"> un blog qui marche très bien.</p>
+  </div>
+  <div class="q">
+    <p>3. <input type="text" id="r3" data-ans="Elle a"> beaucoup d'abonnés et pas mal de mentions « J'aime ».</p>
+  </div>
+  <div class="q">
+    <p>4. <input type="text" id="r4" data-ans="Elle prend"> plaisir à écrire <input type="text" id="r5" data-ans="son"> blog car <input type="text" id="r6" data-ans="elle apprend"> beaucoup de choses.</p>
+  </div>
+  <div class="q">
+    <p>5. L'année prochaine, <input type="text" id="r7" data-ans="elle va travailler"> avec <input type="text" id="r8" data-ans="sa"> mère sur <input type="text" id="r9" data-ans="son"> nouveau projet.</p>
+  </div>
+  <button class="check-btn" onclick="checkRewrite()">Vérifier</button>
+  <div class="feedback" id="rw-fb"></div>
+</section>
+
+<!-- SPEAKING PAIR WORK -->
+<section>
+  <span class="tag">Exercice 7 — Production orale (à deux)</span>
+  <h2>Discute la photo et ta vie en ligne</h2>
+  <p class="sub">Imagine a photo of a teenage boy filming a YouTube video in his bedroom. Discuss in pairs:</p>
+
+  <div class="scenario">
+    <ul>
+      <li>Qu'est-ce qu'il y a sur la photo ?</li>
+      <li>Qu'est-ce que le garçon à droite fait ?</li>
+      <li>Qu'est-ce qu'il a fait hier soir, à ton avis ?</li>
+      <li>À ton avis, est-ce qu'il aime créer des vidéos ?</li>
+      <li>Et toi ? Aimes-tu créer des vidéos ? Quel genre de vidéos aimes-tu regarder ?</li>
+      <li>Que fais-tu sur Internet ?</li>
+    </ul>
+  </div>
+
+  <div class="exam-tip">
+    <h3>🎯 Exam Skills — Speaking</h3>
+    <ul>
+      <li>Use the <b>passé composé</b> for past events: <i>il a filmé, j'ai créé, j'ai regardé</i>…</li>
+      <li>Use <b>comparatives</b>: <i>YouTube est plus populaire que TikTok</i>.</li>
+      <li>Give <b>opinions with reasons</b>: <i>j'adore … parce que c'est plus amusant que …</i></li>
+      <li>Use the <b>futur proche</b>: <i>je vais créer une chaîne …</i></li>
+    </ul>
+  </div>
+
+  <details style="margin-top:14px"><summary>Voir un exemple de réponse</summary>
+    <div class="model">Sur la photo, il y a un adolescent qui filme une vidéo dans sa chambre avec une caméra et un micro. À mon avis, il prépare une vidéo pour sa chaîne YouTube. Hier soir, il a probablement monté ses vidéos sur son ordinateur. Je pense qu'il adore créer des vidéos parce qu'il a l'air très concentré et heureux. Moi, j'aime regarder des vidéos de jeux vidéo et de musique sur YouTube parce que c'est plus divertissant que la télévision. Je ne crée pas de vidéos, mais je vais peut-être créer une chaîne sur la cuisine cet été, car je suis plus créatif quand je cuisine !</div>
+  </details>
+</section>
+
+<footer>
+  GCSE / IGCSE French — Ma Vie d'Internaute · Conçu pour apprendre, pratiquer et briller. ✨
+</footer>
+
+</main>
+
+<script>
+// ============ VOCAB ============
+const vocab = [
+  {fr:"un internaute", en:"an internet user", tag:"PERSON"},
+  {fr:"une chaîne YouTube", en:"a YouTube channel", tag:"PROJET"},
+  {fr:"une station de radio", en:"a radio station", tag:"PROJET"},
+  {fr:"un blog", en:"a blog", tag:"PROJET"},
+  {fr:"une page Facebook", en:"a Facebook page", tag:"PROJET"},
+  {fr:"un(e) abonné(e)", en:"a subscriber", tag:"PUBLIC"},
+  {fr:"une mention « j'aime »", en:"a like", tag:"PUBLIC"},
+  {fr:"partager", en:"to share", tag:"VERBE"},
+  {fr:"créer / fonder", en:"to create / to found", tag:"VERBE"},
+  {fr:"s'abonner", en:"to subscribe", tag:"VERBE"},
+  {fr:"télécharger", en:"to download / upload", tag:"VERBE"},
+  {fr:"plus … que", en:"more … than", tag:"GRAMMAIRE"},
+  {fr:"moins … que", en:"less … than", tag:"GRAMMAIRE"},
+  {fr:"technophobe", en:"technophobic", tag:"ADJ"},
+  {fr:"créatif / créative", en:"creative", tag:"ADJ"},
+  {fr:"organisé(e)", en:"organised", tag:"ADJ"},
+  {fr:"patient(e)", en:"patient", tag:"ADJ"},
+  {fr:"optimiste", en:"optimistic", tag:"ADJ"},
+  {fr:"arrogant(e)", en:"arrogant", tag:"ADJ"},
+  {fr:"énergique", en:"energetic", tag:"ADJ"},
+  {fr:"modeste", en:"modest", tag:"ADJ"},
+  {fr:"la persévérance", en:"perseverance", tag:"NOM"},
+  {fr:"l'animation image par image", en:"stop-motion animation", tag:"NOM"},
+  {fr:"un objet télécommandé", en:"a remote-controlled object", tag:"NOM"}
+];
+const grid = document.getElementById('vocabGrid');
+vocab.forEach(v=>{
+  const c=document.createElement('div');c.className='vocab-card';
+  c.innerHTML=`<span class="room-tag">${v.tag}</span><div class="fr">${v.fr}</div><div class="en">${v.en}</div>`;
+  c.onclick=()=>speak(v.fr);
+  grid.appendChild(c);
+});
+
+// ============ SPEECH ============
+function speak(text){
+  if(!('speechSynthesis' in window)){alert('Speech not supported in this browser.');return;}
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang='fr-FR';u.rate=0.9;
+  speechSynthesis.speak(u);
+}
+
+// Synchronised subtitle playback
+const texts = {
+  emma: "Emma adore la musique et a créé une station de radio qui s'appelle La Reine de la Musique. Ça marche très bien et elle prend beaucoup de plaisir. Elle a beaucoup d'abonnés et beaucoup de J'aime. L'année prochaine, elle va travailler avec son prof de français pour créer une station de radio pour la classe. Elle est moins technophobe que son prof, mais son prof est plus sérieux et plus créatif qu'elle. Ça va être un projet intéressant, certainement plus intéressant que les cours.",
+  jade: "Jade est passionnée de photographie et l'année dernière elle a créé une page Facebook pour ses photos. Elle y met toutes les photos qu'elle aime et qu'elle veut partager avec les autres. Elle met ses photos sur Instagram parce que c'est plus simple et plus professionnel que Snapchat. Elle va aussi travailler avec sa sœur sur un projet amusant parce que sa sœur est plus organisée qu'elle. Elles vont bien s'amuser ensemble.",
+  lucas: "Le meilleur ami de Lucas est YouTubeur. Il a créé sa chaîne il y a six mois mais ça ne marche pas très bien. Il n'a pas beaucoup d'abonnés ni beaucoup de J'aime, mais il continue malgré tout. Il est plus énergique, plus optimiste, plus patient et plus créatif que Lucas, c'est certain. Il est aussi moins arrogant et plus modeste. Lucas admire sa persévérance.",
+  fati: "Salut, je m'appelle Fatimatou. Je suis passionnée d'animation image par image, c'est-à-dire le stop-motion. Il y a trois mois, j'ai créé une chaîne YouTube avec mon frère. Mon frère est plus créatif et plus patient que moi, mais je suis plus organisée que lui. Cet été, nous allons créer un grand projet ensemble : un petit film en stop-motion qui dure cinq minutes. Ça va être génial.",
+  enzo: "Salut, moi c'est Enzo. J'ai créé ma chaîne YouTube tout seul, il y a deux ans. Sur ma chaîne, je teste des objets télécommandés : des voitures, des bateaux, et plus récemment, des drones. Quand je teste des voitures télécommandées, je veux toujours savoir si un modèle est plus rapide qu'un autre. J'ai choisi YouTube parce que sur Instagram, c'est moins facile d'avoir beaucoup de vues."
+};
+
+function speakText(btn,key){
+  const text = texts[key];
+  const sub = document.getElementById('sub-'+key);
+  if(!('speechSynthesis' in window)){alert('Speech not supported.');return;}
+  speechSynthesis.cancel();
+  document.querySelectorAll('.speak-btn').forEach(b=>b.classList.remove('playing'));
+  btn.classList.add('playing');
+
+  const words = text.split(/\s+/);
+  sub.innerHTML = words.map((w,i)=>`<span class="word" data-i="${i}">${w}</span>`).join(' ');
+  sub.classList.add('show');
+
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang='fr-FR';u.rate=0.85;
+
+  // Boundary highlighting fallback: use timer if boundary unsupported
+  let idx=0;
+  let interval=null;
+  u.onstart=()=>{
+    // approx ms per word
+    const approx = Math.max(280, 60000/(140*0.85));
+    interval = setInterval(()=>{
+      sub.querySelectorAll('.word').forEach(w=>w.classList.remove('active'));
+      const w = sub.querySelector(`.word[data-i="${idx}"]`);
+      if(w){w.classList.add('active'); w.scrollIntoView({block:'nearest',inline:'nearest'});}
+      idx++;
+      if(idx>=words.length){clearInterval(interval);}
+    }, approx);
+  };
+  u.onboundary=(e)=>{
+    if(e.name==='word'){
+      // try to map char to word index
+      const upto = text.slice(0,e.charIndex);
+      const wi = upto.trim().split(/\s+/).length - (upto.endsWith(' ')?0:1);
+      if(wi>=0){
+        idx = wi+1;
+        sub.querySelectorAll('.word').forEach(w=>w.classList.remove('active'));
+        const w = sub.querySelector(`.word[data-i="${wi}"]`);
+        if(w){w.classList.add('active'); w.scrollIntoView({block:'nearest',inline:'nearest'});}
+      }
+    }
+  };
+  u.onend=()=>{
+    btn.classList.remove('playing');
+    if(interval)clearInterval(interval);
+    sub.querySelectorAll('.word').forEach(w=>w.classList.remove('active'));
+  };
+  speechSynthesis.speak(u);
+}
+
+// ============ MODEL ANSWER REVEAL ============
+function showModel(id,model){
+  const fb=document.getElementById(id+'-fb');
+  fb.className='feedback good show';
+  fb.innerHTML='<b>Modèle :</b> '+model;
+}
+
+// ============ MATCH ============
+const correctMatches = {1:'d',2:'e',3:'a',4:'b',5:'c'};
+let selectedL=null;
+document.querySelectorAll('.match-item').forEach(it=>{
+  it.onclick=()=>{
+    if(it.classList.contains('matched'))return;
+    if(it.dataset.side==='L'){
+      document.querySelectorAll('.match-item[data-side="L"]').forEach(x=>x.classList.remove('selected'));
+      it.classList.add('selected');
+      selectedL = it;
+    } else if(selectedL){
+      const lId = selectedL.dataset.id;
+      const rId = it.dataset.id;
+      if(correctMatches[lId]===rId){
+        selectedL.classList.remove('selected');
+        selectedL.classList.add('matched');
+        it.classList.add('matched');
+      } else {
+        it.classList.add('wrong');
+        setTimeout(()=>it.classList.remove('wrong'),700);
+      }
+      selectedL=null;
+      // Check if all done
+      if(document.querySelectorAll('.match-item[data-side="L"].matched').length===5){
+        const fb=document.getElementById('match-fb');
+        fb.className='feedback good show';
+        fb.textContent='✅ Bravo ! Tous les couples sont corrects.';
+      }
+    }
+  };
+});
+
+// ============ MCQ ============
+function checkMCQ(){
+  let score=0,total=5;
+  document.querySelectorAll('.q[data-correct]').forEach(q=>{
+    const c = q.dataset.correct;
+    q.querySelectorAll('.opt').forEach(o=>o.classList.remove('correct','wrong'));
+    const sel = q.querySelector('input[type=radio]:checked');
+    if(sel){
+      const lbl = sel.parentElement;
+      if(sel.value===c){lbl.classList.add('correct');score++;}
+      else{lbl.classList.add('wrong');
+        q.querySelectorAll('.opt').forEach(o=>{if(o.querySelector('input').value===c)o.classList.add('correct');});
+      }
+    } else {
+      q.querySelectorAll('.opt').forEach(o=>{if(o.querySelector('input').value===c)o.classList.add('correct');});
+    }
+  });
+  const fb=document.getElementById('mcq-fb');
+  fb.className='feedback '+(score===total?'good':'bad')+' show';
+  fb.textContent=`Score : ${score}/${total}`+(score===total?' 🎉 Parfait !':' — révise et réessaie !');
+}
+
+// ============ REWRITE ============
+function norm(s){return s.trim().toLowerCase().replace(/\s+/g,' ').replace(/[''']/g,"'");}
+function checkRewrite(){
+  let ok=0,total=0;
+  document.querySelectorAll('#r1,#r2,#r3,#r4,#r5,#r6,#r7,#r8,#r9').forEach(inp=>{
+    total++;
+    const exp = norm(inp.dataset.ans);
+    const got = norm(inp.value);
+    if(got===exp){inp.classList.remove('no');inp.classList.add('ok');ok++;}
+    else{inp.classList.remove('ok');inp.classList.add('no');}
+  });
+  const fb=document.getElementById('rw-fb');
+  fb.className='feedback '+(ok===total?'good':'bad')+' show';
+  fb.textContent=`Score : ${ok}/${total}`+(ok===total?' 🎉 Excellent !':' — vérifie les terminaisons des verbes et les adjectifs possessifs (son / sa).');
+}
+</script>
+</body>
+</html>

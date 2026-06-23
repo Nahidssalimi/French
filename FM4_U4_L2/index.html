@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EXAM PREPARATION: SPEAKING — Fête des voisins & Conversation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7fb;
+    --ink: #0e1a2b;
+    --muted: #5a6473;
+    --red: #7a1722;
+    --red-dark: #5a0f18;
+    --blue: #0f2a4a;
+    --blue-dark: #08182b;
+    --card: #fff;
+    --border: #d9dde5;
+    --shadow: 0 10px 30px rgba(8,24,43,.08);
+    --gold: #c9a227;
+    --green: #2d6a4f;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: #fff;
+    padding: 48px 24px;
+    text-align: center;
+    border-bottom: 6px solid var(--red);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: "🗣️";
+    position: absolute;
+    font-size: 12rem;
+    opacity: .08;
+    bottom: -30px;
+    right: -20px;
+    transform: rotate(-8deg);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: .2em 0;
+    position: relative;
+  }
+  header p {
+    max-width: 780px;
+    margin: 0 auto;
+    opacity: .92;
+    position: relative;
+  }
+  .badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.12);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: .85rem;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .tag {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .tag.gold {
+    background: var(--gold);
+    color: var(--blue-dark);
+  }
+  .tag.green {
+    background: var(--green);
+    color: #fff;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin: .3em 0 .5em;
+    color: var(--blue);
+  }
+  h3 {
+    margin: 1.2em 0 0.5em;
+    color: var(--red);
+  }
+  .sub {
+    color: var(--muted);
+    font-style: italic;
+    font-size: .95rem;
+    margin-bottom: 1rem;
+  }
+  .tip {
+    background: #fff7e0;
+    border-left: 5px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .tip strong {
+    color: var(--blue);
+  }
+  .exam-skill {
+    background: #eef2f8;
+    border-left: 5px solid var(--blue);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-weight: 500;
+  }
+  .audio-box {
+    background: linear-gradient(135deg, #eef2f8, #fff);
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    padding: 18px;
+    margin: 14px 0;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .play-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: .95rem;
+  }
+  .play-btn:hover { background: var(--red-dark); }
+  .speak-btn {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .8rem;
+  }
+  .opinion-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin: 20px 0;
+  }
+  .opinion-card {
+    flex: 1;
+    min-width: 260px;
+    background: #f8f9fc;
+    border-radius: 16px;
+    padding: 18px;
+    border-top: 5px solid var(--gold);
+    box-shadow: var(--shadow);
+  }
+  .opinion-card h4 {
+    color: var(--blue);
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+  }
+  .reason-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  .reason-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: .9rem;
+  }
+  .culture-box {
+    background: #e8f0fe;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 14px 0;
+    border-left: 6px solid var(--green);
+  }
+  .q {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+    border-left: 4px solid var(--blue);
+  }
+  .q .qtext {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: var(--blue);
+  }
+  .q input[type="text"] {
+    padding: 7px 10px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: .95rem;
+    min-width: 250px;
+    width: auto;
+  }
+  .q input.correct {
+    border-color: #1e6b1e;
+    background: #e6f3e6;
+  }
+  .q input.wrong {
+    border-color: var(--red);
+    background: #fbeef0;
+  }
+  .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 12px 0;
+  }
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f0f2f5;
+    padding: 6px 14px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .checkbox-item.selected {
+    background: var(--blue);
+    color: white;
+  }
+  .checkbox-item.correct-highlight {
+    background: #1e6b1e;
+    color: white;
+  }
+  .checkbox-item.wrong-highlight {
+    background: var(--red);
+    color: white;
+  }
+  .check-btn, .reveal-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .reveal-btn {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+  }
+  .reveal-btn:hover {
+    background: var(--blue);
+    color: #fff;
+  }
+  .score {
+    margin-top: 12px;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 1.1rem;
+  }
+  .inline-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+  }
+  .role-play {
+    background: #eef2f8;
+    border-radius: 10px;
+    padding: 18px;
+    margin: 14px 0;
+  }
+  .turn {
+    margin: 8px 0;
+    padding: 10px 14px;
+    background: #fff;
+    border-radius: 8px;
+    border-left: 4px solid var(--red);
+  }
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: .9rem;
+    border-top: 1px solid var(--border);
+  }
+  .mock-photo {
+    background: linear-gradient(145deg, #cbd5e1, #e2e8f0);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    margin: 20px 0;
+    border: 2px dashed var(--blue);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">🎤 EXAM PREPARATION: SPEAKING</span>
+  <h1>Picture-based discussion & Conversation</h1>
+  <p>Fête des voisins · Donner son avis · Développer ses réponses</p>
+  <div class="badges">
+    <span class="badge">Pour / Contre</span>
+    <span class="badge">Point culture</span>
+    <span class="badge">Hidden questions</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ EXAM SKILLS ============ -->
+<section>
+  <div class="exam-skill">
+    📌 <strong>EXAM SKILLS — Develop your answer</strong><br>
+    Utilisez différents temps (présent, passé, futur). Parlez d'événements passés et futurs ainsi que du présent. Cherchez les « questions cachées » dans différents temps dans la réponse de Lydia.
+  </div>
+</section>
+
+<!-- ============ PICTURE & POINT CULTURE ============ -->
+<section>
+  <span class="tag green">🖼️ Picture-based discussion</span>
+  <h2>La fête des voisins</h2>
+  <div class="mock-photo">
+    <span style="font-size: 4rem;">🏘️🧑‍🤝‍🧑🍽️</span>
+    <p style="margin-top: 10px;"><em>Voisins qui partagent un repas dans une rue animée — enfants jouant, adultes discutant</em></p>
+  </div>
+  <div class="culture-box">
+    <strong>📖 Point culture</strong><br>
+    La fête des voisins est une fête qui rassemble les gens qui habitent dans le même quartier. On discute, on déjeune ou on prend le goûter ensemble. Le premier « l'immeuble en fête » a lieu en 1999 à Paris. Maintenant, on la fête partout en France et même à l'étranger.
+    <button class="speak-btn" onclick="speakFR('La fête des voisins rassemble les habitants d&apos;un même quartier. On discute, on déjeune ensemble. La première édition a eu lieu à Paris en 1999.')" style="margin-left: 12px;">🔊 Écouter</button>
+  </div>
+  <div class="tip"><strong>💬 À deux: Pour ou contre la fête des voisins ?</strong> Utilisez les expressions ci-dessous pour donner votre avis.</div>
+
+  <div class="opinion-grid">
+    <div class="opinion-card">
+      <h4>✅ J'aime les fêtes des voisins</h4>
+      <ul class="reason-list">
+        <li>🎉 on partage de bons moments conviviaux</li>
+        <li>👵 tout le monde se réunit, les jeunes et les anciens</li>
+        <li>🍲 chacun apporte un plat ou un casse-croûte</li>
+        <li>🧒 les enfants jouent dans la rue</li>
+        <li>🤝 ça permet aux voisins de se rencontrer et de s'amuser ensemble</li>
+      </ul>
+    </div>
+    <div class="opinion-card">
+      <h4>❌ Je suis contre</h4>
+      <ul class="reason-list">
+        <li>😶 je suis trop timide</li>
+        <li>🔊 les enfants font trop de bruit</li>
+        <li>🚪 on n'a pas envie de rencontrer des voisins</li>
+        <li>🎤 on déteste parler en public ou discuter avec des inconnus</li>
+        <li>🧓 on n'a pas grand-chose à partager avec les adultes et les personnes âgées</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="opinion-grid">
+    <div class="opinion-card">
+      <h4>⭐ C'est important</h4>
+      <ul class="reason-list">
+        <li>⚠️ l'isolement est dangereux</li>
+        <li>👋 faire la connaissance des voisins qu'on ne connaît pas</li>
+        <li>🔗 créer des liens entre les habitants du quartier</li>
+        <li>📅 partager des traditions</li>
+      </ul>
+    </div>
+    <div class="opinion-card">
+      <h4>🚫 Ce n'est pas important</h4>
+      <ul class="reason-list">
+        <li>🏠 vos voisins ne sont pas vos amis</li>
+        <li>🔒 on ne veut pas perdre son intimité ou sa liberté</li>
+        <li>📱 on n'a plus besoin de ses voisins à cause des technologies modernes</li>
+        <li>💔 être proche de ses voisins peut causer des problèmes</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="role-play">
+    <div class="turn"><strong>🗣️ À votre tour :</strong> « À deux, débattez : Pour ou contre la fête des voisins ? Utilisez les structures : <em>Je suis d'accord / Je ne suis pas d'accord parce que...</em> »</div>
+    <button class="speak-btn" onclick="speakFR('Je suis d\'accord avec la fête des voisins parce que cela permet de créer des liens et de partager de bons moments conviviaux.')">🔊 Exemple d'opinion</button>
+    <button class="speak-btn" onclick="speakFR('Je ne suis pas d\'accord, je suis trop timide et je n\'aime pas parler avec des inconnus.')">🔊 Contre-exemple</button>
+  </div>
+</section>
+
+<!-- ============ GENERAL CONVERSATION : HIDDEN QUESTIONS ============ -->
+<section>
+  <span class="tag gold">🎙️ General conversation</span>
+  <h2>« Où habites-tu ? » — Écoute Lydia</h2>
+  <p class="sub">Le prof pose la question: <strong>« Où habites-tu ? »</strong> Écoute sa réponse. Trouve les 'questions cachées' auxquelles Lydia répond.</p>
+  
+  <div class="audio-box">
+    <span class="icon">🎧</span>
+    <div class="info"><b>Réponse de Lydia</b><div class="meta">plusieurs temps et détails</div></div>
+    <button class="play-btn" onclick="playLydiaHome()">▶ Écouter Lydia</button>
+    <button class="reveal-btn" onclick="toggleTranscript('transcriptHome')">Afficher la transcription</button>
+  </div>
+  <div id="transcriptHome" style="display:none; background:#f4f0fa; padding:12px; border-radius:8px; margin-top:8px;">
+    <strong>📝 Transcription :</strong> « J'habite à Newton, une petite ville près de la côte. J'y habite depuis cinq ans, depuis que ma famille a déménagé. Avant, je vivais à Lyon. J'aime beaucoup Newton parce que c'est calme et il y a de beaux parcs. L'année prochaine, je vais déménager pour mes études, mais je reviendrai souvent. »
+  </div>
+
+  <div class="q">
+    <p class="qtext"><strong>Exemple:</strong> Depuis quand est-ce que tu habites à Newton ?</p>
+    <input type="text" class="example-hide" value="Depuis cinq ans" disabled style="background:#eef2f8;">
+  </div>
+  <div id="hiddenQuestions">
+    <div class="q">
+      <p class="qtext">Question cachée 1: <input type="text" id="hidden1" data-ans="Où habites-tu exactement" style="width:300px" placeholder="ex: Où se trouve Newton?"></p>
+    </div>
+    <div class="q">
+      <p class="qtext">Question cachée 2: <input type="text" id="hidden2" data-ans="Où habitais-tu avant" style="width:300px" placeholder="ex: Où vivais-tu avant?"></p>
+    </div>
+    <div class="q">
+      <p class="qtext">Question cachée 3: <input type="text" id="hidden3" data-ans="Pourquoi aimes-tu Newton" style="width:300px" placeholder="ex: Qu'est-ce que tu aimes?"></p>
+    </div>
+    <div class="q">
+      <p class="qtext">Question cachée 4: <input type="text" id="hidden4" data-ans="Quels sont tes projets pour l'avenir" style="width:350px" placeholder="ex: Que feras-tu l'année prochaine?"></p>
+    </div>
+  </div>
+  <button class="check-btn" onclick="checkHiddenQuestions()">Vérifier les questions cachées</button>
+  <button class="reveal-btn" onclick="revealHiddenQuestions()">Voir les réponses</button>
+  <div class="score" id="scoreHidden"></div>
+  <div class="tip"><strong>💡 EXAM SKILL:</strong> Dans une réponse développée, cherchez les informations sur le passé (imparfait, passé composé), le présent et le futur.</div>
+</section>
+
+<!-- ============ QU'EST-CE QU'IL Y A À FAIRE À NEWTON ? ============ -->
+<section>
+  <span class="tag green">📍 Answer booster</span>
+  <h2>« Qu'est-ce qu'il y a à faire à Newton ? »</h2>
+  <p class="sub">Écoute la réponse de Lydia. Note les éléments qu'elle utilise (activités, temps, opinions).</p>
+  
+  <div class="audio-box">
+    <button class="play-btn" onclick="playLydiaActivities()">▶ Écouter Lydia (activités)</button>
+    <button class="reveal-btn" onclick="toggleTranscript('transcriptActivities')">Afficher la transcription</button>
+  </div>
+  <div id="transcriptActivities" style="display:none; background:#f4f0fa; padding:12px; border-radius:8px;">
+    <strong>📝 Transcription :</strong> « À Newton, il y a beaucoup de choses à faire. Le week-end dernier, je suis allée au marché local et j'ai mangé une crêpe délicieuse. D'habitude, je vais me promener au bord de la mer avec mes amis. Il y a aussi un cinéma et une belle bibliothèque. L'été prochain, j'essaierai le nouveau club de voile. C'est vraiment une ville animée ! »
+  </div>
+
+  <div class="q">
+    <p class="qtext">D'après Lydia, quelles activités peut-on faire à Newton? (Écris 2 exemples)</p>
+    <div class="inline-inputs">
+      <input type="text" id="act1" data-ans="aller au marché" placeholder="activité 1">
+      <input type="text" id="act2" data-ans="se promener au bord de la mer" placeholder="activité 2">
+    </div>
+  </div>
+  <div class="q">
+    <p class="qtext">Quel temps utilise-t-elle pour parler du week-end dernier?</p>
+    <input type="text" id="tense1" data-ans="passé composé" placeholder="ex: passé composé">
+  </div>
+  <div class="q">
+    <p class="qtext">Quel temps utilise-t-elle pour parler de l'été prochain?</p>
+    <input type="text" id="tense2" data-ans="futur simple" placeholder="ex: futur simple">
+  </div>
+  <button class="check-btn" onclick="checkActivities()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealActivities()">Voir les réponses</button>
+  <div class="score" id="scoreActivities"></div>
+</section>
+
+<!-- ============ THÈMES NON MENTIONNÉS ============ -->
+<section>
+  <span class="tag gold">📋 Écoute et sélectionne</span>
+  <h2>Les thèmes que Lydia ne mentionne PAS</h2>
+  <p class="sub">Écoute Lydia. Lis la liste des thèmes ci-dessous. Il y a DEUX thèmes qu'elle ne mentionne pas. Lesquels ?</p>
+  
+  <div class="audio-box">
+    <button class="play-btn" onclick="playLydiaFull()">▶ Écouter Lydia (thèmes complets)</button>
+    <button class="reveal-btn" onclick="toggleTranscript('transcriptThemes')">Afficher la transcription</button>
+  </div>
+  <div id="transcriptThemes" style="display:none; background:#f4f0fa; padding:12px; border-radius:8px;">
+    <strong>📝 Transcription complète de Lydia :</strong> « Je viens de la région Normandie. Il y a de belles falaises et la mer. Le climat est doux, il pleut souvent. Le week-end dernier, j'ai visité les plages du Débarquement. Il faisait frais mais ensoleillé. La région est connue pour le camembert et les pommes. Je ne fais pas beaucoup de sport mais le vélo est populaire ici. Je retourne en Normandie deux ou trois fois par an. »
+  </div>
+
+  <div class="checkbox-group" id="themesGroup">
+    <div class="checkbox-item" data-theme="localisation">📍 où se trouve la région</div>
+    <div class="checkbox-item" data-theme="personne">🌟 une personne célèbre qui vient de cette région</div>
+    <div class="checkbox-item" data-theme="geo">🗻 ses caractéristiques géographiques</div>
+    <div class="checkbox-item" data-theme="sport">⚽ le sport le plus populaire</div>
+    <div class="checkbox-item" data-theme="climat">🌤️ le climat</div>
+    <div class="checkbox-item" data-theme="frequence">📅 la fréquence avec laquelle elle y va</div>
+    <div class="checkbox-item" data-theme="weekend">🎒 ce qu'elle a fait le week-end dernier</div>
+    <div class="checkbox-item" data-theme="meteo">⛅ le temps qu'il faisait la dernière fois qu'elle y est allée</div>
+  </div>
+  
+  <button class="check-btn" onclick="checkThemes()">Vérifier les thèmes non mentionnés</button>
+  <button class="reveal-btn" onclick="revealThemes()">Voir les réponses</button>
+  <div class="score" id="scoreThemes"></div>
+  <div class="tip"><strong>🎯 Réponse:</strong> Lydia ne mentionne PAS <em>une personne célèbre</em> ni <em>le sport le plus populaire</em>. Elle parle de localisation, géographie, climat, fréquence, week-end dernier et météo.</div>
+</section>
+
+<!-- ============ PRODUCTION ORALE ============ -->
+<section>
+  <span class="tag green">🗣️ À ton tour — Speaking practice</span>
+  <h2>Prépare ta réponse</h2>
+  <p>Le professeur te demande : <strong>« Où habites-tu ? »</strong> ou <strong>« Qu'est-ce qu'il y a à faire dans ta ville ? »</strong><br>
+  Rédige une réponse développée (présent, passé, futur).</p>
+  <div class="q">
+    <textarea id="myAnswer" rows="5" style="width:100%; padding:12px; border-radius:8px; border:2px solid var(--border); font-family:inherit;" placeholder="Exemple: J'habite à ... depuis ... Avant, je vivais ... Le week-end dernier, j'ai ... L'année prochaine, je vais ..."></textarea>
+    <div class="score" id="answerWordCount">0 mots</div>
+  </div>
+  <button class="speak-btn" onclick="speakFromTextarea()">🔊 Écouter ma réponse</button>
+  <button class="reveal-btn" onclick="showAnswerModel()">Voir un modèle</button>
+  <div id="modelAnswer" style="display:none; background:#eef2f8; padding:14px; border-radius:8px; margin-top:12px;">
+    <strong>📝 Modèle de réponse développée :</strong><br>
+    « J'habite à Bordeaux, une grande ville dans le sud-ouest de la France. J'y habite depuis trois ans. Avant, je vivais à Nantes. J'aime Bordeaux parce qu'il y a beaucoup de parcs et le climat est agréable. Le week-end dernier, je suis allé au marché avec des amis. L'année prochaine, je visiterai la région viticole. Je recommande cette ville à tous ! »
+    <button class="speak-btn" onclick="speakFR('J\'habite à Bordeaux, une grande ville dans le sud-ouest de la France. J\'y habite depuis trois ans. Avant, je vivais à Nantes. Le week-end dernier, je suis allé au marché. L\'année prochaine, je visiterai la région viticole.')">🔊 Écouter modèle</button>
+  </div>
+</section>
+
+<footer>
+  IGCSE French Speaking Preparation — Fête des voisins, conversation générale, hidden questions, answer booster 🗣️🇫🇷
+</footer>
+
+</main>
+
+<script>
+  // Speech synthesis
+  function speakFR(text) {
+    if (!('speechSynthesis' in window)) { alert('Audio non supporté'); return; }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR';
+    u.rate = 0.92;
+    const voices = speechSynthesis.getVoices();
+    const frVoice = voices.find(v => v.lang.startsWith('fr'));
+    if (frVoice) u.voice = frVoice;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged = () => {};
+
+  // Lydia's audio simulations
+  function playLydiaHome() {
+    speakFR("J'habite à Newton, une petite ville près de la côte. J'y habite depuis cinq ans, depuis que ma famille a déménagé. Avant, je vivais à Lyon. J'aime beaucoup Newton parce que c'est calme et il y a de beaux parcs. L'année prochaine, je vais déménager pour mes études, mais je reviendrai souvent.");
+  }
+  function playLydiaActivities() {
+    speakFR("À Newton, il y a beaucoup de choses à faire. Le week-end dernier, je suis allée au marché local et j'ai mangé une crêpe délicieuse. D'habitude, je vais me promener au bord de la mer avec mes amis. Il y a aussi un cinéma et une belle bibliothèque. L'été prochain, j'essaierai le nouveau club de voile. C'est vraiment une ville animée !");
+  }
+  function playLydiaFull() {
+    speakFR("Je viens de la région Normandie. Il y a de belles falaises et la mer. Le climat est doux, il pleut souvent. Le week-end dernier, j'ai visité les plages du Débarquement. Il faisait frais mais ensoleillé. La région est connue pour le camembert et les pommes. Je ne fais pas beaucoup de sport mais le vélo est populaire ici. Je retourne en Normandie deux ou trois fois par an.");
+  }
+  function toggleTranscript(id) {
+    const el = document.getElementById(id);
+    if (el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
+  }
+
+  // Normalize helper
+  function norm(s) {
+    return (s || '').toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ');
+  }
+
+  // Hidden questions check
+  function checkHiddenQuestions() {
+    const answers = {
+      hidden1: "Où habites-tu exactement",
+      hidden2: "Où habitais-tu avant",
+      hidden3: "Pourquoi aimes-tu Newton",
+      hidden4: "Quels sont tes projets pour l'avenir"
+    };
+    let total = 4, correct = 0;
+    for (let [id, expected] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      const expNorm = norm(expected);
+      if (user.includes(expNorm.substring(0,10)) || expNorm.includes(user) || (id==='hidden4' && user.includes('projets'))) {
+        correct++;
+        inp.classList.add('correct');
+        inp.classList.remove('wrong');
+      } else {
+        inp.classList.remove('correct');
+        inp.classList.add('wrong');
+      }
+    }
+    document.getElementById('scoreHidden').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealHiddenQuestions() {
+    document.getElementById('hidden1').value = "Où habites-tu exactement";
+    document.getElementById('hidden2').value = "Où habitais-tu avant";
+    document.getElementById('hidden3').value = "Pourquoi aimes-tu Newton";
+    document.getElementById('hidden4').value = "Quels sont tes projets pour l'avenir";
+    checkHiddenQuestions();
+  }
+
+  // Activities check
+  function checkActivities() {
+    let total = 4, correct = 0;
+    const act1 = document.getElementById('act1');
+    const act2 = document.getElementById('act2');
+    const tense1 = document.getElementById('tense1');
+    const tense2 = document.getElementById('tense2');
+    const a1 = norm(act1.value), a2 = norm(act2.value);
+    if (a1.includes('marché') || a1.includes('aller au marché')) { correct++; act1.classList.add('correct'); } else { act1.classList.add('wrong'); }
+    if (a2.includes('promener') || a2.includes('mer')) { correct++; act2.classList.add('correct'); } else { act2.classList.add('wrong'); }
+    if (norm(tense1.value).includes('passé composé')) { correct++; tense1.classList.add('correct'); } else { tense1.classList.add('wrong'); }
+    if (norm(tense2.value).includes('futur simple') || norm(tense2.value).includes('futur')) { correct++; tense2.classList.add('correct'); } else { tense2.classList.add('wrong'); }
+    document.getElementById('scoreActivities').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealActivities() {
+    document.getElementById('act1').value = "aller au marché";
+    document.getElementById('act2').value = "se promener au bord de la mer";
+    document.getElementById('tense1').value = "passé composé";
+    document.getElementById('tense2').value = "futur simple";
+    checkActivities();
+  }
+
+  // Themes selection (checkboxes)
+  let selectedThemes = new Set();
+  document.querySelectorAll('.checkbox-item').forEach(item => {
+    item.addEventListener('click', function() {
+      const theme = this.getAttribute('data-theme');
+      if (selectedThemes.has(theme)) {
+        selectedThemes.delete(theme);
+        this.classList.remove('selected');
+      } else {
+        selectedThemes.add(theme);
+        this.classList.add('selected');
+      }
+    });
+  });
+
+  function checkThemes() {
+    // Themes mentioned in Lydia's full audio: localisation, geo, climat, weekend, meteo, frequence
+    const mentioned = ['localisation', 'geo', 'climat', 'weekend', 'meteo', 'frequence'];
+    const notMentionedCorrect = ['personne', 'sport'];
+    let correct = 0;
+    // reset highlights
+    document.querySelectorAll('.checkbox-item').forEach(el => el.classList.remove('correct-highlight', 'wrong-highlight'));
+    for (let theme of selectedThemes) {
+      if (notMentionedCorrect.includes(theme)) {
+        correct++;
+        const el = document.querySelector(`.checkbox-item[data-theme="${theme}"]`);
+        if (el) el.classList.add('correct-highlight');
+      } else {
+        const el = document.querySelector(`.checkbox-item[data-theme="${theme}"]`);
+        if (el) el.classList.add('wrong-highlight');
+      }
+    }
+    // also show correct answers not selected
+    for (let theme of notMentionedCorrect) {
+      if (!selectedThemes.has(theme)) {
+        const el = document.querySelector(`.checkbox-item[data-theme="${theme}"]`);
+        if (el) el.classList.add('correct-highlight');
+      }
+    }
+    const totalCorrect = notMentionedCorrect.length;
+    document.getElementById('scoreThemes').innerHTML = `Thèmes non mentionnés identifiés : ${correct} / ${totalCorrect} (personne célèbre, sport populaire)`;
+  }
+  function revealThemes() {
+    selectedThemes.clear();
+    document.querySelectorAll('.checkbox-item').forEach(el => el.classList.remove('selected', 'correct-highlight', 'wrong-highlight'));
+    const notMentioned = ['personne', 'sport'];
+    notMentioned.forEach(theme => {
+      const el = document.querySelector(`.checkbox-item[data-theme="${theme}"]`);
+      if (el) {
+        el.classList.add('selected');
+        selectedThemes.add(theme);
+      }
+    });
+    checkThemes();
+  }
+
+  // Writing word counter
+  const textarea = document.getElementById('myAnswer');
+  const wordSpan = document.getElementById('answerWordCount');
+  textarea.addEventListener('input', function() {
+    const words = textarea.value.trim().split(/\s+/).filter(Boolean).length;
+    wordSpan.innerText = `${words} mots`;
+  });
+  function speakFromTextarea() {
+    const text = textarea.value.trim();
+    if (text) speakFR(text);
+    else speakFR("Je n'ai pas encore préparé ma réponse.");
+  }
+  function showAnswerModel() {
+    const model = document.getElementById('modelAnswer');
+    model.style.display = model.style.display === 'none' ? 'block' : 'none';
+  }
+  window.addEventListener('load', () => {
+    if (textarea.value.trim() === '') wordSpan.innerText = '0 mots';
+  });
+</script>
+</body>
+</html>

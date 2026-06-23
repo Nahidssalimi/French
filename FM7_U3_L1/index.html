@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MON BOULOT DANS LE TOURISME — Case study & verbs — IGCSE French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7fb;
+    --ink: #0e1a2b;
+    --muted: #5a6473;
+    --red: #7a1722;
+    --red-dark: #5a0f18;
+    --blue: #0f2a4a;
+    --blue-dark: #08182b;
+    --card: #fff;
+    --border: #d9dde5;
+    --shadow: 0 10px 30px rgba(8,24,43,.08);
+    --gold: #c9a227;
+    --green: #2d6a4f;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: #fff;
+    padding: 48px 24px;
+    text-align: center;
+    border-bottom: 6px solid var(--red);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: "🌊";
+    position: absolute;
+    font-size: 12rem;
+    opacity: .08;
+    bottom: -30px;
+    right: -20px;
+    transform: rotate(-8deg);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: .2em 0;
+    position: relative;
+  }
+  header p {
+    max-width: 780px;
+    margin: 0 auto;
+    opacity: .92;
+    position: relative;
+  }
+  .badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.12);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: .85rem;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .tag {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .tag.gold {
+    background: var(--gold);
+    color: var(--blue-dark);
+  }
+  .tag.green {
+    background: var(--green);
+    color: #fff;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin: .3em 0 .5em;
+    color: var(--blue);
+  }
+  .sub {
+    color: var(--muted);
+    font-style: italic;
+    font-size: .95rem;
+    margin-bottom: 1rem;
+  }
+  .tip {
+    background: #fff7e0;
+    border-left: 5px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .tip strong {
+    color: var(--blue);
+  }
+  .grammar-box {
+    background: #eef8f2;
+    border-left: 5px solid var(--green);
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .audio-box {
+    background: linear-gradient(135deg, #eef2f8, #fff);
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    padding: 18px;
+    margin: 14px 0;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .play-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: .95rem;
+  }
+  .play-btn:hover { background: var(--red-dark); }
+  .speak-btn {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .8rem;
+  }
+  .q {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+    border-left: 4px solid var(--blue);
+  }
+  .q .qtext {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: var(--blue);
+  }
+  .q input[type="text"] {
+    padding: 7px 10px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: .95rem;
+    min-width: 200px;
+    width: auto;
+  }
+  .q input.correct {
+    border-color: #1e6b1e;
+    background: #e6f3e6;
+  }
+  .q input.wrong {
+    border-color: var(--red);
+    background: #fbeef0;
+  }
+  .check-btn, .reveal-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .reveal-btn {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+  }
+  .reveal-btn:hover {
+    background: var(--blue);
+    color: #fff;
+  }
+  .score {
+    margin-top: 12px;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 1.1rem;
+  }
+  .option-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 10px 0;
+  }
+  .option-btn {
+    background: #eef2f8;
+    padding: 6px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .option-btn.selected {
+    background: var(--blue);
+    color: white;
+  }
+  .option-btn.correct {
+    background: #1e6b1e;
+    color: white;
+  }
+  .option-btn.wrong {
+    background: var(--red);
+    color: white;
+  }
+  .correction-box {
+    background: #e8f5e9;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-top: 8px;
+    font-size: .9rem;
+    display: none;
+  }
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: .9rem;
+    border-top: 1px solid var(--border);
+  }
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: .95rem;
+    resize: vertical;
+  }
+  .word-count {
+    font-size: .8rem;
+    color: var(--muted);
+    margin-top: 5px;
+  }
+  .case-card {
+    background: #f8f9fc;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 14px 0;
+    border-left: 5px solid var(--gold);
+  }
+  .culture-box {
+    background: #e8f0fe;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 12px 0;
+    border-left: 5px solid var(--green);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">🌊 MON BOULOT DANS LE TOURISME</span>
+  <h1>Case study — Claire Morel</h1>
+  <p>B4 Work, Careers and Volunteering — Verbes suivis de à ou de</p>
+  <div class="badges">
+    <span class="badge">Études de cas</span>
+    <span class="badge">Verbes + à/de</span>
+    <span class="badge">Correction d'erreurs</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ OBJECTIFS ============ -->
+<section>
+  <div class="grammar-box">
+    <strong>🎯 OBJECTIFS D'APPRENTISSAGE</strong><br>
+    • Comprendre des études de cas<br>
+    • Utiliser des verbes suivis de <strong>à</strong> ou <strong>de</strong>
+  </div>
+</section>
+
+<!-- ============ TEXTE : CLAIRE ============ -->
+<section>
+  <span class="tag green">📖 Écoutez et lisez</span>
+  <h2>Claire: une carrière projetée dans le tourisme</h2>
+
+  <div class="audio-box">
+    <button class="play-btn" onclick="playClaire()">▶ Écouter le texte</button>
+  </div>
+
+  <div class="case-card">
+    <p>Je m'appelle Claire Morel. J'ai dix-neuf ans et je suis étudiante en <strong>BTS Tourisme</strong>, une formation de deux ans. J'apprends à devenir conseillère en séjour.</p>
+    <p>Il y a six mois, j'ai commencé à travailler dans un office de tourisme en Bretagne, tout en continuant mes études. Si je réussis à avoir mon diplôme, je voudrais travailler à plein temps dans le tourisme. Lorsque j'étais plus jeune, je rêvais d'être infirmière mais j'ai décidé de changer d'orientation à cause de ma passion pour la Bretagne.</p>
+    <p>Actuellement, mon travail consiste à accueillir les clients et à les renseigner sur les sites touristiques. Je m'occupe aussi des réservations pour les excursions et je vends des billets d'entrée pour les musées. Je suis passionnée par mon travail et j'apprécie surtout le contact avec les gens.</p>
+    <p>Le seul inconvénient de mon métier, c'est que les horaires sont assez chargés, surtout pendant l'été.</p>
+    <p>Pour faire ce métier, il faut toujours être souriant et il faut savoir parler d'autres langues. Je parle plusieurs langues européennes, dont l'anglais et l'espagnol, mais plus tard, j'essaierai d'apprendre le japonais car je rencontre souvent des touristes venus du Japon.</p>
+    <p>Quand je serai diplômée, je partirai en vacances dans d'autres pays tels que les États-Unis et l'Australie. J'aimerais voir ce que ça donne, d'être moi-même une touriste!</p>
+  </div>
+
+  <div class="culture-box">
+    <strong>📖 BTS</strong> = Brevet de Technicien Supérieur<br>
+    <strong>le conseiller/la conseillère en séjour</strong> = l'employé(e) dans un syndicat d'initiative / un office de tourisme
+  </div>
+</section>
+
+<!-- ============ EXERCICE 1 : ORDRE DES SUJETS ============ -->
+<section>
+  <span class="tag gold">📝 Exercice 1 · Mettez les sujets dans l'ordre du texte</span>
+  <p class="sub">Remettez les sujets (a–h) dans l'ordre où ils apparaissent dans le texte.</p>
+
+  <div id="orderEx">
+    <div class="q"><p class="qtext">a. le nom du diplôme qu'elle veut obtenir → ordre <input type="text" id="orderA" data-ans="1" style="width:50px"></p></div>
+    <div class="q"><p class="qtext">b. l'endroit où elle travaille en ce moment → ordre <input type="text" id="orderB" data-ans="2" style="width:50px"></p></div>
+    <div class="q"><p class="qtext">c. le métier qu'elle voulait faire quand elle était petite → ordre <input type="text" id="orderC" data-ans="3" style="width:50px"></p></div>
+    <div class="q"><p class="qtext">d. ses responsabilités au travail → ordre <input type="text" id="orderD" data-ans="4" style="width:50px"></p></div>
+    <div class="q"><p class="qtext">e. le pire dans son métier → ordre <input type="text" id="orderE" data-ans="5" style="width:50px"></p></div>
+    <div class="q"><p class="qtext">f. les langues qu'elle parle → ordre <input type="text" id="orderF" data-ans="6" style="width:50px"></p></div>
+    <div class="q"><p class="qtext">g. le mieux dans son métier → ordre <input type="text" id="orderG" data-ans="7" style="width:50px"></p></div>
+    <div class="q"><p class="qtext">h. ses projets de voyage → ordre <input type="text" id="orderH" data-ans="8" style="width:50px"></p></div>
+  </div>
+  <button class="check-btn" onclick="checkOrder()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealOrder()">Voir les réponses</button>
+  <div class="score" id="scoreOrder"></div>
+</section>
+
+<!-- ============ EXERCICE 2 : VOCABULAIRE ============ -->
+<section>
+  <span class="tag green">📚 Exercice 2 · Trouvez l'équivalent en français</span>
+  <p class="sub">Relisez le texte et trouvez l'équivalent des expressions suivantes.</p>
+
+  <div id="vocabEx">
+    <div class="q"><p class="qtext">1. en ce moment → <input type="text" id="voc1" data-ans="actuellement" style="width:150px"></p></div>
+    <div class="q"><p class="qtext">2. désavantage → <input type="text" id="voc2" data-ans="inconvénient" style="width:150px"></p></div>
+    <div class="q"><p class="qtext">3. pendant que je faisais → <input type="text" id="voc3" data-ans="tout en continuant" style="width:200px"></p></div>
+    <div class="q"><p class="qtext">4. garder tout le temps le sourire → <input type="text" id="voc4" data-ans="être toujours souriant" style="width:220px"></p></div>
+    <div class="q"><p class="qtext">5. lourds (horaires) → <input type="text" id="voc5" data-ans="chargés" style="width:120px"></p></div>
+    <div class="q"><p class="qtext">6. leur donner des informations → <input type="text" id="voc6" data-ans="les renseigner" style="width:180px"></p></div>
+    <div class="q"><p class="qtext">7. très enthousiaste pour → <input type="text" id="voc7" data-ans="passionnée par" style="width:180px"></p></div>
+    <div class="q"><p class="qtext">8. à temps complet → <input type="text" id="voc8" data-ans="à plein temps" style="width:150px"></p></div>
+    <div class="q"><p class="qtext">9. j'aurai ma qualification → <input type="text" id="voc9" data-ans="serai diplômée" style="width:180px"></p></div>
+  </div>
+  <button class="check-btn" onclick="checkVocab()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealVocab()">Voir les réponses</button>
+  <div class="score" id="scoreVocab"></div>
+</section>
+
+<!-- ============ GRAMMAIRE : VERBES SUIVIS DE À OU DE ============ -->
+<section>
+  <span class="tag gold">📚 Grammaire — Verbes suivis de à ou de</span>
+  <div class="grammar-box">
+    <p><strong>Verbes + à :</strong> apprendre à, commencer à, consister à, réussir à</p>
+    <p><strong>Verbes + de :</strong> décider de, essayer de, rêver de</p>
+    <p><strong>Sans préposition :</strong> aller, aimer, espérer, pouvoir, vouloir</p>
+    <button class="speak-btn" onclick="speakFR('J\'apprends à devenir conseillère. J\'ai décidé de changer d\'orientation. Je rêvais d\'être infirmière. J\'essaierai d\'apprendre le japonais.')">🔊 Écouter</button>
+  </div>
+
+  <div id="prepEx">
+    <div class="q"><p class="qtext">1. J'apprends ___ devenir conseillère en séjour.</p><input type="text" id="prep1" data-ans="à" style="width:50px"></div>
+    <div class="q"><p class="qtext">2. J'ai commencé ___ travailler dans un office de tourisme.</p><input type="text" id="prep2" data-ans="à" style="width:50px"></div>
+    <div class="q"><p class="qtext">3. Je rêvais ___ être infirmière.</p><input type="text" id="prep3" data-ans="d'" style="width:50px"></div>
+    <div class="q"><p class="qtext">4. J'ai décidé ___ changer d'orientation.</p><input type="text" id="prep4" data-ans="de" style="width:50px"></div>
+    <div class="q"><p class="qtext">5. Mon travail consiste ___ accueillir les clients.</p><input type="text" id="prep5" data-ans="à" style="width:50px"></div>
+    <div class="q"><p class="qtext">6. J'essaierai ___ apprendre le japonais.</p><input type="text" id="prep6" data-ans="d'" style="width:50px"></div>
+    <div class="q"><p class="qtext">7. Si je réussis ___ avoir mon diplôme...</p><input type="text" id="prep7" data-ans="à" style="width:50px"></div>
+    <div class="q"><p class="qtext">8. J'espère ___ travailler dans le tourisme. (sans préposition)</p><input type="text" id="prep8" data-ans="-" style="width:50px"></div>
+  </div>
+  <button class="check-btn" onclick="checkPrepositions()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealPrepositions()">Voir les réponses</button>
+  <div class="score" id="scorePrep"></div>
+</section>
+
+<!-- ============ EXERCICE 3 : CORRECTION D'ERREURS ============ -->
+<section>
+  <span class="tag green">✏️ Exercice 3 · Corrigez l'erreur dans chaque phrase</span>
+  <p class="sub">Relisez le texte et corrigez les informations erronées.</p>
+
+  <div id="errorEx">
+    <div class="q">
+      <p class="qtext">1. Les études de Claire vont durer trois ans.</p>
+      <input type="text" id="err1" data-ans="deux ans" style="width:120px" placeholder="correction">
+      <div class="correction-box" id="corr1">Correction: deux ans</div>
+    </div>
+    <div class="q">
+      <p class="qtext">2. Elle voudrait travailler à mi-temps dans le tourisme.</p>
+      <input type="text" id="err2" data-ans="à plein temps" style="width:140px" placeholder="correction">
+      <div class="correction-box" id="corr2">Correction: à plein temps</div>
+    </div>
+    <div class="q">
+      <p class="qtext">3. Quand elle était petite, elle voulait déjà travailler dans le tourisme.</p>
+      <input type="text" id="err3" data-ans="elle rêvait d'être infirmière" style="width:280px" placeholder="correction">
+      <div class="correction-box" id="corr3">Correction: elle rêvait d'être infirmière</div>
+    </div>
+    <div class="q">
+      <p class="qtext">4. Elle trouve son travail à l'office de tourisme ennuyeux.</p>
+      <input type="text" id="err4" data-ans="passionnante" style="width:160px" placeholder="correction">
+      <div class="correction-box" id="corr4">Correction: passionnante</div>
+    </div>
+    <div class="q">
+      <p class="qtext">5. Elle doit demander des renseignements aux touristes.</p>
+      <input type="text" id="err5" data-ans="renseigner les touristes" style="width:240px" placeholder="correction">
+      <div class="correction-box" id="corr5">Correction: elle les renseigne</div>
+    </div>
+    <div class="q">
+      <p class="qtext">6. Claire parle seulement deux langues étrangères.</p>
+      <input type="text" id="err6" data-ans="plusieurs langues" style="width:180px" placeholder="correction">
+      <div class="correction-box" id="corr6">Correction: plusieurs langues européennes</div>
+    </div>
+  </div>
+  <button class="check-btn" onclick="checkErrors()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealErrors()">Voir les réponses</button>
+  <div class="score" id="scoreErrors"></div>
+</section>
+
+<!-- ============ PRODUCTION ÉCRITE ============ -->
+<section>
+  <span class="tag gold">✍️ Production écrite</span>
+  <h2>Parle d'un métier dans le tourisme</h2>
+  <p class="sub">Rédigez 80-100 mots sur un métier qui vous intéresse dans le tourisme. Utilisez des verbes suivis de à ou de.</p>
+
+  <textarea id="tourismeText" rows="6" placeholder="Exemple : Le métier qui m'intéresse dans le tourisme est celui de conseiller en séjour. J'apprends à devenir conseillère dans un office de tourisme. Je commence à aimer ce métier. J'ai décidé de travailler dans le tourisme car j'adore voyager. Mon travail consiste à accueillir les touristes et à les renseigner. Je rêve de visiter de nombreux pays. J'essaierai d'apprendre plusieurs langues. Je réussirai à avoir mon diplôme et je voyagerai à plein temps."></textarea>
+  <div class="word-count" id="tourWordCount">0 mots</div>
+  <button class="speak-btn" onclick="speakTourisme()">🔊 Écouter mon texte</button>
+  <button class="reveal-btn" onclick="showTourModel()">Voir un modèle</button>
+  <div id="tourModel" style="display:none; background:#eef2f8; padding:14px; border-radius:8px; margin-top:12px;">
+    <strong>📝 Modèle (88 mots) :</strong><br>
+    « Le métier qui m'intéresse dans le tourisme est celui de guide touristique. J'apprends à devenir guide en suivant une formation spécialisée. J'ai décidé de travailler dans ce domaine parce que j'adore voyager et rencontrer des gens. Mon travail consistera à faire visiter des monuments et à raconter l'histoire des lieux. Je rêve de voyager dans le monde entier. J'essaierai d'apprendre plusieurs langues pour communiquer avec tous les touristes. Si je réussis à obtenir mon diplôme, je travaillerai dans une grande agence de voyages. »
+    <button class="speak-btn" onclick="speakFR('J\'apprends à devenir guide touristique. J\'ai décidé de travailler dans ce domaine. Je rêve de voyager. J\'essaierai d\'apprendre plusieurs langues.')">🔊 Écouter</button>
+  </div>
+</section>
+
+<footer>
+  IGCSE French — B4 Work, Careers and Volunteering · Mon boulot dans le tourisme · Études de cas, verbes + à/de 🌊
+</footer>
+
+</main>
+
+<script>
+  function speakFR(text) {
+    if (!('speechSynthesis' in window)) { alert('Audio non supporté'); return; }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR';
+    u.rate = 0.92;
+    const voices = speechSynthesis.getVoices();
+    const frVoice = voices.find(v => v.lang.startsWith('fr'));
+    if (frVoice) u.voice = frVoice;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged = () => {};
+
+  function playClaire() {
+    speakFR("Je m'appelle Claire Morel. J'ai dix-neuf ans et je suis étudiante en BTS Tourisme. J'apprends à devenir conseillère en séjour. Il y a six mois, j'ai commencé à travailler dans un office de tourisme en Bretagne. Je rêvais d'être infirmière mais j'ai décidé de changer. Mon travail consiste à accueillir les clients et à les renseigner. Je suis passionnée par mon travail. J'essaierai d'apprendre le japonais.");
+  }
+
+  function norm(s) { return (s || '').toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' '); }
+
+  // Order exercise
+  function checkOrder() {
+    const answers = {
+      orderA: "1", orderB: "2", orderC: "3", orderD: "4",
+      orderE: "5", orderF: "6", orderG: "7", orderH: "8"
+    };
+    let total = 8, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = inp.value.trim();
+      if (user === exp) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreOrder').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealOrder() {
+    document.getElementById('orderA').value = "1";
+    document.getElementById('orderB').value = "2";
+    document.getElementById('orderC').value = "3";
+    document.getElementById('orderD').value = "4";
+    document.getElementById('orderE').value = "5";
+    document.getElementById('orderF').value = "6";
+    document.getElementById('orderG').value = "7";
+    document.getElementById('orderH').value = "8";
+    checkOrder();
+  }
+
+  // Vocabulary
+  function checkVocab() {
+    const answers = {
+      voc1: "actuellement", voc2: "inconvénient", voc3: "tout en continuant",
+      voc4: "être toujours souriant", voc5: "chargés", voc6: "les renseigner",
+      voc7: "passionnée par", voc8: "à plein temps", voc9: "serai diplômée"
+    };
+    let total = 9, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      const expNorm = norm(exp);
+      if (user === expNorm || (id === 'voc6' && user.includes('renseigner'))) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreVocab').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealVocab() {
+    document.getElementById('voc1').value = "actuellement";
+    document.getElementById('voc2').value = "inconvénient";
+    document.getElementById('voc3').value = "tout en continuant";
+    document.getElementById('voc4').value = "être toujours souriant";
+    document.getElementById('voc5').value = "chargés";
+    document.getElementById('voc6').value = "les renseigner";
+    document.getElementById('voc7').value = "passionnée par";
+    document.getElementById('voc8').value = "à plein temps";
+    document.getElementById('voc9').value = "serai diplômée";
+    checkVocab();
+  }
+
+  // Prepositions
+  function checkPrepositions() {
+    const answers = {
+      prep1: "à", prep2: "à", prep3: "d'", prep4: "de",
+      prep5: "à", prep6: "d'", prep7: "à", prep8: "-"
+    };
+    let total = 8, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      if (user === exp || (id === 'prep8' && user === '')) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scorePrep').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealPrepositions() {
+    document.getElementById('prep1').value = "à";
+    document.getElementById('prep2').value = "à";
+    document.getElementById('prep3').value = "d'";
+    document.getElementById('prep4').value = "de";
+    document.getElementById('prep5').value = "à";
+    document.getElementById('prep6').value = "d'";
+    document.getElementById('prep7').value = "à";
+    document.getElementById('prep8').value = "-";
+    checkPrepositions();
+  }
+
+  // Error correction
+  function checkErrors() {
+    const answers = {
+      err1: "deux ans", err2: "à plein temps", err3: "elle rêvait d'être infirmière",
+      err4: "passionnante", err5: "renseigner les touristes", err6: "plusieurs langues"
+    };
+    let total = 6, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      const expNorm = norm(exp);
+      if (user === expNorm || user.includes(expNorm.substring(0,8))) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreErrors').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealErrors() {
+    document.getElementById('err1').value = "deux ans";
+    document.getElementById('err2').value = "à plein temps";
+    document.getElementById('err3').value = "elle rêvait d'être infirmière";
+    document.getElementById('err4').value = "passionnante";
+    document.getElementById('err5').value = "renseigner les touristes";
+    document.getElementById('err6').value = "plusieurs langues";
+    checkErrors();
+  }
+
+  // Writing
+  const tourTa = document.getElementById('tourismeText');
+  const wordSpan = document.getElementById('tourWordCount');
+  tourTa.addEventListener('input', function() {
+    const words = tourTa.value.trim().split(/\s+/).filter(Boolean).length;
+    wordSpan.innerText = `${words} mots`;
+    if (words >= 80 && words <= 120) wordSpan.style.color = '#1e6b1e';
+    else wordSpan.style.color = 'var(--muted)';
+  });
+  function speakTourisme() {
+    const text = tourTa.value.trim();
+    if (text) speakFR(text);
+    else speakFR("Je n'ai pas encore écrit mon texte.");
+  }
+  function showTourModel() {
+    const model = document.getElementById('tourModel');
+    model.style.display = model.style.display === 'none' ? 'block' : 'none';
+  }
+  window.addEventListener('load', () => {
+    if (tourTa.value.trim() === '') wordSpan.innerText = '0 mots';
+  });
+</script>
+</body>
+</html>

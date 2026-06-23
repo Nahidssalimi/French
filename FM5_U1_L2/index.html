@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MODULE 5 — Verbes pronominaux & vacances — IGCSE French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7fb;
+    --ink: #0e1a2b;
+    --muted: #5a6473;
+    --red: #7a1722;
+    --red-dark: #5a0f18;
+    --blue: #0f2a4a;
+    --blue-dark: #08182b;
+    --card: #fff;
+    --border: #d9dde5;
+    --shadow: 0 10px 30px rgba(8,24,43,.08);
+    --gold: #c9a227;
+    --green: #2d6a4f;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: #fff;
+    padding: 48px 24px;
+    text-align: center;
+    border-bottom: 6px solid var(--red);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: "🏖️";
+    position: absolute;
+    font-size: 12rem;
+    opacity: .08;
+    bottom: -30px;
+    right: -20px;
+    transform: rotate(-8deg);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: .2em 0;
+    position: relative;
+  }
+  header p {
+    max-width: 780px;
+    margin: 0 auto;
+    opacity: .92;
+    position: relative;
+  }
+  .badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.12);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: .85rem;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .tag {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .tag.gold {
+    background: var(--gold);
+    color: var(--blue-dark);
+  }
+  .tag.green {
+    background: var(--green);
+    color: #fff;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin: .3em 0 .5em;
+    color: var(--blue);
+  }
+  h3 {
+    margin: 1.2em 0 0.5em;
+    color: var(--red);
+  }
+  .sub {
+    color: var(--muted);
+    font-style: italic;
+    font-size: .95rem;
+    margin-bottom: 1rem;
+  }
+  .tip {
+    background: #fff7e0;
+    border-left: 5px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .tip strong {
+    color: var(--blue);
+  }
+  .grammar-box {
+    background: #eef8f2;
+    border-left: 5px solid var(--green);
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .audio-box {
+    background: linear-gradient(135deg, #eef2f8, #fff);
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    padding: 18px;
+    margin: 14px 0;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .play-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: .95rem;
+  }
+  .play-btn:hover { background: var(--red-dark); }
+  .speak-btn {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .8rem;
+  }
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .image-item {
+    background: #f0f4fa;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .image-item.selected {
+    background: var(--blue);
+    color: white;
+    border-color: var(--blue-dark);
+  }
+  .image-item .emoji {
+    font-size: 2.5rem;
+    display: block;
+  }
+  .image-item .label {
+    font-size: .75rem;
+    margin-top: 6px;
+  }
+  .q {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+    border-left: 4px solid var(--blue);
+  }
+  .q .qtext {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: var(--blue);
+  }
+  .q input[type="text"] {
+    padding: 7px 10px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: .95rem;
+    min-width: 200px;
+    width: auto;
+  }
+  .q input.correct {
+    border-color: #1e6b1e;
+    background: #e6f3e6;
+  }
+  .q input.wrong {
+    border-color: var(--red);
+    background: #fbeef0;
+  }
+  .check-btn, .reveal-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .reveal-btn {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+  }
+  .reveal-btn:hover {
+    background: var(--blue);
+    color: #fff;
+  }
+  .score {
+    margin-top: 12px;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 1.1rem;
+  }
+  .inline-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+  }
+  .person-card {
+    background: #f8f9fc;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 12px 0;
+    border-left: 5px solid var(--red);
+  }
+  .reflexive-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .reflexive-table th {
+    background: var(--blue);
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+  }
+  .reflexive-table td {
+    border: 1px solid var(--border);
+    padding: 10px;
+  }
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: .9rem;
+    border-top: 1px solid var(--border);
+  }
+  .word-count {
+    font-size: .8rem;
+    color: var(--muted);
+    margin-top: 5px;
+  }
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: .95rem;
+    resize: vertical;
+  }
+  @media (max-width: 680px) {
+    .image-grid { grid-template-columns: repeat(4, 1fr); }
+    .q input[type="text"] { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">🏖️ MODULE 5</span>
+  <h1>Verbes pronominaux & vacances</h1>
+  <p>Se reposer, se lever, se baigner, s'amuser — Parler de ses vacances</p>
+  <div class="badges">
+    <span class="badge">Réflexive verbs</span>
+    <span class="badge">Vacances à la plage & au ski</span>
+    <span class="badge">Production écrite</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ GRAMMAIRE : VERBES PRONOMINAUX ============ -->
+<section>
+  <span class="tag green">📚 Grammaire</span>
+  <h2>Les verbes pronominaux</h2>
+  <div class="grammar-box">
+    <p><strong>Les verbes pronominaux incluent un pronom réfléchi (me, te, se, nous, vous, se) :</strong></p>
+    <table class="reflexive-table">
+      <thead><tr><th>Pronom</th><th>Exemple</th><th>Traduction</th></tr></thead>
+      <tbody>
+        <tr><td>je me</td><td>Je me repose.</td><td>I rest</td></tr>
+        <tr><td>tu te</td><td>Tu te lèves.</td><td>You get up</td></tr>
+        <tr><td>il/elle/on se</td><td>Elle se baigne.</td><td>She bathes</td></tr>
+        <tr><td>nous nous</td><td>Nous nous amusons.</td><td>We have fun</td></tr>
+        <tr><td>vous vous</td><td>Vous vous habillez.</td><td>You get dressed</td></tr>
+        <tr><td>ils/elles se</td><td>Ils se couchent tard.</td><td>They go to bed late</td></tr>
+      </tbody>
+    </table>
+    <button class="speak-btn" onclick="speakFR('Je me repose, tu te lèves, il se baigne, nous nous amusons, vous vous habillez, ils se couchent.')">🔊 Écouter les verbes</button>
+  </div>
+</section>
+
+<!-- ============ EXERCICE 1 : RELIER VERBES AUX IMAGES ============ -->
+<section>
+  <span class="tag gold">🔗 Exercice 1</span>
+  <h2>Reliez les verbes pronominaux (1–8) aux images</h2>
+  <p class="sub">Lisez les textes de Jeanne et Thomas, puis cliquez sur l'image correspondant à chaque verbe.</p>
+
+  <div class="person-card">
+    <strong>🧒 Jeanne (vacances à la plage) :</strong><br>
+    Moi, en vacances, <strong>1 je me repose</strong>, c’est le plus important. <strong>2 Je me lève tard</strong>, je me prépare, je vais à la plage. <strong>3 Je me baigne dans la mer</strong>, <strong>4 je me promène</strong> un petit peu, je rentre à l’hôtel, <strong>5 je m’habille</strong>, je sors au restaurant … et voilà! Du coup, j’emporte avec moi un maillot de bain, des tongs, des lunettes de soleil, de la crème solaire, mon smartphone avec mes écouteurs, et beaucoup de bouquins.
+    <button class="speak-btn" onclick="speakFR('Je me repose, je me lève tard, je me baigne, je me promène, je m\'habille.')">🔊 Écouter Jeanne</button>
+  </div>
+
+  <div class="person-card">
+    <strong>⛷️ Thomas (vacances au ski) :</strong><br>
+    Moi, je pars souvent avec mon frère faire du ski dans les Alpes. On ne s’ennuie jamais en vacances, c’est tout ce qui compte! <strong>6 On se lève tôt</strong>, <strong>7 on se couche tard</strong>, et entre temps on fait du sport toute la journée. <strong>8 On s’amuse et on ne s’arrête pas!</strong> Alors, moi, quand je pars en vacances, j’emporte des gants, des bottes et une veste de ski.
+    <button class="speak-btn" onclick="speakFR('On se lève tôt, on se couche tard, on s\'amuse.')">🔊 Écouter Thomas</button>
+  </div>
+
+  <div class="image-grid" id="verbImages">
+    <div class="image-item" data-verb="je me repose"><span class="emoji">😴🛌</span><div class="label">se reposer</div></div>
+    <div class="image-item" data-verb="je me lève"><span class="emoji">⏰🛏️</span><div class="label">se lever (tard)</div></div>
+    <div class="image-item" data-verb="je me baigne"><span class="emoji">🏊‍♀️🌊</span><div class="label">se baigner</div></div>
+    <div class="image-item" data-verb="je me promène"><span class="emoji">🚶‍♀️🌴</span><div class="label">se promener</div></div>
+    <div class="image-item" data-verb="je m'habille"><span class="emoji">👗👔</span><div class="label">s'habiller</div></div>
+    <div class="image-item" data-verb="on se lève tôt"><span class="emoji">🌅⛷️</span><div class="label">se lever tôt</div></div>
+    <div class="image-item" data-verb="on se couche tard"><span class="emoji">🌙😴</span><div class="label">se coucher tard</div></div>
+    <div class="image-item" data-verb="on s'amuse"><span class="emoji">🎉⛷️</span><div class="label">s'amuser</div></div>
+  </div>
+
+  <div id="verbMatch">
+    <div class="q"><p class="qtext">Verbe 1 (je me repose) → Image:</p><input type="text" id="v1" data-ans="se reposer" placeholder="ex: se reposer"></div>
+    <div class="q"><p class="qtext">Verbe 2 (je me lève tard) → Image:</p><input type="text" id="v2" data-ans="se lever" placeholder="ex: se lever"></div>
+    <div class="q"><p class="qtext">Verbe 3 (je me baigne) → Image:</p><input type="text" id="v3" data-ans="se baigner" placeholder="ex: se baigner"></div>
+    <div class="q"><p class="qtext">Verbe 4 (je me promène) → Image:</p><input type="text" id="v4" data-ans="se promener" placeholder="ex: se promener"></div>
+    <div class="q"><p class="qtext">Verbe 5 (je m'habille) → Image:</p><input type="text" id="v5" data-ans="s'habiller" placeholder="ex: s'habiller"></div>
+    <div class="q"><p class="qtext">Verbe 6 (on se lève tôt) → Image:</p><input type="text" id="v6" data-ans="se lever tôt" placeholder="ex: se lever tôt"></div>
+    <div class="q"><p class="qtext">Verbe 7 (on se couche tard) → Image:</p><input type="text" id="v7" data-ans="se coucher tard" placeholder="ex: se coucher tard"></div>
+    <div class="q"><p class="qtext">Verbe 8 (on s'amuse) → Image:</p><input type="text" id="v8" data-ans="s'amuser" placeholder="ex: s'amuser"></div>
+  </div>
+  <button class="check-btn" onclick="checkVerbs()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealVerbs()">Voir les réponses</button>
+  <div class="score" id="scoreVerbs"></div>
+</section>
+
+<!-- ============ EXERCICE 2 : COMPLÉTER LES PHRASES ============ -->
+<section>
+  <span class="tag green">✏️ Exercice 2</span>
+  <h2>Complétez les phrases avec les mots des textes</h2>
+  <div id="fillBlanks">
+    <div class="q"><p class="qtext">1. Quand je me baigne, je mets ______.</p><input type="text" id="f1" data-ans="un maillot de bain" style="width:250px"></div>
+    <div class="q"><p class="qtext">2. Avant de me bronzer, je mets ______.</p><input type="text" id="f2" data-ans="de la crème solaire" style="width:250px"></div>
+    <div class="q"><p class="qtext">3. Quand je ne vois pas bien à cause du soleil, je mets ______.</p><input type="text" id="f3" data-ans="des lunettes de soleil" style="width:250px"></div>
+    <div class="q"><p class="qtext">4. Quand je veux me relaxer avec de la musique, je mets ______.</p><input type="text" id="f4" data-ans="mes écouteurs" style="width:200px"></div>
+    <div class="q"><p class="qtext">5. J’aime lire, j’emporte donc beaucoup de ______.</p><input type="text" id="f5" data-ans="bouquins" style="width:200px"></div>
+    <div class="q"><p class="qtext">6. Quand je vais à la plage, je mets des ______ ou des sandales.</p><input type="text" id="f6" data-ans="tongs" style="width:150px"></div>
+    <div class="q"><p class="qtext">7. Pour faire du ski, je mets ______, ______ et ______.</p><div class="inline-inputs"><input type="text" id="f7a" data-ans="des gants" placeholder="gants"><input type="text" id="f7b" data-ans="des bottes" placeholder="bottes"><input type="text" id="f7c" data-ans="une veste de ski" placeholder="veste de ski"></div></div>
+  </div>
+  <button class="check-btn" onclick="checkFillBlanks()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealFillBlanks()">Voir les réponses</button>
+  <div class="score" id="scoreFill"></div>
+</section>
+
+<!-- ============ EXERCICE 3 : ÉCOUTE (CAMP SOLEIL & PARIS) ============ -->
+<section>
+  <span class="tag gold">🎧 Exercice 3 · Écoutez</span>
+  <h2>Camp Soleil & Paris, la ville magique</h2>
+  <p class="sub">Écoutez et écrivez la lettre de l'activité qui n'est PAS mentionnée.</p>
+
+  <div class="audio-box">
+    <div class="info"><b>Camp Soleil</b><div class="meta">activités de vacances</div></div>
+    <button class="play-btn" onclick="playCampSoleil()">▶ Écouter Camp Soleil</button>
+  </div>
+  <div class="image-grid" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="image-item"><span class="emoji">🏊‍♂️</span><div class="label">a. nager</div></div>
+    <div class="image-item"><span class="emoji">🎨</span><div class="label">b. dessiner</div></div>
+    <div class="image-item"><span class="emoji">⚽</span><div class="label">c. jouer au foot</div></div>
+    <div class="image-item"><span class="emoji">🎭</span><div class="label">d. théâtre</div></div>
+    <div class="image-item"><span class="emoji">🏹</span><div class="label">e. tir à l'arc</div></div>
+    <div class="image-item"><span class="emoji">🚣</span><div class="label">f. canoë</div></div>
+    <div class="image-item"><span class="emoji">🎵</span><div class="label">g. chant</div></div>
+    <div class="image-item"><span class="emoji">🏕️</span><div class="label">h. camping</div></div>
+  </div>
+  <div class="q"><p class="qtext">L'activité NON mentionnée au Camp Soleil est la lettre : <input type="text" id="campNot" data-ans="b" style="width:60px"> (b. dessiner)</p></div>
+
+  <div class="audio-box" style="margin-top:20px;">
+    <div class="info"><b>Paris, la ville magique</b><div class="meta">que faire à Paris?</div></div>
+    <button class="play-btn" onclick="playParis()">▶ Écouter Paris</button>
+  </div>
+  <div class="image-grid" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="image-item"><span class="emoji">🗼</span><div class="label">i. Tour Eiffel</div></div>
+    <div class="image-item"><span class="emoji">🎨</span><div class="label">j. Louvre</div></div>
+    <div class="image-item"><span class="emoji">⛲</span><div class="label">k. Jardins</div></div>
+    <div class="image-item"><span class="emoji">🎭</span><div class="label">l. Opéra</div></div>
+  </div>
+  <div class="q"><p class="qtext">L'activité NON mentionnée à Paris est la lettre : <input type="text" id="parisNot" data-ans="l" style="width:60px"> (l. Opéra)</p></div>
+  
+  <button class="check-btn" onclick="checkListening()">Vérifier l'écoute</button>
+  <button class="reveal-btn" onclick="revealListening()">Voir les réponses</button>
+  <div class="score" id="scoreListening"></div>
+  <div class="tip"><strong>🎧 Transcription Camp Soleil :</strong> « Au Camp Soleil, on peut nager, jouer au foot, faire du théâtre, du tir à l'arc, du canoë, du chant et du camping. » (dessiner n'est pas mentionné)<br>
+  <strong>🎧 Transcription Paris :</strong> « À Paris, vous pouvez visiter la Tour Eiffel, le Louvre et les magnifiques jardins. » (l'Opéra n'est pas mentionné)</div>
+</section>
+
+<!-- ============ EXERCICE 4 : PRODUCTION ÉCRITE ============ -->
+<section>
+  <span class="tag green">✍️ Exercice 4 · Production écrite</span>
+  <h2>Imaginez que vous êtes une célébrité</h2>
+  <p class="sub">Écrivez un texte sur vos vacances (130–150 mots). Mentionnez : où, comment, avec qui, ce que vous emportez, ce qu'on peut faire (verbes pronominaux), votre opinion.</p>
+  
+  <div class="tip"><strong>Boîte à outils :</strong> On peut faire une visite de Paris, une balade en bateau, de la planche à voile, de l'escalade, du karaoké. On peut visiter les musées, aller à la plage, jouer à la pétanque.</div>
+  
+  <textarea id="celebrityHolidays" rows="10" placeholder="Exemple : Moi, en vacances, je me repose toujours dans le sud de la France. Normalement, je loge dans un hôtel de luxe. Je voyage en jet privé avec mes amis. J'emporte des lunettes de soleil, des livres et ma guitare. On peut se baigner dans la mer, se promener sur la plage et s'amuser toute la nuit. Je pense que mes vacances sont parfaites..."></textarea>
+  <div class="word-count" id="celebrityWordCount">0 mots</div>
+  
+  <button class="speak-btn" onclick="speakCelebrity()">🔊 Écouter mon texte</button>
+  <button class="reveal-btn" onclick="showCelebrityModel()">Voir un modèle</button>
+  <div id="celebrityModel" style="display:none; background:#eef2f8; padding:16px; border-radius:8px; margin-top:12px;">
+    <strong>📝 Modèle (145 mots) :</strong><br>
+    « Moi, je suis une célébrité, et normalement je passe mes vacances à Monaco, au bord de la mer. Je loge dans un palace magnifique avec vue sur la Méditerranée. Je voyage en hélicoptère avec ma famille et mes amis. J'emporte toujours des lunettes de soleil, de la crème solaire, mon smartphone et beaucoup de vêtements élégants.<br>
+    Pendant les vacances, on peut se baigner dans la mer, se promener sur le port et visiter des musées. Le matin, je me lève tard, je me repose. L'après-midi, je me baigne et je fais de la planche à voile. Le soir, je m'habille chic et je vais au restaurant. On s'amuse beaucoup et on ne s'ennuie jamais!<br>
+    Je pense que mes vacances sont extraordinaires, même si c'est un peu stressant parfois. J'adore me détendre et profiter de la vie! »
+    <button class="speak-btn" onclick="speakFR('Moi, je passe mes vacances à Monaco. Je me lève tard, je me baigne, je me promène. Je m\'habille chic. On s\'amuse beaucoup.')">🔊 Écouter</button>
+  </div>
+</section>
+
+<footer>
+  IGCSE French — Module 5 · Verbes pronominaux, vacances à la plage et au ski, production écrite 🏖️⛷️
+</footer>
+
+</main>
+
+<script>
+  // Speech synthesis
+  function speakFR(text) {
+    if (!('speechSynthesis' in window)) { alert('Audio non supporté'); return; }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR';
+    u.rate = 0.92;
+    const voices = speechSynthesis.getVoices();
+    const frVoice = voices.find(v => v.lang.startsWith('fr'));
+    if (frVoice) u.voice = frVoice;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged = () => {};
+
+  // Listening audio simulations
+  function playCampSoleil() {
+    speakFR("Au Camp Soleil, on peut nager, jouer au foot, faire du théâtre, du tir à l'arc, du canoë, du chant et du camping.");
+  }
+  function playParis() {
+    speakFR("À Paris, vous pouvez visiter la Tour Eiffel, le Louvre et les magnifiques jardins.");
+  }
+
+  // Normalize helper
+  function norm(s) {
+    return (s || '').toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ');
+  }
+
+  // Exercise 1: Match verbs to images
+  function checkVerbs() {
+    const answers = {
+      v1: "se reposer", v2: "se lever", v3: "se baigner", v4: "se promener",
+      v5: "s'habiller", v6: "se lever tôt", v7: "se coucher tard", v8: "s'amuser"
+    };
+    let total = 8, correct = 0;
+    for (let [id, expected] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      const expNorm = norm(expected);
+      if (user === expNorm || (id === 'v2' && user.includes('lever')) || (id === 'v6' && user.includes('lever tôt')) || (id === 'v7' && user.includes('coucher'))) {
+        correct++;
+        inp.classList.add('correct');
+        inp.classList.remove('wrong');
+      } else {
+        inp.classList.remove('correct');
+        inp.classList.add('wrong');
+      }
+    }
+    document.getElementById('scoreVerbs').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealVerbs() {
+    document.getElementById('v1').value = "se reposer";
+    document.getElementById('v2').value = "se lever";
+    document.getElementById('v3').value = "se baigner";
+    document.getElementById('v4').value = "se promener";
+    document.getElementById('v5').value = "s'habiller";
+    document.getElementById('v6').value = "se lever tôt";
+    document.getElementById('v7').value = "se coucher tard";
+    document.getElementById('v8').value = "s'amuser";
+    checkVerbs();
+  }
+
+  // Exercise 2: Fill blanks
+  function checkFillBlanks() {
+    const answers = {
+      f1: "un maillot de bain", f2: "de la crème solaire", f3: "des lunettes de soleil",
+      f4: "mes écouteurs", f5: "bouquins", f6: "tongs",
+      f7a: "des gants", f7b: "des bottes", f7c: "une veste de ski"
+    };
+    let total = 9, correct = 0;
+    for (let [id, expected] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      if (!inp) continue;
+      const user = norm(inp.value);
+      const expNorm = norm(expected);
+      if (user === expNorm || (id === 'f1' && user.includes('maillot')) || (id === 'f5' && user.includes('livres'))) {
+        correct++;
+        inp.classList.add('correct');
+        inp.classList.remove('wrong');
+      } else {
+        inp.classList.remove('correct');
+        inp.classList.add('wrong');
+      }
+    }
+    document.getElementById('scoreFill').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealFillBlanks() {
+    document.getElementById('f1').value = "un maillot de bain";
+    document.getElementById('f2').value = "de la crème solaire";
+    document.getElementById('f3').value = "des lunettes de soleil";
+    document.getElementById('f4').value = "mes écouteurs";
+    document.getElementById('f5').value = "bouquins";
+    document.getElementById('f6').value = "tongs";
+    document.getElementById('f7a').value = "des gants";
+    document.getElementById('f7b').value = "des bottes";
+    document.getElementById('f7c').value = "une veste de ski";
+    checkFillBlanks();
+  }
+
+  // Exercise 3: Listening
+  function checkListening() {
+    let total = 2, correct = 0;
+    const camp = document.getElementById('campNot');
+    const paris = document.getElementById('parisNot');
+    if (norm(camp.value) === 'b') { correct++; camp.classList.add('correct'); } else { camp.classList.add('wrong'); }
+    if (norm(paris.value) === 'l') { correct++; paris.classList.add('correct'); } else { paris.classList.add('wrong'); }
+    document.getElementById('scoreListening').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealListening() {
+    document.getElementById('campNot').value = "b";
+    document.getElementById('parisNot').value = "l";
+    checkListening();
+  }
+
+  // Production écrite word counter
+  const celebTa = document.getElementById('celebrityHolidays');
+  const celebCount = document.getElementById('celebrityWordCount');
+  celebTa.addEventListener('input', function() {
+    const words = celebTa.value.trim().split(/\s+/).filter(Boolean).length;
+    celebCount.innerText = `${words} mots`;
+    if (words >= 130 && words <= 160) celebCount.style.color = '#1e6b1e';
+    else celebCount.style.color = 'var(--muted)';
+  });
+  function speakCelebrity() {
+    const text = celebTa.value.trim();
+    if (text) speakFR(text);
+    else speakFR("Je n'ai pas encore écrit mon texte.");
+  }
+  function showCelebrityModel() {
+    const model = document.getElementById('celebrityModel');
+    model.style.display = model.style.display === 'none' ? 'block' : 'none';
+  }
+  
+  window.addEventListener('load', () => {
+    if (celebTa.value.trim() === '') celebCount.innerText = '0 mots';
+  });
+</script>
+</body>
+</html>

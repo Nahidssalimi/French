@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>7 — Au Restaurant | GCSE / IGCSE French</title>
+<style>
+:root{
+  --marine:#0B2545;
+  --marine-light:#13315C;
+  --burgundy:#8B1E3F;
+  --burgundy-light:#B83A5C;
+  --cream:#FAF4EC;
+  --gold:#D4A24C;
+  --text:#1B1B1B;
+  --muted:#5A5A5A;
+  --shadow:0 6px 18px rgba(11,37,69,.12);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--cream);color:var(--text);line-height:1.6}
+header{background:linear-gradient(135deg,var(--marine),var(--marine-light));color:#fff;padding:2.2rem 1.2rem;text-align:center;box-shadow:var(--shadow)}
+header h1{margin:0;font-size:2rem;letter-spacing:.5px}
+header .tag{display:inline-block;margin-top:.6rem;background:var(--burgundy);padding:.35rem .9rem;border-radius:20px;font-size:.85rem}
+.container{max-width:1100px;margin:0 auto;padding:1.5rem 1.1rem}
+section{background:#fff;border-radius:14px;padding:1.4rem 1.3rem;margin-bottom:1.6rem;box-shadow:var(--shadow);border-left:5px solid var(--marine)}
+section h2{margin-top:0;color:var(--marine);border-bottom:2px solid var(--burgundy);padding-bottom:.5rem;font-size:1.35rem}
+section h3{color:var(--burgundy);margin-top:1.2rem}
+.objectives{background:linear-gradient(135deg,#FAF4EC,#fff);border-left:5px solid var(--gold)}
+.objectives ul{margin:.4rem 0;padding-left:1.3rem}
+.objectives li{margin:.3rem 0}
+.audio-btn{background:var(--marine);color:#fff;border:none;padding:.5rem .9rem;border-radius:8px;cursor:pointer;font-size:.9rem;margin:.3rem .3rem .3rem 0;transition:.2s}
+.audio-btn:hover{background:var(--burgundy)}
+.audio-btn.playing{background:var(--burgundy);animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.75}}
+.subtitle-box{background:#F1F4F9;border-left:4px solid var(--gold);padding:.9rem 1rem;border-radius:8px;margin:.7rem 0;min-height:40px;font-style:italic;color:var(--marine-light)}
+.subtitle-box .word.active{background:var(--gold);color:var(--marine);padding:1px 4px;border-radius:4px;font-weight:bold}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.7rem;margin-top:1rem}
+.vocab-card{background:linear-gradient(135deg,#fff,#F8EFE6);border:2px solid var(--marine);border-radius:10px;padding:.7rem;text-align:center;cursor:pointer;transition:.2s;font-weight:500}
+.vocab-card:hover{transform:translateY(-3px);background:var(--burgundy);color:#fff;border-color:var(--burgundy)}
+.vocab-card .fr{font-weight:bold;color:var(--marine);display:block;font-size:1rem}
+.vocab-card:hover .fr{color:#fff}
+.vocab-card .en{font-size:.82rem;color:var(--muted);display:block;margin-top:.2rem}
+.vocab-card:hover .en{color:#FFE6CC}
+.exercise{background:#FAF6F0;border:2px dashed var(--burgundy);border-radius:10px;padding:1rem;margin:1rem 0}
+.question{background:#fff;border-radius:8px;padding:.8rem;margin:.6rem 0;border-left:4px solid var(--marine)}
+.question p{margin:.3rem 0}
+.options{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
+.option{background:#fff;border:2px solid var(--marine);padding:.4rem .8rem;border-radius:6px;cursor:pointer;transition:.2s;font-size:.9rem}
+.option:hover{background:var(--marine);color:#fff}
+.option.correct{background:#2E7D32;color:#fff;border-color:#2E7D32}
+.option.wrong{background:#C62828;color:#fff;border-color:#C62828}
+select,input[type=text],textarea{font-family:inherit;font-size:.95rem;padding:.45rem .55rem;border:2px solid var(--marine);border-radius:6px;background:#fff}
+select:focus,input:focus,textarea:focus{outline:none;border-color:var(--burgundy)}
+.check-btn{background:var(--burgundy);color:#fff;border:none;padding:.55rem 1.2rem;border-radius:8px;cursor:pointer;font-weight:bold;margin-top:.8rem;transition:.2s}
+.check-btn:hover{background:var(--burgundy-light)}
+.feedback{margin-top:.6rem;font-weight:bold;padding:.5rem;border-radius:6px}
+.feedback.ok{background:#E8F5E9;color:#2E7D32}
+.feedback.bad{background:#FFEBEE;color:#C62828}
+table{width:100%;border-collapse:collapse;margin-top:.8rem;background:#fff}
+table th,table td{border:1px solid var(--marine);padding:.55rem;text-align:left;vertical-align:top}
+table th{background:var(--marine);color:#fff}
+.grammar-box{background:linear-gradient(135deg,#FDF6E3,#FAEFD7);border:2px solid var(--gold);border-radius:10px;padding:1rem;margin:1rem 0}
+.grammar-box h3{color:var(--burgundy);margin-top:0}
+.grammar-box code{background:#fff;padding:.15rem .4rem;border-radius:4px;color:var(--marine);font-weight:bold}
+.culture-box{background:linear-gradient(135deg,#F0E6EE,#F9F0F4);border-left:5px solid var(--burgundy);padding:1rem;border-radius:8px;margin:1rem 0}
+.passage{background:#fff;border:1px solid #ddd;border-radius:8px;padding:1rem;margin:.6rem 0;line-height:1.8}
+.review{background:#fff;border-radius:10px;padding:1rem;margin:.8rem 0;border-left:5px solid var(--marine)}
+.review.bad{border-left-color:var(--burgundy)}
+.review h4{margin:.2rem 0;color:var(--marine)}
+.review.bad h4{color:var(--burgundy)}
+textarea{width:100%;min-height:130px;resize:vertical}
+.word-count{margin-top:.4rem;font-size:.85rem;color:var(--muted)}
+details{background:#FAF6F0;border-radius:8px;padding:.6rem .8rem;margin:.5rem 0;border:1px solid var(--burgundy-light)}
+summary{cursor:pointer;font-weight:bold;color:var(--burgundy)}
+footer{text-align:center;padding:1.5rem;color:var(--muted);font-size:.85rem}
+@media(max-width:600px){header h1{font-size:1.5rem}section{padding:1rem}}
+</style>
+</head>
+<body>
+<header>
+  <h1>7 — Au Restaurant</h1>
+  <span class="tag">E5 FOOD AND DRINK · A3 TRAVEL AND TOURISM</span>
+</header>
+<div class="container">
+
+<section class="objectives">
+  <h2>🎯 Objectifs d'apprentissage</h2>
+  <ul>
+    <li>Commander et donner son avis dans un restaurant</li>
+    <li>Décrire l'ambiance, le service et les prix</li>
+    <li>Utiliser <strong>en + le participe présent</strong> ("on / while doing something")</li>
+  </ul>
+</section>
+
+<section>
+  <h2>📚 Vocabulaire essentiel</h2>
+  <p>Cliquez sur une carte pour entendre le mot.</p>
+  <div class="vocab-grid" id="vocabGrid"></div>
+</section>
+
+<section>
+  <h2>🎧 Exercice 3 — Écoutez et choisissez la bonne fin de chaque phrase</h2>
+  <p>Une famille au restaurant. Écoutez chaque mini-dialogue puis cliquez sur la bonne réponse.</p>
+
+  <div class="question" data-correct="c">
+    <p><strong>1.</strong> Les clients veulent une table …
+      <button class="audio-btn" onclick="speakLine(this,'Bonsoir. Avez-vous une table pour quatre personnes près de la fenêtre, s\\'il vous plaît ?')">▶ Écouter</button>
+    </p>
+    <div class="subtitle-box"></div>
+    <div class="options">
+      <span class="option" data-v="a">a) en terrasse</span>
+      <span class="option" data-v="b">b) à l'intérieur</span>
+      <span class="option" data-v="c">c) près de la fenêtre</span>
+    </div>
+  </div>
+
+  <div class="question" data-correct="c">
+    <p><strong>2.</strong> Le père demande …
+      <button class="audio-btn" onclick="speakLine(this,'Pour moi, une bouteille d\\'eau minérale pétillante, s\\'il vous plaît.')">▶ Écouter</button>
+    </p>
+    <div class="subtitle-box"></div>
+    <div class="options">
+      <span class="option" data-v="a">a) une bouteille d'Orangina</span>
+      <span class="option" data-v="b">b) une bouteille de coca</span>
+      <span class="option" data-v="c">c) une bouteille d'eau minérale pétillante</span>
+    </div>
+  </div>
+
+  <div class="question" data-correct="b">
+    <p><strong>3.</strong> La fille demande …
+      <button class="audio-btn" onclick="speakLine(this,'Est-ce que vous avez un plat végétarien, s\\'il vous plaît ? Je ne mange pas de viande.')">▶ Écouter</button>
+    </p>
+    <div class="subtitle-box"></div>
+    <div class="options">
+      <span class="option" data-v="a">a) plus de pain</span>
+      <span class="option" data-v="b">b) un plat végétarien</span>
+      <span class="option" data-v="c">c) une limonade</span>
+    </div>
+  </div>
+
+  <div class="question" data-correct="a">
+    <p><strong>4.</strong> Le garçon n'a pas de …
+      <button class="audio-btn" onclick="speakLine(this,'Excusez-moi monsieur, je n\\'ai pas de couteau pour couper ma viande.')">▶ Écouter</button>
+    </p>
+    <div class="subtitle-box"></div>
+    <div class="options">
+      <span class="option" data-v="a">a) couteau</span>
+      <span class="option" data-v="b">b) fourchette</span>
+      <span class="option" data-v="c">c) verre</span>
+    </div>
+  </div>
+
+  <div class="question" data-correct="a">
+    <p><strong>5.</strong> La mère cherche …
+      <button class="audio-btn" onclick="speakLine(this,'Pardon, où se trouvent les toilettes, s\\'il vous plaît ?')">▶ Écouter</button>
+    </p>
+    <div class="subtitle-box"></div>
+    <div class="options">
+      <span class="option" data-v="a">a) les toilettes</span>
+      <span class="option" data-v="b">b) sa serviette</span>
+      <span class="option" data-v="c">c) son sac à main</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>📝 Exercice 4 — Lisez les avis. Complétez le tableau en français.</h2>
+
+  <div class="review">
+    <h4>Yann Q 👍
+      <button class="audio-btn" onclick="speakLine(this,document.getElementById('yann').innerText)">▶ Écouter</button>
+    </h4>
+    <div class="subtitle-box"></div>
+    <p id="yann">Cuisine française traditionnelle dans un beau cadre. Les prix n'étaient pas excessifs et l'accueil était très chaleureux. Nous avons demandé une table à côté de la fenêtre pour profiter de la vue, et cela n'a posé aucun problème. L'ambiance était vraiment agréable. En partant, nous avons laissé un pourboire pour la serveuse, qui était très attentionnée. À recommander ! J'y retournerai avec plaisir.</p>
+  </div>
+
+  <div class="review bad">
+    <h4>Catherine R 👎
+      <button class="audio-btn" onclick="speakLine(this,document.getElementById('cath').innerText)">▶ Écouter</button>
+    </h4>
+    <div class="subtitle-box"></div>
+    <p id="cath">Service attentionné ? Service franchement médiocre, à mon avis. En arrivant, il n'y avait personne pour nous accueillir et nous avons dû attendre plus de cinq minutes. Puis en mangeant, j'ai trouvé un cheveu dans mon plat. Beurk ! En plus, l'atmosphère était super bruyante : des enfants hurlaient partout. Finalement, en regardant l'addition, nous avons eu un choc, qu'est-ce que c'était cher ! Je n'y retournerai jamais !</p>
+  </div>
+
+  <div class="exercise">
+    <table>
+      <thead><tr><th></th><th>Prix</th><th>Service (détails)</th><th>Ambiance</th></tr></thead>
+      <tbody>
+        <tr>
+          <th>Yann Q</th>
+          <td><input type="text" data-ans="raisonnables|pas excessifs|corrects" placeholder="…"></td>
+          <td><input type="text" data-ans="chaleureux|attentionné|attentionnée" placeholder="…"></td>
+          <td><input type="text" data-ans="agréable|vraiment agréable" placeholder="…"></td>
+        </tr>
+        <tr>
+          <th>Catherine R</th>
+          <td><input type="text" data-ans="cher|chers|trop cher" placeholder="…"></td>
+          <td><input type="text" data-ans="médiocre|mauvais|lent" placeholder="…"></td>
+          <td><input type="text" data-ans="bruyante|super bruyante" placeholder="…"></td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="check-btn" onclick="checkTable(this)">Vérifier</button>
+    <div class="feedback"></div>
+  </div>
+</section>
+
+<section>
+  <div class="grammar-box">
+    <h3>📖 Grammaire — <em>En</em> + le participe présent</h3>
+    <p>Utilisez <strong>en</strong> + le participe présent pour dire <em>'on'</em> ou <em>'while'</em> doing something.</p>
+    <p>Pour former le participe présent : prenez la forme <strong>nous</strong> du présent, enlevez <code>-ons</code> et ajoutez <code>-ant</code>.</p>
+    <table>
+      <tr><th>Verbe (nous)</th><th>Participe présent</th><th>Exemple</th></tr>
+      <tr><td>nous arrivons</td><td><code>en arrivant</code></td><td>En arrivant, nous avons choisi notre table.</td></tr>
+      <tr><td>nous partons</td><td><code>en partant</code></td><td>En partant, ils ont laissé un pourboire.</td></tr>
+      <tr><td>nous mangeons</td><td><code>en mangeant</code></td><td>L'appétit vient en mangeant !</td></tr>
+    </table>
+  </div>
+
+  <h3>✍️ Mini-exercice — Formez le participe présent</h3>
+  <div class="exercise">
+    <p>1. nous regardons → en <input type="text" data-ans="regardant" style="width:140px"></p>
+    <p>2. nous finissons → en <input type="text" data-ans="finissant" style="width:140px"></p>
+    <p>3. nous buvons → en <input type="text" data-ans="buvant" style="width:140px"></p>
+    <p>4. nous faisons → en <input type="text" data-ans="faisant" style="width:140px"></p>
+    <p>5. nous choisissons → en <input type="text" data-ans="choisissant" style="width:160px"></p>
+    <button class="check-btn" onclick="checkInputs(this)">Vérifier</button>
+    <div class="feedback"></div>
+  </div>
+</section>
+
+<section>
+  <h2>🍜 Exercice 5 — Trois spécialités vietnamiennes</h2>
+  <button class="audio-btn" onclick="speakLine(this,document.getElementById('vietPassage').innerText)">▶ Écouter le passage</button>
+  <div class="subtitle-box"></div>
+  <div class="passage" id="vietPassage">
+    <p><strong>Le Pho :</strong> la célèbre soupe vietnamienne. Dégustez-la avec des morceaux de bœuf, de poulet ou avec des fruits de mer.</p>
+    <p><strong>Le Mien Xao :</strong> vermicelles cuits une première fois et puis sautés au wok. Le Mien Xao s'accompagne de différentes viandes ou de légumes.</p>
+    <p><strong>Les nems :</strong> rouleaux frits qui contiennent du poulet, des crevettes, du bœuf ou des légumes.</p>
+  </div>
+
+  <h3>💬 À deux — Préparez une réponse aux questions</h3>
+  <ol>
+    <li>Que choisirais-tu, si tu étais dans un restaurant vietnamien ? Opinion ?</li>
+    <li>As-tu déjà mangé dans un restaurant étranger ?</li>
+    <li>C'était comment ?</li>
+  </ol>
+
+  <details>
+    <summary>💡 Modèle de réponse</summary>
+    <p>Si j'étais dans un restaurant vietnamien, je choisirais le Pho au poulet parce que j'adore les soupes chaudes et épicées. Oui, l'année dernière, j'ai mangé dans un restaurant japonais avec ma famille pour fêter l'anniversaire de mon père. C'était fantastique ! L'ambiance était calme, le service rapide et les sushis étaient délicieux. En sortant, nous avons dit que nous reviendrions bientôt.</p>
+  </details>
+</section>
+
+<section>
+  <h2>✏️ Exercice 6 — Écrivez un avis (60–75 mots)</h2>
+  <p>Vous écrivez un avis pour un forum en ligne au sujet d'un restaurant où vous avez mangé. Vous devez employer tous les mots ci-dessous :</p>
+  <p><strong>menu — opinion — service — ambiance</strong></p>
+  <p>💡 Utilisez <em>en</em> + participe présent si possible.<br><em>En arrivant au restaurant, …</em></p>
+  <div class="exercise">
+    <textarea id="avis" oninput="countWords()" placeholder="En arrivant au restaurant Le Petit Bistro, j'ai tout de suite remarqué l'ambiance…"></textarea>
+    <div class="word-count" id="wc">0 mots (objectif : 60–75)</div>
+  </div>
+
+  <details>
+    <summary>💡 Modèle de réponse</summary>
+    <p>En arrivant au restaurant Le Petit Bistro, j'ai été impressionné par l'ambiance chaleureuse et la décoration moderne. Le menu était varié et pas trop cher : j'ai choisi un steak-frites avec une salade. Le service était rapide et la serveuse très polie. Mon opinion ? C'était excellent ! En partant, nous avons laissé un bon pourboire. Je recommande ce restaurant à tous mes amis !</p>
+  </details>
+</section>
+
+<section class="culture-box">
+  <h3>🇫🇷 Le saviez-vous ?</h3>
+  <p>En France, le <strong>pourboire</strong> n'est pas obligatoire car le service est déjà inclus dans l'addition (<em>« service compris »</em>). Cependant, si vous êtes satisfait, il est de coutume de laisser quelques euros sur la table pour remercier le serveur ou la serveuse.</p>
+</section>
+
+<footer>GCSE / IGCSE French — Au Restaurant · Conçu pour apprendre, pratiquer et briller.</footer>
+</div>
+
+<script>
+const vocab = [
+  ['une table','a table'],['la terrasse','the terrace'],['la carte','the menu'],
+  ['le menu','set menu'],['l\'addition','the bill'],['le pourboire','the tip'],
+  ['le serveur','waiter'],['la serveuse','waitress'],['commander','to order'],
+  ['une entrée','a starter'],['un plat principal','main course'],['un dessert','a dessert'],
+  ['l\'eau pétillante','sparkling water'],['un couteau','a knife'],['une fourchette','a fork'],
+  ['une cuillère','a spoon'],['un verre','a glass'],['une serviette','a napkin'],
+  ['l\'ambiance','the atmosphere'],['chaleureux','warm/welcoming'],['bruyant','noisy'],
+  ['médiocre','mediocre'],['délicieux','delicious'],['recommander','to recommend']
+];
+const grid=document.getElementById('vocabGrid');
+vocab.forEach(([fr,en])=>{
+  const c=document.createElement('div');
+  c.className='vocab-card';
+  c.innerHTML=`<span class="fr">${fr}</span><span class="en">${en}</span>`;
+  c.onclick=()=>speak(fr);
+  grid.appendChild(c);
+});
+
+function speak(text){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang='fr-FR';u.rate=.9;
+  window.speechSynthesis.speak(u);
+}
+
+function speakLine(btn,text){
+  if(!window.speechSynthesis)return;
+  window.speechSynthesis.cancel();
+  document.querySelectorAll('.audio-btn.playing').forEach(b=>b.classList.remove('playing'));
+  btn.classList.add('playing');
+  const box=btn.parentElement.parentElement.querySelector('.subtitle-box')||btn.parentElement.querySelector('.subtitle-box');
+  const words=text.split(/\s+/);
+  if(box)box.innerHTML=words.map((w,i)=>`<span class="word" data-i="${i}">${w}</span>`).join(' ');
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang='fr-FR';u.rate=.85;
+  let idx=0;
+  u.onboundary=(e)=>{
+    if(e.name!=='word'||!box)return;
+    box.querySelectorAll('.word').forEach(w=>w.classList.remove('active'));
+    const w=box.querySelector(`[data-i="${idx}"]`);
+    if(w)w.classList.add('active');
+    idx++;
+  };
+  u.onend=()=>{btn.classList.remove('playing');if(box)box.querySelectorAll('.word').forEach(w=>w.classList.remove('active'));};
+  window.speechSynthesis.speak(u);
+}
+
+document.querySelectorAll('.question').forEach(q=>{
+  const correct=q.dataset.correct;
+  q.querySelectorAll('.option').forEach(o=>{
+    o.onclick=()=>{
+      q.querySelectorAll('.option').forEach(x=>x.classList.remove('correct','wrong'));
+      if(o.dataset.v===correct)o.classList.add('correct');
+      else{o.classList.add('wrong');q.querySelector(`[data-v="${correct}"]`).classList.add('correct');}
+    };
+  });
+});
+
+function norm(s){return s.toLowerCase().trim().replace(/[.,!?;:]/g,'').replace(/\s+/g,' ');}
+
+function checkInputs(btn){
+  const ex=btn.parentElement;
+  const inputs=ex.querySelectorAll('input[type=text]');
+  let ok=0;
+  inputs.forEach(i=>{
+    const ans=i.dataset.ans.split('|').map(norm);
+    if(ans.includes(norm(i.value))){i.style.background='#E8F5E9';ok++;}
+    else i.style.background='#FFEBEE';
+  });
+  const fb=ex.querySelector('.feedback');
+  fb.className='feedback '+(ok===inputs.length?'ok':'bad');
+  fb.textContent=`${ok}/${inputs.length} correct${ok===inputs.length?' — Bravo !':' — Essayez encore.'}`;
+}
+function checkTable(btn){checkInputs(btn);}
+
+function countWords(){
+  const t=document.getElementById('avis').value.trim();
+  const n=t?t.split(/\s+/).length:0;
+  const wc=document.getElementById('wc');
+  wc.textContent=`${n} mots (objectif : 60–75)`;
+  wc.style.color=(n>=60&&n<=75)?'#2E7D32':(n>75?'#C62828':'#5A5A5A');
+}
+</script>
+</body>
+</html>

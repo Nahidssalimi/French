@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Il faut que je fasse ça ! — Projets d'avenir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#7a1722; --red-dark:#4d0e16;
+  --blue:#0f2a4a; --blue-dark:#081a30;
+  --cream:#f7f1e8; --paper:#fffaf3;
+  --ink:#1a1a1a; --muted:#5c5c5c;
+  --line:#e3d9c8; --good:#1d6b3a; --bad:#8a1a1a;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.55}
+header{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-dark) 60%,var(--red-dark) 100%);color:var(--paper);padding:48px 24px;border-bottom:6px solid var(--red)}
+header .wrap{max-width:980px;margin:0 auto}
+header .tag{display:inline-block;background:var(--red);color:#fff;padding:4px 12px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;border-radius:2px;font-weight:600}
+h1{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,52px);margin:14px 0 8px;letter-spacing:.5px}
+header p.sub{margin:6px 0 0;opacity:.9;font-size:18px}
+header ul.obj{margin:18px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:10px}
+header ul.obj li{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);padding:8px 14px;border-radius:999px;font-size:14px}
+main{max-width:980px;margin:0 auto;padding:32px 24px 80px}
+section{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:28px;margin:24px 0;box-shadow:0 1px 0 rgba(0,0,0,.02)}
+section h2{font-family:'Playfair Display',serif;color:var(--red);margin:0 0 6px;font-size:26px;border-bottom:3px solid var(--blue);padding-bottom:8px;display:inline-block}
+section .hint{color:var(--muted);font-size:14px;margin:6px 0 18px}
+button.audio,button.act{cursor:pointer;font-family:inherit;font-weight:600;border-radius:6px;border:1px solid var(--blue);background:var(--blue);color:#fff;padding:8px 14px;font-size:14px;transition:.15s}
+button.audio:hover,button.act:hover{background:var(--blue-dark)}
+button.audio.red,button.act.red{background:var(--red);border-color:var(--red)}
+button.audio.red:hover,button.act.red:hover{background:var(--red-dark)}
+button.ghost{background:transparent;color:var(--blue);border:1px solid var(--blue)}
+button.ghost:hover{background:var(--blue);color:#fff}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px}
+.card.blue{border-left:5px solid var(--blue)}
+.card.red{border-left:5px solid var(--red)}
+.pill{display:inline-block;background:var(--blue);color:#fff;border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600;margin-right:6px}
+.pill.red{background:var(--red)}
+input.gap,select.gap{font-family:inherit;font-size:15px;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:#fff;min-width:120px}
+input.gap:focus,select.gap:focus{outline:2px solid var(--red);border-color:var(--red)}
+input.ok,select.ok{border-color:var(--good);background:#eaf6ee}
+input.no,select.no{border-color:var(--bad);background:#fbeaea}
+.feedback{margin-top:10px;font-weight:600}
+.feedback.ok{color:var(--good)} .feedback.no{color:var(--bad)}
+table{width:100%;border-collapse:collapse;background:#fff;margin-top:10px}
+th,td{border:1px solid var(--line);padding:10px;text-align:left;vertical-align:top;font-size:14px}
+th{background:var(--blue);color:#fff;font-weight:600}
+details{background:#fff;border:1px dashed var(--blue);border-radius:6px;padding:10px 14px;margin-top:10px}
+details summary{cursor:pointer;color:var(--blue);font-weight:600}
+.box-conj{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px}
+.box-conj h4{margin:0 0 8px;color:var(--red);font-family:'Playfair Display',serif}
+.match-item{background:#fff;border:1px solid var(--line);border-radius:6px;padding:10px;margin:6px 0;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.match-item .num{background:var(--red);color:#fff;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;flex:none}
+footer{text-align:center;padding:24px;color:var(--muted);font-size:13px}
+.speaker{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px;margin:10px 0}
+.speaker h4{margin:0 0 6px;color:var(--blue);font-family:'Playfair Display',serif}
+.sub-en{color:var(--muted);font-style:italic;font-size:14px;margin-top:6px}
+.counter{font-size:13px;color:var(--muted)}
+textarea{width:100%;min-height:140px;padding:10px;border:1px solid var(--line);border-radius:6px;font-family:inherit;font-size:15px}
+.banner{background:linear-gradient(90deg,var(--red),var(--red-dark));color:#fff;padding:10px 14px;border-radius:6px;font-weight:600}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+<span class="tag">B5 — Future Plans</span>
+<h1>Il faut que je fasse ça !</h1>
+<p class="sub">Parler de ses intentions, de ses projets d'avenir et comprendre le subjonctif.</p>
+<ul class="obj">
+<li>Parler de ses intentions et projets</li>
+<li>Utiliser avant de + infinitif / après + infinitif passé</li>
+<li>Comprendre et employer le subjonctif</li>
+</ul>
+</div>
+</header>
+
+<main>
+
+<section id="ex1">
+<h2>Exercice 1 — Phrases synonymes</h2>
+<p class="hint">Pour chaque phrase (1–6), choisissez la phrase synonyme (a–f).</p>
+<div id="ex1-grid" class="grid"></div>
+<div class="row" style="margin-top:14px">
+<button class="act" onclick="checkEx1()">Vérifier</button>
+<button class="ghost" onclick="resetEx1()">Réinitialiser</button>
+<span id="ex1-fb" class="feedback"></span>
+</div>
+</section>
+
+<section id="ex2">
+<h2>Exercice 2 — Le plan de vie de Chloé</h2>
+<p class="hint">Écoutez et lisez. Mettez les six projets dans l'ordre chronologique.</p>
+<div class="card blue">
+<button class="audio" onclick="speakFR(chloeText)">Écouter le texte</button>
+<button class="ghost" onclick="stopFR()" style="margin-left:6px">Stop</button>
+<p id="chloeP" style="margin-top:12px"></p>
+<p class="sub-en"><em>EN — Before continuing my studies, I'd like to take a gap year, travel, do voluntary work, get my degree, find a stimulating job, get married, then start a family.</em></p>
+</div>
+<p style="margin-top:18px"><strong>Mettez dans l'ordre (1 = d'abord, 6 = le plus tard) :</strong></p>
+<div id="ex2-list"></div>
+<div class="row" style="margin-top:14px">
+<button class="act" onclick="checkEx2()">Vérifier l'ordre</button>
+<span id="ex2-fb" class="feedback"></span>
+</div>
+<details><summary>Voir la correction</summary>
+<ol>
+<li>Prendre une année sabbatique</li><li>Voyager dans plusieurs pays</li>
+<li>Faire du bénévolat pendant six mois</li><li>Continuer ses études à la fac</li>
+<li>Trouver un travail stimulant / se marier</li><li>Fonder une famille</li>
+</ol></details>
+</section>
+
+<section>
+<h2>Grammaire — Avant de / Après avoir (être)</h2>
+<div class="grid g2">
+<div class="card red">
+<h4 style="margin:0;color:var(--red);font-family:'Playfair Display',serif">avant de + infinitif</h4>
+<p><strong>Avant de</strong> continuer mes études… <em>(Before continuing my studies…)</em></p>
+<button class="audio red" onclick="speakFR('Avant de continuer mes études, je voudrais voyager.')">Écouter</button>
+</div>
+<div class="card blue">
+<h4 style="margin:0;color:var(--blue);font-family:'Playfair Display',serif">après avoir / être + participe passé</h4>
+<p><strong>Après avoir</strong> pris une année sabbatique…<br><strong>Après être</strong> allé(e) à la fac…</p>
+<button class="audio" onclick="speakFR('Après avoir pris une année sabbatique, je voudrais aller à la fac. Après être rentrée en France, je ferai du bénévolat.')">Écouter</button>
+</div>
+</div>
+</section>
+
+<section id="ex3">
+<h2>Exercice 3 — Trois témoignages</h2>
+<p class="hint">Écoutez chaque personne, puis choisissez la bonne lettre.</p>
+<div id="ex3-speakers"></div>
+<div id="ex3-questions" style="margin-top:18px"></div>
+<div class="row" style="margin-top:14px">
+<button class="act" onclick="checkEx3()">Vérifier</button>
+<span id="ex3-fb" class="feedback"></span>
+</div>
+</section>
+
+<section>
+<h2>Boîte à phrases — Parler de l'avenir</h2>
+<div class="grid g3">
+<div class="card blue"><strong>Quand ?</strong><br>Avant de continuer mes études,<br>Après avoir terminé mes examens,<br>Après avoir quitté le collège,<br>Plus tard / Un jour…</div>
+<div class="card red"><strong>Vouloir / espérer</strong><br>je veux / j'ai envie de<br>j'aimerais / je préférerais<br>j'espère / j'ai l'intention de<br>mon but est de…</div>
+<div class="card blue"><strong>Refuser</strong><br>je ne voudrais pas<br>je n'ai aucune intention de…</div>
+<div class="card red"><strong>Quoi ?</strong><br>aller à la fac • entrer en apprentissage • faire du bénévolat • prendre une année sabbatique • faire le tour du monde • me marier • m'installer avec mon mari/ma femme • fonder une famille</div>
+</div>
+</section>
+
+<section>
+<h2>Exercice 4 — Sondage en classe</h2>
+<p class="hint">Posez la question à cinq camarades.</p>
+<div class="banner">Qu'est-ce que tu voudrais faire plus tard ?</div>
+<table style="margin-top:12px">
+<thead><tr><th>Nom</th><th>Projet d'avenir</th></tr></thead>
+<tbody id="ex4tbody"></tbody>
+</table>
+</section>
+
+<section id="ex5">
+<h2>Exercice 5 — Le subjonctif (lecture & tableau)</h2>
+<div class="speaker">
+<h4>Gaël, 17 ans</h4>
+<button class="audio" onclick="speakFR(gaelText)">Écouter</button>
+<p id="gaelP" style="margin-top:10px"></p>
+<p>— Une année sabbatique ? Non ! On veut que tu <strong>ailles</strong> à la fac !<br>— Il faut que tu <strong>finisses</strong> tes études !</p>
+</div>
+<div class="speaker">
+<h4>Marc-Antoine, 16 ans</h4>
+<button class="audio red" onclick="speakFR(marcText)">Écouter</button>
+<p id="marcP" style="margin-top:10px"></p>
+</div>
+<p style="margin-top:18px"><strong>Tableau : verbes au subjonctif → infinitif</strong></p>
+<table><thead><tr><th>Subjonctif</th><th>Infinitif</th></tr></thead><tbody id="ex5-tbody"></tbody></table>
+<div class="row" style="margin-top:14px">
+<button class="act" onclick="checkEx5()">Vérifier</button>
+<button class="ghost" onclick="showEx5()">Afficher les réponses</button>
+<span id="ex5-fb" class="feedback"></span>
+</div>
+</section>
+
+<section id="ex6">
+<h2>Exercice 6 — Deux réponses pour chaque problème</h2>
+<div class="grid g2">
+<div class="card blue"><strong>Gaël</strong><p>Choisissez deux :</p>
+<label><input type="checkbox" data-gael="a"> a</label>
+<label style="margin-left:14px"><input type="checkbox" data-gael="b"> b</label>
+<label style="margin-left:14px"><input type="checkbox" data-gael="c"> c</label>
+<label style="margin-left:14px"><input type="checkbox" data-gael="d"> d</label>
+</div>
+<div class="card red"><strong>Marc-Antoine</strong><p>Choisissez deux :</p>
+<label><input type="checkbox" data-marc="a"> a</label>
+<label style="margin-left:14px"><input type="checkbox" data-marc="b"> b</label>
+<label style="margin-left:14px"><input type="checkbox" data-marc="c"> c</label>
+<label style="margin-left:14px"><input type="checkbox" data-marc="d"> d</label>
+</div>
+</div>
+<div style="margin-top:12px">
+<p><strong>a.</strong> Il faut que tu sois réaliste. Une formation professionnelle est plus sécurisante.</p>
+<p><strong>b.</strong> Les études sont plus importantes. Il faut que tu fasses la licence d'abord.</p>
+<p><strong>c.</strong> Le travail volontaire vaut le coup. Essaie de convaincre tes parents.</p>
+<p><strong>d.</strong> Si tu as du talent, suis tes rêves. Ta mère ne veut pas que tu sois heureux ?</p>
+</div>
+<div class="row"><button class="act" onclick="checkEx6()">Vérifier</button><span id="ex6-fb" class="feedback"></span></div>
+<details><summary>Correction</summary><p>Gaël → <strong>b, c</strong> · Marc-Antoine → <strong>a, d</strong></p></details>
+</section>
+
+<section>
+<h2>Le subjonctif — fonctionnement</h2>
+<p>Après des expressions de souhait, nécessité, possibilité, opinion + <strong>que</strong> : <em>il faut que…</em>, <em>vouloir que…</em>.</p>
+<div class="grid g2">
+<div class="box-conj"><h4>Formation régulière — finir</h4>
+<p>3ᵉ pers. plur. : <em>ils finissent</em> → radical <strong>finiss-</strong></p>
+<table><tbody>
+<tr><td>je finisse</td><td>nous finissions</td></tr>
+<tr><td>tu finisses</td><td>vous finissiez</td></tr>
+<tr><td>il finisse</td><td>ils finissent</td></tr>
+</tbody></table>
+<button class="audio" onclick="speakFR('que je finisse, que tu finisses, qu il finisse, que nous finissions, que vous finissiez, qu ils finissent')">Écouter</button>
+</div>
+<div class="box-conj"><h4>Verbes irréguliers clés</h4>
+<table><tbody>
+<tr><td>aller</td><td>que j'<strong>aille</strong></td></tr>
+<tr><td>avoir</td><td>que j'<strong>aie</strong></td></tr>
+<tr><td>être</td><td>que je <strong>sois</strong></td></tr>
+<tr><td>faire</td><td>que je <strong>fasse</strong></td></tr>
+</tbody></table>
+<button class="audio red" onclick="speakFR(\"Il faut que j'aille à l'université. Il faut que tu aies de la patience. Il faut qu'elle soit compréhensive. Il faut que je fasse mes devoirs.\")">Écouter</button>
+</div>
+</div>
+</section>
+
+<section id="ex7">
+<h2>Exercice 7 — Production écrite (60–75 mots)</h2>
+<p class="hint">Vous devez employer <strong>tous</strong> les mots ci-dessous.</p>
+<div class="row">
+<span class="pill red">avant de + infinitif</span>
+<span class="pill">après + infinitif passé</span>
+<span class="pill red">bénévole</span>
+<span class="pill">l'université</span>
+</div>
+<textarea id="ex7-text" placeholder="Avant de continuer mes études, j'ai envie de…" oninput="countEx7()"></textarea>
+<p class="counter"><span id="ex7-count">0</span> mots — visez 60 à 75.</p>
+<details><summary>Voir un modèle de réponse</summary>
+<p><em>Avant de continuer mes études à l'université, j'ai envie de prendre une année sabbatique. J'aimerais faire le tour du monde puis devenir bénévole dans un pays d'Amérique Latine. Après avoir voyagé, je voudrais retourner en France et après être allé(e) à l'université, j'espère trouver un travail stimulant. Plus tard, il faut que je sois heureux/heureuse, donc je voudrais me marier et fonder une famille.</em></p>
+<p><strong>Astuce examen :</strong> incluez un subjonctif — <em>il faut que je fasse…</em>, <em>mes parents veulent que j'aille…</em>.</p>
+</details>
+</section>
+
+<footer>Lesson — Il faut que je fasse ça ! · French B5 Future Plans</footer>
+</main>
+
+<script>
+let voiceFR=null;
+function pickVoice(){const v=speechSynthesis.getVoices();voiceFR=v.find(x=>/fr[-_]FR/i.test(x.lang))||v.find(x=>/^fr/i.test(x.lang))||null;}
+if('speechSynthesis' in window){speechSynthesis.onvoiceschanged=pickVoice;pickVoice();}
+function speakFR(t){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='fr-FR';u.rate=.92;if(voiceFR)u.voice=voiceFR;speechSynthesis.speak(u);}
+function stopFR(){if('speechSynthesis' in window)speechSynthesis.cancel();}
+function norm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9 ]/g,'').trim();}
+
+const chloeText="Avant de continuer mes études à l'université, j'aimerais prendre une année sabbatique. Mon but est de voyager dans plusieurs pays et puis, après être rentrée en France, je voudrais faire du bénévolat pendant six mois. Ce serait une expérience très enrichissante qui me permettrait de devenir plus autonome. Après avoir eu ma licence à la fac, j'aimerais trouver un travail stimulant et réussir ma carrière. Plus tard, j'aimerais avoir des enfants, mais d'abord, je voudrais me marier. Être mariée avant de fonder une famille est important pour moi.";
+document.getElementById('chloeP').textContent=chloeText;
+const gaelText="Avant d'aller à l'université, j'ai envie de faire du bénévolat à l'étranger. Mais mes parents ne veulent pas que je prenne une année sabbatique. Ils veulent que j'aille directement à la fac et que je finisse mes études. Ils ne veulent pas que je perde mon temps. Que faire ?";
+document.getElementById('gaelP').textContent=gaelText;
+const marcText="Mon rêve serait de devenir guitariste professionnel, mais ma mère est propriétaire d'un restaurant et elle veut que je devienne apprenti cuisinier. À mon avis, il faut qu'elle comprenne que je ne veux pas travailler dans le même secteur qu'elle. J'aimerais qu'elle soit plus compréhensive. Comment la convaincre ?";
+document.getElementById('marcP').textContent=marcText;
+
+/* EX 1 */
+const ex1Left=["J'ai envie de fonder une famille.","Je voudrais m'installer dans une maison avec mon mari/ma femme.","Je voudrais continuer mes études à la faculté.","Mon rêve serait de faire le tour du monde.","J'ai l'intention de faire du bénévolat.","J'espère devenir apprenti."];
+const ex1Right={a:"J'adorerais voyager dans plusieurs pays.",b:"J'ai envie d'entrer en apprentissage.",c:"J'aimerais avoir des enfants.",d:"Mon but est de faire du travail bénévole.",e:"Je veux habiter dans un pavillon avec mon époux/mon épouse.",f:"J'aimerais aller à l'université."};
+const ex1Ans=['c','e','f','a','d','b'];
+const ex1g=document.getElementById('ex1-grid');
+ex1Left.forEach((s,i)=>{const d=document.createElement('div');d.className='match-item';
+d.innerHTML=`<span class="num">${i+1}</span><span style="flex:1">${s}</span>
+<button class="audio" onclick='speakFR(${JSON.stringify(s)})'>Écouter</button>
+<select class="gap" data-ex1="${i}"><option value="">—</option>${Object.keys(ex1Right).map(k=>`<option value="${k}">${k}) ${ex1Right[k]}</option>`).join('')}</select>`;
+ex1g.appendChild(d);});
+function checkEx1(){let ok=0;document.querySelectorAll('[data-ex1]').forEach((sel,i)=>{if(sel.value===ex1Ans[i]){sel.classList.add('ok');sel.classList.remove('no');ok++;}else{sel.classList.add('no');sel.classList.remove('ok');}});const fb=document.getElementById('ex1-fb');fb.textContent=`${ok}/6 correctes`;fb.className='feedback '+(ok===6?'ok':'no');}
+function resetEx1(){document.querySelectorAll('[data-ex1]').forEach(s=>{s.value='';s.classList.remove('ok','no');});document.getElementById('ex1-fb').textContent='';}
+
+/* EX 2 */
+const ex2Items=[
+ {id:'voyager',label:'Voyager dans plusieurs pays',correct:2},
+ {id:'fac',label:'Continuer ses études à la fac',correct:4},
+ {id:'sabb',label:'Prendre une année sabbatique',correct:1},
+ {id:'famille',label:'Fonder une famille / avoir des enfants',correct:6},
+ {id:'travail',label:'Trouver un travail stimulant / se marier',correct:5},
+ {id:'benev',label:'Faire du bénévolat pendant six mois',correct:3}];
+const ex2L=document.getElementById('ex2-list');
+ex2Items.forEach(it=>{const d=document.createElement('div');d.className='match-item';
+d.innerHTML=`<select class="gap" data-ex2="${it.id}"><option value="">?</option>${[1,2,3,4,5,6].map(n=>`<option value="${n}">${n}</option>`).join('')}</select><span style="flex:1">${it.label}</span>`;
+ex2L.appendChild(d);});
+function checkEx2(){let ok=0;ex2Items.forEach(it=>{const sel=document.querySelector(`[data-ex2="${it.id}"]`);if(+sel.value===it.correct){sel.classList.add('ok');sel.classList.remove('no');ok++;}else{sel.classList.add('no');sel.classList.remove('ok');}});const fb=document.getElementById('ex2-fb');fb.textContent=`${ok}/6 dans le bon ordre`;fb.className='feedback '+(ok===6?'ok':'no');}
+
+/* EX 3 */
+const ex3Speakers=[
+ {name:"Personne 1",text:"Pour moi, le mariage est très important. J'ai l'intention de me marier avant de commencer ma carrière. Plus tard, je voudrais travailler dans la justice, comme avocate."},
+ {name:"Personne 2",text:"Après avoir visité plusieurs pays pendant mon année sabbatique, j'aimerais faire du travail bénévole avec une association humanitaire avant de retourner en France."},
+ {name:"Personne 3",text:"D'abord, je veux entrer en apprentissage parce que je préfère travailler plutôt que d'aller à l'université. Ensuite, j'aimerais trouver un travail à temps partiel pour avoir du temps libre."}];
+const sp=document.getElementById('ex3-speakers');
+ex3Speakers.forEach(s=>{const d=document.createElement('div');d.className='speaker';
+d.innerHTML=`<h4>${s.name}</h4><button class="audio" onclick='speakFR(${JSON.stringify(s.text)})'>Écouter</button>
+<details style="margin-top:8px"><summary>Voir le texte</summary><p>${s.text}</p></details>`;sp.appendChild(d);});
+const ex3Qs=[
+ {q:"1. La première personne trouve que le mariage est…",opts:{a:"compliqué.",b:"important.",c:"nécessaire.",d:"démodé."},a:'b'},
+ {q:"2. La première personne a l'intention de…",opts:{a:"travailler dans la justice.",b:"travailler avec des enfants.",c:"ne pas travailler.",d:"se marier avant de travailler."},a:'d'},
+ {q:"3. La deuxième personne, après avoir visité plusieurs pays, voudrait…",opts:{a:"aller à la fac.",b:"devenir apprenti(e).",c:"faire du travail bénévole.",d:"apprendre une nouvelle langue."},a:'c'},
+ {q:"4. La troisième personne veut d'abord…",opts:{a:"aller à l'université.",b:"commencer un apprentissage.",c:"être volontaire.",d:"avoir un travail payé."},a:'b'},
+ {q:"5. Ensuite, la troisième personne voudrait…",opts:{a:"rester en Amérique Latine.",b:"travailler toujours avec des enfants.",c:"trouver un travail à temps partiel.",d:"avoir des enfants."},a:'c'}];
+const qC=document.getElementById('ex3-questions');
+ex3Qs.forEach((q,i)=>{const d=document.createElement('div');d.className='card';
+d.innerHTML=`<p><strong>${q.q}</strong></p>`+Object.entries(q.opts).map(([k,v])=>`<label style="display:block"><input type="radio" name="ex3q${i}" value="${k}"> ${k}) ${v}</label>`).join('');qC.appendChild(d);});
+function checkEx3(){let ok=0;ex3Qs.forEach((q,i)=>{const sel=document.querySelector(`input[name="ex3q${i}"]:checked`);if(sel&&sel.value===q.a)ok++;});const fb=document.getElementById('ex3-fb');fb.textContent=`${ok}/5 correctes`;fb.className='feedback '+(ok===5?'ok':'no');}
+
+/* EX 4 table rows */
+const ex4tb=document.getElementById('ex4tbody');
+for(let i=0;i<5;i++){const tr=document.createElement('tr');tr.innerHTML=`<td><input class="gap" style="width:95%"></td><td><input class="gap" style="width:98%"></td>`;ex4tb.appendChild(tr);}
+
+/* EX 5 */
+const ex5Rows=[{subj:"je prenne",inf:"prendre"},{subj:"j'aille",inf:"aller"},{subj:"je finisse",inf:"finir"},{subj:"je perde",inf:"perdre"},{subj:"je devienne",inf:"devenir"},{subj:"elle comprenne",inf:"comprendre"},{subj:"elle soit",inf:"etre"}];
+const tb=document.getElementById('ex5-tbody');
+ex5Rows.forEach((r,i)=>{const tr=document.createElement('tr');tr.innerHTML=`<td>${r.subj}</td><td><input class="gap" data-ex5="${i}" placeholder="infinitif"></td>`;tb.appendChild(tr);});
+function checkEx5(){let ok=0;document.querySelectorAll('[data-ex5]').forEach((inp,i)=>{if(norm(inp.value)===norm(ex5Rows[i].inf)){inp.classList.add('ok');inp.classList.remove('no');ok++;}else{inp.classList.add('no');inp.classList.remove('ok');}});const fb=document.getElementById('ex5-fb');fb.textContent=`${ok}/${ex5Rows.length} correctes`;fb.className='feedback '+(ok===ex5Rows.length?'ok':'no');}
+function showEx5(){document.querySelectorAll('[data-ex5]').forEach((inp,i)=>{inp.value=ex5Rows[i].inf;inp.classList.add('ok');});}
+
+/* EX 6 */
+function checkEx6(){const g=[...document.querySelectorAll('[data-gael]:checked')].map(x=>x.dataset.gael).sort().join('');const m=[...document.querySelectorAll('[data-marc]:checked')].map(x=>x.dataset.marc).sort().join('');const okG=(g==='bc');const okM=(m==='ad');const fb=document.getElementById('ex6-fb');fb.textContent=`Gaël : ${okG?'correct':'à revoir'} · Marc-Antoine : ${okM?'correct':'à revoir'}`;fb.className='feedback '+(okG&&okM?'ok':'no');}
+
+/* EX 7 */
+function countEx7(){const t=document.getElementById('ex7-text').value.trim();document.getElementById('ex7-count').textContent=t?t.split(/\s+/).length:0;}
+</script>
+</body>
+</html>
+

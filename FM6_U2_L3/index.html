@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VIVE LA SCOLARITÉ! — 10 conseils & impératif — IGCSE French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7fb;
+    --ink: #0e1a2b;
+    --muted: #5a6473;
+    --red: #7a1722;
+    --red-dark: #5a0f18;
+    --blue: #0f2a4a;
+    --blue-dark: #08182b;
+    --card: #fff;
+    --border: #d9dde5;
+    --shadow: 0 10px 30px rgba(8,24,43,.08);
+    --gold: #c9a227;
+    --green: #2d6a4f;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: #fff;
+    padding: 48px 24px;
+    text-align: center;
+    border-bottom: 6px solid var(--red);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: "🎓";
+    position: absolute;
+    font-size: 12rem;
+    opacity: .08;
+    bottom: -30px;
+    right: -20px;
+    transform: rotate(-8deg);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: .2em 0;
+    position: relative;
+  }
+  header p {
+    max-width: 780px;
+    margin: 0 auto;
+    opacity: .92;
+    position: relative;
+  }
+  .badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.12);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: .85rem;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .tag {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .tag.gold {
+    background: var(--gold);
+    color: var(--blue-dark);
+  }
+  .tag.green {
+    background: var(--green);
+    color: #fff;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin: .3em 0 .5em;
+    color: var(--blue);
+  }
+  .sub {
+    color: var(--muted);
+    font-style: italic;
+    font-size: .95rem;
+    margin-bottom: 1rem;
+  }
+  .tip {
+    background: #fff7e0;
+    border-left: 5px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .tip strong {
+    color: var(--blue);
+  }
+  .grammar-box {
+    background: #eef8f2;
+    border-left: 5px solid var(--green);
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .audio-box {
+    background: linear-gradient(135deg, #eef2f8, #fff);
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    padding: 18px;
+    margin: 14px 0;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .play-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: .95rem;
+  }
+  .play-btn:hover { background: var(--red-dark); }
+  .speak-btn {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .8rem;
+  }
+  .q {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+    border-left: 4px solid var(--blue);
+  }
+  .q .qtext {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: var(--blue);
+  }
+  .q input[type="text"] {
+    padding: 7px 10px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: .95rem;
+    min-width: 200px;
+    width: auto;
+  }
+  .q input.correct {
+    border-color: #1e6b1e;
+    background: #e6f3e6;
+  }
+  .q input.wrong {
+    border-color: var(--red);
+    background: #fbeef0;
+  }
+  .check-btn, .reveal-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .reveal-btn {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+  }
+  .reveal-btn:hover {
+    background: var(--blue);
+    color: #fff;
+  }
+  .score {
+    margin-top: 12px;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 1.1rem;
+  }
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .tip-card {
+    background: #f8f9fc;
+    border-radius: 12px;
+    padding: 14px;
+    border-left: 5px solid var(--gold);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .tip-card.selected {
+    background: var(--blue);
+    color: white;
+    border-left-color: white;
+  }
+  .option-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 10px 0;
+  }
+  .option-btn {
+    background: #eef2f8;
+    padding: 6px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .option-btn.selected {
+    background: var(--blue);
+    color: white;
+  }
+  .option-btn.correct {
+    background: #1e6b1e;
+    color: white;
+  }
+  .option-btn.wrong {
+    background: var(--red);
+    color: white;
+  }
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: .9rem;
+    border-top: 1px solid var(--border);
+  }
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: .95rem;
+    resize: vertical;
+  }
+  .word-count {
+    font-size: .8rem;
+    color: var(--muted);
+    margin-top: 5px;
+  }
+  .imperative-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media (max-width: 680px) {
+    .imperative-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">🎓 VIVE LA SCOLARITÉ!</span>
+  <h1>10 conseils & l'impératif</h1>
+  <p>B1 School Life and Routine — Donner des conseils, utiliser l'impératif</p>
+  <div class="badges">
+    <span class="badge">10 conseils</span>
+    <span class="badge">Impératif</span>
+    <span class="badge">Compréhension orale</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ EXERCICE 1 : RELIER LES CONSEILS AUX IMAGES ============ -->
+<section>
+  <span class="tag green">🔗 Exercice 1 · Reliez les conseils aux images</span>
+  <p class="sub">Lisez les 10 conseils puis associez chaque conseil à l'image correspondante.</p>
+
+  <div class="tip" style="margin-bottom:20px;">
+    <strong>📋 10 conseils pour profiter au maximum de sa scolarité</strong><br>
+    1. Présentez-vous pour être délégué(e) de classe.<br>
+    2. Levez la main autant que possible en classe.<br>
+    3. Participez à la chorale.<br>
+    4. Soyez «écolo»: remplissez toutes les pages de vos cahiers.<br>
+    5. N'ayez pas peur de remettre en cause les attitudes sexistes ou racistes.<br>
+    6. Faites une activité sportive.<br>
+    7. N'oubliez pas de remercier vos profs.<br>
+    8. Soyez gentils avec les plus jeunes.<br>
+    9. Profitez des sorties scolaires.<br>
+    10. Amusez-vous bien!
+  </div>
+
+  <div id="matchingEx">
+    <div class="q"><p class="qtext">Exemple: 1 → d (présentez-vous délégué)</p></div>
+    <div class="q"><p class="qtext">2 → Image: <input type="text" id="match2" data-ans="b" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">3 → Image: <input type="text" id="match3" data-ans="f" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">4 → Image: <input type="text" id="match4" data-ans="h" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">5 → Image: <input type="text" id="match5" data-ans="e" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">6 → Image: <input type="text" id="match6" data-ans="g" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">7 → Image: <input type="text" id="match7" data-ans="a" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">8 → Image: <input type="text" id="match8" data-ans="c" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">9 → Image: <input type="text" id="match9" data-ans="j" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">10 → Image: <input type="text" id="match10" data-ans="i" style="width:60px"></p></div>
+  </div>
+  <button class="check-btn" onclick="checkMatching()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealMatching()">Voir les réponses</button>
+  <div class="score" id="scoreMatch"></div>
+</section>
+
+<!-- ============ EXERCICE 2 : IMPÉRATIF (TU) ============ -->
+<section>
+  <span class="tag gold">📝 Exercice 2 · Mettez à l'impératif (tu)</span>
+  <p class="sub">Relisez les 10 conseils et transformez-les avec <strong>tu</strong>. Puis mettez les infinitifs suivants à l'impératif.</p>
+
+  <div class="grammar-box">
+    <strong>📚 L'impératif — Rappel</strong><br>
+    • Pour les verbes en -er, on enlève le <strong>s</strong> à la forme <em>tu</em> (sauf devant <em>en</em> ou <em>y</em>).<br>
+    • Verbes réfléchis : <em>Amuse-toi! / Présentez-vous!</em><br>
+    • <strong>Être :</strong> sois (tu) / soyez (vous) &nbsp;•&nbsp; <strong>Avoir :</strong> aie (tu) / ayez (vous)
+  </div>
+
+  <div id="imperativeEx">
+    <div class="q"><p class="qtext">1. Présentez-vous délégué → <input type="text" id="imp1" data-ans="présente-toi délégué" style="width:250px"></p></div>
+    <div class="q"><p class="qtext">2. Levez la main → <input type="text" id="imp2" data-ans="lève la main" style="width:200px"></p></div>
+    <div class="q"><p class="qtext">3. Participez à la chorale → <input type="text" id="imp3" data-ans="participe à la chorale" style="width:250px"></p></div>
+    <div class="q"><p class="qtext">4. Soyez écolo → <input type="text" id="imp4" data-ans="sois écolo" style="width:150px"></p></div>
+    <div class="q"><p class="qtext">5. N'ayez pas peur → <input type="text" id="imp5" data-ans="n'aie pas peur" style="width:180px"></p></div>
+    <div class="q"><p class="qtext">6. Faites du sport → <input type="text" id="imp6" data-ans="fais du sport" style="width:180px"></p></div>
+    <div class="q"><p class="qtext">7. N'oubliez pas → <input type="text" id="imp7" data-ans="n'oublie pas" style="width:180px"></p></div>
+    <div class="q"><p class="qtext">8. Soyez gentils → <input type="text" id="imp8" data-ans="sois gentil" style="width:180px"></p></div>
+    <div class="q"><p class="qtext">9. Profitez des sorties → <input type="text" id="imp9" data-ans="profite des sorties" style="width:220px"></p></div>
+    <div class="q"><p class="qtext">10. Amusez-vous bien → <input type="text" id="imp10" data-ans="amuse-toi bien" style="width:200px"></p></div>
+  </div>
+
+  <h3 style="margin-top:20px;">Mettez les infinitifs suivants à l'impératif (tu) :</h3>
+  <div id="imperativeExtra">
+    <div class="q"><p class="qtext">a. (avoir) un sommeil régulier → <input type="text" id="impA" data-ans="aie un sommeil régulier" style="width:250px"></p></div>
+    <div class="q"><p class="qtext">b. (limiter) les distractions numériques → <input type="text" id="impB" data-ans="limite les distractions numériques" style="width:320px"></p></div>
+    <div class="q"><p class="qtext">c. (être) organisé(e) → <input type="text" id="impC" data-ans="sois organisé" style="width:200px"></p></div>
+    <div class="q"><p class="qtext">d. (ne pas attendre) le dernier moment → <input type="text" id="impD" data-ans="n'attends pas le dernier moment" style="width:300px"></p></div>
+    <div class="q"><p class="qtext">e. (préparer) ton matériel la veille → <input type="text" id="impE" data-ans="prépare ton matériel la veille" style="width:300px"></p></div>
+  </div>
+  <button class="check-btn" onclick="checkImperative()">Vérifier l'impératif</button>
+  <button class="reveal-btn" onclick="revealImperative()">Voir les réponses</button>
+  <div class="score" id="scoreImp"></div>
+</section>
+
+<!-- ============ EXERCICE 3 : ÉCOUTE ============ -->
+<section>
+  <span class="tag green">🎧 Exercice 3 · Écoutez et choisissez la bonne image</span>
+  <p class="sub">Écoutez chaque conseil et écrivez le numéro de l'image (1-10).</p>
+
+  <div class="audio-box">
+    <button class="play-btn" onclick="playListening1()">▶ Conseils 1-5</button>
+    <button class="play-btn" onclick="playListening2()">▶ Conseils 6-10</button>
+  </div>
+
+  <div id="listeningEx">
+    <div class="q"><p class="qtext">Exemple: 1 → image <input type="text" id="listEx" value="b" disabled style="width:60px"></p></div>
+    <div class="q"><p class="qtext">2 → image <input type="text" id="list2" data-ans="d" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">3 → image <input type="text" id="list3" data-ans="f" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">4 → image <input type="text" id="list4" data-ans="h" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">5 → image <input type="text" id="list5" data-ans="e" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">6 → image <input type="text" id="list6" data-ans="g" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">7 → image <input type="text" id="list7" data-ans="a" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">8 → image <input type="text" id="list8" data-ans="c" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">9 → image <input type="text" id="list9" data-ans="j" style="width:60px"></p></div>
+    <div class="q"><p class="qtext">10 → image <input type="text" id="list10" data-ans="i" style="width:60px"></p></div>
+  </div>
+  <button class="check-btn" onclick="checkListening()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealListening()">Voir les réponses</button>
+  <div class="score" id="scoreListen"></div>
+  <div class="tip"><strong>🎧 Transcriptions :</strong> 1. Présentez-vous délégué (b) — 2. Levez la main (d) — 3. Participez à la chorale (f) — 4. Soyez écolo (h) — 5. Ne soyez pas sexiste (e) — 6. Faites du sport (g) — 7. Remerciez vos profs (a) — 8. Soyez gentils avec les plus jeunes (c) — 9. Profitez des sorties (j) — 10. Amusez-vous bien (i)</div>
+</section>
+
+<!-- ============ EXERCICE 4 : PRODUCTION ÉCRITE ============ -->
+<section>
+  <span class="tag gold">✍️ Exercice 4 · Cinq conseils pour un nouveau prof</span>
+  <p class="sub">Écrivez cinq conseils pour un nouveau professeur dans votre collège. Utilisez l'impératif (vous).</p>
+
+  <textarea id="teacherTips" rows="8" placeholder="Exemple :&#10;1. Soyez gentil avec vos élèves.&#10;2. Expliquez bien les leçons.&#10;3. Donnez moins de devoirs!&#10;4. Écoutez les questions des élèves.&#10;5. Soyez patient avec les étudiants qui ont des difficultés."></textarea>
+  <div class="word-count" id="teacherWordCount">0 mots</div>
+  <button class="speak-btn" onclick="speakTeacherTips()">🔊 Écouter mes conseils</button>
+  <button class="reveal-btn" onclick="showTeacherModel()">Voir un modèle</button>
+  <div id="teacherModel" style="display:none; background:#eef2f8; padding:14px; border-radius:8px; margin-top:12px;">
+    <strong>📝 Modèle (5 conseils) :</strong><br>
+    1. Soyez à l'heure en classe.<br>
+    2. Expliquez les sujets difficiles avec patience.<br>
+    3. N'ayez pas peur de répéter si nécessaire.<br>
+    4. Organisez des activités amusantes pour apprendre.<br>
+    5. Souriez et soyez accessible aux élèves.
+    <button class="speak-btn" onclick="speakFR('Soyez à l\'heure. Expliquez les sujets difficiles. N\'ayez pas peur de répéter. Organisez des activités amusantes. Souriez et soyez accessible.')">🔊 Écouter</button>
+  </div>
+</section>
+
+<footer>
+  IGCSE French — B1 School Life and Routine · 10 conseils, impératif, production écrite 🎓
+</footer>
+
+</main>
+
+<script>
+  function speakFR(text) {
+    if (!('speechSynthesis' in window)) { alert('Audio non supporté'); return; }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR';
+    u.rate = 0.92;
+    const voices = speechSynthesis.getVoices();
+    const frVoice = voices.find(v => v.lang.startsWith('fr'));
+    if (frVoice) u.voice = frVoice;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged = () => {};
+
+  // Listening audio
+  function playListening1() {
+    speakFR("Numéro 1: Présentez-vous pour être délégué de classe. Numéro 2: Levez la main autant que possible. Numéro 3: Participez à la chorale. Numéro 4: Soyez écolo. Numéro 5: N'ayez pas peur de combattre la discrimination.");
+  }
+  function playListening2() {
+    speakFR("Numéro 6: Faites une activité sportive. Numéro 7: N'oubliez pas de remercier vos profs. Numéro 8: Soyez gentils avec les plus jeunes. Numéro 9: Profitez des sorties scolaires. Numéro 10: Et finalement, amusez-vous bien!");
+  }
+
+  function norm(s) { return (s || '').toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' '); }
+
+  // Matching exercise
+  function checkMatching() {
+    const answers = {
+      match2: "b", match3: "f", match4: "h", match5: "e", match6: "g",
+      match7: "a", match8: "c", match9: "j", match10: "i"
+    };
+    let total = 9, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      if (user === exp) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreMatch').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealMatching() {
+    document.getElementById('match2').value = "b";
+    document.getElementById('match3').value = "f";
+    document.getElementById('match4').value = "h";
+    document.getElementById('match5').value = "e";
+    document.getElementById('match6').value = "g";
+    document.getElementById('match7').value = "a";
+    document.getElementById('match8').value = "c";
+    document.getElementById('match9').value = "j";
+    document.getElementById('match10').value = "i";
+    checkMatching();
+  }
+
+  // Imperative check
+  function checkImperative() {
+    const answers = {
+      imp1: "présente-toi délégué", imp2: "lève la main", imp3: "participe à la chorale",
+      imp4: "sois écolo", imp5: "n'aie pas peur", imp6: "fais du sport",
+      imp7: "n'oublie pas", imp8: "sois gentil", imp9: "profite des sorties",
+      imp10: "amuse-toi bien",
+      impA: "aie un sommeil régulier", impB: "limite les distractions numériques",
+      impC: "sois organisé", impD: "n'attends pas le dernier moment",
+      impE: "prépare ton matériel la veille"
+    };
+    let total = 15, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      const expNorm = norm(exp);
+      if (user === expNorm || (id === 'imp1' && user.includes('présente')) || (id === 'impA' && user.includes('aie'))) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreImp').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealImperative() {
+    document.getElementById('imp1').value = "présente-toi délégué";
+    document.getElementById('imp2').value = "lève la main";
+    document.getElementById('imp3').value = "participe à la chorale";
+    document.getElementById('imp4').value = "sois écolo";
+    document.getElementById('imp5').value = "n'aie pas peur";
+    document.getElementById('imp6').value = "fais du sport";
+    document.getElementById('imp7').value = "n'oublie pas";
+    document.getElementById('imp8').value = "sois gentil";
+    document.getElementById('imp9').value = "profite des sorties";
+    document.getElementById('imp10').value = "amuse-toi bien";
+    document.getElementById('impA').value = "aie un sommeil régulier";
+    document.getElementById('impB').value = "limite les distractions numériques";
+    document.getElementById('impC').value = "sois organisé";
+    document.getElementById('impD').value = "n'attends pas le dernier moment";
+    document.getElementById('impE').value = "prépare ton matériel la veille";
+    checkImperative();
+  }
+
+  // Listening check
+  function checkListening() {
+    const answers = {
+      list2: "d", list3: "f", list4: "h", list5: "e", list6: "g",
+      list7: "a", list8: "c", list9: "j", list10: "i"
+    };
+    let total = 9, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      if (user === exp) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreListen').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealListening() {
+    document.getElementById('list2').value = "d";
+    document.getElementById('list3').value = "f";
+    document.getElementById('list4').value = "h";
+    document.getElementById('list5').value = "e";
+    document.getElementById('list6').value = "g";
+    document.getElementById('list7').value = "a";
+    document.getElementById('list8').value = "c";
+    document.getElementById('list9').value = "j";
+    document.getElementById('list10').value = "i";
+    checkListening();
+  }
+
+  // Teacher tips writing
+  const teacherTa = document.getElementById('teacherTips');
+  const wordSpan = document.getElementById('teacherWordCount');
+  teacherTa.addEventListener('input', function() {
+    const words = teacherTa.value.trim().split(/\s+/).filter(Boolean).length;
+    wordSpan.innerText = `${words} mots`;
+    if (words >= 40 && words <= 100) wordSpan.style.color = '#1e6b1e';
+    else wordSpan.style.color = 'var(--muted)';
+  });
+  function speakTeacherTips() {
+    const text = teacherTa.value.trim();
+    if (text) speakFR(text);
+    else speakFR("Je n'ai pas encore écrit mes conseils.");
+  }
+  function showTeacherModel() {
+    const model = document.getElementById('teacherModel');
+    model.style.display = model.style.display === 'none' ? 'block' : 'none';
+  }
+  window.addEventListener('load', () => {
+    if (teacherTa.value.trim() === '') wordSpan.innerText = '0 mots';
+  });
+</script>
+</body>
+</html>

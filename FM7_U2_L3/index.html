@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>JE VOUDRAIS POSTULER — Job application & pronouns — IGCSE French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7fb;
+    --ink: #0e1a2b;
+    --muted: #5a6473;
+    --red: #7a1722;
+    --red-dark: #5a0f18;
+    --blue: #0f2a4a;
+    --blue-dark: #08182b;
+    --card: #fff;
+    --border: #d9dde5;
+    --shadow: 0 10px 30px rgba(8,24,43,.08);
+    --gold: #c9a227;
+    --green: #2d6a4f;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: #fff;
+    padding: 48px 24px;
+    text-align: center;
+    border-bottom: 6px solid var(--red);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: "💼";
+    position: absolute;
+    font-size: 12rem;
+    opacity: .08;
+    bottom: -30px;
+    right: -20px;
+    transform: rotate(-8deg);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: .2em 0;
+    position: relative;
+  }
+  header p {
+    max-width: 780px;
+    margin: 0 auto;
+    opacity: .92;
+    position: relative;
+  }
+  .badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.12);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: .85rem;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .tag {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .tag.gold {
+    background: var(--gold);
+    color: var(--blue-dark);
+  }
+  .tag.green {
+    background: var(--green);
+    color: #fff;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin: .3em 0 .5em;
+    color: var(--blue);
+  }
+  .sub {
+    color: var(--muted);
+    font-style: italic;
+    font-size: .95rem;
+    margin-bottom: 1rem;
+  }
+  .tip {
+    background: #fff7e0;
+    border-left: 5px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .tip strong {
+    color: var(--blue);
+  }
+  .grammar-box {
+    background: #eef8f2;
+    border-left: 5px solid var(--green);
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .audio-box {
+    background: linear-gradient(135deg, #eef2f8, #fff);
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    padding: 18px;
+    margin: 14px 0;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .play-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: .95rem;
+  }
+  .play-btn:hover { background: var(--red-dark); }
+  .speak-btn {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .8rem;
+  }
+  .q {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+    border-left: 4px solid var(--blue);
+  }
+  .q .qtext {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: var(--blue);
+  }
+  .q input[type="text"] {
+    padding: 7px 10px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: .95rem;
+    min-width: 200px;
+    width: auto;
+  }
+  .q input.correct {
+    border-color: #1e6b1e;
+    background: #e6f3e6;
+  }
+  .q input.wrong {
+    border-color: var(--red);
+    background: #fbeef0;
+  }
+  .check-btn, .reveal-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .reveal-btn {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+  }
+  .reveal-btn:hover {
+    background: var(--blue);
+    color: #fff;
+  }
+  .score {
+    margin-top: 12px;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 1.1rem;
+  }
+  .tf-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    margin: 8px 0;
+  }
+  .tf-btn {
+    background: #eef2f8;
+    padding: 6px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .tf-btn.selected {
+    background: var(--blue);
+    color: white;
+  }
+  .tf-btn.correct {
+    background: #1e6b1e;
+    color: white;
+  }
+  .tf-btn.wrong {
+    background: var(--red);
+    color: white;
+  }
+  .option-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 10px 0;
+  }
+  .option-btn {
+    background: #eef2f8;
+    padding: 6px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .option-btn.selected {
+    background: var(--blue);
+    color: white;
+  }
+  .option-btn.correct {
+    background: #1e6b1e;
+    color: white;
+  }
+  .option-btn.wrong {
+    background: var(--red);
+    color: white;
+  }
+  .job-ad {
+    background: #f0f4fa;
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid var(--blue);
+    margin: 16px 0;
+  }
+  .job-ad h3 {
+    color: var(--red);
+  }
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: .9rem;
+    border-top: 1px solid var(--border);
+  }
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: .95rem;
+    resize: vertical;
+  }
+  .word-count {
+    font-size: .8rem;
+    color: var(--muted);
+    margin-top: 5px;
+  }
+  .dialogue-box {
+    background: #eef2f8;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+  .speech {
+    margin: 12px 0;
+    padding: 10px 14px;
+    background: #fff;
+    border-radius: 8px;
+    border-left: 4px solid var(--gold);
+  }
+  .speech.b {
+    border-left-color: var(--green);
+  }
+  .culture-box {
+    background: #e8f0fe;
+    padding: 14px;
+    border-radius: 8px;
+    margin: 12px 0;
+    border-left: 5px solid var(--gold);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">💼 JE VOUDRAIS POSTULER...</span>
+  <h1>Job application & Direct Object Pronouns</h1>
+  <p>B4 Work, Careers and Volunteering — Poser sa candidature, téléphone, entretien</p>
+  <div class="badges">
+    <span class="badge">Offre d'emploi</span>
+    <span class="badge">Pronoms COD au passé composé</span>
+    <span class="badge">Entretien</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ OBJECTIFS ============ -->
+<section>
+  <div class="grammar-box">
+    <strong>🎯 OBJECTIFS D'APPRENTISSAGE</strong><br>
+    • Poser sa candidature<br>
+    • Réviser les pronoms compléments d'objet direct avec le passé composé
+  </div>
+</section>
+
+<!-- ============ EXERCICE 1 : OFFRE D'EMPLOI ============ -->
+<section>
+  <span class="tag green">📋 Exercice 1 · Lisez l'annonce</span>
+  <h2>La Mouette bleue — Offre d'emploi</h2>
+
+  <div class="job-ad">
+    <h3>🏖️ La Mouette bleue</h3>
+    <p><strong>On recherche un(e) animateur/animatrice d'activités sportives pour enfants</strong></p>
+    <p><strong>Responsabilités:</strong><br>
+    • Accueillir et prendre en charge des enfants de 5 à 12 ans<br>
+    • Organiser et animer des activités sportives<br>
+    • Garantir la sécurité des enfants et le respect des règles du club</p>
+    <p><strong>Qualifications et compétences:</strong><br>
+    • BAFA exigé<br>
+    • Expérience dans l'encadrement de sports souhaitée<br>
+    • Maîtrise de deux langues étrangères (dont l'anglais) essentielle</p>
+    <p><strong>Atouts:</strong> Adaptable • Créatif • Enthousiaste • Organisé</p>
+    <p><strong>Comment postuler?</strong> Remplir ici-même CV électronique</p>
+  </div>
+
+  <div class="culture-box">
+    <strong>📖 Point culture:</strong> BAFA = Brevet d'Aptitude aux Fonctions d'Animateur. Ceci est un diplôme dont on a besoin si on veut travailler en tant qu'animateur/animatrice d'un club ou d'une colonie de vacances pour les enfants. On peut faire ce travail à partir de l'âge de seize ans.
+  </div>
+
+  <div class="tip"><strong>📘 dont</strong> = of whom / of which / including. <em>Exemple: Je parle trois langues étrangères, dont l'espagnol.</em></div>
+
+  <div id="tfEx">
+    <div class="q">
+      <p class="qtext">1. Dans cet emploi, il faut s'occuper d'enfants.</p>
+      <div class="tf-row" data-statement="1" data-correct="V">
+        <span class="tf-btn" data-val="V">Vrai</span>
+        <span class="tf-btn" data-val="F">Faux</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">2. On doit faire du sport avec eux.</p>
+      <div class="tf-row" data-statement="2" data-correct="V">
+        <span class="tf-btn" data-val="V">Vrai</span>
+        <span class="tf-btn" data-val="F">Faux</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">3. Il est essentiel d'avoir de l'expérience de ce genre de travail.</p>
+      <div class="tf-row" data-statement="3" data-correct="V">
+        <span class="tf-btn" data-val="V">Vrai</span>
+        <span class="tf-btn" data-val="F">Faux</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">4. Il n'est pas nécessaire de parler anglais.</p>
+      <div class="tf-row" data-statement="4" data-correct="F">
+        <span class="tf-btn" data-val="V">Vrai</span>
+        <span class="tf-btn" data-val="F">Faux</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">5. Il faut savoir s'adapter et s'organiser.</p>
+      <div class="tf-row" data-statement="5" data-correct="V">
+        <span class="tf-btn" data-val="V">Vrai</span>
+        <span class="tf-btn" data-val="F">Faux</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">6. Pour poser sa candidature, il faut écrire une lettre de motivation.</p>
+      <div class="tf-row" data-statement="6" data-correct="F">
+        <span class="tf-btn" data-val="V">Vrai</span>
+        <span class="tf-btn" data-val="F">Faux</span>
+      </div>
+    </div>
+  </div>
+  <button class="check-btn" onclick="checkTrueFalse()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealTrueFalse()">Voir les réponses</button>
+  <div class="score" id="scoreTF"></div>
+</section>
+
+<!-- ============ EXERCICE 2 : CONVERSATION TÉLÉPHONIQUE ============ -->
+<section>
+  <span class="tag gold">🎧 Exercice 2 · Écoutez et complétez</span>
+  <p class="sub">Complétez la conversation téléphonique.</p>
+
+  <div class="audio-box">
+    <button class="play-btn" onclick="playTelephone()">▶ Écouter la conversation</button>
+  </div>
+
+  <div style="background:#f8f9fc; padding:20px; border-radius:12px;">
+    <p>— Allô. Club de vacances la Mouette bleue, je vous écoute.</p>
+    <p>— Bonjour. Je <input type="text" id="gap1" data-ans="voudrais parler" style="width:150px"> avec Madame Fournier, s'il vous plaît.</p>
+    <p>— Je suis désolée, sa ligne est occupée.</p>
+    <p>— Est-ce que je peux laisser <input type="text" id="gap2" data-ans="un message" style="width:130px">?</p>
+    <p>— Oui, bien sûr. Je vais vous transférer vers sa messagerie vocale. Ou bien vous pouvez parler avec son assistant, Monsieur Lefèvre, si vous préférez?</p>
+    <p>— Ah oui, ce serait <input type="text" id="gap3" data-ans="parfait" style="width:100px">, merci.</p>
+    <p>— Un moment, s'il vous plaît. Ne quittez pas… Allô? Je vous le passe.</p>
+    <p>— Allô, oui? Ici Fabien Lefèvre.</p>
+    <p>— Bonjour. Je m'appelle Cyril Payet. <input type="text" id="gap4" data-ans="j'ai vu" style="width:100px"> votre annonce en ligne pour le poste d'animateur d'activités sportives pour enfants et je voudrais postuler.</p>
+    <p>— Très bien. Je peux vous être utile?</p>
+    <p>— C'est pour un petit renseignement: pouvez-vous me dire la durée du contrat, s'il vous plaît?</p>
+    <p>— Oui, c'est un contrat saisonnier de <input type="text" id="gap5" data-ans="trois mois" style="width:120px">, de mi-juin jusqu'à fin août.</p>
+    <p>— Vous êtes disponible à cette période-là?</p>
+    <p>— Ah oui, c'est parfait pour moi, puisque je reprends <input type="text" id="gap6" data-ans="les cours" style="width:110px"> en septembre. Merci.</p>
+    <p>— De rien. Au revoir et bonne chance!</p>
+    <p>— Merci. Au revoir!</p>
+  </div>
+  <button class="check-btn" onclick="checkTelephone()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealTelephone()">Voir les réponses</button>
+  <div class="score" id="scoreTel"></div>
+  <div class="tip"><strong>📖 postuler (à) un emploi</strong> = poser sa candidature • <strong>une messagerie vocale</strong> = un répondeur téléphonique</div>
+</section>
+
+<!-- ============ EXERCICE 3 : PHRASES UTILES AU TÉLÉPHONE ============ -->
+<section>
+  <span class="tag green">📝 Exercice 3 · Phrases utiles au téléphone</span>
+  <p class="sub">Relisez la conversation et faites une liste de cinq phrases utiles au téléphone.</p>
+  <textarea id="phonePhrases" rows="5" placeholder="Exemple:&#10;1. Je voudrais parler avec…&#10;2. Est-ce que je peux laisser un message?&#10;3. Un moment, s'il vous plaît. Ne quittez pas.&#10;4. Je vous le passe.&#10;5. Au revoir et bonne chance!"></textarea>
+  <div class="word-count" id="phoneWordCount">0 mots</div>
+</section>
+
+<!-- ============ EXERCICE 4 : ENTRETIEN (ORDRE) ============ -->
+<section>
+  <span class="tag gold">🎧 Exercice 4 · Écoutez l'entretien</span>
+  <p class="sub">Dans quel ordre parle-t-on des sujets suivants? (Il y en a deux de trop!)</p>
+
+  <div class="audio-box">
+    <button class="play-btn" onclick="playInterview()">▶ Écouter l'entretien</button>
+  </div>
+
+  <div id="orderEx">
+    <div class="q"><p class="qtext">a. pourquoi il veut faire ce travail → ordre <input type="text" id="orderA" data-ans="3" style="width:50px"></p></div>
+    <div class="q"><p class="qtext">b. ses qualités personnelles → ordre <input type="text" id="orderB" data-ans="4" style="width:50px"></p></div>
+    <div class="q"><p class="qtext">c. ses projets pour l'avenir → (pas mentionné)</p></div>
+    <div class="q"><p class="qtext">d. les matières qu'il étudie → ordre <input type="text" id="orderD" data-ans="1" style="width:50px"></p></div>
+    <div class="q"><p class="qtext">e. s'il veut faire du travail bénévole → (pas mentionné)</p></div>
+    <div class="q"><p class="qtext">f. ses loisirs → ordre <input type="text" id="orderF" data-ans="2" style="width:50px"></p></div>
+  </div>
+  <button class="check-btn" onclick="checkOrder()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealOrder()">Voir les réponses</button>
+  <div class="score" id="scoreOrder"></div>
+</section>
+
+<!-- ============ EXERCICE 4B : NOTES SUR L'ENTRETIEN ============ -->
+<section>
+  <span class="tag green">📝 Exercice 4B · Notez ce que dit Cyril</span>
+  <p class="sub">Notez en français ce que dit Cyril sur les quatre sujets identifiés.</p>
+
+  <div id="notesEx">
+    <div class="q"><p class="qtext">d. les matières qu'il étudie: <input type="text" id="noteD" data-ans="huit matières, dont deux langues" style="width:400px"></p></div>
+    <div class="q"><p class="qtext">f. ses loisirs: <input type="text" id="noteF" data-ans="le sport, la musique, la lecture" style="width:350px"></p></div>
+    <div class="q"><p class="qtext">a. pourquoi il veut faire ce travail: <input type="text" id="noteA" data-ans="il aime les enfants et le sport" style="width:350px"></p></div>
+    <div class="q"><p class="qtext">b. ses qualités personnelles: <input type="text" id="noteB" data-ans="adaptable, créatif, organisé" style="width:350px"></p></div>
+  </div>
+  <button class="check-btn" onclick="checkNotes()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealNotes()">Voir les réponses</button>
+  <div class="score" id="scoreNotes"></div>
+</section>
+
+<!-- ============ GRAMMAIRE : PRONOMS COD ============ -->
+<section>
+  <span class="tag gold">📚 Grammaire — Pronoms COD avec le passé composé</span>
+  <div class="grammar-box">
+    <p><strong>Les pronoms compléments d'objet direct (me, te, le, la, nous, vous, les) vont avant l'auxiliaire.</strong></p>
+    <p><em>J'ai appris le français. → Je l'ai appris.</em></p>
+    <p><em>Il a accompagné sa sœur. → Il l'a accompagnée.</em></p>
+    <p><em>Nous avons accompagné les enfants. → Nous les avons accompagnés.</em></p>
+    <p><em>Nous avons accompagné les filles. → Nous les avons accompagnées.</em></p>
+    <button class="speak-btn" onclick="speakFR('Je l\'ai appris. Il l\'a accompagnée. Nous les avons accompagnés. Nous les avons accompagnées.')">🔊 Écouter</button>
+  </div>
+
+  <div id="pronounEx">
+    <div class="q"><p class="qtext">1. J'ai vu le film. → Je <input type="text" id="pro1" data-ans="l'ai vu" style="width:100px">.</p></div>
+    <div class="q"><p class="qtext">2. Elle a accompagné sa sœur. → Elle <input type="text" id="pro2" data-ans="l'a accompagnée" style="width:160px">.</p></div>
+    <div class="q"><p class="qtext">3. Nous avons invité les garçons. → Nous <input type="text" id="pro3" data-ans="les avons invités" style="width:180px">.</p></div>
+    <div class="q"><p class="qtext">4. J'ai acheté les fleurs. → Je <input type="text" id="pro4" data-ans="les ai achetées" style="width:170px">.</p></div>
+    <div class="q"><p class="qtext">5. Tu as appelé ta mère. → Tu <input type="text" id="pro5" data-ans="l'as appelée" style="width:150px">.</p></div>
+  </div>
+  <button class="check-btn" onclick="checkPronouns()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealPronouns()">Voir les réponses</button>
+  <div class="score" id="scorePronoun"></div>
+</section>
+
+<!-- ============ EXERCICE 5 : QUESTIONS SUR LA LETTRE ============ -->
+<section>
+  <span class="tag green">📖 Exercice 5 · Lisez l'extrait de la lettre</span>
+  <p class="sub">Lisez l'extrait de la lettre de motivation de Cyril et répondez aux questions.</p>
+
+  <div style="background:#fef8e7; padding:20px; border-radius:12px;">
+    <p>J'ai déjà un peu d'expérience de ce genre de travail. Il y a deux ans, j'ai fondé un club de foot pour les enfants de mon ancienne école primaire. Je les ai entraînés et je les ai accompagnés aux matchs. Je m'occupe aussi d'autres enfants, puisque je fais souvent du baby-sitting. Par exemple, le week-end dernier, j'ai dû garder le fils de mes voisins. J'ai joué avec lui et je l'ai emmené à son cours de tennis le samedi matin.</p>
+    <p>Quant à mes compétences linguistiques, je suis bilingue, car ma mère est anglaise et mon père est français. En plus, je parle assez bien l'espagnol, car je l'ai étudié au collège et j'ai déjà visité l'Espagne: j'y suis allé en échange scolaire l'année dernière. Je me débrouille aussi en italien. J'en ai appris quelques phrases d'une copine italienne.</p>
+  </div>
+
+  <div id="letterEx">
+    <div class="q"><p class="qtext">1. Pour qui est-ce que Cyril a créé un club de foot? <input type="text" id="lett1" data-ans="pour les enfants de son ancienne école primaire" style="width:400px"></p></div>
+    <div class="q"><p class="qtext">2. Quand l'a-t-il créé? <input type="text" id="lett2" data-ans="il y a deux ans" style="width:200px"></p></div>
+    <div class="q"><p class="qtext">3. Quelles sont les deux choses qu'il a faites en tant qu'organisateur de ce club? <input type="text" id="lett3" data-ans="il les a entraînés et accompagnés aux matchs" style="width:400px"></p></div>
+    <div class="q"><p class="qtext">4. Qu'est-ce qui montre aussi que Cyril aime bien s'occuper des enfants? Donnez un exemple. <input type="text" id="lett4" data-ans="il fait du baby-sitting; il a gardé le fils de ses voisins" style="width:450px"></p></div>
+    <div class="q"><p class="qtext">5. Quelle langue a-t-il appris à l'école? <input type="text" id="lett5" data-ans="l'espagnol" style="width:150px"></p></div>
+    <div class="q"><p class="qtext">6. Quelles langues parle-t-il couramment? <input type="text" id="lett6" data-ans="l'anglais et le français" style="width:250px"></p></div>
+    <div class="q"><p class="qtext">7. Maîtrise-t-il bien l'italien? <input type="text" id="lett7" data-ans="non, il se débrouille seulement" style="width:300px"></p></div>
+  </div>
+  <button class="check-btn" onclick="checkLetter()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealLetter()">Voir les réponses</button>
+  <div class="score" id="scoreLetter"></div>
+</section>
+
+<!-- ============ EXERCICE 6 : À DEUX ============ -->
+<section>
+  <span class="tag gold">💬 Exercice 6 · À deux</span>
+  <h2>Posez les questions de l'entretien</h2>
+
+  <div class="dialogue-box">
+    <div class="speech"><strong>Élève A :</strong> Qu'est-ce que vous faites actuellement?</div>
+    <div class="speech b"><strong>Élève B :</strong> Je suis étudiant en terminale.</div>
+    <div class="speech"><strong>Élève A :</strong> Quelles matières étudiez-vous?</div>
+    <div class="speech b"><strong>Élève B :</strong> J'étudie huit matières, dont l'anglais et l'espagnol.</div>
+    <div class="speech"><strong>Élève A :</strong> Qu'est-ce que vous ferez après vos examens?</div>
+    <div class="speech b"><strong>Élève B :</strong> Je vais travailler comme animateur.</div>
+    <div class="speech"><strong>Élève A :</strong> Quelles sont vos qualités personnelles?</div>
+    <div class="speech b"><strong>Élève B :</strong> Je suis adaptable, créatif et organisé.</div>
+  </div>
+  <button class="speak-btn" onclick="speakFR('Je suis étudiant. J\'étudie huit matières, dont l\'anglais. Je vais travailler comme animateur. Je suis adaptable et organisé.')">🔊 Exemple de réponse</button>
+</section>
+
+<!-- ============ EXERCICE 7 : POSTULER ============ -->
+<section>
+  <span class="tag green">✉️ Exercice 7 · Postulez à l'offre d'emploi</span>
+  <p class="sub">Écrivez un e-mail de candidature. Inventez les détails.</p>
+
+  <div class="exam-skill" style="background:#eef2f8; padding:14px; border-radius:8px; margin:14px 0;">
+    <strong>📌 EXAM SKILLS:</strong> Pour impressionner l'examinateur, incluez:<br>
+    • <strong>dont</strong> (J'étudie huit matières, dont deux langues vivantes.)<br>
+    • <strong>un pronom COD avec le passé composé</strong> (J'adore les maths; je les ai étudiées à la fac.)
+  </div>
+
+  <textarea id="emailText" rows="10" placeholder="Exemple :&#10;Objet: Candidature pour le poste d'animateur sportif&#10;&#10;Madame, Monsieur,&#10;&#10;Je me permets de postuler au poste d'animateur d'activités sportives pour enfants que vous avez publié sur votre site. Je suis étudiant en terminale et je suis passionné par le sport.&#10;&#10;J'ai déjà une expérience dans ce domaine: il y a deux ans, j'ai créé un club de foot pour les enfants de mon école. Je les ai entraînés pendant une saison entière. Je parle plusieurs langues, dont l'anglais et l'espagnol.&#10;&#10;Je suis disponible de juin à septembre.&#10;&#10;Dans l'attente de votre réponse, je vous prie d'agréer, Madame, Monsieur, mes salutations distinguées."></textarea>
+  <div class="word-count" id="emailWordCount">0 mots</div>
+  <button class="speak-btn" onclick="speakEmail()">🔊 Écouter mon e-mail</button>
+  <button class="reveal-btn" onclick="showEmailModel()">Voir un modèle</button>
+  <div id="emailModel" style="display:none; background:#eef2f8; padding:14px; border-radius:8px; margin-top:12px;">
+    <strong>📝 Modèle d'e-mail :</strong><br>
+    « Objet: Candidature pour le poste d'animateur sportif<br><br>
+    Madame, Monsieur,<br><br>
+    Je me permets de postuler au poste d'animateur d'activités sportives pour enfants que vous avez publié. Je suis étudiant en terminale et je suis passionné par le sport. J'ai le BAFA et je parle plusieurs langues, dont l'anglais et l'espagnol.<br><br>
+    J'ai déjà une expérience dans ce domaine: il y a deux ans, j'ai créé un club de foot pour les enfants de mon école. Je les ai entraînés et je les ai accompagnés aux matchs. Je suis adaptable, créatif et organisé.<br><br>
+    Je suis disponible de mi-juin à fin août.<br><br>
+    Dans l'attente de votre réponse, je vous prie d'agréer, Madame, Monsieur, mes salutations distinguées.<br>
+    [Votre nom] »
+    <button class="speak-btn" onclick="speakFR('Je postule au poste d\'animateur. J\'ai le BAFA. Je parle l\'anglais et l\'espagnol. J\'ai entraîné des enfants au foot. Je suis disponible en été.')">🔊 Écouter</button>
+  </div>
+</section>
+
+<footer>
+  IGCSE French — B4 Work, Careers and Volunteering · Je voudrais postuler, téléphone, entretien, pronoms COD 💼
+</footer>
+
+</main>
+
+<script>
+  function speakFR(text) {
+    if (!('speechSynthesis' in window)) { alert('Audio non supporté'); return; }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR';
+    u.rate = 0.92;
+    const voices = speechSynthesis.getVoices();
+    const frVoice = voices.find(v => v.lang.startsWith('fr'));
+    if (frVoice) u.voice = frVoice;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged = () => {};
+
+  function playTelephone() {
+    speakFR("Allô, Club de vacances la Mouette bleue. Bonjour, je voudrais parler avec Madame Fournier. Sa ligne est occupée. Est-ce que je peux laisser un message? Je vais vous transférer. Allô, Fabien Lefèvre. J'ai vu votre annonce pour le poste d'animateur. C'est un contrat de trois mois. Je reprends les cours en septembre.");
+  }
+
+  function playInterview() {
+    speakFR("Alors Cyril, qu'est-ce que vous étudiez actuellement? J'étudie huit matières, dont deux langues vivantes. Et vos loisirs? Je fais du sport, de la musique et je lis beaucoup. Pourquoi voulez-vous faire ce travail? J'aime les enfants et le sport. Quelles sont vos qualités personnelles? Je suis adaptable, créatif et organisé.");
+  }
+
+  function norm(s) { return (s || '').toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' '); }
+
+  // True/False
+  let tfSelections = {};
+  document.querySelectorAll('.tf-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const row = this.closest('.tf-row');
+      const stmt = row.getAttribute('data-statement');
+      row.querySelectorAll('.tf-btn').forEach(b => b.classList.remove('selected'));
+      this.classList.add('selected');
+      tfSelections[stmt] = this.getAttribute('data-val');
+    });
+  });
+
+  function checkTrueFalse() {
+    const correctMap = { '1': 'V', '2': 'V', '3': 'V', '4': 'F', '5': 'V', '6': 'F' };
+    let total = 6, correct = 0;
+    for (let i = 1; i <= 6; i++) {
+      const row = document.querySelector(`.tf-row[data-statement="${i}"]`);
+      const selected = tfSelections[i];
+      const correctAns = correctMap[i];
+      row.querySelectorAll('.tf-btn').forEach(btn => btn.classList.remove('correct', 'wrong'));
+      if (selected === correctAns) {
+        correct++;
+        const correctBtn = row.querySelector(`.tf-btn[data-val="${selected}"]`);
+        if (correctBtn) correctBtn.classList.add('correct');
+      } else {
+        if (selected) {
+          const wrongBtn = row.querySelector(`.tf-btn[data-val="${selected}"]`);
+          if (wrongBtn) wrongBtn.classList.add('wrong');
+        }
+        const correctBtn = row.querySelector(`.tf-btn[data-val="${correctAns}"]`);
+        if (correctBtn) correctBtn.classList.add('correct');
+      }
+    }
+    document.getElementById('scoreTF').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealTrueFalse() {
+    const correctMap = { '1': 'V', '2': 'V', '3': 'V', '4': 'F', '5': 'V', '6': 'F' };
+    for (let i = 1; i <= 6; i++) {
+      const row = document.querySelector(`.tf-row[data-statement="${i}"]`);
+      const correctVal = correctMap[i];
+      tfSelections[i] = correctVal;
+      row.querySelectorAll('.tf-btn').forEach(btn => {
+        btn.classList.remove('selected');
+        if (btn.getAttribute('data-val') === correctVal) btn.classList.add('selected');
+      });
+    }
+    checkTrueFalse();
+  }
+
+  // Telephone conversation
+  function checkTelephone() {
+    const answers = {
+      gap1: "voudrais parler", gap2: "un message", gap3: "parfait",
+      gap4: "j'ai vu", gap5: "trois mois", gap6: "les cours"
+    };
+    let total = 6, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      const expNorm = norm(exp);
+      if (user === expNorm || (id === 'gap1' && user.includes('parler'))) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreTel').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealTelephone() {
+    document.getElementById('gap1').value = "voudrais parler";
+    document.getElementById('gap2').value = "un message";
+    document.getElementById('gap3').value = "parfait";
+    document.getElementById('gap4').value = "j'ai vu";
+    document.getElementById('gap5').value = "trois mois";
+    document.getElementById('gap6').value = "les cours";
+    checkTelephone();
+  }
+
+  // Order
+  function checkOrder() {
+    const answers = { orderA: "3", orderB: "4", orderD: "1", orderF: "2" };
+    let total = 4, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = inp.value.trim();
+      if (user === exp) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreOrder').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealOrder() {
+    document.getElementById('orderA').value = "3";
+    document.getElementById('orderB').value = "4";
+    document.getElementById('orderD').value = "1";
+    document.getElementById('orderF').value = "2";
+    checkOrder();
+  }
+
+  // Notes
+  function checkNotes() {
+    const answers = {
+      noteD: "huit matières, dont deux langues", noteF: "le sport, la musique, la lecture",
+      noteA: "il aime les enfants et le sport", noteB: "adaptable, créatif, organisé"
+    };
+    let total = 4, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      const expNorm = norm(exp);
+      if (user.includes(expNorm.substring(0,8)) || expNorm.includes(user)) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreNotes').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealNotes() {
+    document.getElementById('noteD').value = "huit matières, dont deux langues";
+    document.getElementById('noteF').value = "le sport, la musique, la lecture";
+    document.getElementById('noteA').value = "il aime les enfants et le sport";
+    document.getElementById('noteB').value = "adaptable, créatif, organisé";
+    checkNotes();
+  }
+
+  // Pronouns
+  function checkPronouns() {
+    const answers = {
+      pro1: "l'ai vu", pro2: "l'a accompagnée", pro3: "les avons invités",
+      pro4: "les ai achetées", pro5: "l'as appelée"
+    };
+    let total = 5, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      const expNorm = norm(exp);
+      if (user === expNorm || (id === 'pro4' && user.includes('achetées'))) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scorePronoun').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealPronouns() {
+    document.getElementById('pro1').value = "l'ai vu";
+    document.getElementById('pro2').value = "l'a accompagnée";
+    document.getElementById('pro3').value = "les avons invités";
+    document.getElementById('pro4').value = "les ai achetées";
+    document.getElementById('pro5').value = "l'as appelée";
+    checkPronouns();
+  }
+
+  // Letter questions
+  function checkLetter() {
+    const answers = {
+      lett1: "pour les enfants de son ancienne école primaire",
+      lett2: "il y a deux ans",
+      lett3: "il les a entraînés et accompagnés aux matchs",
+      lett4: "il fait du baby-sitting",
+      lett5: "l'espagnol",
+      lett6: "l'anglais et le français",
+      lett7: "non, il se débrouille seulement"
+    };
+    let total = 7, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      const expNorm = norm(exp);
+      if (user.includes(expNorm.substring(0,10)) || expNorm.includes(user.substring(0,10))) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreLetter').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealLetter() {
+    document.getElementById('lett1').value = "pour les enfants de son ancienne école primaire";
+    document.getElementById('lett2').value = "il y a deux ans";
+    document.getElementById('lett3').value = "il les a entraînés et accompagnés aux matchs";
+    document.getElementById('lett4').value = "il fait du baby-sitting; il a gardé le fils de ses voisins";
+    document.getElementById('lett5').value = "l'espagnol";
+    document.getElementById('lett6').value = "l'anglais et le français";
+    document.getElementById('lett7').value = "non, il se débrouille seulement";
+    checkLetter();
+  }
+
+  // Phone phrases word counter
+  const phoneTa = document.getElementById('phonePhrases');
+  const phoneSpan = document.getElementById('phoneWordCount');
+  phoneTa.addEventListener('input', function() {
+    const words = phoneTa.value.trim().split(/\s+/).filter(Boolean).length;
+    phoneSpan.innerText = `${words} mots`;
+  });
+
+  // Email writing
+  const emailTa = document.getElementById('emailText');
+  const emailSpan = document.getElementById('emailWordCount');
+  emailTa.addEventListener('input', function() {
+    const words = emailTa.value.trim().split(/\s+/).filter(Boolean).length;
+    emailSpan.innerText = `${words} mots`;
+    if (words >= 80 && words <= 150) emailSpan.style.color = '#1e6b1e';
+    else emailSpan.style.color = 'var(--muted)';
+  });
+  function speakEmail() {
+    const text = emailTa.value.trim();
+    if (text) speakFR(text);
+    else speakFR("Je n'ai pas encore écrit mon e-mail.");
+  }
+  function showEmailModel() {
+    const model = document.getElementById('emailModel');
+    model.style.display = model.style.display === 'none' ? 'block' : 'none';
+  }
+  window.addEventListener('load', () => {
+    if (phoneTa.value.trim() === '') phoneSpan.innerText = '0 mots';
+    if (emailTa.value.trim() === '') emailSpan.innerText = '0 mots';
+  });
+</script>
+</body>
+</html>

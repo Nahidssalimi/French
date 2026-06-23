@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Discuter et Acheter des Vêtements — IGCSE French Lesson</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f7fb; --ink:#0e1a2b; --muted:#5a6473;
+    --red:#7a1722; --red-dark:#5a0f18;
+    --blue:#0f2a4a; --blue-dark:#08182b;
+    --card:#ffffff; --border:#d9dde5; --shadow:0 10px 30px rgba(8,24,43,.08);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  header{background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:#fff;padding:48px 24px;text-align:center;border-bottom:6px solid var(--red)}
+  header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);margin:.2em 0}
+  header p{max-width:760px;margin:0 auto;opacity:.92}
+  .badges{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+  .badge{background:rgba(255,255,255,.12);padding:6px 14px;border-radius:999px;font-size:.85rem;border:1px solid rgba(255,255,255,.2)}
+  main{max-width:1100px;margin:0 auto;padding:32px 20px}
+  section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:28px;box-shadow:var(--shadow)}
+  .tag{display:inline-block;background:var(--red);color:#fff;padding:4px 12px;border-radius:4px;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+  h2{font-family:'Playfair Display',serif;font-size:1.9rem;margin:.3em 0 .5em;color:var(--blue)}
+  h3{margin-top:1.4em;color:var(--red)}
+  .sub{color:var(--muted);font-style:italic;font-size:.95rem}
+  table{width:100%;border-collapse:collapse;margin:14px 0}
+  th,td{border:1px solid var(--border);padding:10px;text-align:left;vertical-align:top}
+  th{background:var(--blue);color:#fff}
+  .objectifs{background:#eef2f8;border-left:5px solid var(--blue);padding:18px 22px;border-radius:8px}
+  .objectifs ul{margin:8px 0 0 18px;padding:0}
+  .warning{background:#fbeef0;border-left:4px solid var(--red);padding:12px 16px;border-radius:6px;margin-top:14px}
+  .grammar{background:#eef2f8;border-left:5px solid var(--blue);padding:16px 20px;border-radius:8px;margin:16px 0}
+  .grammar h4{margin:0 0 8px;color:var(--blue);font-family:'Playfair Display',serif}
+
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:16px}
+  .vocab-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px;cursor:pointer;transition:.2s;border-left:4px solid var(--blue);text-align:center}
+  .vocab-card:hover{border-left-color:var(--red);transform:translateY(-2px);box-shadow:var(--shadow)}
+  .vocab-card .emoji{font-size:2.4rem;display:block;margin-bottom:6px}
+  .vocab-card .fr{font-weight:700;font-size:1rem;color:var(--blue);display:block}
+  .vocab-card .en{color:var(--muted);font-size:.82rem;font-style:italic;display:block;margin-top:2px}
+
+  .outfit-wrap{display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start;margin-top:16px}
+  @media(max-width:820px){.outfit-wrap{grid-template-columns:1fr}}
+  .outfit-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+  .outfit-tabs button{background:#fff;border:2px solid var(--blue);color:var(--blue);padding:8px 14px;border-radius:20px;cursor:pointer;font-weight:600}
+  .outfit-tabs button.active{background:var(--blue);color:#fff}
+  .outfit-display{background:#fff;border:2px solid var(--border);border-radius:10px;padding:20px;min-height:280px;border-top:5px solid var(--red)}
+  .outfit-display h3{margin-top:0}
+  .outfit-display .items{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+  .item-chip{background:#eef2f8;border:2px solid var(--blue);color:var(--blue);padding:8px 14px;border-radius:20px;font-weight:600;cursor:pointer;font-size:.95rem}
+  .item-chip:hover{background:var(--blue);color:#fff}
+  .info-panel{background:#fff;border:2px solid var(--border);border-radius:10px;padding:20px;min-height:280px;position:sticky;top:20px;border-top:5px solid var(--red)}
+  .info-panel h3{margin-top:0;color:var(--red)}
+  .info-panel .fr{font-size:1.5rem;font-family:'Playfair Display',serif;color:var(--blue);margin:8px 0 4px;font-weight:700}
+  .info-panel .en{color:var(--muted);font-style:italic}
+  .info-panel .example{margin-top:10px;padding:10px;background:#f3f5f9;border-radius:6px;font-size:.92rem}
+  .speak-btn{margin-top:14px;background:var(--blue);color:#fff;border:none;padding:10px 18px;border-radius:6px;cursor:pointer;font-weight:600}
+  .speak-btn:hover{background:var(--blue-dark)}
+
+  .text-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;border-left:5px solid var(--blue)}
+  .text-card h4{margin:0 0 6px;color:var(--red);font-size:1.1rem}
+  .text-card .en-translation{margin-top:10px;padding-top:10px;border-top:1px dashed var(--border);color:var(--muted);font-style:italic;font-size:.92rem}
+
+  .q{background:#fff;border:1px solid var(--border);border-radius:8px;padding:14px;margin:12px 0;border-left:4px solid var(--blue)}
+  .q p.qtext{margin:0 0 8px;font-weight:600;color:var(--blue)}
+  .opt{display:block;padding:8px 12px;margin:5px 0;background:#f3f5f9;border-radius:5px;cursor:pointer;border:2px solid transparent}
+  .opt:hover{border-color:var(--blue)}
+  .opt input{margin-right:8px}
+  .opt.correct{background:#e6f3e6;border-color:#1e6b1e;color:#0d3d0d}
+  .opt.wrong{background:#f8d7da;border-color:var(--red);color:var(--red-dark)}
+  .check-btn{background:var(--red);color:#fff;border:none;padding:10px 22px;border-radius:6px;font-weight:600;cursor:pointer;margin-top:8px}
+  .check-btn:hover{background:var(--red-dark)}
+  .feedback{margin-top:10px;padding:10px;border-radius:5px;font-weight:600;display:none}
+  .feedback.show{display:block}
+  .feedback.good{background:#e6f3e6;color:#0d3d0d;border-left:4px solid #1e6b1e}
+  .feedback.bad{background:#fbeef0;color:var(--red-dark);border-left:4px solid var(--red)}
+  input[type=text]{padding:6px 10px;border:2px solid var(--border);border-radius:5px;font-family:inherit;font-size:1rem;width:160px}
+  input[type=text].ok{border-color:#1e6b1e;background:#eaf7ec}
+  input[type=text].no{border-color:var(--red);background:#fbeaec}
+
+  .sort-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+  .sort-col{background:#eef2f8;border:2px dashed var(--blue);border-radius:8px;padding:12px;min-height:160px}
+  .sort-col h4{margin:0 0 8px;color:var(--blue);font-size:.95rem;text-align:center;border-bottom:2px solid var(--blue);padding-bottom:6px}
+  .sort-col.over{background:#dde5f1;border-color:var(--red)}
+  .pool{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;padding:14px;background:#f3f5f9;border-radius:8px;min-height:60px}
+  .chip{background:#fff;border:2px solid var(--blue);color:var(--blue);padding:6px 12px;border-radius:20px;cursor:grab;user-select:none;font-weight:600;font-size:.9rem}
+  .chip:active{cursor:grabbing}
+  .chip.placed{background:var(--blue);color:#fff}
+  .chip.correct{background:#1e6b1e;color:#fff;border-color:#1e6b1e}
+  .chip.wrong{background:var(--red);color:#fff;border-color:var(--red)}
+
+  .match-row{display:flex;align-items:center;gap:10px;padding:10px;background:#fff;border:1px solid var(--border);border-radius:6px;margin:8px 0;border-left:4px solid var(--blue);flex-wrap:wrap}
+  .match-row .stmt{flex:1;min-width:240px}
+  .match-row select{padding:6px;border-radius:5px;border:2px solid var(--border);font-family:inherit}
+  .match-row .res{font-weight:700;min-width:30px}
+
+  .conj-table{width:100%;border-collapse:collapse;margin:12px 0}
+  .conj-table th,.conj-table td{border:1px solid var(--border);padding:8px 12px;text-align:left}
+  .conj-table th{background:var(--blue);color:#fff;font-weight:700}
+  .conj-table tr:nth-child(even){background:#f7f7fb}
+
+  .dialogue{background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;border-left:5px solid var(--red)}
+  .dialogue .line{margin:8px 0;padding:6px 10px;border-radius:6px}
+  .dialogue .line.client{background:#eef2f8}
+  .dialogue .line.vendeur{background:#fbeef0}
+  .dialogue .line b{color:var(--blue)}
+
+  textarea{width:100%;min-height:140px;padding:12px;border:2px solid var(--border);border-radius:6px;font-family:inherit;font-size:1rem}
+
+  footer{background:var(--blue-dark);color:#fff;text-align:center;padding:28px;margin-top:40px;border-top:6px solid var(--red);font-size:.9rem}
+
+  .toggle-btn{background:transparent;border:2px solid var(--blue);color:var(--blue);padding:6px 12px;border-radius:5px;cursor:pointer;font-weight:600;font-size:.85rem;margin-top:8px}
+  .toggle-btn:hover{background:var(--blue);color:#fff}
+  .hidden{display:none}
+
+  .color-sample{display:inline-block;padding:4px 10px;border-radius:4px;font-weight:600;margin:3px;border:1px solid var(--border)}
+</style>
+</head>
+<body>
+<header>
+  <span class="tag">Module 3 · Point de Départ 2</span>
+  <h1>Discuter et Acheter des Vêtements</h1>
+  <p>Décris ce que tu portes, discute des occasions spéciales et apprends à acheter des vêtements en français — couleurs, tissus, tailles et tout le vocabulaire de la mode.</p>
+  <div class="badges">
+    <span class="badge">E3 Shopping &amp; Money</span>
+    <span class="badge">Vêtements &amp; Couleurs</span>
+    <span class="badge">Verbes porter / mettre</span>
+    <span class="badge">Pronoms COD</span>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <span class="tag">Objectifs</span>
+  <h2>Objectif d'apprentissage</h2>
+  <div class="objectifs">
+    <strong>Tu vas apprendre à :</strong>
+    <ul>
+      <li>Décrire des vêtements avec couleurs, tissus et motifs</li>
+      <li>Utiliser les verbes <em>porter</em> et <em>mettre</em> au présent, passé composé et futur proche</li>
+      <li>Tenir un dialogue dans une boutique (taille, couleur, cabine d'essayage)</li>
+      <li>Utiliser les pronoms COD : <em>le, la, les</em></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 1. VOCAB -->
+<section>
+  <span class="tag">Activité 1 · Vocabulaire</span>
+  <h2>Les vêtements</h2>
+  <p class="sub">Clique sur une carte pour entendre la prononciation française.</p>
+  <div class="vocab-grid" id="vocabGrid"></div>
+</section>
+
+<!-- 2. COULEURS ET TISSUS -->
+<section>
+  <span class="tag">Grammaire</span>
+  <h2>Les adjectifs de couleur &amp; les tissus</h2>
+
+  <div class="grammar">
+    <h4>Règle 1 — Position et accord</h4>
+    <p>Les adjectifs de couleur se placent <strong>après</strong> le nom et s'accordent en genre et en nombre.</p>
+    <ul>
+      <li>une veste <strong>verte</strong> · des baskets <strong>grises</strong></li>
+      <li><em>blanc</em> est irrégulier : <strong>blanche</strong> (f), <strong>blancs</strong> (m pl), <strong>blanches</strong> (f pl)</li>
+    </ul>
+  </div>
+
+  <div class="grammar">
+    <h4>Règle 2 — Adjectifs invariables</h4>
+    <p><em>marron</em> et <em>orange</em> ne changent jamais :</p>
+    <p>des chaussures <span class="color-sample" style="background:#7a4a2a;color:#fff">marron</span> · des gants <span class="color-sample" style="background:#ff8c00;color:#fff">orange</span></p>
+  </div>
+
+  <div class="grammar">
+    <h4>Règle 3 — Avec <em>foncé</em> ou <em>clair</em></h4>
+    <p>Si tu ajoutes <em>foncé</em> ou <em>clair</em>, l'adjectif <strong>ne s'accorde pas</strong>.</p>
+    <p>une jupe <span class="color-sample" style="background:#1e4d1e;color:#fff">vert foncé</span> · des gants <span class="color-sample" style="background:#a8c8e8">bleu clair</span></p>
+  </div>
+
+  <div class="warning">
+    <strong>Prononciation :</strong> quand tu ajoutes <em>-e</em> ou <em>-es</em> après un <em>s</em> ou <em>t</em> final, tu <strong>prononces</strong> la consonne.
+    <br>Ex. : une veste <strong>verte</strong> · des baskets <strong>grises</strong> · une jupe <strong>violette</strong>
+  </div>
+
+  <h3>Tissus &amp; motifs</h3>
+  <table>
+    <tr><th>Français</th><th>Anglais</th></tr>
+    <tr><td>en coton</td><td>cotton</td></tr>
+    <tr><td>en cuir</td><td>leather</td></tr>
+    <tr><td>en laine</td><td>wool</td></tr>
+    <tr><td>en soie</td><td>silk</td></tr>
+    <tr><td>rayé(e)</td><td>striped</td></tr>
+    <tr><td>à carreaux</td><td>checked</td></tr>
+    <tr><td>de marque</td><td>branded (Nike, Lacoste…)</td></tr>
+    <tr><td>habillé(e)</td><td>smart, dressy</td></tr>
+    <tr><td>chic, élégant(e)</td><td>chic, elegant</td></tr>
+  </table>
+</section>
+
+<!-- 3. OUTFITS INTERACTIVE -->
+<section>
+  <span class="tag">Activité 2 · Lis &amp; écoute</span>
+  <h2>Six tenues à découvrir</h2>
+  <p class="sub">Choisis une tenue pour voir la description complète et l'écouter en français.</p>
+  <div class="outfit-wrap">
+    <div>
+      <div class="outfit-tabs" id="outfitTabs"></div>
+      <div class="outfit-display" id="outfitDisplay"></div>
+    </div>
+    <div class="info-panel" id="outfitInfo">
+      <h3>👕 Clique sur un vêtement</h3>
+      <p class="sub">Sélectionne une tenue puis un vêtement pour le traduire et l'entendre.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. TRI MASC/FEM -->
+<section>
+  <span class="tag">Activité 3 · Genre</span>
+  <h2>Masculin ou féminin ?</h2>
+  <p class="sub">Glisse chaque vêtement dans la bonne colonne. Attention : <em>des lunettes de soleil</em> est <strong>féminin pluriel</strong> !</p>
+  <div class="sort-wrap">
+    <div class="sort-col" data-cat="m"><h4>Masculin (un / le)</h4></div>
+    <div class="sort-col" data-cat="f"><h4>Féminin (une / la)</h4></div>
+  </div>
+  <div class="pool" id="genderPool"></div>
+  <button class="check-btn" onclick="checkGender()">Vérifier</button>
+  <div class="feedback" id="genderFb"></div>
+</section>
+
+<!-- 5. VERBES PORTER / METTRE -->
+<section>
+  <span class="tag">Grammaire</span>
+  <h2>Les verbes <em>porter</em> et <em>mettre</em></h2>
+  <table class="conj-table">
+    <tr><th></th><th>porter (to wear)</th><th>mettre (to put on)</th></tr>
+    <tr><td><strong>Présent</strong></td><td>je porte</td><td>je mets</td></tr>
+    <tr><td><strong>Passé composé</strong></td><td>j'ai porté</td><td>j'ai mis</td></tr>
+    <tr><td><strong>Futur proche</strong></td><td>je vais porter</td><td>je vais mettre</td></tr>
+  </table>
+  <div class="warning">
+    <strong>Astuce :</strong> <em>porter</em> = être habillé avec / <em>mettre</em> = enfiler, choisir de porter.
+    <br>« Qu'est-ce que tu vas <strong>mettre</strong> pour la fête ? » → « Je vais <strong>mettre</strong> une robe. »
+  </div>
+</section>
+
+<!-- 6. DIALOGUE BOUTIQUE -->
+<section>
+  <span class="tag">Activité 4 · Dialogue</span>
+  <h2>À la boutique — Choisis le rôle du client</h2>
+  <p class="sub">Choisis la bonne phrase pour chaque réponse du vendeur, puis vérifie.</p>
+  <div class="dialogue" id="shopDialogue"></div>
+  <button class="check-btn" onclick="checkShop()">Vérifier le dialogue</button>
+  <button class="check-btn" style="background:var(--blue)" onclick="playShop()">▶ Écouter le dialogue</button>
+  <div class="feedback" id="shopFb"></div>
+  <div class="warning"><strong>Bon à savoir :</strong> pour les chaussures, on dit <em>la pointure</em>, pas <em>la taille</em>.</div>
+</section>
+
+<!-- 7. PRONOMS COD -->
+<section>
+  <span class="tag">Grammaire</span>
+  <h2>Les pronoms compléments d'objet direct (COD)</h2>
+  <table class="conj-table">
+    <tr><th></th><th>Sujet</th><th>Objet (COD)</th></tr>
+    <tr><td>Masculin</td><td>Il est trop petit.</td><td>Je <strong>le</strong> prends.</td></tr>
+    <tr><td>Féminin</td><td>Elle est trop petite.</td><td>Je <strong>la</strong> prends.</td></tr>
+    <tr><td>Pluriel</td><td>Ils/Elles sont trop petit(e)s.</td><td>Je <strong>les</strong> prends.</td></tr>
+  </table>
+
+  <h3>Quiz — Choisis le bon pronom</h3>
+  <div id="codQuiz"></div>
+  <button class="check-btn" onclick="checkCOD()">Vérifier</button>
+  <div class="feedback" id="codFb"></div>
+</section>
+
+<!-- 8. PARLER -->
+<section>
+  <span class="tag">Activité 5 · Parler</span>
+  <h2>Qu'est-ce que tu portes ?</h2>
+  <p>Travaillez à deux. Posez-vous ces questions et répondez avec un maximum de détails (couleurs, tissus, marques…).</p>
+  <div class="text-card">
+    <h4>Questions modèles</h4>
+    <p>• Qu'est-ce que tu portes normalement, le week-end ?<br>
+       • Qu'est-ce que tu vas mettre pour aller au barbecue sur la plage ?<br>
+       • Qu'est-ce que tu as mis pour le mariage de ta cousine ?<br>
+       • Qu'est-ce que tu vas mettre pour la fête d'anniversaire d'un copain ?<br>
+       • Qu'est-ce que tu portes pour la journée sans uniforme au collège ?</p>
+    <button class="speak-btn" onclick="speakFR('Qu\\'est-ce que tu portes normalement le week-end ?')">▶ Écouter</button>
+  </div>
+  <div class="text-card">
+    <h4>Réponses modèles</h4>
+    <p>• D'habitude, je porte un jean moulant avec un pull en laine et des baskets de marque.<br>
+       • Je vais mettre un short à carreaux et un tee-shirt blanc.<br>
+       • J'ai mis une robe longue rouge et des chaussures noires.</p>
+  </div>
+</section>
+
+<!-- 9. EXERCICE 7 GAP-FILL -->
+<section>
+  <span class="tag">Activité 6 · Lis</span>
+  <h2>Modifie le texte — accords &amp; verbes</h2>
+  <p class="sub">Conjugue ou accorde les mots entre crochets. Attention : parfois il n'y a rien à changer !</p>
+  <div class="text-card" id="gapText"></div>
+  <button class="check-btn" onclick="checkGap()">Vérifier</button>
+  <button class="check-btn" style="background:var(--blue)" onclick="revealGap()">Afficher la solution</button>
+  <div class="feedback" id="gapFb"></div>
+</section>
+
+<!-- 10. ÉCRIRE -->
+<section>
+  <span class="tag">Activité 7 · Écrire</span>
+  <h2>À toi d'écrire !</h2>
+  <p>Décris en 80–100 mots ce que tu portes : (1) au collège, (2) le week-end, (3) ce que tu vas mettre pour une occasion spéciale, et (4) ce que tu as mis la dernière fois que tu es sorti(e). Utilise des couleurs, des tissus et au moins un pronom COD.</p>
+  <textarea id="writing" placeholder="Au collège je porte..."></textarea>
+  <br>
+  <button class="toggle-btn" onclick="toggleModel()">Afficher / cacher le modèle</button>
+  <div id="modelAns" class="hidden text-card" style="margin-top:14px">
+    <h4>Réponse modèle</h4>
+    <p>Au collège, je porte un uniforme — un pantalon gris, une chemise blanche et une cravate rayée bleu foncé. Le week-end, je préfère mettre un jean moulant avec un sweat à capuche et mes baskets de marque préférées : je les porte tout le temps ! Pour le mariage de ma cousine, je vais mettre une robe longue verte en soie et des chaussures noires habillées. Samedi dernier, je suis sortie avec mes amies ; j'ai mis une jupe à carreaux, un tricot rouge et un petit sac à main en cuir. J'adore la mode !</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  GCSE / IGCSE French — Discuter et Acheter des Vêtements · Conçu pour apprendre, pratiquer et briller.
+</footer>
+
+<script>
+/* ---------- SPEECH ---------- */
+function speakFR(text){
+  if(!('speechSynthesis' in window)) return alert('Audio non disponible.');
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang='fr-FR'; u.rate=.9;
+  const v = speechSynthesis.getVoices().find(v=>v.lang.startsWith('fr'));
+  if(v) u.voice=v;
+  speechSynthesis.speak(u);
+}
+
+/* ---------- 1. VOCAB ---------- */
+const vocab = [
+  ['👕','un tee-shirt','t-shirt'],['👖','un jean','jeans'],['👔','une chemise','shirt'],
+  ['🧥','un manteau','coat'],['🧦','des chaussettes','socks'],['👟','des baskets','trainers'],
+  ['👠','des chaussures','shoes'],['🥾','des bottes','boots'],['🧢','une casquette','cap'],
+  ['🎩','un chapeau','hat'],['🕶️','des lunettes de soleil','sunglasses'],['🧣','une écharpe','scarf'],
+  ['🧤','des gants','gloves'],['👗','une robe','dress'],['👚','un tricot / un pull','jumper'],
+  ['🩳','un short','shorts'],['👜','un sac à main','handbag'],['👞','une ceinture','belt'],
+  ['🦺','une veste','jacket'],['👘','un costume','suit'],['👙','un polo','polo shirt'],
+  ['🎽','un sweat à capuche','hoodie'],['🩲','un pantalon','trousers'],['🪢','une cravate','tie']
+];
+const vg = document.getElementById('vocabGrid');
+vocab.forEach(([e,f,en])=>{
+  const c = document.createElement('div');
+  c.className='vocab-card';
+  c.innerHTML = `<span class="emoji">${e}</span><span class="fr">${f}</span><span class="en">${en}</span>`;
+  c.onclick=()=>speakFR(f);
+  vg.appendChild(c);
+});
+
+/* ---------- 3. OUTFITS ---------- */
+const outfits = [
+  {n:1, title:'Tenue décontractée', items:[
+    ['un polo','a polo shirt'],['un jean moulant','tight jeans'],
+    ['un petit chapeau','a small hat'],['des lunettes de soleil','sunglasses']
+  ]},
+  {n:2, title:'Tenue d\'hiver', items:[
+    ['une jupe','a skirt'],['un tricot','a jumper'],['un manteau','a coat'],
+    ['un collant','tights'],['une écharpe','a scarf'],['des gants en laine','wool gloves']
+  ]},
+  {n:3, title:'Tenue d\'affaires', items:[
+    ['un costume foncé','a dark suit'],['une chemise blanche','a white shirt'],
+    ['une cravate en soie','a silk tie'],['des chaussures','shoes'],
+    ['des chaussettes de couleur vive','brightly coloured socks'],['un imperméable','a raincoat']
+  ]},
+  {n:4, title:'Tenue smart-casual', items:[
+    ['un pull','a jumper'],['un pantalon en coton','cotton trousers'],
+    ['une ceinture en cuir','a leather belt'],['une veste habillée','a smart jacket']
+  ]},
+  {n:5, title:'Tenue de soirée', items:[
+    ['une robe longue','a long dress'],['un blouson en cuir','a leather jacket'],
+    ['des bottes','boots'],['un petit sac à main','a small handbag']
+  ]},
+  {n:6, title:'Tenue de sport', items:[
+    ['un tee-shirt','a t-shirt'],['un sweat à capuche','a hoodie'],
+    ['un pantalon de survêtement','tracksuit bottoms'],['une casquette','a cap'],
+    ['des baskets de marque','branded trainers']
+  ]}
+];
+const tabs = document.getElementById('outfitTabs');
+const disp = document.getElementById('outfitDisplay');
+const info = document.getElementById('outfitInfo');
+outfits.forEach(o=>{
+  const b = document.createElement('button');
+  b.textContent = 'Tenue '+o.n;
+  b.onclick = ()=>showOutfit(o,b);
+  tabs.appendChild(b);
+});
+function showOutfit(o,btn){
+  document.querySelectorAll('.outfit-tabs button').forEach(x=>x.classList.remove('active'));
+  btn.classList.add('active');
+  disp.innerHTML = `<h3>${o.title}</h3><p class="sub">Clique sur un vêtement.</p>
+    <div class="items">${o.items.map((it,i)=>`<span class="item-chip" onclick="showItem(${o.n},${i})">${it[0]}</span>`).join('')}</div>
+    <button class="speak-btn" onclick="speakFR('${o.items.map(it=>it[0]).join(', ')}')">▶ Écouter toute la tenue</button>`;
+}
+function showItem(on,idx){
+  const it = outfits.find(o=>o.n===on).items[idx];
+  info.innerHTML = `<h3>📌 Vocabulaire</h3>
+    <div class="fr">${it[0]}</div><div class="en">${it[1]}</div>
+    <div class="example">Exemple : « Je porte ${it[0]} aujourd'hui. »</div>
+    <button class="speak-btn" onclick="speakFR('${it[0]}')">▶ Écouter</button>`;
+}
+showOutfit(outfits[0], tabs.firstChild);
+
+/* ---------- 4. GENDER SORT ---------- */
+const genderItems = [
+  ['un polo','m'],['un jean','m'],['un chapeau','m'],['des lunettes de soleil','f'],
+  ['une jupe','f'],['un tricot','m'],['un manteau','m'],['un collant','m'],
+  ['une écharpe','f'],['des gants','m'],['un costume','m'],['une chemise','f'],
+  ['une cravate','f'],['des chaussures','f'],['des chaussettes','f'],['un imperméable','m'],
+  ['un pull','m'],['un pantalon','m'],['une ceinture','f'],['une veste','f'],
+  ['une robe','f'],['un blouson','m'],['des bottes','f'],['un sac à main','m'],
+  ['un tee-shirt','m'],['un sweat à capuche','m'],['une casquette','f'],['des baskets','f']
+];
+const pool = document.getElementById('genderPool');
+genderItems.sort(()=>Math.random()-.5).forEach(([w,c])=>{
+  const ch = document.createElement('span');
+  ch.className='chip'; ch.draggable=true; ch.textContent=w; ch.dataset.cat=c;
+  ch.ondragstart=e=>e.dataTransfer.setData('text',w);
+  pool.appendChild(ch);
+});
+document.querySelectorAll('.sort-col').forEach(col=>{
+  col.ondragover=e=>{e.preventDefault();col.classList.add('over')};
+  col.ondragleave=()=>col.classList.remove('over');
+  col.ondrop=e=>{
+    e.preventDefault(); col.classList.remove('over');
+    const w = e.dataTransfer.getData('text');
+    const chip = [...document.querySelectorAll('.chip')].find(c=>c.textContent===w);
+    if(chip){chip.classList.add('placed');col.appendChild(chip);}
+  };
+});
+function checkGender(){
+  let ok=0,tot=0;
+  document.querySelectorAll('.sort-col').forEach(col=>{
+    [...col.querySelectorAll('.chip')].forEach(ch=>{
+      tot++;
+      ch.classList.remove('correct','wrong');
+      if(ch.dataset.cat===col.dataset.cat){ch.classList.add('correct');ok++;}
+      else ch.classList.add('wrong');
+    });
+  });
+  const fb = document.getElementById('genderFb');
+  fb.className = 'feedback show '+(ok===genderItems.length?'good':'bad');
+  fb.textContent = `Score : ${ok}/${genderItems.length} ${ok===genderItems.length?'— parfait !':'— corrige les rouges et réessaye.'}`;
+}
+
+/* ---------- 6. SHOP DIALOGUE ---------- */
+const shopLines = [
+  {who:'vendeur', t:'Bonjour, je peux vous aider ?'},
+  {who:'client', correct:'c', opts:[
+    ['a','Noir ou rouge, s\'il vous plaît.'],
+    ['b','Il est trop grand pour moi. Avez-vous quelque chose de plus petit ?'],
+    ['c','Je voudrais un tee-shirt, s\'il vous plaît.'],
+    ['d','Une taille moyenne, je crois.'],
+    ['e','Oui, ça va, merci. Je le prends.'],
+    ['f','Oui, merci. Où sont les cabines d\'essayage ?']
+  ]},
+  {who:'vendeur', t:'De quelle couleur ?'},
+  {who:'client', correct:'a', opts:[]},
+  {who:'vendeur', t:'Vous faites quelle taille ?'},
+  {who:'client', correct:'d', opts:[]},
+  {who:'vendeur', t:'Voilà. Vous voulez l\'essayer ?'},
+  {who:'client', correct:'f', opts:[]},
+  {who:'vendeur', t:'(un peu plus tard) Il vous va bien !'},
+  {who:'client', correct:'b', opts:[]},
+  {who:'vendeur', t:'Oui, bien sûr. Voici la même chose en petit. Ça va ?'},
+  {who:'client', correct:'e', opts:[]}
+];
+const allOpts = shopLines[1].opts;
+const sd = document.getElementById('shopDialogue');
+shopLines.forEach((l,i)=>{
+  const d = document.createElement('div');
+  d.className = 'line '+l.who;
+  if(l.who==='vendeur') d.innerHTML = `<b>Vendeur :</b> ${l.t}`;
+  else {
+    const sel = `<select data-i="${i}" data-correct="${l.correct}">
+      <option value="">-- choisis --</option>
+      ${allOpts.map(o=>`<option value="${o[0]}">${o[0]}) ${o[1]}</option>`).join('')}
+    </select>`;
+    d.innerHTML = `<b>Client :</b> ${sel}`;
+  }
+  sd.appendChild(d);
+});
+function checkShop(){
+  let ok=0,tot=0;
+  document.querySelectorAll('#shopDialogue select').forEach(s=>{
+    tot++;
+    s.style.border = s.value===s.dataset.correct ? '2px solid #1e6b1e' : '2px solid var(--red)';
+    if(s.value===s.dataset.correct) ok++;
+  });
+  const fb = document.getElementById('shopFb');
+  fb.className = 'feedback show '+(ok===tot?'good':'bad');
+  fb.textContent = `Score : ${ok}/${tot} ${ok===tot?'— bravo !':'— vérifie les rouges.'}`;
+}
+function playShop(){
+  const seq = shopLines.map(l=>{
+    if(l.who==='vendeur') return l.t;
+    const ans = allOpts.find(o=>o[0]===l.correct);
+    return ans?ans[1]:'';
+  });
+  let i=0;
+  const next=()=>{
+    if(i>=seq.length) return;
+    const u = new SpeechSynthesisUtterance(seq[i]); u.lang='fr-FR'; u.rate=.9;
+    u.onend = ()=>{i++;next();};
+    speechSynthesis.speak(u);
+  };
+  speechSynthesis.cancel(); next();
+}
+
+/* ---------- 7. COD QUIZ ---------- */
+const codQs = [
+  {q:'« Cette robe est jolie. Je ___ prends. »', a:'la', opts:['le','la','les']},
+  {q:'« Ces baskets sont chouettes. Je ___ achète. »', a:'les', opts:['le','la','les']},
+  {q:'« Ce pull est trop grand. Je ne ___ prends pas. »', a:'le', opts:['le','la','les']},
+  {q:'« Ces chaussures ? Je ___ adore ! »', a:'les', opts:['le','la','les']},
+  {q:'« La cravate en soie ? Je ___ trouve très chic. »', a:'la', opts:['le','la','les']}
+];
+const cq = document.getElementById('codQuiz');
+codQs.forEach((q,i)=>{
+  cq.innerHTML += `<div class="q"><p class="qtext">${i+1}. ${q.q}</p>
+    ${q.opts.map(o=>`<label class="opt"><input type="radio" name="cod${i}" value="${o}"> ${o}</label>`).join('')}</div>`;
+});
+function checkCOD(){
+  let ok=0;
+  codQs.forEach((q,i)=>{
+    const sel = document.querySelector(`input[name="cod${i}"]:checked`);
+    const opts = document.querySelectorAll(`input[name="cod${i}"]`);
+    opts.forEach(o=>{
+      o.parentElement.classList.remove('correct','wrong');
+      if(o.value===q.a) o.parentElement.classList.add('correct');
+      else if(sel && o===sel) o.parentElement.classList.add('wrong');
+    });
+    if(sel && sel.value===q.a) ok++;
+  });
+  const fb = document.getElementById('codFb');
+  fb.className='feedback show '+(ok===codQs.length?'good':'bad');
+  fb.textContent=`Score : ${ok}/${codQs.length}`;
+}
+
+/* ---------- 9. GAP-FILL (Exercise 7) ---------- */
+const gapData = [
+  {bracket:'recevoir', a:'reçois'},
+  {bracket:'préférer', a:'préfère'},
+  {bracket:'neuf', a:'neufs'},
+  {bracket:'vieux', a:'vieilles'},
+  {bracket:'noir', a:'noires'},
+  {bracket:'mettre', a:'mets'},
+  {bracket:'sortir', a:'sors'},
+  {bracket:'s\'habiller', a:'m\'habiller'},
+  {bracket:'mettre', a:'ai mis'},
+  {bracket:'vert foncé', a:'vert foncé'}
+];
+const gapTpl = `<h4>Les vêtements et moi</h4>
+<p>J'aime les vêtements mais, puisque je ne <input id="g0" type="text"> [recevoir] pas beaucoup d'argent de poche, je <input id="g1" type="text"> [préférer] acheter des vêtements <input id="g2" type="text"> [neuf] pendant les soldes. Au collège je porte des vêtements simples comme un jean et un pull et mes <input id="g3" type="text"> [vieux] baskets <input id="g4" type="text"> [noir]. Le week-end je <input id="g5" type="text"> [mettre] un jogging, quand je cours avec ma mère dans le parc près de chez nous. Le soir, si je <input id="g6" type="text"> [sortir] avec mes amis, je préfère <input id="g7" type="text"> [s'habiller] à la mode. Samedi dernier j' <input id="g8" type="text"> [mettre] une robe <input id="g9" type="text"> [vert foncé] pour aller à la fête d'une copine. Quelle soirée sympa !</p>`;
+document.getElementById('gapText').innerHTML = gapTpl;
+function checkGap(){
+  let ok=0;
+  gapData.forEach((g,i)=>{
+    const inp = document.getElementById('g'+i);
+    const v = inp.value.trim().toLowerCase();
+    inp.classList.remove('ok','no');
+    if(v===g.a.toLowerCase()){inp.classList.add('ok');ok++;}
+    else inp.classList.add('no');
+  });
+  const fb = document.getElementById('gapFb');
+  fb.className='feedback show '+(ok===gapData.length?'good':'bad');
+  fb.textContent=`Score : ${ok}/${gapData.length}`;
+}
+function revealGap(){
+  gapData.forEach((g,i)=>{
+    const inp = document.getElementById('g'+i);
+    inp.value=g.a; inp.classList.add('ok');
+  });
+}
+
+/* ---------- 10. MODEL ---------- */
+function toggleModel(){
+  document.getElementById('modelAns').classList.toggle('hidden');
+}
+
+/* warm up voices */
+if('speechSynthesis' in window){ speechSynthesis.onvoiceschanged = ()=>{}; speechSynthesis.getVoices(); }
+</script>
+</body>
+</html>

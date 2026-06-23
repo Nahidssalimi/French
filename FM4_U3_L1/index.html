@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>5 EN PLEINE ACTION ! — Projets communautaires — IGCSE French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f7fb; --ink:#0e1a2b; --muted:#5a6473;
+    --red:#7a1722; --red-dark:#5a0f18;
+    --blue:#0f2a4a; --blue-dark:#08182b;
+    --card:#fff; --border:#d9dde5; --shadow:0 10px 30px rgba(8,24,43,.08);
+    --gold:#c9a227; --green:#2d6a4f;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  header{background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:#fff;padding:48px 24px;text-align:center;border-bottom:6px solid var(--red);position:relative;overflow:hidden}
+  header::before{content:"🌟";position:absolute;font-size:14rem;opacity:.07;top:-30px;right:-20px;transform:rotate(-12deg)}
+  header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);margin:.2em 0;position:relative}
+  header p{max-width:780px;margin:0 auto;opacity:.92;position:relative}
+  .badges{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap;position:relative}
+  .badge{background:rgba(255,255,255,.12);padding:6px 14px;border-radius:999px;font-size:.85rem;border:1px solid rgba(255,255,255,.2)}
+  main{max-width:1100px;margin:0 auto;padding:32px 20px}
+  section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:28px;box-shadow:var(--shadow)}
+  .tag{display:inline-block;background:var(--red);color:#fff;padding:4px 12px;border-radius:4px;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+  .tag.gold{background:var(--gold);color:var(--blue-dark)}
+  .tag.green{background:var(--green);color:#fff}
+  h2{font-family:'Playfair Display',serif;font-size:1.9rem;margin:.3em 0 .5em;color:var(--blue)}
+  h3{margin-top:1.4em;color:var(--red)}
+  .sub{color:var(--muted);font-style:italic;font-size:.95rem}
+  .objectifs{background:#eef2f8;border-left:5px solid var(--blue);padding:18px 22px;border-radius:8px}
+  .objectifs ul{margin:8px 0 0 18px;padding:0}
+  .tip{background:#fff7e0;border-left:5px solid var(--gold);padding:14px 18px;border-radius:8px;margin:14px 0}
+  .tip strong{color:var(--blue)}
+  .grammar{background:#eef8f2;border-left:5px solid var(--green);padding:16px 20px;border-radius:8px;margin:14px 0}
+  .grammar h4{margin:.2em 0;color:var(--green);font-family:'Playfair Display',serif}
+
+  .audio-box{background:linear-gradient(135deg,#eef2f8,#fff);border:2px solid var(--blue);border-radius:10px;padding:18px;margin:14px 0;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .audio-box .icon{font-size:2.4rem}
+  .audio-box .info{flex:1;min-width:200px}
+  .audio-box .info b{color:var(--blue);font-family:'Playfair Display',serif;font-size:1.1rem}
+  .audio-box .info .meta{color:var(--muted);font-size:.85rem}
+  .play-btn{background:var(--red);color:#fff;border:none;padding:10px 18px;border-radius:6px;font-weight:600;cursor:pointer;font-size:.95rem}
+  .play-btn:hover{background:var(--red-dark)}
+  .speak-btn{background:var(--blue);color:#fff;border:none;padding:6px 10px;border-radius:6px;cursor:pointer;font-weight:600;font-size:.82rem}
+  .speak-btn:hover{background:var(--red)}
+  .transcript{margin-top:10px;background:#fff;border:1px dashed var(--border);border-radius:8px;padding:14px;display:none;font-style:italic;color:var(--blue-dark)}
+  .transcript.show{display:block}
+  .q{background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;border-left:4px solid var(--blue)}
+  .q .qtext{margin:0 0 10px;font-weight:600;color:var(--blue)}
+  .q input[type=text], .q textarea{padding:7px 10px;border:2px solid var(--border);border-radius:6px;font-family:inherit;font-size:.95rem}
+  .q input[type=text]{min-width:200px;width:auto}
+  .q input.correct, .q select.correct{border-color:#1e6b1e;background:#e6f3e6}
+  .q input.wrong, .q select.wrong{border-color:var(--red);background:#fbeef0}
+  .check-btn{background:var(--red);color:#fff;border:none;padding:10px 22px;border-radius:6px;font-weight:600;cursor:pointer;margin-top:10px}
+  .check-btn:hover{background:var(--red-dark)}
+  .reveal-btn{background:transparent;color:var(--blue);border:2px solid var(--blue);padding:8px 16px;border-radius:6px;font-weight:600;cursor:pointer;margin-top:10px;margin-left:8px}
+  .reveal-btn:hover{background:var(--blue);color:#fff}
+  .score{margin-top:10px;font-weight:700;color:var(--blue);font-family:'Playfair Display',serif;font-size:1.1rem}
+  .table-community{width:100%;border-collapse:collapse;margin:14px 0;background:#fff;border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
+  .table-community th{background:var(--blue);color:#fff;padding:12px;text-align:left;font-family:'Playfair Display',serif}
+  .table-community td{padding:12px;border-top:1px solid var(--border)}
+  .table-community tr:nth-child(even){background:#eef2f8}
+  .grammar-table{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;margin:14px 0}
+  .grammar-table th{background:var(--green);color:#fff;padding:8px}
+  .grammar-table td{border:1px solid var(--border);padding:8px}
+  footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--border)}
+  .match-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+  .match-item{background:#fff;padding:8px 12px;border-radius:6px;border:1px solid var(--border)}
+  .inline-inputs{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .inline-inputs input{flex:1;min-width:160px}
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">5 EN PLEINE ACTION !</span>
+  <h1>Projets communautaires</h1>
+  <p>A5 — Everyday life, traditions and communities</p>
+  <div class="badges">
+    <span class="badge">Décrire des projets</span>
+    <span class="badge">Présent · Passé composé · Futur simple</span>
+    <span class="badge">Compréhension orale & écrite</span>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <span class="tag green">Learning objectives</span>
+  <h2>Ce que tu vas apprendre</h2>
+  <div class="objectifs">
+    <ul>
+      <li>Décrire des projets communautaires (foyer pour jeunes, pétition, nettoyage de parc).</li>
+      <li>Utiliser le présent, le passé composé et le futur simple pour parler d'actions passées, présentes et futures.</li>
+      <li>Comprendre des textes authentiques et identifier des expressions clés.</li>
+      <li>Compléter des phrases à l'oral et à l'écrit.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ EXERCICE 1 : TROUVER L'ÉQUIVALENT ============ -->
+<section>
+  <span class="tag">📖 Exercice 1 · Écoutez et lisez</span>
+  <h2>Textes : Antonin & Sonia</h2>
+  <p class="sub">Trouvez l'équivalent des expressions (1–6) dans les textes.</p>
+
+  <div class="audio-box">
+    <span class="icon">🎧</span>
+    <div class="info"><b>Texte 1 — Antonin</b><div class="meta">créer un foyer pour les jeunes</div></div>
+    <button class="play-btn" onclick="speakFR('Il n&apos;y avait rien pour les jeunes dans mon village, donc mes amis et moi avons décidé de créer un foyer pour les jeunes dans un vieux bâtiment. D&apos;abord, nous avons collecté de l&apos;argent: nous avons vendu nos vieux jouets sur eBay et nous avons lavé des voitures. Puis nous avons acheté de la peinture, des posters, des meubles. Le week-end prochain, nous y irons pour ramasser les déchets, nettoyer la salle et repeindre les murs. Notre foyer sera bientôt ouvert et ce sera génial!')">▶ Écouter Antonin</button>
+  </div>
+  <div class="audio-box">
+    <span class="icon">🎧</span>
+    <div class="info"><b>Texte 2 — Sonia</b><div class="meta">pétition et sécurité routière</div></div>
+    <button class="play-btn" onclick="speakFR('Dans ma rue, la circulation est très dense, surtout pendant l&apos;heure de pointe. Souvent, les conducteurs ne respectent pas la limitation de vitesse, donc c&apos;est très dangereux. Alors j&apos;ai lancé une pétition en ligne et j&apos;ai obtenu presque 2000 signatures! J&apos;ai aussi écrit un article dans notre journal local et victoire! La semaine prochaine, on finira d&apos;installer un passage piéton et un panneau indiquant que la vitesse maximum est trente km/h!')">▶ Écouter Sonia</button>
+  </div>
+
+  <div class="tip"><strong>📌 Expressions à trouver :</strong> (1) un centre · (2) les moments où les gens font le trajet entre le travail et la maison · (3) roulent trop vite · (4) sur la Toile · (5) qui montre · (6) un endroit où les voitures doivent s'arrêter pour permettre aux gens de traverser la rue</div>
+
+  <div id="ex1">
+    <div class="q"><p class="qtext">1. un centre → <input type="text" data-ans="foyer" style="width:200px" placeholder="trouve dans le texte"></p></div>
+    <div class="q"><p class="qtext">2. les moments où les gens font le trajet entre le travail et la maison → <input type="text" data-ans="heure de pointe" style="width:250px"></p></div>
+    <div class="q"><p class="qtext">3. roulent trop vite → <input type="text" data-ans="ne respectent pas la limitation de vitesse" style="width:320px"></p></div>
+    <div class="q"><p class="qtext">4. sur la Toile → <input type="text" data-ans="en ligne" style="width:200px"></p></div>
+    <div class="q"><p class="qtext">5. qui montre → <input type="text" data-ans="indiquant" style="width:200px"></p></div>
+    <div class="q"><p class="qtext">6. un endroit où les voitures doivent s'arrêter pour permettre aux gens de traverser la rue → <input type="text" data-ans="passage piéton" style="width:280px"></p></div>
+    <button class="check-btn" onclick="checkMatch('ex1','sc1')">Vérifier</button>
+    <button class="reveal-btn" onclick="revealMatch('ex1')">Voir les réponses</button>
+    <div class="score" id="sc1"></div>
+  </div>
+</section>
+
+<!-- ============ EXERCICE 2 : TABLEAU ============ -->
+<section>
+  <span class="tag">📋 Exercice 2 · Complétez le tableau</span>
+  <h2>Relisez les textes d'Antonin et Sonia</h2>
+  <table class="table-community">
+    <thead><tr><th>Personne</th><th>le problème</th><th>ce qu'ils ont fait (passé)</th><th>ce qui se passera ensuite (futur)</th></tr></thead>
+    <tbody>
+      <tr><td>Antonin</td><td><input type="text" id="probAnt" data-ans="il n'y avait rien pour les jeunes" style="width:100%"></td>
+          <td><input type="text" id="faitAnt" data-ans="ont collecté de l'argent, vendu des jouets, lavé des voitures, acheté peinture" style="width:100%"></td>
+          <td><input type="text" id="futAnt" data-ans="iront ramasser les déchets, nettoyer, repeindre; foyer sera ouvert" style="width:100%"></td></tr>
+      <tr><td>Sonia</td><td><input type="text" id="probSon" data-ans="circulation dense, conducteurs dangereux" style="width:100%"></td>
+          <td><input type="text" id="faitSon" data-ans="a lancé une pétition en ligne, obtenu 2000 signatures, écrit article" style="width:100%"></td>
+          <td><input type="text" id="futSon" data-ans="on finira d'installer un passage piéton et un panneau 30 km/h" style="width:100%"></td></tr>
+    </tbody>
+  </table>
+  <button class="check-btn" onclick="checkTable()">Vérifier le tableau</button>
+  <button class="reveal-btn" onclick="revealTable()">Voir les réponses</button>
+  <div class="score" id="sc2"></div>
+</section>
+
+<!-- ============ GRAMMAIRE : PRÉSENT, PASSÉ COMPOSÉ, FUTUR ============ -->
+<section>
+  <span class="tag gold">📚 Grammaire</span>
+  <h2>Le présent, le passé composé et le futur simple</h2>
+  <div class="grammar">
+    <h4>Tableau de conjugaison essentiel</h4>
+    <table class="grammar-table">
+      <thead><tr><th>type de verbe</th><th>infinitif</th><th>présent (je)</th><th>passé composé (j'ai)</th><th>futur simple (je)</th></tr></thead>
+      <tbody>
+        <tr><td>régulier -er</td><td>collecter</td><td>je collecte</td><td>j'ai collecté</td><td>je collecterai</td></tr>
+        <tr><td>régulier -ir</td><td>finir</td><td>je finis</td><td>j'ai fini</td><td>je finirai</td></tr>
+        <tr><td>régulier -re</td><td>vendre</td><td>je vends</td><td>j'ai vendu</td><td>je vendrai*</td></tr>
+        <tr><td>irrégulier</td><td>aller</td><td>je vais</td><td>je suis allé(e)</td><td>j'irai</td></tr>
+        <tr><td>irrégulier</td><td>avoir</td><td>j'ai</td><td>j'ai eu</td><td>j'aurai</td></tr>
+        <tr><td>irrégulier</td><td>être</td><td>je suis</td><td>j'ai été</td><td>je serai</td></tr>
+        <tr><td>irrégulier</td><td>faire</td><td>je fais</td><td>j'ai fait</td><td>je ferai</td></tr>
+      </tbody>
+    </table>
+    <p class="sub">*Pour les verbes en -re, on retire le 'e' final : <em>vendre → je vendrai</em>.</p>
+    <button class="speak-btn" onclick="speakFR('Je collecte, j&apos;ai collecté, je collecterai. Je vends, j&apos;ai vendu, je vendrai.')">🔊 Écouter exemples</button>
+  </div>
+
+  <div class="tip">
+    <strong>💡 Astuce :</strong> Le passé composé exprime une action achevée. Le futur simple exprime une action à venir. On les utilise souvent ensemble dans les récits de projets.
+  </div>
+</section>
+
+<!-- ============ EXERCICE 3 : ÉCOUTEZ KASSEM ============ -->
+<section>
+  <span class="tag green">🎧 Exercice 3 · Écoutez Kassem</span>
+  <h2>Complétez les phrases en français</h2>
+  <p class="sub">Kassem parle de son projet dans son quartier. Écoutez et remplissez les espaces.</p>
+  
+  <div class="audio-box">
+    <span class="icon">🔊</span>
+    <div class="info"><b>Kassem — projet de parc</b><div class="meta">écoute plusieurs fois</div></div>
+    <button class="play-btn" onclick="speakFR('Dans mon quartier, il y avait un petit parc, mais il était en mauvais état. Le week-end dernier, mes amis et moi avons ramassé les déchets et nous avons planté des fleurs. Ensuite, j&apos;ai écrit des lettres que j&apos;ai envoyées au journal local et un reporter a pris des photos sur notre initiative. Bientôt, je demanderai une subvention pour acheter des poubelles pour le parc. Si j&apos;obtiens assez d&apos;argent, j&apos;achèterai aussi des tables de pique-nique. Ce sera magnifique !')">▶ Écouter Kassem (texte intégral)</button>
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('show')">Afficher la transcription</button>
+    <div class="transcript">Dans mon quartier, il y avait un petit parc, mais il était en mauvais état. Le week-end dernier, mes amis et moi avons ramassé les déchets et nous avons planté des fleurs. Ensuite, j'ai écrit des lettres que j'ai envoyées au journal local et un reporter a pris des photos sur notre initiative. Bientôt, je demanderai une subvention pour acheter des poubelles pour le parc. Si j'obtiens assez d'argent, j'achèterai aussi des tables de pique-nique. Ce sera magnifique !</div>
+  </div>
+
+  <div id="ex3">
+    <div class="q"><p class="qtext">1. Dans mon quartier, il y avait ______________, mais il était en mauvais état.</p><input type="text" data-ans="un petit parc" style="width:300px"></div>
+    <div class="q"><p class="qtext">2. Le week-end dernier, mes amis et moi avons ramassé ______________ et nous avons planté ______________.</p><div class="inline-inputs"><input type="text" data-ans1="les déchets" placeholder="déchets"> <input type="text" data-ans2="des fleurs" placeholder="fleurs"></div></div>
+    <div class="q"><p class="qtext">3. Ensuite, j'ai ______________ que j'ai envoyées au journal local et un reporter a ______________ sur notre initiative.</p><div class="inline-inputs"><input type="text" data-ans1="écrit des lettres" placeholder="actions"> <input type="text" data-ans2="pris des photos" placeholder="action reporter"></div></div>
+    <div class="q"><p class="qtext">4. Bientôt, je ______________ pour acheter des poubelles pour le parc.</p><input type="text" data-ans="demanderai une subvention" style="width:300px"></div>
+    <div class="q"><p class="qtext">5. Si j'obtiens assez d'argent, ______________ aussi des tables de pique-nique. Ce sera ______________.</p><div class="inline-inputs"><input type="text" data-ans1="j'achèterai" placeholder="verbe futur"> <input type="text" data-ans2="magnifique" placeholder="adjectif"></div></div>
+    <button class="check-btn" onclick="checkKassem('ex3','sc3')">Vérifier</button>
+    <button class="reveal-btn" onclick="revealKassem('ex3')">Voir les réponses</button>
+    <div class="score" id="sc3"></div>
+  </div>
+</section>
+
+<!-- ============ EXERCICE SUPPLÉMENTAIRE : PRATIQUE DES TEMPS ============ -->
+<section>
+  <span class="tag">✍️ Pratique des temps</span>
+  <h2>Transformez les phrases</h2>
+  <p class="sub">Mettez les verbes au temps indiqué (présent, passé composé ou futur simple).</p>
+  <div id="exTenses">
+    <div class="q"><p class="qtext">a. Aujourd'hui, nous (nettoyer) ______________ le foyer. (présent)</p><input type="text" data-ans="nettoyons" style="width:150px"></div>
+    <div class="q"><p class="qtext">b. Hier, ils (ramasser) ______________ tous les déchets. (passé composé)</p><input type="text" data-ans="ont ramassé" style="width:150px"></div>
+    <div class="q"><p class="qtext">c. Demain, je (aller) ______________ à la réunion. (futur simple)</p><input type="text" data-ans="irai" style="width:150px"></div>
+    <div class="q"><p class="qtext">d. La semaine dernière, Sonia (lancer) ______________ une pétition. (passé composé)</p><input type="text" data-ans="a lancé" style="width:150px"></div>
+    <div class="q"><p class="qtext">e. Plus tard, nous (avoir) ______________ un nouveau parc. (futur simple)</p><input type="text" data-ans="aurons" style="width:150px"></div>
+    <button class="check-btn" onclick="checkTenses('exTenses','scTenses')">Vérifier</button>
+    <button class="reveal-btn" onclick="revealTenses('exTenses')">Voir les réponses</button>
+    <div class="score" id="scTenses"></div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTION ORALE / ÉCRITE ============ -->
+<section>
+  <span class="tag gold">🎤 À ton tour !</span>
+  <h2>Décris un projet communautaire</h2>
+  <p>Utilise le présent, le passé composé et le futur simple. Écris 4-6 phrases sur un projet (réel ou imaginé) pour améliorer ton quartier ou ton école.</p>
+  <div class="q">
+    <textarea id="monProjet" rows="5" placeholder="Exemple : Dans mon quartier, il y avait un terrain vague. Le mois dernier, mes amis et moi avons planté des arbres. Maintenant, nous organisons des événements. Bientôt, nous construirons une petite bibliothèque." style="width:100%"></textarea>
+    <div class="score" id="countProjet">0 mots</div>
+  </div>
+  <button class="reveal-btn" onclick="showProjetModel()">Voir un modèle</button>
+  <div class="transcript" id="modelProjet">
+    <p><strong>🌟 Modèle :</strong> Dans mon école, il n'y avait pas de jardin. Alors, j'ai proposé un projet à mes professeurs. Nous avons collecté des graines et des outils. Chaque semaine, nous arrosons les plantes. L'année prochaine, nous planterons plus d'arbres et nous créerons un potager bio. Ce sera formidable pour notre communauté !</p>
+    <button class="speak-btn" onclick="speakFR('Dans mon école, il n&apos;y avait pas de jardin. Alors, j&apos;ai proposé un projet à mes professeurs. Nous avons collecté des graines et des outils. Chaque semaine, nous arrosons les plantes. L&apos;année prochaine, nous planterons plus d&apos;arbres et nous créerons un potager bio. Ce sera formidable pour notre communauté !')">🔊 Écouter</button>
+  </div>
+</section>
+
+<footer>
+  IGCSE French — A5 Everyday life, traditions and communities · <b>5 EN PLEINE ACTION !</b> — Projets, temps verbaux, engagement citoyen. 🌱💪
+</footer>
+</main>
+
+<script>
+  function speakFR(text){
+    if(!('speechSynthesis' in window)){alert('Audio non supporté');return;}
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang='fr-FR'; u.rate=0.92;
+    const v = speechSynthesis.getVoices().find(v=>v.lang.startsWith('fr'));
+    if(v) u.voice=v;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged=()=>{};
+
+  function norm(s){return (s||'').toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,' ');}
+
+  // Exercise 1 matching
+  function checkMatch(sectionId,scoreId){
+    const inputs=document.querySelectorAll('#'+sectionId+' input');
+    const answers=['foyer','heure de pointe','ne respectent pas la limitation de vitesse','en ligne','indiquant','passage piéton'];
+    let total=inputs.length, correct=0;
+    inputs.forEach((inp,idx)=>{
+      let user=norm(inp.value);
+      let ans=answers[idx];
+      if(user===ans || (idx===2 && user.includes('respectent')) || (idx===0 && user.includes('foyer')) || (idx===5 && user.includes('piéton'))){
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong');}
+    });
+    document.getElementById(scoreId).innerText=`Score : ${correct} / ${total}`;
+  }
+  function revealMatch(id){
+    const inputs=document.querySelectorAll('#'+id+' input');
+    const answers=['foyer','heure de pointe','ne respectent pas la limitation de vitesse','en ligne','indiquant','passage piéton'];
+    inputs.forEach((inp,i)=>{inp.value=answers[i];});
+    checkMatch(id,'sc1');
+  }
+
+  // Exercise 2 table check
+  function checkTable(){
+    let total=6, correct=0;
+    const probAnt=document.getElementById('probAnt');
+    const faitAnt=document.getElementById('faitAnt');
+    const futAnt=document.getElementById('futAnt');
+    const probSon=document.getElementById('probSon');
+    const faitSon=document.getElementById('faitSon');
+    const futSon=document.getElementById('futSon');
+    const pairs=[[probAnt,"il n'y avait rien pour les jeunes"],[faitAnt,"collecté de l'argent vendu"],[futAnt,"iront ramasser"],[probSon,"circulation dense"],[faitSon,"lancé une pétition"],[futSon,"passage piéton"]];
+    pairs.forEach(([el,key])=>{
+      let val=norm(el.value);
+      if(val.includes(norm(key).substring(0,6)) || (key==="collecté de l'argent vendu" && val.includes('collecté')) || (key==="iront ramasser" && val.includes('iront'))){
+        correct++; el.classList.add('correct'); el.classList.remove('wrong');
+      } else { el.classList.remove('correct'); el.classList.add('wrong');}
+    });
+    document.getElementById('sc2').innerText=`Score : ${correct} / ${total}`;
+  }
+  function revealTable(){
+    document.getElementById('probAnt').value="Il n'y avait rien pour les jeunes";
+    document.getElementById('faitAnt').value="ils ont collecté de l'argent, vendu des jouets, lavé des voitures";
+    document.getElementById('futAnt').value="ils iront ramasser les déchets, nettoyer, repeindre; le foyer sera ouvert";
+    document.getElementById('probSon').value="la circulation est dense, les conducteurs ne respectent pas la vitesse";
+    document.getElementById('faitSon').value="elle a lancé une pétition en ligne, obtenu 2000 signatures, écrit un article";
+    document.getElementById('futSon').value="on finira d'installer un passage piéton et un panneau 30 km/h";
+    checkTable();
+  }
+
+  // Exercise 3 Kassem
+  function checkKassem(sectionId,scoreId){
+    const sec=document.getElementById(sectionId);
+    const qs=sec.querySelectorAll('.q');
+    let total=0, correct=0;
+    const q1=qs[0].querySelector('input'); total++;
+    if(norm(q1.value).includes('petit parc')){correct++;q1.classList.add('correct');}else{q1.classList.add('wrong');}
+    const q2ins=qs[1].querySelectorAll('input'); total+=2;
+    if(norm(q2ins[0].value).includes('déchets')){correct++;q2ins[0].classList.add('correct');}else{q2ins[0].classList.add('wrong');}
+    if(norm(q2ins[1].value).includes('fleurs')){correct++;q2ins[1].classList.add('correct');}else{q2ins[1].classList.add('wrong');}
+    const q3ins=qs[2].querySelectorAll('input'); total+=2;
+    if(norm(q3ins[0].value).includes('lettres')){correct++;q3ins[0].classList.add('correct');}else{q3ins[0].classList.add('wrong');}
+    if(norm(q3ins[1].value).includes('photos')){correct++;q3ins[1].classList.add('correct');}else{q3ins[1].classList.add('wrong');}
+    const q4=qs[3].querySelector('input'); total++;
+    if(norm(q4.value).includes('demanderai')){correct++;q4.classList.add('correct');}else{q4.classList.add('wrong');}
+    const q5ins=qs[4].querySelectorAll('input'); total+=2;
+    if(norm(q5ins[0].value).includes('achèterai')){correct++;q5ins[0].classList.add('correct');}else{q5ins[0].classList.add('wrong');}
+    if(norm(q5ins[1].value).includes('magnifique')){correct++;q5ins[1].classList.add('correct');}else{q5ins[1].classList.add('wrong');}
+    document.getElementById(scoreId).innerText=`Score : ${correct} / ${total}`;
+  }
+  function revealKassem(id){
+    const sec=document.getElementById(id);
+    const q1=sec.querySelectorAll('.q')[0].querySelector('input'); q1.value="un petit parc";
+    const q2=sec.querySelectorAll('.q')[1].querySelectorAll('input'); q2[0].value="les déchets"; q2[1].value="des fleurs";
+    const q3=sec.querySelectorAll('.q')[2].querySelectorAll('input'); q3[0].value="écrit des lettres"; q3[1].value="pris des photos";
+    const q4=sec.querySelectorAll('.q')[3].querySelector('input'); q4.value="demanderai une subvention";
+    const q5=sec.querySelectorAll('.q')[4].querySelectorAll('input'); q5[0].value="j'achèterai"; q5[1].value="magnifique";
+    checkKassem(id,'sc3');
+  }
+
+  // Tenses exercise
+  function checkTenses(sectionId,scoreId){
+    const inputs=document.querySelectorAll('#'+sectionId+' input');
+    const answers=['nettoyons','ont ramassé','irai','a lancé','aurons'];
+    let total=inputs.length, correct=0;
+    inputs.forEach((inp,idx)=>{
+      let user=norm(inp.value);
+      let ans=answers[idx];
+      if(user===ans || (idx===1 && user.includes('ramassé')) || (idx===3 && user.includes('lancé'))){
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong');}
+    });
+    document.getElementById(scoreId).innerText=`Score : ${correct} / ${total}`;
+  }
+  function revealTenses(id){
+    const inputs=document.querySelectorAll('#'+id+' input');
+    const answers=['nettoyons','ont ramassé','irai','a lancé','aurons'];
+    inputs.forEach((inp,i)=>{inp.value=answers[i];});
+    checkTenses(id,'scTenses');
+  }
+
+  // writing counter
+  const projetArea=document.getElementById('monProjet');
+  const countSpan=document.getElementById('countProjet');
+  projetArea.addEventListener('input',()=>{
+    let words=projetArea.value.trim().split(/\s+/).filter(Boolean).length;
+    countSpan.innerText=`${words} mots`;
+    countSpan.style.color=(words>=30 && words<=80)?'#1e6b1e':'var(--muted)';
+  });
+  function showProjetModel(){
+    document.getElementById('modelProjet').classList.toggle('show');
+  }
+  window.addEventListener('load',()=>{if(projetArea.value.trim()==='')countSpan.innerText='0 mots';});
+</script>
+</body>
+</html>

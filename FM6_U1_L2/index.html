@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MON BAHUT — School Life & Routine — IGCSE French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7fb;
+    --ink: #0e1a2b;
+    --muted: #5a6473;
+    --red: #7a1722;
+    --red-dark: #5a0f18;
+    --blue: #0f2a4a;
+    --blue-dark: #08182b;
+    --card: #fff;
+    --border: #d9dde5;
+    --shadow: 0 10px 30px rgba(8,24,43,.08);
+    --gold: #c9a227;
+    --green: #2d6a4f;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: #fff;
+    padding: 48px 24px;
+    text-align: center;
+    border-bottom: 6px solid var(--red);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: "🎒";
+    position: absolute;
+    font-size: 12rem;
+    opacity: .08;
+    bottom: -30px;
+    right: -20px;
+    transform: rotate(-8deg);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: .2em 0;
+    position: relative;
+  }
+  header p {
+    max-width: 780px;
+    margin: 0 auto;
+    opacity: .92;
+    position: relative;
+  }
+  .badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.12);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: .85rem;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .tag {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .tag.gold {
+    background: var(--gold);
+    color: var(--blue-dark);
+  }
+  .tag.green {
+    background: var(--green);
+    color: #fff;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin: .3em 0 .5em;
+    color: var(--blue);
+  }
+  .sub {
+    color: var(--muted);
+    font-style: italic;
+    font-size: .95rem;
+    margin-bottom: 1rem;
+  }
+  .tip {
+    background: #fff7e0;
+    border-left: 5px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .grammar-box {
+    background: #eef8f2;
+    border-left: 5px solid var(--green);
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .audio-box {
+    background: linear-gradient(135deg, #eef2f8, #fff);
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    padding: 18px;
+    margin: 14px 0;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .play-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: .95rem;
+  }
+  .play-btn:hover { background: var(--red-dark); }
+  .speak-btn {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .8rem;
+  }
+  .q {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+    border-left: 4px solid var(--blue);
+  }
+  .q .qtext {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: var(--blue);
+  }
+  .q input[type="text"] {
+    padding: 7px 10px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: .95rem;
+    min-width: 200px;
+    width: auto;
+  }
+  .q input.correct {
+    border-color: #1e6b1e;
+    background: #e6f3e6;
+  }
+  .q input.wrong {
+    border-color: var(--red);
+    background: #fbeef0;
+  }
+  .check-btn, .reveal-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .reveal-btn {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+  }
+  .reveal-btn:hover {
+    background: var(--blue);
+    color: #fff;
+  }
+  .score {
+    margin-top: 12px;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 1.1rem;
+  }
+  .match-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin: 8px 0;
+  }
+  .option-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 10px 0;
+  }
+  .option-btn {
+    background: #eef2f8;
+    padding: 6px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .option-btn.selected {
+    background: var(--blue);
+    color: white;
+  }
+  .option-btn.correct {
+    background: #1e6b1e;
+    color: white;
+  }
+  .option-btn.wrong {
+    background: var(--red);
+    color: white;
+  }
+  .interview-box {
+    background: #f8f9fc;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: .9rem;
+    border-top: 1px solid var(--border);
+  }
+  .possessive-example {
+    background: #eef2f8;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">🎒 MON BAHUT</span>
+  <h1>School Life & Routine</h1>
+  <p>B1 — Parler de son collège, ses matières, ses professeurs</p>
+  <div class="badges">
+    <span class="badge">Questions & réponses</span>
+    <span class="badge">Compréhension orale</span>
+    <span class="badge">Interview & production</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ EXERCICE 1 : RELIER QUESTIONS AUX RÉPONSES ============ -->
+<section>
+  <span class="tag green">🔗 Exercice 1 · Reliez les questions aux réponses</span>
+  <p class="sub">Associez chaque question (1–9) à la bonne réponse ci-dessous.</p>
+
+  <div id="matchingEx">
+    <div class="q">
+      <p class="qtext">1. Comment s'appelle ton collège?</p>
+      <div class="option-group" data-q="1" data-correct="Mon collège s'appelle le collège Molière">
+        <span class="option-btn" data-val="Mon collège s'appelle le collège Molière">a. Mon collège s'appelle le collège Molière</span>
+        <span class="option-btn" data-val="C'est un collège mixte">b. C'est un collège mixte</span>
+        <span class="option-btn" data-val="Il y a 750 élèves">c. Il y a 750 élèves</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">2. C'est quelle sorte d'école?</p>
+      <div class="option-group" data-q="2" data-correct="C'est un collège mixte pour les élèves de onze à seize ans">
+        <span class="option-btn" data-val="C'est un collège mixte pour les élèves de onze à seize ans">a. C'est un collège mixte</span>
+        <span class="option-btn" data-val="Les cours commencent à 8h30">b. Les cours commencent à 8h30</span>
+        <span class="option-btn" data-val="J'étudie douze matières">c. J'étudie douze matières</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">3. Il y a combien d'élèves?</p>
+      <div class="option-group" data-q="3" data-correct="Il y a 750 élèves en tout, et quarante-cinq professeurs">
+        <span class="option-btn" data-val="Il y a 750 élèves en tout, et quarante-cinq professeurs">a. Il y a 750 élèves</span>
+        <span class="option-btn" data-val="Ma matière préférée, c'est les arts plastiques">b. Arts plastiques</span>
+        <span class="option-btn" data-val="Les profs sont sympa">c. Les profs sont sympa</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">4. Quels sont les horaires du collège?</p>
+      <div class="option-group" data-q="4" data-correct="Les cours commencent à 8h30. La récré est à 10h15 et dure quinze minutes">
+        <span class="option-btn" data-val="Les cours commencent à 8h30. La récré est à 10h15">a. Cours à 8h30</span>
+        <span class="option-btn" data-val="Il y a sept cours par jour">b. Sept cours par jour</span>
+        <span class="option-btn" data-val="Les profs sont excellents">c. Profs excellents</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">5. Il y a combien de cours par jour?</p>
+      <div class="option-group" data-q="5" data-correct="Il y a sept cours de cinquante-cinq minutes par jour">
+        <span class="option-btn" data-val="Il y a sept cours de cinquante-cinq minutes par jour">a. Sept cours par jour</span>
+        <span class="option-btn" data-val="Les cours finissent à 16h ou 17h">b. Fin à 16h/17h</span>
+        <span class="option-btn" data-val="J'étudie douze matières">c. Douze matières</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">6. Quelles matières étudies-tu?</p>
+      <div class="option-group" data-q="6" data-correct="J'étudie douze matières dont le français, les maths, l'histoire-géo">
+        <span class="option-btn" data-val="J'étudie douze matières dont le français, les maths">a. Douze matières</span>
+        <span class="option-btn" data-val="Ma matière préférée, c'est les arts plastiques">b. Arts plastiques</span>
+        <span class="option-btn" data-val="Je trouve que les journées sont trop longues">c. Journées trop longues</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">7. Quelle est ta matière préférée?</p>
+      <div class="option-group" data-q="7" data-correct="Ma matière préférée, c'est les arts plastiques car j'adore dessiner">
+        <span class="option-btn" data-val="Ma matière préférée, c'est les arts plastiques">a. Arts plastiques</span>
+        <span class="option-btn" data-val="Les profs sont sympa mais sévères">b. Profs sympa</span>
+        <span class="option-btn" data-val="Mon collège s'appelle Molière">c. Collège Molière</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">8. Comment sont les professeurs?</p>
+      <div class="option-group" data-q="8" data-correct="Pour la plupart, les profs sont sympa mais il y en a qui sont un peu plus sévères">
+        <span class="option-btn" data-val="Pour la plupart, les profs sont sympa mais il y en a qui sont sévères">a. Sympa mais sévères</span>
+        <span class="option-btn" data-val="Les profs sont excellents">b. Excellents</span>
+        <span class="option-btn" data-val="Il y a quarante-cinq professeurs">c. 45 professeurs</span>
+      </div>
+    </div>
+    <div class="q">
+      <p class="qtext">9. Qu'est-ce que tu penses de ton collège?</p>
+      <div class="option-group" data-q="9" data-correct="Je trouve que les journées sont trop longues et qu'on a trop de contrôles. Mais les profs sont excellents">
+        <span class="option-btn" data-val="Je trouve que les journées sont trop longues et qu'on a trop de contrôles">a. Journées trop longues</span>
+        <span class="option-btn" data-val="C'est un collège mixte">b. Collège mixte</span>
+        <span class="option-btn" data-val="Il y a 750 élèves">c. 750 élèves</span>
+      </div>
+    </div>
+  </div>
+  <button class="check-btn" onclick="checkMatching()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealMatching()">Voir les réponses</button>
+  <div class="score" id="scoreMatching"></div>
+</section>
+
+<!-- ============ GRAMMAIRE : ADJECTIFS POSSESSIFS & VERBES ============ -->
+<section>
+  <span class="tag gold">📚 Grammaire</span>
+  <h2>Le présent & l'accord des adjectifs possessifs</h2>
+  <div class="grammar-box">
+    <p><strong>Le présent à la troisième personne du singulier :</strong> il/elle va, il/elle fait, il/elle a, il/elle est.</p>
+    <p><strong>Adjectifs possessifs :</strong> son/sa/ses dépend du genre et du nombre du nom.</p>
+    <div class="possessive-example">
+      <em>Zachary adore les maths; c'est <strong>sa</strong> matière préférée.</em><br>
+      <em>Caroline aime les maths mais ce n'est pas <strong>sa</strong> matière préférée.</em>
+    </div>
+    <button class="speak-btn" onclick="speakFR('Zachary adore les maths, c\'est sa matière préférée. Caroline aime les maths mais ce n\'est pas sa matière préférée.')">🔊 Écouter</button>
+  </div>
+  <div class="tip"><strong>📖 d'ont</strong> = ce qui inclut</div>
+</section>
+
+<!-- ============ EXERCICE 2 : INTERVIEW DE MARIA (ÉCOUTE) ============ -->
+<section>
+  <span class="tag green">🎧 Exercice 2 · Écoutez l'interview de Maria</span>
+  <p class="sub">Complétez ses réponses en français.</p>
+
+  <div class="audio-box">
+    <button class="play-btn" onclick="playMariaInterview()">▶ Écouter Maria</button>
+  </div>
+
+  <div id="mariaEx">
+    <div class="q"><p class="qtext">Exemple: Maria va au Lycée Français Charles de Gaulle <strong>à Londres</strong>.</p></div>
+    <div class="q"><p class="qtext">1. Maria va au Lycée Français <strong>à</strong> <input type="text" id="maria1" data-ans="Londres" style="width:120px"></p></div>
+    <div class="q"><p class="qtext">2. C'est une école pour les enfants <strong>de 3 à 18 ans</strong>. Il y a <strong>une école primaire</strong>, <strong>un collège</strong> et <strong>un lycée</strong> regroupés au même endroit.</p>
+      <input type="text" id="maria2a" data-ans="de 3 à 18 ans" style="width:140px"> · 
+      <input type="text" id="maria2b" data-ans="une école primaire" style="width:160px"> · 
+      <input type="text" id="maria2c" data-ans="un collège" style="width:110px"> · 
+      <input type="text" id="maria2d" data-ans="un lycée" style="width:100px">
+    </div>
+    <div class="q"><p class="qtext">3. Il y a <strong>2 500</strong> élèves. <strong>50</strong> nationalités différentes sont représentées. <strong>80</strong> % des élèves sont français.</p>
+      <input type="text" id="maria3a" data-ans="2500" style="width:80px"> élèves · 
+      <input type="text" id="maria3b" data-ans="50" style="width:60px"> nationalités · 
+      <input type="text" id="maria3c" data-ans="80" style="width:60px"> %
+    </div>
+    <div class="q"><p class="qtext">4. La journée commence <strong>à 8h30</strong> et les cours se terminent <strong>à 16h</strong> ou <strong>à 17h</strong>.</p>
+      <input type="text" id="maria4a" data-ans="8h30" style="width:70px"> · 
+      <input type="text" id="maria4b" data-ans="16h" style="width:70px"> · 
+      <input type="text" id="maria4c" data-ans="17h" style="width:70px">
+    </div>
+    <div class="q"><p class="qtext">5. Il y a <strong>7 ou 8</strong> cours par jour.</p>
+      <input type="text" id="maria5" data-ans="7 ou 8" style="width:100px">
+    </div>
+    <div class="q"><p class="qtext">6. Maria étudie les matières qui sont <strong>obligatoires</strong>.</p>
+      <input type="text" id="maria6" data-ans="obligatoires" style="width:150px">
+    </div>
+    <div class="q"><p class="qtext">7. Elle aime toutes les matières sauf <strong>la chimie</strong>. Comme langues, elle fait de <strong>l'anglais</strong>, de <strong>l'espagnol</strong> et de <strong>l'allemand</strong>.</p>
+      <input type="text" id="maria7a" data-ans="la chimie" style="width:120px"> · 
+      <input type="text" id="maria7b" data-ans="l'anglais" style="width:100px"> · 
+      <input type="text" id="maria7c" data-ans="l'espagnol" style="width:100px"> · 
+      <input type="text" id="maria7d" data-ans="l'allemand" style="width:100px">
+    </div>
+    <div class="q"><p class="qtext">8. Les profs sont généralement très <strong>sympas</strong>.</p>
+      <input type="text" id="maria8" data-ans="sympas" style="width:100px">
+    </div>
+    <div class="q"><p class="qtext">9. L'école est <strong>énorme</strong> mais Maria est <strong>fière</strong> de son école.</p>
+      <input type="text" id="maria9a" data-ans="énorme" style="width:100px"> · 
+      <input type="text" id="maria9b" data-ans="fière" style="width:100px">
+    </div>
+  </div>
+  <button class="check-btn" onclick="checkMaria()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealMaria()">Voir les réponses</button>
+  <div class="score" id="scoreMaria"></div>
+  
+  <div class="tip"><strong>🎧 Transcription Maria :</strong> « Je vais au Lycée Français Charles de Gaulle à Londres. C'est une école pour les enfants de 3 à 18 ans. Il y a une école primaire, un collège et un lycée regroupés. Il y a 2 500 élèves, 50 nationalités, 80% de Français. La journée commence à 8h30, finit à 16h ou 17h. Il y a 7 ou 8 cours par jour. J'étudie les matières obligatoires. J'aime tout sauf la chimie. Je fais anglais, espagnol et allemand. Les profs sont sympas. L'école est énorme mais j'en suis fière. »</div>
+</section>
+
+<!-- ============ EXERCICE 3 : À DEUX — INTERVIEW ============ -->
+<section>
+  <span class="tag gold">💬 Exercice 3 · À deux — Préparez une interview</span>
+  <p class="sub">Utilisez les questions de l'exercice 1 pour interviewer votre partenaire sur son collège.</p>
+  <div class="interview-box">
+    <p><strong>🗣️ Modèle :</strong></p>
+    <p>– Comment s'appelle ton collège?<br>
+    – Mon collège s'appelle le collège Victor Hugo.<br>
+    – C'est quelle sorte d'école?<br>
+    – C'est un collège mixte pour les élèves de 11 à 15 ans.<br>
+    – Quelle est ta matière préférée?<br>
+    – Ma matière préférée, c'est l'histoire-géo car j'adore apprendre le passé.</p>
+    <button class="speak-btn" onclick="speakFR('Comment s\'appelle ton collège? Mon collège s\'appelle Victor Hugo. C\'est un collège mixte. Ma matière préférée, c\'est l\'histoire-géo.')">🔊 Écouter le modèle</button>
+  </div>
+</section>
+
+<!-- ============ PRODUCTION ÉCRITE ============ -->
+<section>
+  <span class="tag green">✍️ Production écrite</span>
+  <h2>Décris ton collège</h2>
+  <p class="sub">Rédige 80-100 mots pour décrire ton collège : nom, type, horaires, matières, professeurs, ton opinion.</p>
+  <textarea id="schoolText" rows="6" placeholder="Exemple : Mon collège s'appelle le collège Jean Moulin. C'est un collège mixte pour les élèves de 11 à 16 ans. Il y a environ 600 élèves. Les cours commencent à 8h30 et finissent à 16h. J'étudie le français, les maths, l'histoire-géo, les sciences et l'anglais. Ma matière préférée est le sport car j'aime bouger. Les professeurs sont généralement sympas. Je trouve que mon collège est bien mais les journées sont un peu longues."></textarea>
+  <div class="word-count" id="schoolWordCount">0 mots</div>
+  <button class="speak-btn" onclick="speakSchoolText()">🔊 Écouter mon texte</button>
+  <button class="reveal-btn" onclick="showSchoolModel()">Voir un modèle</button>
+  <div id="schoolModel" style="display:none; background:#eef2f8; padding:14px; border-radius:8px; margin-top:12px;">
+    <strong>📝 Modèle (95 mots) :</strong><br>
+    « Mon collège s'appelle le collège Victor Hugo. C'est un collège public mixte pour les élèves de 11 à 15 ans. Il y a environ 500 élèves et 40 professeurs. Les cours commencent à 8h30 et se terminent à 16h, sauf le mercredi où on finit à midi. J'étudie plusieurs matières : français, maths, histoire-géo, sciences et langues. Ma matière préférée est l'anglais car j'aime découvrir d'autres cultures. Les professeurs sont généralement gentils mais certains sont un peu stricts. Je trouve que mon collège est bien organisé. Je suis fier de mon école ! »
+    <button class="speak-btn" onclick="speakFR('Mon collège s\'appelle Victor Hugo. C\'est un collège mixte. Ma matière préférée est l\'anglais. Je suis fier de mon école.')">🔊 Écouter</button>
+  </div>
+</section>
+
+<footer>
+  IGCSE French — B1 School Life and Routine · Décrire son collège, ses matières, ses professeurs 🎓
+</footer>
+
+</main>
+
+<script>
+  function speakFR(text) {
+    if (!('speechSynthesis' in window)) { alert('Audio non supporté'); return; }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR';
+    u.rate = 0.92;
+    const voices = speechSynthesis.getVoices();
+    const frVoice = voices.find(v => v.lang.startsWith('fr'));
+    if (frVoice) u.voice = frVoice;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged = () => {};
+
+  function playMariaInterview() {
+    speakFR("Je vais au Lycée Français Charles de Gaulle à Londres. C'est une école pour les enfants de 3 à 18 ans. Il y a une école primaire, un collège et un lycée regroupés. Il y a 2500 élèves, 50 nationalités, 80 pour cent de Français. La journée commence à 8h30, finit à 16h ou 17h. Il y a 7 ou 8 cours par jour. J'étudie les matières obligatoires. J'aime tout sauf la chimie. Je fais anglais, espagnol et allemand. Les profs sont sympas. L'école est énorme mais j'en suis fière.");
+  }
+
+  function norm(s) { return (s || '').toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' '); }
+
+  // Matching exercise
+  let matchingSelections = {};
+  document.querySelectorAll('#matchingEx .option-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const group = this.closest('.option-group');
+      const qNum = group.getAttribute('data-q');
+      group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      this.classList.add('selected');
+      matchingSelections[qNum] = this.getAttribute('data-val');
+    });
+  });
+
+  function checkMatching() {
+    const correctMap = {
+      '1': 'Mon collège s\'appelle le collège Molière',
+      '2': 'C\'est un collège mixte pour les élèves de onze à seize ans',
+      '3': 'Il y a 750 élèves en tout, et quarante-cinq professeurs',
+      '4': 'Les cours commencent à 8h30. La récré est à 10h15 et dure quinze minutes',
+      '5': 'Il y a sept cours de cinquante-cinq minutes par jour',
+      '6': 'J\'étudie douze matières dont le français, les maths, l\'histoire-géo',
+      '7': 'Ma matière préférée, c\'est les arts plastiques car j\'adore dessiner',
+      '8': 'Pour la plupart, les profs sont sympa mais il y en a qui sont un peu plus sévères',
+      '9': 'Je trouve que les journées sont trop longues et qu\'on a trop de contrôles. Mais les profs sont excellents'
+    };
+    let total = 9, correct = 0;
+    for (let q = 1; q <= 9; q++) {
+      const group = document.querySelector(`#matchingEx .option-group[data-q="${q}"]`);
+      const selected = matchingSelections[q];
+      const correctAns = correctMap[q];
+      group.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('correct', 'wrong'));
+      if (selected === correctAns) {
+        correct++;
+        const correctBtn = group.querySelector(`.option-btn[data-val="${selected}"]`);
+        if (correctBtn) correctBtn.classList.add('correct');
+      } else {
+        if (selected) {
+          const wrongBtn = group.querySelector(`.option-btn[data-val="${selected}"]`);
+          if (wrongBtn) wrongBtn.classList.add('wrong');
+        }
+        const correctBtn = group.querySelector(`.option-btn[data-val="${correctAns}"]`);
+        if (correctBtn) correctBtn.classList.add('correct');
+      }
+    }
+    document.getElementById('scoreMatching').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealMatching() {
+    const correctMap = {
+      '1': 'Mon collège s\'appelle le collège Molière',
+      '2': 'C\'est un collège mixte pour les élèves de onze à seize ans',
+      '3': 'Il y a 750 élèves en tout, et quarante-cinq professeurs',
+      '4': 'Les cours commencent à 8h30. La récré est à 10h15 et dure quinze minutes',
+      '5': 'Il y a sept cours de cinquante-cinq minutes par jour',
+      '6': 'J\'étudie douze matières dont le français, les maths, l\'histoire-géo',
+      '7': 'Ma matière préférée, c\'est les arts plastiques car j\'adore dessiner',
+      '8': 'Pour la plupart, les profs sont sympa mais il y en a qui sont un peu plus sévères',
+      '9': 'Je trouve que les journées sont trop longues et qu\'on a trop de contrôles. Mais les profs sont excellents'
+    };
+    for (let q = 1; q <= 9; q++) {
+      const group = document.querySelector(`#matchingEx .option-group[data-q="${q}"]`);
+      const correctVal = correctMap[q];
+      matchingSelections[q] = correctVal;
+      group.querySelectorAll('.option-btn').forEach(btn => {
+        btn.classList.remove('selected');
+        if (btn.getAttribute('data-val') === correctVal) btn.classList.add('selected');
+      });
+    }
+    checkMatching();
+  }
+
+  // Maria interview check
+  function checkMaria() {
+    const answers = {
+      maria1: "Londres",
+      maria2a: "de 3 à 18 ans", maria2b: "une école primaire", maria2c: "un collège", maria2d: "un lycée",
+      maria3a: "2500", maria3b: "50", maria3c: "80",
+      maria4a: "8h30", maria4b: "16h", maria4c: "17h",
+      maria5: "7 ou 8",
+      maria6: "obligatoires",
+      maria7a: "la chimie", maria7b: "l'anglais", maria7c: "l'espagnol", maria7d: "l'allemand",
+      maria8: "sympas",
+      maria9a: "énorme", maria9b: "fière"
+    };
+    let total = Object.keys(answers).length;
+    let correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      if (!inp) continue;
+      const user = norm(inp.value);
+      const expNorm = norm(exp);
+      if (user === expNorm || (id === 'maria3a' && user === '2500') || (id === 'maria5' && user.includes('7'))) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreMaria').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealMaria() {
+    const answers = {
+      maria1: "Londres",
+      maria2a: "de 3 à 18 ans", maria2b: "une école primaire", maria2c: "un collège", maria2d: "un lycée",
+      maria3a: "2500", maria3b: "50", maria3c: "80",
+      maria4a: "8h30", maria4b: "16h", maria4c: "17h",
+      maria5: "7 ou 8",
+      maria6: "obligatoires",
+      maria7a: "la chimie", maria7b: "l'anglais", maria7c: "l'espagnol", maria7d: "l'allemand",
+      maria8: "sympas",
+      maria9a: "énorme", maria9b: "fière"
+    };
+    for (let [id, val] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      if (inp) inp.value = val;
+    }
+    checkMaria();
+  }
+
+  // Writing production
+  const schoolTa = document.getElementById('schoolText');
+  const wordSpan = document.getElementById('schoolWordCount');
+  schoolTa.addEventListener('input', function() {
+    const words = schoolTa.value.trim().split(/\s+/).filter(Boolean).length;
+    wordSpan.innerText = `${words} mots`;
+    if (words >= 70 && words <= 110) wordSpan.style.color = '#1e6b1e';
+    else wordSpan.style.color = 'var(--muted)';
+  });
+  function speakSchoolText() {
+    const text = schoolTa.value.trim();
+    if (text) speakFR(text);
+    else speakFR("Je n'ai pas encore écrit mon texte.");
+  }
+  function showSchoolModel() {
+    const model = document.getElementById('schoolModel');
+    model.style.display = model.style.display === 'none' ? 'block' : 'none';
+  }
+  window.addEventListener('load', () => {
+    if (schoolTa.value.trim() === '') wordSpan.innerText = '0 mots';
+  });
+</script>
+</body>
+</html>

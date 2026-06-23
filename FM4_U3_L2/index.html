@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Présentation d'un projet local & Service Civique — IGCSE French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f7fb; --ink:#0e1a2b; --muted:#5a6473;
+    --red:#7a1722; --red-dark:#5a0f18;
+    --blue:#0f2a4a; --blue-dark:#08182b;
+    --card:#fff; --border:#d9dde5; --shadow:0 10px 30px rgba(8,24,43,.08);
+    --gold:#c9a227; --green:#2d6a4f;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  header{background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:#fff;padding:48px 24px;text-align:center;border-bottom:6px solid var(--red);position:relative;overflow:hidden}
+  header::before{content:"🤝";position:absolute;font-size:14rem;opacity:.07;top:-30px;right:-20px;transform:rotate(-12deg)}
+  header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);margin:.2em 0;position:relative}
+  header p{max-width:780px;margin:0 auto;opacity:.92;position:relative}
+  .badges{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap;position:relative}
+  .badge{background:rgba(255,255,255,.12);padding:6px 14px;border-radius:999px;font-size:.85rem;border:1px solid rgba(255,255,255,.2)}
+  main{max-width:1100px;margin:0 auto;padding:32px 20px}
+  section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:28px;box-shadow:var(--shadow)}
+  .tag{display:inline-block;background:var(--red);color:#fff;padding:4px 12px;border-radius:4px;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+  .tag.gold{background:var(--gold);color:var(--blue-dark)}
+  .tag.green{background:var(--green);color:#fff}
+  h2{font-family:'Playfair Display',serif;font-size:1.9rem;margin:.3em 0 .5em;color:var(--blue)}
+  h3{margin-top:1.4em;color:var(--red)}
+  .sub{color:var(--muted);font-style:italic;font-size:.95rem}
+  .tip{background:#fff7e0;border-left:5px solid var(--gold);padding:14px 18px;border-radius:8px;margin:14px 0}
+  .tip strong{color:var(--blue)}
+  .grammar{background:#eef8f2;border-left:5px solid var(--green);padding:16px 20px;border-radius:8px;margin:14px 0}
+  .storyboard{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin:24px 0}
+  .card-story{background:#fff;border-radius:16px;box-shadow:var(--shadow);width:220px;text-align:center;padding:16px;border-top:6px solid var(--red);transition:transform .2s}
+  .card-story:hover{transform:translateY(-5px)}
+  .card-story .emoji{font-size:3rem;display:block;margin-bottom:10px}
+  .card-story .starter{font-weight:700;color:var(--blue);font-family:'Playfair Display',serif;font-size:1.1rem}
+  .card-story .example{font-size:.85rem;color:var(--muted);margin-top:8px}
+  .speech-bubble{background:#eef2f8;border-radius:20px;padding:16px 20px;margin:14px 0;position:relative}
+  .speech-bubble::before{content:"“";font-size:4rem;position:absolute;top:-10px;left:10px;color:var(--gold);opacity:.5}
+  .double-quote{display:flex;flex-wrap:wrap;gap:20px;margin:20px 0}
+  .quote-card{flex:1;background:#fff;border-radius:16px;padding:18px;border-left:8px solid var(--blue);box-shadow:var(--shadow)}
+  .quote-card.right{border-left-color:var(--green)}
+  .q{background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;border-left:4px solid var(--blue)}
+  .q .qtext{margin:0 0 10px;font-weight:600;color:var(--blue)}
+  .q input[type=text]{padding:7px 10px;border:2px solid var(--border);border-radius:6px;font-family:inherit;font-size:.95rem;min-width:200px}
+  .q input.correct{border-color:#1e6b1e;background:#e6f3e6}
+  .q input.wrong{border-color:var(--red);background:#fbeef0}
+  .check-btn{background:var(--red);color:#fff;border:none;padding:10px 22px;border-radius:6px;font-weight:600;cursor:pointer;margin-top:10px}
+  .check-btn:hover{background:var(--red-dark)}
+  .reveal-btn{background:transparent;color:var(--blue);border:2px solid var(--blue);padding:8px 16px;border-radius:6px;font-weight:600;cursor:pointer;margin-top:10px;margin-left:8px}
+  .reveal-btn:hover{background:var(--blue);color:#fff}
+  .score{margin-top:10px;font-weight:700;color:var(--blue);font-family:'Playfair Display',serif;font-size:1.1rem}
+  .inline-inputs{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .inline-inputs input{flex:1;min-width:140px}
+  .audio-box{background:linear-gradient(135deg,#eef2f8,#fff);border:2px solid var(--blue);border-radius:10px;padding:18px;margin:14px 0;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .play-btn{background:var(--red);color:#fff;border:none;padding:10px 18px;border-radius:6px;font-weight:600;cursor:pointer}
+  .speak-btn{background:var(--blue);color:#fff;border:none;padding:6px 10px;border-radius:6px;cursor:pointer;font-weight:600}
+  footer{text-align:center;padding:30px 20px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">Projet local & Service Civique</span>
+  <h1>Réparez une présentation sur un projet local</h1>
+  <p>Décrire des actions concrètes · Utiliser le passé, le présent et le futur</p>
+  <div class="badges"><span class="badge">Témoignages</span><span class="badge">Volontariat</span><span class="badge">Engagement citoyen</span></div>
+</header>
+
+<main>
+
+<!-- ============ STORYBOARD / IDÉES VISUELLES ============ -->
+<section>
+  <span class="tag green">📸 Idées pour ta présentation</span>
+  <h2>Structure ton projet local</h2>
+  <div class="storyboard">
+    <div class="card-story"><span class="emoji">📰</span><div class="starter">Dans ma ville …</div><div class="example">(pétition / journal local)</div><button class="speak-btn" onclick="speakFR('Dans ma ville, il y avait un problème avec le parc.')">🔊</button></div>
+    <div class="card-story"><span class="emoji">✍️</span><div class="starter">Alors, j'ai …</div><div class="example">(lancé une pétition / écrit un article)</div><button class="speak-btn" onclick="speakFR('Alors, j&apos;ai lancé une pétition en ligne.')">🔊</button></div>
+    <div class="card-story"><span class="emoji">✅</span><div class="starter">1 000 signatures!</div><div class="example">(succès immédiat)</div><button class="speak-btn" onclick="speakFR('J&apos;ai obtenu mille signatures. Victoire!')">🔊</button></div>
+    <div class="card-story"><span class="emoji">🏗️</span><div class="starter">Victoire! Demain, on finira de construire …</div><div class="example">(un terrain de sport / une bibliothèque)</div><button class="speak-btn" onclick="speakFR('Victoire! Demain, on finira de construire un terrain de basket.')">🔊</button></div>
+    <div class="card-story"><span class="emoji">🧹</span><div class="starter">Le week-end prochain, mes amis et moi …</div><div class="example">(nettoyerons / planterons / repeindrons)</div><button class="speak-btn" onclick="speakFR('Le week-end prochain, mes amis et moi planterons des arbres.')">🔊</button></div>
+    <div class="card-story"><span class="emoji">🎯</span><div class="starter">Bientôt, je … → pour …</div><div class="example">(demanderai une subvention / pour acheter du matériel)</div><button class="speak-btn" onclick="speakFR('Bientôt, je demanderai une subvention pour acheter des poubelles.')">🔊</button></div>
+  </div>
+  <div class="tip"><strong>💡 Conseil :</strong> Utilise le passé composé pour les actions déjà faites, le futur simple pour les projets à venir.</div>
+</section>
+
+<!-- ============ TEXTE : SERVICE CIVIQUE ============ -->
+<section>
+  <span class="tag">📖 Qu'est-ce que le Service Civique?</span>
+  <h2>Lisez et écoutez</h2>
+  <div class="double-quote">
+    <div class="quote-card">
+      <p><strong>📌 Le Service Civique</strong><br>Si vous avez entre <strong>seize et vingt-cinq ans</strong>, vous pouvez faire votre «Service Civique». Ça consiste en une mission de volontariat de <strong>six à douze mois</strong>, en France ou à l'étranger. On peut choisir, selon ses centres d'intérêt, parmi des centaines de missions: culture, éducation, santé, sports, environnement… Pour certains, c'est un tremplin pour trouver un emploi. Pour d'autres, il s'agit de rendre service à la société.</p>
+      <button class="play-btn" onclick="speakFR('Si vous avez entre seize et vingt-cinq ans, vous pouvez faire votre service civique. Ça consiste en une mission de volontariat de six à douze mois, en France ou à l&apos;étranger.')">▶ Écouter texte</button>
+    </div>
+    <div class="quote-card right">
+      <p><strong>🗣️ Témoignage de Laura (17 ans)</strong><br>«Je ferai mon Service Civique l'année prochaine parce que <strong>j'ai envie de montrer que les jeunes peuvent améliorer la vie en communauté</strong>. Mon amie Olivia a fait son Service Civique auprès de personnes âgées dans une maison de retraite. <strong>Elle s'occupait des résidents, leur lisait le journal, discutait avec eux</strong>, etc. Elle a vraiment aimé ça.»</p>
+      <button class="play-btn" onclick="speakFR('Je ferai mon service civique l&apos;année prochaine parce que j&apos;ai envie de montrer que les jeunes peuvent améliorer la vie en communauté. Mon amie Olivia s&apos;occupait des résidents, leur lisait le journal, discutait avec eux.')">▶ Laura (gauche)</button>
+    </div>
+    <div class="quote-card">
+      <p><strong>🗣️ Laura (suite)</strong><br>«Cependant, <strong>ma mission à moi sera d'être au contact d'élèves qui viennent d'un milieu défavorisé, et de leur faire découvrir les lieux culturels</strong> qu'ils n'ont pas l'habitude d'aller, par exemple le théâtre, les musées, la bibliothèque… J'espère que ce sera une expérience qui profitera à la communauté et qui me plaira aussi.»</p>
+      <button class="play-btn" onclick="speakFR('Ma mission à moi sera d&apos;être au contact d&apos;élèves défavorisés et de leur faire découvrir les lieux culturels comme le théâtre, les musées, la bibliothèque.')">▶ Laura (droite)</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUESTIONS DE COMPRÉHENSION ============ -->
+<section>
+  <span class="tag gold">❓ Questions</span>
+  <h2>Compréhension du texte</h2>
+  <p class="sub">Répondez en français. Pour les questions 4 et 6, pensez à adapter la personne du verbe.</p>
+  <div id="comprehension">
+    <div class="q"><p class="qtext">1. Quel âge faut-il avoir pour faire le Service Civique?</p><input type="text" data-ans="entre seize et vingt-cinq ans" style="width:280px"></div>
+    <div class="q"><p class="qtext">2. Quelle est la durée du Service Civique?</p><input type="text" data-ans="six à douze mois" style="width:220px"></div>
+    <div class="q"><p class="qtext">3. Où peut-on faire son Service Civique?</p><input type="text" data-ans="en France ou à l'étranger" style="width:260px"></div>
+    <div class="q"><p class="qtext">4. Pourquoi Laura a-t-elle envie de faire ça? (Changez la personne)</p><input type="text" data-ans="elle a envie de montrer que les jeunes peuvent améliorer la vie en communauté" style="width:500px"></div>
+    <div class="q"><p class="qtext">5. Quel genre de «mission» son amie Olivia a-t-elle accompli? Donnez deux détails.</p><div class="inline-inputs"><input type="text" data-ans1="s'occupait des résidents" placeholder="détail 1"><input type="text" data-ans2="leur lisait le journal" placeholder="détail 2"></div></div>
+    <div class="q"><p class="qtext">6. Que fera Laura lors de son Service Civique? Donnez deux détails. (Changez la personne)</p><div class="inline-inputs"><input type="text" data-ans1="être au contact d'élèves défavorisés" placeholder="action 1"><input type="text" data-ans2="leur faire découvrir les lieux culturels" placeholder="action 2"></div></div>
+    <button class="check-btn" onclick="checkComprehension()">Vérifier les réponses</button>
+    <button class="reveal-btn" onclick="revealComprehension()">Voir les réponses</button>
+    <div class="score" id="scoreComp"></div>
+  </div>
+  <div class="tip"><strong>📌 Astuce :</strong> Pour la question 4, Laura dit «j'ai envie…» → réponse : <em>elle a envie de montrer…</em>. Pour la question 6, «ma mission sera…» → <em>sa mission sera d'être au contact…</em></div>
+</section>
+
+<!-- ============ EXERCICE : MODIFIER LES MOTS (a–j) ============ -->
+<section>
+  <span class="tag green">✏️ Exercice : texte à compléter</span>
+  <h2>Modifiez les mots entre parenthèses</h2>
+  <p class="sub">Lisez le texte et mettez les verbes à la forme qui convient (présent, passé composé, futur, infinitif, etc.). Parfois, il n'est pas nécessaire de changer le mot.</p>
+  <div class="speech-bubble" style="background:#f4f0fa">
+    <p><strong>📝 Texte : Mon ami Medhi</strong><br>
+    Mon ami Medhi <input type="text" id="a" class="inline-input" data-ans="a fait" style="width:100px; margin:0 4px"> (a) [faire] son service civique dans une école primaire l'année <input type="text" id="b" class="inline-input" data-ans="dernière" style="width:120px"> (b) [dernier] et il <input type="text" id="c" class="inline-input" data-ans="a adoré" style="width:100px"> (c) [adorer] ça. Il <input type="text" id="d" class="inline-input" data-ans="lisait" style="width:100px"> (d) [lire] des livres aux enfants et il <input type="text" id="e" class="inline-input" data-ans="jouait" style="width:100px"> (e) [jouer] avec eux. L'année prochaine, il <input type="text" id="f" class="inline-input" data-ans="collectera" style="width:110px"> (f) [collecter] de l'argent pour un hôpital. Il <input type="text" id="g" class="inline-input" data-ans="lavera" style="width:100px"> (g) [laver] des voitures et il <input type="text" id="h" class="inline-input" data-ans="vendra" style="width:100px"> (h) [vendre] des gâteaux à ses amis et à sa famille. Il dit qu'il <input type="text" id="i" class="inline-input" data-ans="veut" style="width:90px"> (i) [vouloir] améliorer la vie en communauté et <input type="text" id="j" class="inline-input" data-ans="faire" style="width:100px"> (j) [faire] quelque chose d'utile pour la société.
+    </p>
+  </div>
+  <button class="check-btn" onclick="checkModify()">Vérifier le texte</button>
+  <button class="reveal-btn" onclick="revealModify()">Voir les réponses</button>
+  <div class="score" id="scoreModify"></div>
+  <div class="tip"><strong>⚡ Rappel :</strong> «dernier» s'accorde avec «année» → dernière. Les actions passées sont au passé composé ou imparfait. Les actions futures au futur simple.</div>
+</section>
+
+<!-- ============ PRODUCTION ÉCRITE : PRÉSENTATION D'UN PROJET ============ -->
+<section>
+  <span class="tag gold">🎤 Production écrite</span>
+  <h2>Réparez votre présentation sur un projet local</h2>
+  <p>Rédigez 5 à 8 phrases en utilisant les idées de la storyboard. Racontez une action passée (passé composé), une action présente et un projet futur (futur simple).</p>
+  <div class="q">
+    <textarea id="monProjet" rows="6" style="width:100%" placeholder="Exemple : Dans ma ville, il y avait un terrain vague dangereux. Alors, j'ai lancé une pétition et j'ai obtenu 500 signatures. Victoire! La semaine prochaine, on finira de construire un terrain de sport. Le week-end prochain, mes amis et moi planterons des arbres. Bientôt, je demanderai une subvention pour acheter du matériel."></textarea>
+    <div class="score" id="wordCount">0 mots</div>
+  </div>
+  <button class="reveal-btn" onclick="showWritingModel()">Voir un modèle</button>
+  <div class="transcript" id="writingModel" style="display:none; background:#eef2f8; padding:14px; border-radius:8px; margin-top:10px">
+    <p><strong>🌟 Modèle de présentation :</strong> Dans ma ville, le parc était très sale. Alors, j'ai organisé une opération de nettoyage avec mes voisins. Nous avons ramassé 15 sacs de déchets. Victoire! Demain, on finira d'installer des bancs publics. Le week-end prochain, mes amis et moi peindrons une fresque sur le mur. Bientôt, je créerai un club de jeunes pour continuer à améliorer notre quartier. Ce sera génial !</p>
+    <button class="speak-btn" onclick="speakFR('Dans ma ville, le parc était très sale. Alors, j&apos;ai organisé une opération de nettoyage. Victoire! Demain, on finira d&apos;installer des bancs. Le week-end prochain, mes amis et moi peindrons une fresque. Bientôt, je créerai un club de jeunes.')">🔊 Écouter</button>
+  </div>
+</section>
+
+<footer>
+  IGCSE French — Projet local & Service Civique · S'engager, raconter, convaincre. 🇫🇷💪
+</footer>
+</main>
+
+<script>
+  function speakFR(text){
+    if(!('speechSynthesis' in window)){alert('Audio non supporté');return;}
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang='fr-FR'; u.rate=0.92;
+    const v = speechSynthesis.getVoices().find(v=>v.lang.startsWith('fr'));
+    if(v) u.voice=v;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged=()=>{};
+  function norm(s){return (s||'').toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/\s+/g,' ');}
+
+  // Comprehension check
+  function checkComprehension(){
+    const answers = [
+      "entre seize et vingt-cinq ans",
+      "six à douze mois",
+      "en France ou à l'étranger",
+      "elle a envie de montrer que les jeunes peuvent améliorer la vie en communauté",
+      "s'occupait des résidents",
+      "leur lisait le journal",
+      "être au contact d'élèves défavorisés",
+      "leur faire découvrir les lieux culturels"
+    ];
+    let inputs = document.querySelectorAll('#comprehension input');
+    let total = inputs.length;
+    let correct = 0;
+    inputs.forEach((inp, idx) => {
+      let user = norm(inp.value);
+      let ans = norm(answers[idx]);
+      if(user.includes(ans) || (idx===0 && user.includes('seize')) || (idx===1 && user.includes('mois')) || (idx===3 && user.includes('améliorer'))){
+        correct++;
+        inp.classList.add('correct');
+        inp.classList.remove('wrong');
+      } else {
+        inp.classList.remove('correct');
+        inp.classList.add('wrong');
+      }
+    });
+    document.getElementById('scoreComp').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealComprehension(){
+    let answers = [
+      "entre seize et vingt-cinq ans",
+      "six à douze mois",
+      "en France ou à l'étranger",
+      "elle a envie de montrer que les jeunes peuvent améliorer la vie en communauté",
+      "s'occupait des résidents",
+      "leur lisait le journal",
+      "être au contact d'élèves défavorisés",
+      "leur faire découvrir les lieux culturels"
+    ];
+    let inputs = document.querySelectorAll('#comprehension input');
+    inputs.forEach((inp, idx) => { inp.value = answers[idx]; });
+    checkComprehension();
+  }
+
+  // Modify exercise (a-j)
+  function checkModify(){
+    const ansMap = {
+      a: "a fait", b: "dernière", c: "a adoré", d: "lisait", e: "jouait",
+      f: "collectera", g: "lavera", h: "vendra", i: "veut", j: "faire"
+    };
+    let total = 0, correct = 0;
+    for(let key of ['a','b','c','d','e','f','g','h','i','j']){
+      total++;
+      let inp = document.getElementById(key);
+      let user = norm(inp.value);
+      let expected = norm(ansMap[key]);
+      if(user === expected || (key==='a' && user.includes('fait')) || (key==='b' && user.includes('dernièr')) || (key==='c' && user.includes('adoré'))){
+        correct++;
+        inp.classList.add('correct');
+        inp.classList.remove('wrong');
+      } else {
+        inp.classList.remove('correct');
+        inp.classList.add('wrong');
+      }
+    }
+    document.getElementById('scoreModify').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealModify(){
+    const ansMap = {
+      a: "a fait", b: "dernière", c: "a adoré", d: "lisait", e: "jouait",
+      f: "collectera", g: "lavera", h: "vendra", i: "veut", j: "faire"
+    };
+    for(let key of ['a','b','c','d','e','f','g','h','i','j']){
+      document.getElementById(key).value = ansMap[key];
+    }
+    checkModify();
+  }
+
+  // Word counter for writing
+  const textarea = document.getElementById('monProjet');
+  const wordSpan = document.getElementById('wordCount');
+  textarea.addEventListener('input', function(){
+    let words = textarea.value.trim().split(/\s+/).filter(Boolean).length;
+    wordSpan.innerText = `${words} mots`;
+    if(words >= 40 && words <= 100) wordSpan.style.color = '#1e6b1e';
+    else wordSpan.style.color = 'var(--muted)';
+  });
+  function showWritingModel(){
+    let modelDiv = document.getElementById('writingModel');
+    modelDiv.style.display = modelDiv.style.display === 'none' ? 'block' : 'none';
+  }
+  window.addEventListener('load', () => {
+    if(textarea.value.trim() === '') wordSpan.innerText = '0 mots';
+  });
+</script>
+</body>
+</html>

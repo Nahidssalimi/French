@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>JE SUIS SOLIDAIRE — Volunteering & indirect pronouns — IGCSE French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7fb;
+    --ink: #0e1a2b;
+    --muted: #5a6473;
+    --red: #7a1722;
+    --red-dark: #5a0f18;
+    --blue: #0f2a4a;
+    --blue-dark: #08182b;
+    --card: #fff;
+    --border: #d9dde5;
+    --shadow: 0 10px 30px rgba(8,24,43,.08);
+    --gold: #c9a227;
+    --green: #2d6a4f;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: #fff;
+    padding: 48px 24px;
+    text-align: center;
+    border-bottom: 6px solid var(--red);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: "🤝";
+    position: absolute;
+    font-size: 12rem;
+    opacity: .08;
+    bottom: -30px;
+    right: -20px;
+    transform: rotate(-8deg);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: .2em 0;
+    position: relative;
+  }
+  header p {
+    max-width: 780px;
+    margin: 0 auto;
+    opacity: .92;
+    position: relative;
+  }
+  .badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.12);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: .85rem;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .tag {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .tag.gold {
+    background: var(--gold);
+    color: var(--blue-dark);
+  }
+  .tag.green {
+    background: var(--green);
+    color: #fff;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin: .3em 0 .5em;
+    color: var(--blue);
+  }
+  .sub {
+    color: var(--muted);
+    font-style: italic;
+    font-size: .95rem;
+    margin-bottom: 1rem;
+  }
+  .tip {
+    background: #fff7e0;
+    border-left: 5px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .tip strong {
+    color: var(--blue);
+  }
+  .grammar-box {
+    background: #eef8f2;
+    border-left: 5px solid var(--green);
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .audio-box {
+    background: linear-gradient(135deg, #eef2f8, #fff);
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    padding: 18px;
+    margin: 14px 0;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .play-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: .95rem;
+  }
+  .play-btn:hover { background: var(--red-dark); }
+  .speak-btn {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .8rem;
+  }
+  .q {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+    border-left: 4px solid var(--blue);
+  }
+  .q .qtext {
+    margin: 0 0 10px;
+    font-weight: 600;
+    color: var(--blue);
+  }
+  .q input[type="text"] {
+    padding: 7px 10px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: .95rem;
+    min-width: 200px;
+    width: auto;
+  }
+  .q input.correct {
+    border-color: #1e6b1e;
+    background: #e6f3e6;
+  }
+  .q input.wrong {
+    border-color: var(--red);
+    background: #fbeef0;
+  }
+  .check-btn, .reveal-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .reveal-btn {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+  }
+  .reveal-btn:hover {
+    background: var(--blue);
+    color: #fff;
+  }
+  .score {
+    margin-top: 12px;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 1.1rem;
+  }
+  .option-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 10px 0;
+  }
+  .option-btn {
+    background: #eef2f8;
+    padding: 6px 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+  }
+  .option-btn.selected {
+    background: var(--blue);
+    color: white;
+  }
+  .option-btn.correct {
+    background: #1e6b1e;
+    color: white;
+  }
+  .option-btn.wrong {
+    background: var(--red);
+    color: white;
+  }
+  .quiz-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .quiz-item {
+    background: #f8f9fc;
+    padding: 16px;
+    border-radius: 12px;
+    border-left: 4px solid var(--gold);
+  }
+  .quiz-item .qtext {
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 10px;
+  }
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: .9rem;
+    border-top: 1px solid var(--border);
+  }
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: .95rem;
+    resize: vertical;
+  }
+  .word-count {
+    font-size: .8rem;
+    color: var(--muted);
+    margin-top: 5px;
+  }
+  .culture-box {
+    background: #e8f0fe;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 12px 0;
+    border-left: 5px solid var(--gold);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">🤝 JE SUIS SOLIDAIRE</span>
+  <h1>Volunteering & Indirect Object Pronouns</h1>
+  <p>B4 Work, Careers and Volunteering — Parler du bénévolat</p>
+  <div class="badges">
+    <span class="badge">Quiz sur le bénévolat</span>
+    <span class="badge">Pronoms COI</span>
+    <span class="badge">Compréhension orale</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ OBJECTIFS ============ -->
+<section>
+  <div class="grammar-box">
+    <strong>🎯 OBJECTIFS D'APPRENTISSAGE</strong><br>
+    • Parler du bénévolat<br>
+    • Utiliser les pronoms compléments d'objet indirect
+  </div>
+</section>
+
+<!-- ============ QUIZ : ES-TU FAIT POUR ÊTRE BÉNÉVOLE? ============ -->
+<section>
+  <span class="tag green">📋 Exercice 1 · Quiz</span>
+  <h2>Es-tu fait(e) pour être bénévole?</h2>
+  <p class="sub">À deux, à haute voix, faites ce quiz.</p>
+
+  <div class="quiz-grid">
+    <div class="quiz-item">
+      <p class="qtext">1. Tu penses être …</p>
+      <div class="option-group" data-q="1" data-correct="une personne sociable qui a l'esprit d'équipe">
+        <span class="option-btn" data-val="une personne sociable qui a l'esprit d'équipe">a. sociable, esprit d'équipe</span>
+        <span class="option-btn" data-val="une personne renfermée qui préfère être seule">b. renfermée, préfère être seule</span>
+      </div>
+    </div>
+    <div class="quiz-item">
+      <p class="qtext">2. Tu estimes …</p>
+      <div class="option-group" data-q="2" data-correct="que c'est important d'aider les autres">
+        <span class="option-btn" data-val="que c'est important d'aider les autres">a. important d'aider les autres</span>
+        <span class="option-btn" data-val="qu'il vaut mieux passer son temps à la plage">b. mieux vaut passer son temps à la plage</span>
+      </div>
+    </div>
+    <div class="quiz-item">
+      <p class="qtext">3. Une personne aveugle demande ton aide pour traverser la rue.</p>
+      <div class="option-group" data-q="3" data-correct="Tu lui donnes le bras">
+        <span class="option-btn" data-val="Tu lui donnes le bras">a. Tu lui donnes le bras</span>
+        <span class="option-btn" data-val="Tu lui donnes le dos">b. Tu lui donnes le dos</span>
+      </div>
+    </div>
+    <div class="quiz-item">
+      <p class="qtext">4. Un sans-abri veut te parler.</p>
+      <div class="option-group" data-q="4" data-correct="Tu lui offres un café">
+        <span class="option-btn" data-val="Tu lui offres un café">a. Tu lui offres un café</span>
+        <span class="option-btn" data-val="Tu lui donnes un coup de poing">b. Tu lui donnes un coup de poing</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="culture-box">
+    <strong>📖 Réponses :</strong><br>
+    • Une personne aveugle – une personne non-voyante<br>
+    • Donner un coup de poing – frapper
+  </div>
+  <button class="check-btn" onclick="checkQuiz()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealQuiz()">Voir les réponses</button>
+  <div class="score" id="scoreQuiz"></div>
+</section>
+
+<!-- ============ GRAMMAIRE : PRONOMS COI ============ -->
+<section>
+  <span class="tag gold">📚 Grammaire — Pronoms compléments d'objet indirect</span>
+  <div class="grammar-box">
+    <p><strong>Pronoms COI (me, te, lui, nous, vous, leur)</strong> remplacent des noms après <strong>à</strong>.</p>
+    <p><em>Je donne le bras à la personne. → Je <strong>lui</strong> donne le bras.</em></p>
+    <p><em>Je rends visite à mes voisins. → Je <strong>leur</strong> rends visite.</em></p>
+    <button class="speak-btn" onclick="speakFR('Je lui donne le bras. Je leur rends visite. Je lui offre un café.')">🔊 Écouter</button>
+  </div>
+
+  <div id="coiEx">
+    <div class="q"><p class="qtext">1. Je donne le bras à la personne. → Je <input type="text" id="coi1" data-ans="lui" style="width:60px"> donne le bras.</p></div>
+    <div class="q"><p class="qtext">2. Je rends visite à mes grands-parents. → Je <input type="text" id="coi2" data-ans="leur" style="width:60px"> rends visite.</p></div>
+    <div class="q"><p class="qtext">3. J'offre un café au sans-abri. → Je <input type="text" id="coi3" data-ans="lui" style="width:60px"> offre un café.</p></div>
+    <div class="q"><p class="qtext">4. Nous donnons des vêtements aux SDF. → Nous <input type="text" id="coi4" data-ans="leur" style="width:60px"> donnons des vêtements.</p></div>
+    <div class="q"><p class="qtext">5. Tu parles à ton professeur. → Tu <input type="text" id="coi5" data-ans="lui" style="width:60px"> parles.</p></div>
+  </div>
+  <button class="check-btn" onclick="checkCOI()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealCOI()">Voir les réponses</button>
+  <div class="score" id="scoreCOI"></div>
+</section>
+
+<!-- ============ EXERCICE 2 : ÉCOUTE ============ -->
+<section>
+  <span class="tag green">🎧 Exercice 2 · Écoutez</span>
+  <p class="sub">Qu'est-ce qu'ils disent? Écrivez les deux bonnes lettres pour chaque personne (1–3).</p>
+
+  <div class="audio-box">
+    <button class="play-btn" onclick="playVolunteers()">▶ Écouter les 3 personnes</button>
+  </div>
+
+  <div id="listeningEx">
+    <div class="q"><p class="qtext">Personne 1 → <input type="text" id="list1a" data-ans="b" style="width:40px">, <input type="text" id="list1b" data-ans="d" style="width:40px"></p></div>
+    <div class="q"><p class="qtext">Personne 2 → <input type="text" id="list2a" data-ans="a" style="width:40px">, <input type="text" id="list2b" data-ans="c" style="width:40px"></p></div>
+    <div class="q"><p class="qtext">Personne 3 → <input type="text" id="list3a" data-ans="e" style="width:40px">, <input type="text" id="list3b" data-ans="f" style="width:40px"></p></div>
+  </div>
+  <button class="check-btn" onclick="checkListening()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealListening()">Voir les réponses</button>
+  <div class="score" id="scoreListen"></div>
+
+  <div class="tip"><strong>🎧 Transcriptions :</strong><br>
+    Personne 1: « Ça me donne le sentiment d'être utile. C'est important de participer à la vie en société. » → b, d<br>
+    Personne 2: « Ça me permet d'élargir mes compétences. Ça me donne plus confiance en moi. » → a, c<br>
+    Personne 3: « On a la responsabilité d'aider les autres. Il y a beaucoup de personnes qui ont besoin de gentillesse. » → e, f</div>
+</section>
+
+<!-- ============ EXERCICE 3 : ÉCOUTE ENCORE ============ -->
+<section>
+  <span class="tag gold">🎧 Exercice 3 · Écoutez encore</span>
+  <p class="sub">Notez en français ce qu'ils font comme bénévolat.</p>
+
+  <div id="detailsEx">
+    <div class="q"><p class="qtext">Personne 1: <input type="text" id="det1" data-ans="aide dans une soupe populaire" style="width:300px"></p></div>
+    <div class="q"><p class="qtext">Personne 2: <input type="text" id="det2" data-ans="donne des cours de soutien scolaire" style="width:300px"></p></div>
+    <div class="q"><p class="qtext">Personne 3: <input type="text" id="det3" data-ans="visite des personnes âgées" style="width:300px"></p></div>
+  </div>
+  <button class="check-btn" onclick="checkDetails()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealDetails()">Voir les réponses</button>
+  <div class="score" id="scoreDetails"></div>
+  <div class="tip"><strong>🎧 Transcriptions :</strong><br>
+    Personne 1: « Je suis bénévole dans une soupe populaire. »<br>
+    Personne 2: « Je donne des cours de soutien scolaire aux enfants défavorisés. »<br>
+    Personne 3: « Je visite des personnes âgées dans une maison de retraite. »</div>
+</section>
+
+<!-- ============ EXERCICE 4 : COPIER ET COMPLÉTER ============ -->
+<section>
+  <span class="tag green">✏️ Exercice 4 · Complétez avec les bons pronoms COI</span>
+
+  <div id="fillEx">
+    <div class="q"><p class="qtext">1. À Noël, nous donnons des cadeaux à des familles pauvres. Nous <input type="text" id="fill1" data-ans="leur" style="width:60px"> donnons des choses dont elles ont vraiment besoin.</p></div>
+    <div class="q"><p class="qtext">2. Rachida aime faire du bénévolat, car ça <input type="text" id="fill2" data-ans="lui" style="width:60px"> permet de se sentir utile.</p></div>
+    <div class="q"><p class="qtext">3. Si j'étais dans la rue, j'aimerais qu'on <input type="text" id="fill3" data-ans="m'" style="width:60px"> offre un peu de gentillesse.</p></div>
+    <div class="q"><p class="qtext">4. Nous distribuons des sandwiches aux SDF. Nous <input type="text" id="fill4" data-ans="leur" style="width:60px"> distribuons des sandwiches.</p></div>
+    <div class="q"><p class="qtext">5. Nous avons préparé une soupe délicieuse pour les SDF. Ensuite, nous <input type="text" id="fill5" data-ans="leur" style="width:60px"> avons servie dans la cantine.</p></div>
+    <div class="q"><p class="qtext">6. Le directeur de l'organisation <input type="text" id="fill6" data-ans="m'" style="width:60px"> a expliqué les détails de notre projet.</p></div>
+  </div>
+  <button class="check-btn" onclick="checkFill()">Vérifier</button>
+  <button class="reveal-btn" onclick="revealFill()">Voir les réponses</button>
+  <div class="score" id="scoreFill"></div>
+</section>
+
+<!-- ============ PRODUCTION ÉCRITE ============ -->
+<section>
+  <span class="tag gold">✍️ Production écrite</span>
+  <h2>Parle de ton expérience de bénévolat</h2>
+  <p class="sub">Rédigez 80-100 mots sur une expérience de bénévolat (réelle ou imaginée). Utilisez des pronoms COI.</p>
+
+  <textarea id="volText" rows="6" placeholder="Exemple : L'année dernière, j'ai fait du bénévolat dans une soupe populaire. Je leur servais des repas et je leur parlais. J'aimais beaucoup aider les gens. Ça me donnait le sentiment d'être utile. Je leur offrais toujours un sourire. Le directeur m'a expliqué l'importance de la gentillesse. Je lui ai promis de revenir. Actuellement, je donne des cours de soutien scolaire à des enfants. Je leur apprends le français. Je trouve que c'est une expérience enrichissante."></textarea>
+  <div class="word-count" id="volWordCount">0 mots</div>
+  <button class="speak-btn" onclick="speakVol()">🔊 Écouter mon texte</button>
+  <button class="reveal-btn" onclick="showVolModel()">Voir un modèle</button>
+  <div id="volModel" style="display:none; background:#eef2f8; padding:14px; border-radius:8px; margin-top:12px;">
+    <strong>📝 Modèle (96 mots) :</strong><br>
+    « L'année dernière, j'ai fait du bénévolat dans une soupe populaire. Je servais des repas aux sans-abri. Je leur offrais toujours un sourire et je leur parlais gentiment. Ça me donnait le sentiment d'être utile. Le directeur m'a expliqué l'importance de la solidarité. Je lui ai promis de revenir. Actuellement, je donne des cours de soutien scolaire à des enfants défavorisés. Je leur apprends le français et les maths. Ils me remercient beaucoup. Je trouve que c'est une expérience enrichissante et je recommande à tout le monde de faire du bénévolat. »
+    <button class="speak-btn" onclick="speakFR('Je fais du bénévolat dans une soupe populaire. Je leur sers des repas. Je leur offre un sourire. Je donne des cours à des enfants. Je leur apprends le français.')">🔊 Écouter</button>
+  </div>
+</section>
+
+<footer>
+  IGCSE French — B4 Work, Careers and Volunteering · Je suis solidaire, bénévolat, pronoms COI 🤝
+</footer>
+
+</main>
+
+<script>
+  function speakFR(text) {
+    if (!('speechSynthesis' in window)) { alert('Audio non supporté'); return; }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR';
+    u.rate = 0.92;
+    const voices = speechSynthesis.getVoices();
+    const frVoice = voices.find(v => v.lang.startsWith('fr'));
+    if (frVoice) u.voice = frVoice;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged = () => {};
+
+  function playVolunteers() {
+    speakFR("Personne 1: Je suis bénévole dans une soupe populaire. Ça me donne le sentiment d'être utile. C'est important de participer à la vie en société. Personne 2: Je donne des cours de soutien scolaire. Ça me permet d'élargir mes compétences. Ça me donne plus confiance en moi. Personne 3: Je visite des personnes âgées. On a la responsabilité d'aider les autres. Il y a beaucoup de personnes qui ont besoin de gentillesse.");
+  }
+
+  function norm(s) { return (s || '').toLowerCase().trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' '); }
+
+  // Quiz
+  let quizSelections = {};
+  document.querySelectorAll('#quizGrid .option-btn, .quiz-grid .option-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const group = this.closest('.option-group');
+      const qNum = group.getAttribute('data-q');
+      group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+      this.classList.add('selected');
+      quizSelections[qNum] = this.getAttribute('data-val');
+    });
+  });
+
+  function checkQuiz() {
+    const correctMap = {
+      '1': 'une personne sociable qui a l\'esprit d\'équipe',
+      '2': 'que c\'est important d\'aider les autres',
+      '3': 'Tu lui donnes le bras',
+      '4': 'Tu lui offres un café'
+    };
+    let total = 4, correct = 0;
+    for (let q = 1; q <= 4; q++) {
+      const group = document.querySelector(`.quiz-grid .option-group[data-q="${q}"]`);
+      const selected = quizSelections[q];
+      const correctAns = correctMap[q];
+      group.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('correct', 'wrong'));
+      if (selected === correctAns) {
+        correct++;
+        const correctBtn = group.querySelector(`.option-btn[data-val="${selected}"]`);
+        if (correctBtn) correctBtn.classList.add('correct');
+      } else {
+        if (selected) {
+          const wrongBtn = group.querySelector(`.option-btn[data-val="${selected}"]`);
+          if (wrongBtn) wrongBtn.classList.add('wrong');
+        }
+        const correctBtn = group.querySelector(`.option-btn[data-val="${correctAns}"]`);
+        if (correctBtn) correctBtn.classList.add('correct');
+      }
+    }
+    document.getElementById('scoreQuiz').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealQuiz() {
+    const correctMap = {
+      '1': 'une personne sociable qui a l\'esprit d\'équipe',
+      '2': 'que c\'est important d\'aider les autres',
+      '3': 'Tu lui donnes le bras',
+      '4': 'Tu lui offres un café'
+    };
+    for (let q = 1; q <= 4; q++) {
+      const group = document.querySelector(`.quiz-grid .option-group[data-q="${q}"]`);
+      const correctVal = correctMap[q];
+      quizSelections[q] = correctVal;
+      group.querySelectorAll('.option-btn').forEach(btn => {
+        btn.classList.remove('selected');
+        if (btn.getAttribute('data-val') === correctVal) btn.classList.add('selected');
+      });
+    }
+    checkQuiz();
+  }
+
+  // COI
+  function checkCOI() {
+    const answers = { coi1: "lui", coi2: "leur", coi3: "lui", coi4: "leur", coi5: "lui" };
+    let total = 5, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      if (user === exp) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreCOI').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealCOI() {
+    document.getElementById('coi1').value = "lui";
+    document.getElementById('coi2').value = "leur";
+    document.getElementById('coi3').value = "lui";
+    document.getElementById('coi4').value = "leur";
+    document.getElementById('coi5').value = "lui";
+    checkCOI();
+  }
+
+  // Listening letters
+  function checkListening() {
+    const answers = {
+      list1a: "b", list1b: "d", list2a: "a", list2b: "c", list3a: "e", list3b: "f"
+    };
+    let total = 6, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      if (user === exp) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreListen').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealListening() {
+    document.getElementById('list1a').value = "b";
+    document.getElementById('list1b').value = "d";
+    document.getElementById('list2a').value = "a";
+    document.getElementById('list2b').value = "c";
+    document.getElementById('list3a').value = "e";
+    document.getElementById('list3b').value = "f";
+    checkListening();
+  }
+
+  // Details
+  function checkDetails() {
+    const answers = {
+      det1: "aide dans une soupe populaire",
+      det2: "donne des cours de soutien scolaire",
+      det3: "visite des personnes âgées"
+    };
+    let total = 3, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      const expNorm = norm(exp);
+      if (user.includes(expNorm.substring(0,8)) || expNorm.includes(user.substring(0,8))) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreDetails').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealDetails() {
+    document.getElementById('det1').value = "aide dans une soupe populaire";
+    document.getElementById('det2').value = "donne des cours de soutien scolaire";
+    document.getElementById('det3').value = "visite des personnes âgées";
+    checkDetails();
+  }
+
+  // Fill exercise
+  function checkFill() {
+    const answers = {
+      fill1: "leur", fill2: "lui", fill3: "m'", fill4: "leur", fill5: "leur", fill6: "m'"
+    };
+    let total = 6, correct = 0;
+    for (let [id, exp] of Object.entries(answers)) {
+      const inp = document.getElementById(id);
+      const user = norm(inp.value);
+      if (user === exp || (id === 'fill3' && user === 'm\'') || (id === 'fill6' && user === 'm\'')) {
+        correct++; inp.classList.add('correct'); inp.classList.remove('wrong');
+      } else { inp.classList.remove('correct'); inp.classList.add('wrong'); }
+    }
+    document.getElementById('scoreFill').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealFill() {
+    document.getElementById('fill1').value = "leur";
+    document.getElementById('fill2').value = "lui";
+    document.getElementById('fill3').value = "m'";
+    document.getElementById('fill4').value = "leur";
+    document.getElementById('fill5').value = "leur";
+    document.getElementById('fill6').value = "m'";
+    checkFill();
+  }
+
+  // Writing
+  const volTa = document.getElementById('volText');
+  const wordSpan = document.getElementById('volWordCount');
+  volTa.addEventListener('input', function() {
+    const words = volTa.value.trim().split(/\s+/).filter(Boolean).length;
+    wordSpan.innerText = `${words} mots`;
+    if (words >= 80 && words <= 120) wordSpan.style.color = '#1e6b1e';
+    else wordSpan.style.color = 'var(--muted)';
+  });
+  function speakVol() {
+    const text = volTa.value.trim();
+    if (text) speakFR(text);
+    else speakFR("Je n'ai pas encore écrit mon texte.");
+  }
+  function showVolModel() {
+    const model = document.getElementById('volModel');
+    model.style.display = model.style.display === 'none' ? 'block' : 'none';
+  }
+  window.addEventListener('load', () => {
+    if (volTa.value.trim() === '') wordSpan.innerText = '0 mots';
+  });
+</script>
+</body>
+</html>

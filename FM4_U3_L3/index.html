@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ma ville & déménagement — IGCSE French Listening Skills</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7fb;
+    --ink: #0e1a2b;
+    --muted: #5a6473;
+    --red: #7a1722;
+    --red-dark: #5a0f18;
+    --blue: #0f2a4a;
+    --blue-dark: #08182b;
+    --card: #fff;
+    --border: #d9dde5;
+    --shadow: 0 10px 30px rgba(8,24,43,.08);
+    --gold: #c9a227;
+    --green: #2d6a4f;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  header {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: #fff;
+    padding: 48px 24px;
+    text-align: center;
+    border-bottom: 6px solid var(--red);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: "🏙️";
+    position: absolute;
+    font-size: 12rem;
+    opacity: .08;
+    bottom: -30px;
+    right: -20px;
+    transform: rotate(-8deg);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin: .2em 0;
+    position: relative;
+  }
+  header p {
+    max-width: 780px;
+    margin: 0 auto;
+    opacity: .92;
+    position: relative;
+  }
+  .badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.12);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: .85rem;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 20px;
+  }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .tag {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: .78rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .tag.gold {
+    background: var(--gold);
+    color: var(--blue-dark);
+  }
+  .tag.green {
+    background: var(--green);
+    color: #fff;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    margin: .3em 0 .5em;
+    color: var(--blue);
+  }
+  h3 {
+    margin: 1.2em 0 0.5em;
+    color: var(--red);
+  }
+  .sub {
+    color: var(--muted);
+    font-style: italic;
+    font-size: .95rem;
+    margin-bottom: 1rem;
+  }
+  .tip {
+    background: #fff7e0;
+    border-left: 5px solid var(--gold);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 14px 0;
+  }
+  .tip strong {
+    color: var(--blue);
+  }
+  .exam-skill {
+    background: #eef2f8;
+    border-left: 5px solid var(--blue);
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-weight: 500;
+  }
+  .audio-box {
+    background: linear-gradient(135deg, #eef2f8, #fff);
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    padding: 18px;
+    margin: 14px 0;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .play-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: .95rem;
+  }
+  .play-btn:hover { background: var(--red-dark); }
+  .speak-btn {
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .8rem;
+  }
+  .question-grid {
+    margin: 20px 0;
+  }
+  .mc-question {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    margin: 14px 0;
+    border-left: 4px solid var(--blue);
+  }
+  .mc-question .q-text {
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--blue);
+  }
+  .options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 12px 0;
+  }
+  .option {
+    background: #f0f2f5;
+    padding: 6px 14px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+    font-size: .9rem;
+  }
+  .option.selected {
+    background: var(--blue);
+    color: white;
+    border-color: var(--blue-dark);
+  }
+  .option.correct {
+    background: #1e6b1e;
+    color: white;
+    border-color: #0e4a0e;
+  }
+  .option.wrong {
+    background: var(--red);
+    color: white;
+    border-color: var(--red-dark);
+  }
+  .check-btn, .reveal-btn {
+    background: var(--red);
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .reveal-btn {
+    background: transparent;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+  }
+  .reveal-btn:hover {
+    background: var(--blue);
+    color: #fff;
+  }
+  .score {
+    margin-top: 12px;
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 1.1rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 14px 0;
+    box-shadow: var(--shadow);
+  }
+  th {
+    background: var(--blue);
+    color: #fff;
+    padding: 12px;
+    text-align: left;
+  }
+  td {
+    border: 1px solid var(--border);
+    padding: 12px;
+    vertical-align: top;
+  }
+  input.table-input {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+  }
+  input.correct { border-color: #1e6b1e; background: #e6f3e6; }
+  input.wrong { border-color: var(--red); background: #fbeef0; }
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--muted);
+    font-size: .9rem;
+    border-top: 1px solid var(--border);
+  }
+  .inline-code {
+    background: #eef2f8;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-family: monospace;
+  }
+  @media (max-width: 680px) {
+    .options { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag gold">🎧 IGCSE French Listening</span>
+  <h1>Ma ville & déménagement</h1>
+  <p>Compréhension orale — Décrire sa ville, ses avantages et ses inconvénients</p>
+  <div class="badges">
+    <span class="badge">Gabriel · Ma ville</span>
+    <span class="badge">Lucie · Déménagement</span>
+    <span class="badge">Les fêtes de Saint-Vincent</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ EXAM SKILLS TIPS ============ -->
+<section>
+  <div class="exam-skill">
+    📌 <strong>EXAM SKILLS — Before you listen</strong><br>
+    Lisez les phrases. Quels mots pourraient logiquement compléter les trous ? Il y aura probablement deux options possibles pour chaque phrase. Écoutez attentivement pour choisir entre elles. Attention aux négations !
+  </div>
+</section>
+
+<!-- ============ QUESTION 1 : GABRIEL ============ -->
+<section>
+  <span class="tag green">🎧 Question 1</span>
+  <h2>Que dit Gabriel ?</h2>
+  <p class="sub">Écoutez et choisissez la bonne lettre pour chaque phrase.</p>
+  
+  <div class="audio-box">
+    <span class="icon">🎙️</span>
+    <div class="info"><b>Gabriel parle de sa ville</b><div class="meta">transports, activités, ambiance</div></div>
+    <button class="play-btn" onclick="playGabriel()">▶ Écouter Gabriel</button>
+    <button class="reveal-btn" onclick="toggleTranscript('transcriptGabriel')">Afficher la transcription</button>
+  </div>
+  <div id="transcriptGabriel" style="display:none; background:#f4f0fa; padding:12px; border-radius:8px; margin-top:8px;">
+    <strong>📝 Transcription :</strong> « Dans ma ville, les transports en commun sont bons. La ville est assez propre, mais le matin il y a trop de circulation. J’aime aller à la piscine. Le soir, c’est tranquille, pas bruyant du tout. Avant, ma ville était célèbre pour ses plages. Maintenant, les touristes viennent surtout pour les événements sportifs. »
+  </div>
+
+  <div class="question-grid" id="q1">
+    <div class="mc-question">
+      <div class="q-text">Exemple : Dans la ville de Gabriel, les transports en commun sont : <span class="inline-code">bons</span></div>
+    </div>
+    <div class="mc-question">
+      <div class="q-text">a. La ville est ______</div>
+      <div class="options" data-qid="a" data-correct="propre">
+        <span class="option" data-val="propre">propre</span>
+        <span class="option" data-val="sale">sale</span>
+        <span class="option" data-val="bruyant">bruyant</span>
+        <span class="option" data-val="tranquille">tranquille</span>
+      </div>
+    </div>
+    <div class="mc-question">
+      <div class="q-text">b. Le matin il y a trop de ______</div>
+      <div class="options" data-qid="b" data-correct="circulation">
+        <span class="option" data-val="circulation">circulation</span>
+        <span class="option" data-val="voisins">voisins</span>
+        <span class="option" data-val="mairie">sa mairie</span>
+        <span class="option" data-val="événements sportifs">événements sportifs</span>
+      </div>
+    </div>
+    <div class="mc-question">
+      <div class="q-text">c. Gabriel aime aller ______</div>
+      <div class="options" data-qid="c" data-correct="à la piscine">
+        <span class="option" data-val="au cinéma">au cinéma</span>
+        <span class="option" data-val="à la piscine">à la piscine</span>
+        <span class="option" data-val="plages">plages</span>
+        <span class="option" data-val="bons">bons</span>
+      </div>
+    </div>
+    <div class="mc-question">
+      <div class="q-text">d. Le soir, c’est ______</div>
+      <div class="options" data-qid="d" data-correct="tranquille">
+        <span class="option" data-val="bruyant">bruyant</span>
+        <span class="option" data-val="tranquille">tranquille</span>
+        <span class="option" data-val="propre">propre</span>
+        <span class="option" data-val="mauvais">mauvais</span>
+      </div>
+    </div>
+    <div class="mc-question">
+      <div class="q-text">e. Avant, la ville était célèbre pour ______</div>
+      <div class="options" data-qid="e" data-correct="plages">
+        <span class="option" data-val="plages">plages</span>
+        <span class="option" data-val="événements sportifs">événements sportifs</span>
+        <span class="option" data-val="circulation">circulation</span>
+        <span class="option" data-val="mairie">sa mairie</span>
+      </div>
+    </div>
+    <div class="mc-question">
+      <div class="q-text">f. Les touristes viennent à sa ville pour les ______</div>
+      <div class="options" data-qid="f" data-correct="événements sportifs">
+        <span class="option" data-val="plages">plages</span>
+        <span class="option" data-val="événements sportifs">événements sportifs</span>
+        <span class="option" data-val="bons">bons</span>
+        <span class="option" data-val="voisins">voisins</span>
+      </div>
+    </div>
+    <button class="check-btn" onclick="checkGabriel()">Vérifier les réponses</button>
+    <button class="reveal-btn" onclick="revealGabriel()">Voir les réponses</button>
+    <div class="score" id="scoreGabriel"></div>
+  </div>
+  <div class="tip"><strong>💡 Conseil examen :</strong> Avant d'écouter, repérez les mots qui pourraient logiquement compléter chaque phrase. Écoutez les indices comme « trop de », « aime aller », « célèbre pour ».</div>
+</section>
+
+<!-- ============ QUESTION 2 : LUCIE ============ -->
+<section>
+  <span class="tag green">🎧 Question 2</span>
+  <h2>Un déménagement — Que dit Lucie ?</h2>
+  <p class="sub">Écoutez et choisissez la bonne fin pour chaque phrase.</p>
+  
+  <div class="audio-box">
+    <span class="icon">🎙️</span>
+    <div class="info"><b>Lucie parle de son déménagement</b><div class="meta">ville, climat, loisirs</div></div>
+    <button class="play-btn" onclick="playLucie()">▶ Écouter Lucie</button>
+    <button class="reveal-btn" onclick="toggleTranscript('transcriptLucie')">Afficher la transcription</button>
+  </div>
+  <div id="transcriptLucie" style="display:none; background:#f4f0fa; padding:12px; border-radius:8px; margin-top:8px;">
+    <strong>📝 Transcription :</strong> « Mon ancienne ville est connue pour la cuisine. Maintenant j'habite une petite ville au bord de la mer. Normalement, il fait un temps splendide. Mais il fait plus froid en janvier. Dans ma ville, il y a une gare, c'est pratique. Il y a aussi beaucoup d'animaux, surtout des oiseaux. Ce que je n'aime pas, c'est qu'il n'y a pas assez pour les jeunes — il manque des activités. »
+  </div>
+
+  <div class="question-grid" id="q2">
+    <div class="mc-question">
+      <div class="q-text">Exemple : Son ancienne ville est connue pour : <span class="inline-code">la cuisine</span></div>
+    </div>
+    <div class="mc-question">
+      <div class="q-text">a. Elle habite ______</div>
+      <div class="options" data-qid="a" data-correct="au bord de la mer">
+        <span class="option" data-val="une grande ville">une grande ville</span>
+        <span class="option" data-val="une petite ville">une petite ville</span>
+        <span class="option" data-val="au bord de la mer">au bord de la mer</span>
+        <span class="option" data-val="à la montagne">à la montagne</span>
+      </div>
+    </div>
+    <div class="mc-question">
+      <div class="q-text">b. Normalement, il fait un temps ______</div>
+      <div class="options" data-qid="b" data-correct="splendide">
+        <span class="option" data-val="agréable">agréable</span>
+        <span class="option" data-val="affreux">affreux</span>
+        <span class="option" data-val="splendide">splendide</span>
+        <span class="option" data-val="magnifique">magnifique</span>
+      </div>
+    </div>
+    <div class="mc-question">
+      <div class="q-text">c. Il fait plus froid en ______</div>
+      <div class="options" data-qid="c" data-correct="janvier">
+        <span class="option" data-val="juillet">juillet</span>
+        <span class="option" data-val="septembre">septembre</span>
+        <span class="option" data-val="mai">mai</span>
+        <span class="option" data-val="janvier">janvier</span>
+      </div>
+    </div>
+    <div class="mc-question">
+      <div class="q-text">d. Dans sa ville il y a ______</div>
+      <div class="options" data-qid="d" data-correct="une gare">
+        <span class="option" data-val="beaucoup de vélos">beaucoup de vélos</span>
+        <span class="option" data-val="trop de circulation">trop de circulation</span>
+        <span class="option" data-val="une gare">une gare</span>
+        <span class="option" data-val="des magasins">des magasins</span>
+      </div>
+    </div>
+    <div class="mc-question">
+      <div class="q-text">e. Dans la ville il y a aussi ______</div>
+      <div class="options" data-qid="e" data-correct="des animaux">
+        <span class="option" data-val="des moustiques">des moustiques</span>
+        <span class="option" data-val="des animaux">des animaux</span>
+        <span class="option" data-val="des oiseaux">des oiseaux</span>
+        <span class="option" data-val="des montagnes">des montagnes</span>
+      </div>
+    </div>
+    <div class="mc-question">
+      <div class="q-text">f. Ce qu’elle n’aime pas, c’est qu’il ______</div>
+      <div class="options" data-qid="f" data-correct="n'y a pas assez pour les jeunes">
+        <span class="option" data-val="y a trop pour les jeunes">y a trop pour les jeunes</span>
+        <span class="option" data-val="y a trop de jeunes">y a trop de jeunes</span>
+        <span class="option" data-val="n'y a pas assez de jeunes">n'y a pas assez de jeunes</span>
+        <span class="option" data-val="n'y a pas assez pour les jeunes">n'y a pas assez pour les jeunes</span>
+      </div>
+    </div>
+    <button class="check-btn" onclick="checkLucie()">Vérifier les réponses</button>
+    <button class="reveal-btn" onclick="revealLucie()">Voir les réponses</button>
+    <div class="score" id="scoreLucie"></div>
+  </div>
+</section>
+
+<!-- ============ QUESTION 3 : LES FÊTES DE SAINT-VINCENT ============ -->
+<section>
+  <span class="tag green">🎧 Question 3</span>
+  <h2>Les fêtes de Saint-Vincent</h2>
+  <p class="sub">Écoutez l’interview et notez les détails en français (pas besoin de phrases complètes).</p>
+  
+  <div class="audio-box">
+    <span class="icon">🎙️</span>
+    <div class="info"><b>Interview : Les fêtes de Saint-Vincent</b><div class="meta">transports, divertissements, métier</div></div>
+    <button class="play-btn" onclick="playSaintVincent()">▶ Écouter l’interview</button>
+    <button class="reveal-btn" onclick="toggleTranscript('transcriptVincent')">Afficher la transcription</button>
+  </div>
+  <div id="transcriptVincent" style="display:none; background:#f4f0fa; padding:12px; border-radius:8px; margin-top:8px;">
+    <strong>📝 Transcription :</strong> « Mon métier est organisateur d'événements. C'est très stimulant mais les heures sont longues. Pour les transports, pendant les fêtes, il y a des navettes gratuites et beaucoup de monde. Les points positifs : le métier est varié et on rencontre des gens formidables. Les aspects négatifs : le stress et la fatigue. Les divertissements proposés : concerts en plein air, feux d'artifice, et ateliers pour enfants. La communauté adore ça. »
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Catégorie</th><th>Aspects positifs</th><th>Aspects négatifs</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Exemple : Son métier</strong></td>
+        <td><input type="text" id="metierPos" data-ans="stimulant" placeholder="positif" class="table-input"></td>
+        <td><input type="text" id="metierNeg" data-ans="les heures sont longues" placeholder="négatif" class="table-input"></td>
+      </tr>
+      <tr>
+        <td><strong>Les transports</strong></td>
+        <td><input type="text" id="transportsPos" data-ans="navettes gratuites" placeholder="positif" class="table-input"></td>
+        <td><input type="text" id="transportsNeg" data-ans="beaucoup de monde" placeholder="négatif" class="table-input"></td>
+      </tr>
+      <tr>
+        <td><strong>Les divertissements</strong></td>
+        <td><input type="text" id="divertPos" data-ans="concerts en plein air, feux d'artifice" placeholder="positif" class="table-input"></td>
+        <td><input type="text" id="divertNeg" data-ans="stress et fatigue" placeholder="négatif" class="table-input"></td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="check-btn" onclick="checkSaintVincent()">Vérifier le tableau</button>
+  <button class="reveal-btn" onclick="revealSaintVincent()">Voir les réponses</button>
+  <div class="score" id="scoreVincent"></div>
+  
+  <div class="tip"><strong>🎧 Stratégie :</strong> Notez des mots-clés. Les aspects positifs commencent souvent par « c'est », « il y a ». Les négatifs par « mais », « les heures sont longues », « trop de ».</div>
+</section>
+
+<!-- ============ PRODUCTION ORALE : À TON TOUR ============ -->
+<section>
+  <span class="tag gold">🎤 À ton tour</span>
+  <h2>Parle de ta ville ou de ton déménagement</h2>
+  <p>Inspire-toi des audios. Décris ta ville : transports, météo, activités, ce que tu aimes / n'aimes pas.</p>
+  <div class="audio-box">
+    <button class="play-btn" onclick="speakFR('Dans ma ville, les transports en commun sont assez bons. Le matin, il y a un peu de circulation, mais le soir c’est tranquille. J’aime aller au cinéma avec mes amis. Ce que je n’aime pas, c’est qu’il n’y a pas assez de parcs.')">🔊 Exemple audio</button>
+  </div>
+</section>
+
+<footer>
+  IGCSE French Listening — Ma ville, déménagement, fêtes locales · Entraînement aux examens 🎧
+</footer>
+
+</main>
+
+<script>
+  // Speech synthesis for examples
+  function speakFR(text) {
+    if (!('speechSynthesis' in window)) { alert('Audio non supporté'); return; }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR';
+    u.rate = 0.92;
+    const voices = speechSynthesis.getVoices();
+    const frVoice = voices.find(v => v.lang.startsWith('fr'));
+    if (frVoice) u.voice = frVoice;
+    speechSynthesis.speak(u);
+  }
+  speechSynthesis.onvoiceschanged = () => {};
+
+  // Gabriel audio simulation (text-to-speech)
+  function playGabriel() {
+    const text = "Dans ma ville, les transports en commun sont bons. La ville est assez propre, mais le matin il y a trop de circulation. J'aime aller à la piscine. Le soir, c'est tranquille, pas bruyant du tout. Avant, ma ville était célèbre pour ses plages. Maintenant, les touristes viennent surtout pour les événements sportifs.";
+    speakFR(text);
+  }
+  function playLucie() {
+    const text = "Mon ancienne ville est connue pour la cuisine. Maintenant j'habite une petite ville au bord de la mer. Normalement, il fait un temps splendide. Mais il fait plus froid en janvier. Dans ma ville, il y a une gare, c'est pratique. Il y a aussi beaucoup d'animaux, surtout des oiseaux. Ce que je n'aime pas, c'est qu'il n'y a pas assez pour les jeunes — il manque des activités.";
+    speakFR(text);
+  }
+  function playSaintVincent() {
+    const text = "Mon métier est organisateur d'événements. C'est très stimulant mais les heures sont longues. Pour les transports, pendant les fêtes, il y a des navettes gratuites et beaucoup de monde. Les points positifs : le métier est varié et on rencontre des gens formidables. Les aspects négatifs : le stress et la fatigue. Les divertissements proposés : concerts en plein air, feux d'artifice, et ateliers pour enfants.";
+    speakFR(text);
+  }
+  function toggleTranscript(id) {
+    const el = document.getElementById(id);
+    if (el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
+  }
+
+  // Helper: get selected option value for a question
+  function getSelectedOption(container) {
+    const selected = container.querySelector('.option.selected');
+    return selected ? selected.getAttribute('data-val') : null;
+  }
+  function setOptionsStatus(container, status) {
+    container.querySelectorAll('.option').forEach(opt => {
+      if (status === 'clear') opt.classList.remove('selected', 'correct', 'wrong');
+    });
+  }
+
+  // Gabriel check
+  function checkGabriel() {
+    const correctMap = { a: 'propre', b: 'circulation', c: 'à la piscine', d: 'tranquille', e: 'plages', f: 'événements sportifs' };
+    let total = 0, correctCount = 0;
+    for (let qid of ['a','b','c','d','e','f']) {
+      const container = document.querySelector(`#q1 .options[data-qid="${qid}"]`);
+      if (!container) continue;
+      const selected = getSelectedOption(container);
+      const correct = correctMap[qid];
+      total++;
+      if (selected === correct) {
+        correctCount++;
+        container.querySelectorAll('.option').forEach(opt => {
+          if (opt.getAttribute('data-val') === correct) opt.classList.add('correct');
+        });
+      } else {
+        if (selected) {
+          const wrongOpt = container.querySelector(`.option[data-val="${selected}"]`);
+          if (wrongOpt) wrongOpt.classList.add('wrong');
+        }
+        const correctOpt = container.querySelector(`.option[data-val="${correct}"]`);
+        if (correctOpt) correctOpt.classList.add('correct');
+      }
+    }
+    document.getElementById('scoreGabriel').innerText = `Score : ${correctCount} / ${total}`;
+  }
+  function revealGabriel() {
+    const correctMap = { a: 'propre', b: 'circulation', c: 'à la piscine', d: 'tranquille', e: 'plages', f: 'événements sportifs' };
+    for (let qid of ['a','b','c','d','e','f']) {
+      const container = document.querySelector(`#q1 .options[data-qid="${qid}"]`);
+      if (!container) continue;
+      container.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected', 'correct', 'wrong'));
+      const correctVal = correctMap[qid];
+      const correctOpt = container.querySelector(`.option[data-val="${correctVal}"]`);
+      if (correctOpt) correctOpt.classList.add('selected');
+    }
+    checkGabriel();
+  }
+
+  // Lucie check
+  function checkLucie() {
+    const correctMap = { a: 'au bord de la mer', b: 'splendide', c: 'janvier', d: 'une gare', e: 'des animaux', f: "n'y a pas assez pour les jeunes" };
+    let total = 0, correctCount = 0;
+    for (let qid of ['a','b','c','d','e','f']) {
+      const container = document.querySelector(`#q2 .options[data-qid="${qid}"]`);
+      if (!container) continue;
+      const selected = getSelectedOption(container);
+      const correct = correctMap[qid];
+      total++;
+      if (selected === correct) {
+        correctCount++;
+        container.querySelectorAll('.option').forEach(opt => {
+          if (opt.getAttribute('data-val') === correct) opt.classList.add('correct');
+        });
+      } else {
+        if (selected) {
+          const wrongOpt = container.querySelector(`.option[data-val="${selected}"]`);
+          if (wrongOpt) wrongOpt.classList.add('wrong');
+        }
+        const correctOpt = container.querySelector(`.option[data-val="${correct}"]`);
+        if (correctOpt) correctOpt.classList.add('correct');
+      }
+    }
+    document.getElementById('scoreLucie').innerText = `Score : ${correctCount} / ${total}`;
+  }
+  function revealLucie() {
+    const correctMap = { a: 'au bord de la mer', b: 'splendide', c: 'janvier', d: 'une gare', e: 'des animaux', f: "n'y a pas assez pour les jeunes" };
+    for (let qid of ['a','b','c','d','e','f']) {
+      const container = document.querySelector(`#q2 .options[data-qid="${qid}"]`);
+      if (!container) continue;
+      container.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected', 'correct', 'wrong'));
+      const correctVal = correctMap[qid];
+      const correctOpt = container.querySelector(`.option[data-val="${correctVal}"]`);
+      if (correctOpt) correctOpt.classList.add('selected');
+    }
+    checkLucie();
+  }
+
+  // Saint-Vincent table check
+  function checkSaintVincent() {
+    const fields = [
+      { id: 'metierPos', ans: 'stimulant' },
+      { id: 'metierNeg', ans: 'les heures sont longues' },
+      { id: 'transportsPos', ans: 'navettes gratuites' },
+      { id: 'transportsNeg', ans: 'beaucoup de monde' },
+      { id: 'divertPos', ans: 'concerts en plein air, feux d\'artifice' },
+      { id: 'divertNeg', ans: 'stress et fatigue' }
+    ];
+    let total = fields.length, correct = 0;
+    fields.forEach(f => {
+      const inp = document.getElementById(f.id);
+      const userVal = inp.value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      const expected = f.ans.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      if (userVal.includes(expected) || expected.includes(userVal) || (f.id === 'divertPos' && userVal.includes('concert'))) {
+        correct++;
+        inp.classList.add('correct');
+        inp.classList.remove('wrong');
+      } else {
+        inp.classList.add('wrong');
+        inp.classList.remove('correct');
+      }
+    });
+    document.getElementById('scoreVincent').innerText = `Score : ${correct} / ${total}`;
+  }
+  function revealSaintVincent() {
+    const answers = {
+      metierPos: 'stimulant',
+      metierNeg: 'les heures sont longues',
+      transportsPos: 'navettes gratuites',
+      transportsNeg: 'beaucoup de monde',
+      divertPos: 'concerts en plein air, feux d\'artifice',
+      divertNeg: 'stress et fatigue'
+    };
+    for (let [id, val] of Object.entries(answers)) {
+      document.getElementById(id).value = val;
+    }
+    checkSaintVincent();
+  }
+
+  // Option selection handler
+  document.querySelectorAll('.option').forEach(opt => {
+    opt.addEventListener('click', function(e) {
+      const container = this.closest('.options');
+      if (!container) return;
+      container.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+      this.classList.add('selected');
+    });
+  });
+</script>
+</body>
+</html>

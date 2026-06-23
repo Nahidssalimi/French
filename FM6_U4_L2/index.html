@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Exam Practice: Listening & Reading — Au Lycée / Au Collège</title>
+<style>
+  :root{
+    --red:#7a1722; --red-light:#a52332;
+    --blue:#0f2a4a; --blue-light:#1c3d68;
+    --cream:#faf6ef; --paper:#fffdf8;
+    --ink:#1a1a1a; --gold:#c9a14a;
+    --shadow:0 10px 30px rgba(15,42,74,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Georgia','Cambria',serif;background:var(--cream);color:var(--ink);line-height:1.65;}
+  header.hero{background:linear-gradient(135deg,var(--blue) 0%,var(--blue-light) 60%,var(--red) 100%);color:#fff;padding:80px 24px 64px;text-align:center;position:relative;overflow:hidden;}
+  header.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.08),transparent 40%),radial-gradient(circle at 80% 80%,rgba(201,161,74,.15),transparent 40%);}
+  header.hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,5vw,3.4rem);letter-spacing:.5px;margin-bottom:12px;position:relative;}
+  header.hero p.sub{font-size:1.1rem;opacity:.92;max-width:760px;margin:0 auto;position:relative;}
+  header.hero .chips{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;position:relative;}
+  .chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);padding:6px 14px;border-radius:20px;font-size:.85rem;letter-spacing:.4px;}
+  nav.sticky{position:sticky;top:0;z-index:50;background:var(--blue);color:#fff;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:10px 14px;box-shadow:0 4px 14px rgba(0,0,0,.18);}
+  nav.sticky a{color:#fff;text-decoration:none;font-size:.85rem;padding:6px 12px;border-radius:6px;transition:.2s;}
+  nav.sticky a:hover{background:var(--red);}
+  main{max-width:1100px;margin:0 auto;padding:48px 22px 80px;}
+  section{background:var(--paper);border-radius:14px;padding:36px 30px;margin-bottom:34px;box-shadow:var(--shadow);border-left:6px solid var(--red);opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+  section.visible{opacity:1;transform:none;}
+  section h2{font-family:'Playfair Display',Georgia,serif;color:var(--blue);font-size:1.85rem;margin-bottom:8px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+  section h2 .num{background:var(--red);color:#fff;border-radius:50%;width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;font-size:1rem;font-family:Arial,sans-serif;font-weight:bold;}
+  section .tag{display:inline-block;background:var(--blue);color:#fff;font-size:.75rem;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:4px;margin-bottom:14px;font-family:Arial,sans-serif;}
+  section h3{color:var(--red);margin:18px 0 10px;font-size:1.2rem;font-family:'Playfair Display',serif;}
+  p,li{font-size:1.02rem;}
+  ul,ol{margin-left:22px;margin-top:8px;}
+  .objectives{background:linear-gradient(135deg,#fff,#f4ecd8);border-left:6px solid var(--gold);padding:22px 26px;border-radius:10px;margin-bottom:30px;}
+  .objectives h3{color:var(--blue);margin-bottom:8px;}
+  .grid{display:grid;gap:14px;margin-top:14px;}
+  .grid-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
+  .grid-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+  .card{background:#fff;border:1px solid #e7dfd0;border-radius:10px;padding:16px 18px;transition:.25s;cursor:pointer;}
+  .card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(122,23,34,.15);border-color:var(--red);}
+  .card .fr{font-weight:bold;color:var(--blue);font-size:1.05rem;}
+  .card .en{color:#555;font-size:.92rem;font-style:italic;margin-top:4px;}
+  .speak-btn{background:var(--red);color:#fff;border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-size:.8rem;margin-top:8px;font-family:Arial,sans-serif;transition:.2s;}
+  .speak-btn:hover{background:var(--red-light);}
+  .options-bank{background:var(--blue);color:#fff;padding:16px 20px;border-radius:10px;display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 18px;}
+  .options-bank span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);padding:6px 12px;border-radius:6px;font-size:.92rem;}
+  .options-bank span b{color:var(--gold);margin-right:6px;}
+  .q-list{margin-top:12px;}
+  .q-item{background:#fff;border:1px solid #e7dfd0;border-left:4px solid var(--red);border-radius:8px;padding:14px 18px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .q-item .q-text{flex:1;min-width:220px;}
+  .q-item .q-answer{background:var(--cream);border:1px dashed var(--blue);border-radius:6px;padding:6px 12px;min-width:60px;text-align:center;font-weight:bold;color:var(--blue);font-family:Arial,sans-serif;}
+  .mcq{background:#fff;border:1px solid #e7dfd0;border-radius:10px;padding:14px 18px;margin-bottom:12px;}
+  .mcq .stem{font-weight:bold;color:var(--blue);margin-bottom:8px;}
+  .mcq .choices{display:grid;gap:6px;}
+  .mcq label{display:flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #eee;border-radius:6px;cursor:pointer;transition:.2s;}
+  .mcq label:hover{background:#faf2e0;border-color:var(--gold);}
+  .mcq input[type=radio]{accent-color:var(--red);}
+  .text-block{background:linear-gradient(135deg,#fffdf8,#f9efde);border:1px solid #e7dfd0;border-left:5px solid var(--blue);padding:20px 24px;border-radius:10px;margin:14px 0;font-family:Georgia,serif;line-height:1.8;}
+  .text-block .source{font-size:.85rem;color:var(--red);font-style:italic;margin-bottom:10px;}
+  .text-block .gloss{font-size:.85rem;color:#666;font-style:italic;margin-top:10px;border-top:1px dashed #ccc;padding-top:8px;}
+  .toggle-model{background:var(--blue);color:#fff;border:none;padding:8px 14px;border-radius:6px;cursor:pointer;font-size:.85rem;margin-top:10px;font-family:Arial,sans-serif;}
+  .toggle-model:hover{background:var(--blue-light);}
+  .model{display:none;margin-top:12px;background:#f4ecd8;border-left:4px solid var(--gold);padding:14px 18px;border-radius:8px;}
+  .model.show{display:block;}
+  .exam-tips{background:linear-gradient(135deg,var(--blue),var(--blue-light));color:#fff;border-left:6px solid var(--gold);}
+  .exam-tips h2{color:#fff;}
+  .exam-tips .tip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:14px 18px;margin-top:10px;}
+  .exam-tips .tip b{color:var(--gold);}
+  .marks{display:inline-block;background:var(--gold);color:var(--blue);font-family:Arial,sans-serif;font-size:.75rem;font-weight:bold;padding:3px 8px;border-radius:4px;margin-left:8px;}
+  #subtitle{position:fixed;bottom:0;left:0;right:0;background:rgba(15,42,74,.95);color:#fff;padding:18px 24px;text-align:center;transform:translateY(100%);transition:transform .3s;z-index:100;box-shadow:0 -4px 20px rgba(0,0,0,.3);}
+  #subtitle.show{transform:translateY(0);}
+  #subtitle .fr{font-size:1.15rem;color:var(--gold);font-weight:bold;}
+  #subtitle .en{font-size:.95rem;font-style:italic;opacity:.9;margin-top:4px;}
+  footer{text-align:center;padding:30px 20px;color:#fff;font-size:.9rem;background:var(--blue);}
+  footer b{color:var(--gold);}
+  @media (max-width:600px){section{padding:26px 18px;}header.hero{padding:60px 18px 48px;}}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="hero">
+  <h1>Exam Practice — Listening &amp; Reading</h1>
+  <p class="sub">Au Lycée · L'uniforme scolaire · Mes enfants · Au Collège · L'emploi du temps</p>
+  <div class="chips">
+    <span class="chip">B1 School Life &amp; Routine</span>
+    <span class="chip">B2 School Rules &amp; Pressures</span>
+    <span class="chip">IGCSE / GCSE French</span>
+  </div>
+</header>
+
+<nav class="sticky">
+  <a href="#objectives">Objectives</a>
+  <a href="#l1">Listening 1</a>
+  <a href="#l2">Listening 2</a>
+  <a href="#l3">Listening 3</a>
+  <a href="#r1">Reading 1</a>
+  <a href="#r2">Reading 2</a>
+  <a href="#vocab">Vocab</a>
+  <a href="#skills">Exam Skills</a>
+</nav>
+
+<main>
+
+<div class="objectives" id="objectives">
+  <h3>🎯 Learning Objectives</h3>
+  <ul>
+    <li>Practise listening for specific information in school-related contexts.</li>
+    <li>Identify positive, negative and mixed opinions about school uniform.</li>
+    <li>Distinguish between the <b>imperfect</b> (primary school) and the <b>present</b> (secondary school).</li>
+    <li>Skim and scan three school adverts to match details accurately.</li>
+    <li>Take notes in French on a literary text about a school timetable.</li>
+  </ul>
+</div>
+
+<!-- LISTENING 1 -->
+<section id="l1">
+  <span class="tag">Listening · Exam Practice</span>
+  <h2><span class="num">1</span> Au lycée — Que dit Isabelle? <span class="marks">6 marks</span></h2>
+  <p>Écoute et choisis la bonne lettre. <em>Exemple: Isabelle est en — <b>K</b> (première).</em></p>
+
+  <div class="options-bank">
+    <span><b>A</b> les prix</span><span><b>B</b> beaucoup</span><span><b>C</b> peu</span>
+    <span><b>D</b> fort</span><span><b>E</b> la nourriture</span><span><b>F</b> les langues vivantes</span>
+    <span><b>G</b> équipement sportif</span><span><b>H</b> faible</span><span><b>I</b> équipement technologique</span>
+    <span><b>J</b> le commerce</span><span><b>K</b> première</span><span><b>L</b> à l'école primaire</span>
+    <span><b>M</b> au collège</span>
+  </div>
+
+  <button class="speak-btn" onclick="speak('Isabelle est en première. Comme matière scolaire, elle aime les langues vivantes. En sciences, Luc est faible. Isabelle n\'aimait pas ses profs à l\'école primaire. Le point positif de la cantine, c\'est les prix. Il n\'y a pas assez d\'équipement technologique. Isabelle a beaucoup de devoirs.','Isabelle is in Year 12. As a school subject, she likes modern languages. In sciences, Luc is weak. Isabelle did not like her teachers in primary school. The positive point of the canteen is the prices. There is not enough technological equipment. Isabelle has a lot of homework.')">▶ Listen to transcript</button>
+
+  <div class="q-list" style="margin-top:18px;">
+    <div class="q-item"><div class="q-text"><b>a</b> Comme matière scolaire, Isabelle aime…</div><div class="q-answer">F</div></div>
+    <div class="q-item"><div class="q-text"><b>b</b> En sciences, Luc est…</div><div class="q-answer">H</div></div>
+    <div class="q-item"><div class="q-text"><b>c</b> Isabelle n'aimait pas ses profs…</div><div class="q-answer">L</div></div>
+    <div class="q-item"><div class="q-text"><b>d</b> Le point positif de la cantine, c'est…</div><div class="q-answer">A</div></div>
+    <div class="q-item"><div class="q-text"><b>e</b> Il n'y a pas assez d'…</div><div class="q-answer">I</div></div>
+    <div class="q-item"><div class="q-text"><b>f</b> Isabelle a … de devoirs.</div><div class="q-answer">B</div></div>
+  </div>
+</section>
+
+<!-- LISTENING 2 -->
+<section id="l2">
+  <span class="tag">Listening · Exam Practice</span>
+  <h2><span class="num">2</span> L'uniforme scolaire <span class="marks">6 marks</span></h2>
+  <p>L'opinion est positive, négative ou positive et négative? <em>Exemple: Mila — <b>A</b>.</em></p>
+
+  <div class="options-bank">
+    <span><b>A</b> positive</span><span><b>B</b> négative</span><span><b>C</b> positive / négative</span>
+  </div>
+
+  <div class="grid grid-3">
+    <div class="card" onclick="speak('Nathan: Je trouve que l\'uniforme est pratique mais il n\'est pas très joli.','Nathan: I think the uniform is practical but not very pretty.')">
+      <div class="fr">a Nathan</div><div class="en">Click to listen</div>
+      <div style="margin-top:8px;"><span class="q-answer">C</span></div></div>
+    <div class="card" onclick="speak('Lina: Je déteste mon uniforme, il est moche et inconfortable.','Lina: I hate my uniform, it is ugly and uncomfortable.')">
+      <div class="fr">b Lina</div><div class="en">Click to listen</div>
+      <div style="margin-top:8px;"><span class="q-answer">B</span></div></div>
+    <div class="card" onclick="speak('Gabriel: J\'adore mon uniforme, on se sent égaux et c\'est facile le matin.','Gabriel: I love my uniform, we feel equal and it is easy in the morning.')">
+      <div class="fr">c Gabriel</div><div class="en">Click to listen</div>
+      <div style="margin-top:8px;"><span class="q-answer">A</span></div></div>
+    <div class="card" onclick="speak('Chloé: L\'uniforme évite les comparaisons mais je préférerais choisir mes vêtements.','Chloé: The uniform avoids comparisons but I would prefer to choose my clothes.')">
+      <div class="fr">d Chloé</div><div class="en">Click to listen</div>
+      <div style="margin-top:8px;"><span class="q-answer">C</span></div></div>
+    <div class="card" onclick="speak('Raphaël: C\'est horrible! La cravate me serre le cou et la jupe est trop courte.','Raphaël: It is horrible! The tie squeezes my neck and the skirt is too short.')">
+      <div class="fr">e Raphaël</div><div class="en">Click to listen</div>
+      <div style="margin-top:8px;"><span class="q-answer">B</span></div></div>
+    <div class="card" onclick="speak('Julia: J\'aime beaucoup mon uniforme, il représente mon école avec fierté.','Julia: I really like my uniform, it represents my school with pride.')">
+      <div class="fr">f Julia</div><div class="en">Click to listen</div>
+      <div style="margin-top:8px;"><span class="q-answer">A</span></div></div>
+  </div>
+</section>
+
+<!-- LISTENING 3 -->
+<section id="l3">
+  <span class="tag">Listening · Exam Practice</span>
+  <h2><span class="num">3</span> Mes enfants — Que dit Suad? <span class="marks">6 marks</span></h2>
+  <p>Écoute et choisis la bonne fin. <em>Exemple: Suad a — <b>B</b> (deux enfants).</em></p>
+
+  <button class="speak-btn" onclick="speak('Suad a deux enfants. À l\'école primaire, Ali s\'entendait bien avec son prof. Au collège, Ali est moins sociable. Dans ses études, Ali ne fait pas assez de progrès. Huda profite au maximum de son nouveau collège. Au collège, Huda est moins timide. Huda est faible en sciences physiques.','Suad has two children. At primary school, Ali got on well with his teacher. At secondary, Ali is less sociable. In his studies, Ali is not making enough progress. Huda makes the most of her new school. At secondary, Huda is less shy. Huda is weak in physical sciences.')">▶ Listen to transcript</button>
+
+  <div style="margin-top:14px;">
+    <div class="mcq"><div class="stem">a À l'école primaire, Ali…</div><div class="choices">
+      <label><input type="radio" name="q3a"> A s'entendait bien avec son prof. ✅</label>
+      <label><input type="radio" name="q3a"> B s'entendait mal avec son prof.</label>
+      <label><input type="radio" name="q3a"> C se disputait avec son prof.</label>
+      <label><input type="radio" name="q3a"> D ne s'entendait pas bien avec son prof.</label></div></div>
+    <div class="mcq"><div class="stem">b Au collège, Ali est…</div><div class="choices">
+      <label><input type="radio" name="q3b"> A plus sociable.</label>
+      <label><input type="radio" name="q3b"> B moins sociable. ✅</label>
+      <label><input type="radio" name="q3b"> C trop sociable.</label>
+      <label><input type="radio" name="q3b"> D assez sociable.</label></div></div>
+    <div class="mcq"><div class="stem">c Dans ses études, Ali…</div><div class="choices">
+      <label><input type="radio" name="q3c"> A n'était pas travailleur.</label>
+      <label><input type="radio" name="q3c"> B ne fait pas assez de progrès. ✅</label>
+      <label><input type="radio" name="q3c"> C va changer d'école.</label>
+      <label><input type="radio" name="q3c"> D est déçu.</label></div></div>
+    <div class="mcq"><div class="stem">d Huda…</div><div class="choices">
+      <label><input type="radio" name="q3d"> A profite au maximum de son nouveau collège. ✅</label>
+      <label><input type="radio" name="q3d"> B étudie moins de matières.</label>
+      <label><input type="radio" name="q3d"> C ne fait partie d'aucun club.</label>
+      <label><input type="radio" name="q3d"> D était contente de son école primaire.</label></div></div>
+    <div class="mcq"><div class="stem">e Au collège, Huda…</div><div class="choices">
+      <label><input type="radio" name="q3e"> A n'est plus sûre d'elle.</label>
+      <label><input type="radio" name="q3e"> B est moins timide. ✅</label>
+      <label><input type="radio" name="q3e"> C ne participe pas assez en classe.</label>
+      <label><input type="radio" name="q3e"> D a moins confiance en elle.</label></div></div>
+    <div class="mcq"><div class="stem">f Huda est faible…</div><div class="choices">
+      <label><input type="radio" name="q3f"> A en français.</label>
+      <label><input type="radio" name="q3f"> B en toutes ses matières.</label>
+      <label><input type="radio" name="q3f"> C en sciences physiques. ✅</label>
+      <label><input type="radio" name="q3f"> D en art dramatique.</label></div></div>
+  </div>
+</section>
+
+<!-- READING 1 -->
+<section id="r1">
+  <span class="tag">Reading · Exam Practice</span>
+  <h2><span class="num">4</span> Au collège — C'est quel collège? <span class="marks">8 marks</span></h2>
+  <p>Attention! Une phrase peut parler d'un collège, de plus d'un collège ou d'aucun collège.</p>
+
+  <div class="grid grid-3" style="margin-top:14px;">
+    <div class="text-block"><div class="source">Collège Jeanne d'Arc</div>
+      <p>Ceux qui sont actifs bénéficient d'un grand gymnase et de plusieurs terrains de foot. Nos vestiaires sont modernes et propres. Il faut acheter des tickets pour la cantine au secrétariat. La nourriture est délicieuse! Depuis l'arrivée de notre directeur l'année dernière, il y a aussi plein de clubs et de sorties scolaires.</p></div>
+    <div class="text-block"><div class="source">Collège Renoir</div>
+      <p>Nous avons non seulement dix labos neufs mais aussi un beau laboratoire de langues. Les langues sont très importantes ici. Un échange entre nous et un collège en Allemagne existe depuis 40 ans. Nous sommes aussi fiers de notre nouveau bâtiment pour le pensionnat, tout récent et confortable.</p></div>
+    <div class="text-block"><div class="source">Collège Debussy</div>
+      <p>Dans certaines écoles, il est interdit de sortir son portable. Ici, toutes nos salles de classe ont une connexion Internet à très haut débit. En plus, on fournit une tablette à tous les élèves. Ici, la cantine sert des repas équilibrés et savoureux chaque jour.</p></div>
+  </div>
+
+  <div class="q-list" style="margin-top:20px;">
+    <div class="q-item"><div class="q-text"><b>a</b> On peut bien manger au collège…</div><div class="q-answer">Jeanne d'Arc &amp; Debussy</div></div>
+    <div class="q-item"><div class="q-text"><b>b</b> Le collège … trouve les nouvelles technologies très importantes.</div><div class="q-answer">Debussy</div></div>
+    <div class="q-item"><div class="q-text"><b>c</b> Le collège … a un pensionnat moderne.</div><div class="q-answer">Renoir</div></div>
+    <div class="q-item"><div class="q-text"><b>d</b> Le collège … est bien aménagé pour les sciences.</div><div class="q-answer">Renoir</div></div>
+    <div class="q-item"><div class="q-text"><b>e</b> Au collège …, il y a plein de clubs.</div><div class="q-answer">Jeanne d'Arc</div></div>
+    <div class="q-item"><div class="q-text"><b>f</b> Le collège … propose beaucoup de sorties scolaires.</div><div class="q-answer">Jeanne d'Arc</div></div>
+    <div class="q-item"><div class="q-text"><b>g</b> Le collège … a changé de direction.</div><div class="q-answer">Jeanne d'Arc</div></div>
+  </div>
+</section>
+
+<!-- READING 2 -->
+<section id="r2">
+  <span class="tag">Reading · Literary Text</span>
+  <h2><span class="num">5</span> L'emploi du temps — Marcel Pagnol <span class="marks">10 marks</span></h2>
+
+  <div class="text-block"><div class="source">Marcel Pagnol: Le Temps des secrets (abrégé)</div>
+    <p>«Maintenant, pour inaugurer votre année scolaire, je vais vous distribuer vos emplois du temps.» Le maître prit sur le coin de sa chaire une liasse de feuilles, et fit le tour de l'étude, donnant à chacun celle qui lui convenait.</p>
+    <p>J'appris ainsi que nos journées débutaient à huit heures moins un quart par une «étude» d'un quart d'heure, suivie de deux classes. À dix heures, après un quart d'heure de récréation, une heure de classe, et trois quarts d'heure d'étude avant de descendre au réfectoire, dans les sous-sols de l'internat.</p>
+    <p>Après le repas de midi, une récréation d'une heure entière précédait une demi-heure d'étude qui était suivie de deux heures de classe. À quatre heures, seconde récréation, puis la longue et paisible étude du soir.</p>
+    <div class="gloss">le maître = le professeur</div>
+  </div>
+
+  <p style="margin-top:14px;"><b>Prends des notes en français.</b> <em>Exemple: Quand se passe l'extrait: au début de l'année scolaire.</em></p>
+
+  <div class="q-list">
+    <div class="q-item"><div class="q-text"><b>a</b> Ce que le prof distribue:</div><div class="q-answer">les emplois du temps</div></div>
+    <div class="q-item"><div class="q-text"><b>b</b> Les cours commencent à:</div><div class="q-answer">7h45 (8h moins le quart)</div></div>
+    <div class="q-item"><div class="q-text"><b>c</b> Durée de l'«étude»:</div><div class="q-answer">15 min</div></div>
+    <div class="q-item"><div class="q-text"><b>d</b> Durée de la récréation:</div><div class="q-answer">15 min</div></div>
+    <div class="q-item"><div class="q-text"><b>e</b> Lieu du réfectoire:</div><div class="q-answer">sous-sols de l'internat</div></div>
+    <div class="q-item"><div class="q-text"><b>f</b> Ce qu'ils font dans le réfectoire:</div><div class="q-answer">repas de midi</div></div>
+    <div class="q-item"><div class="q-text"><b>g</b> Après le repas de midi:</div><div class="q-answer">récréation d'1 heure</div></div>
+    <div class="q-item"><div class="q-text"><b>h</b> À quatre heures:</div><div class="q-answer">seconde récréation</div></div>
+    <div class="q-item"><div class="q-text"><b>i</b> Étude du soir:</div><div class="q-answer">longue &amp; paisible</div></div>
+  </div>
+
+  <button class="toggle-model" onclick="toggleModel(this)">Show model summary ▼</button>
+  <div class="model">
+    <p><b>Résumé:</b> Au début de l'année scolaire, le maître distribue les emplois du temps. La journée commence à 8h moins le quart par une étude de 15 minutes, suivie de deux classes. Après une récréation de 15 minutes à 10h, il y a encore une heure de classe et 45 minutes d'étude avant le repas de midi au réfectoire, situé dans les sous-sols de l'internat. L'après-midi commence par une récréation d'une heure, puis 30 minutes d'étude et deux heures de classe. À 16h, seconde récréation, puis la longue et paisible étude du soir.</p>
+  </div>
+</section>
+
+<!-- VOCAB -->
+<section id="vocab">
+  <span class="tag">Vocabulary</span>
+  <h2><span class="num">6</span> Key vocabulary — click to hear</h2>
+  <div class="grid grid-2">
+    <div class="card" onclick="speak('un emploi du temps','a timetable')"><div class="fr">un emploi du temps</div><div class="en">a timetable</div></div>
+    <div class="card" onclick="speak('la cantine','the canteen')"><div class="fr">la cantine</div><div class="en">the canteen</div></div>
+    <div class="card" onclick="speak('le réfectoire','the dining hall')"><div class="fr">le réfectoire</div><div class="en">the dining hall</div></div>
+    <div class="card" onclick="speak('le pensionnat','the boarding school')"><div class="fr">le pensionnat</div><div class="en">the boarding school</div></div>
+    <div class="card" onclick="speak('un échange scolaire','a school exchange')"><div class="fr">un échange scolaire</div><div class="en">a school exchange</div></div>
+    <div class="card" onclick="speak('une sortie scolaire','a school trip')"><div class="fr">une sortie scolaire</div><div class="en">a school trip</div></div>
+    <div class="card" onclick="speak('un vestiaire','a changing room')"><div class="fr">un vestiaire</div><div class="en">a changing room</div></div>
+    <div class="card" onclick="speak('le secrétariat','the school office')"><div class="fr">le secrétariat</div><div class="en">the school office</div></div>
+    <div class="card" onclick="speak('faire des progrès','to make progress')"><div class="fr">faire des progrès</div><div class="en">to make progress</div></div>
+    <div class="card" onclick="speak('s\'entendre bien avec','to get on well with')"><div class="fr">s'entendre bien avec</div><div class="en">to get on well with</div></div>
+    <div class="card" onclick="speak('avoir confiance en soi','to be self-confident')"><div class="fr">avoir confiance en soi</div><div class="en">to be self-confident</div></div>
+    <div class="card" onclick="speak('être faible en','to be weak in')"><div class="fr">être faible en</div><div class="en">to be weak in</div></div>
+    <div class="card" onclick="speak('être fort en','to be strong in')"><div class="fr">être fort en</div><div class="en">to be strong in</div></div>
+    <div class="card" onclick="speak('les langues vivantes','modern languages')"><div class="fr">les langues vivantes</div><div class="en">modern languages</div></div>
+    <div class="card" onclick="speak('profiter au maximum de','to make the most of')"><div class="fr">profiter au maximum de</div><div class="en">to make the most of</div></div>
+    <div class="card" onclick="speak('un laboratoire de langues','a language lab')"><div class="fr">un laboratoire de langues</div><div class="en">a language lab</div></div>
+  </div>
+</section>
+
+<!-- EXAM SKILLS -->
+<section id="skills" class="exam-tips">
+  <span class="tag" style="background:var(--gold);color:var(--blue);">Exam Skills</span>
+  <h2><span class="num" style="background:var(--gold);color:var(--blue);">7</span> IGCSE Exam Skills</h2>
+  <div class="tip"><b>🎧 Listening — tenses matter:</b> Suad uses the <b>imperfect</b> for primary school and the <b>present</b> for secondary school. Spot the tense to know which period she means.</div>
+  <div class="tip"><b>🎧 Listening — multi-choice:</b> Eliminate clearly wrong options first. Beware distractors using opposite words ("plus" vs "moins", "fort" vs "faible").</div>
+  <div class="tip"><b>📖 Reading — scan first:</b> Highlight key nouns in each advert (gymnase, labos, tablette, pensionnat) before reading the questions.</div>
+  <div class="tip"><b>📖 Reading — "aucun collège":</b> Some statements may match <b>none</b> of the schools. Don't force an answer.</div>
+  <div class="tip"><b>📖 Literary text:</b> Don't panic about unknown words. Use the questions as a guide to find specific details: times, durations, places.</div>
+  <div class="tip"><b>📝 Note-taking in French:</b> Write short noun phrases, not full sentences. You can "lift" exact words from the text.</div>
+</section>
+
+</main>
+
+<div id="subtitle">
+  <div class="fr" id="sub-fr"></div>
+  <div class="en" id="sub-en"></div>
+</div>
+
+<footer>GCSE / IGCSE French — <b>Exam Practice: Listening &amp; Reading</b> · Au Lycée · Au Collège · L'Emploi du Temps</footer>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('visible');});},{threshold:.12});
+  sections.forEach(s=>io.observe(s));
+
+  function speak(fr,en){
+    if(!('speechSynthesis' in window)){alert('Voice not supported');return;}
+    window.speechSynthesis.cancel();
+    const sub=document.getElementById('subtitle');
+    document.getElementById('sub-fr').textContent=fr;
+    document.getElementById('sub-en').textContent=en;
+    sub.classList.add('show');
+    const u=new SpeechSynthesisUtterance(fr);
+    u.lang='fr-FR'; u.rate=.9;
+    const voices=window.speechSynthesis.getVoices();
+    const fv=voices.find(v=>v.lang.startsWith('fr'));
+    if(fv) u.voice=fv;
+    u.onend=()=>{setTimeout(()=>sub.classList.remove('show'),1200);};
+    window.speechSynthesis.speak(u);
+  }
+  function toggleModel(btn){
+    const m=btn.nextElementSibling;
+    m.classList.toggle('show');
+    btn.textContent = m.classList.contains('show') ? 'Hide model ▲' : 'Show model summary ▼';
+  }
+</script>
+</body>
+</html>

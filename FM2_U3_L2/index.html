@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Exam Skills — Loisirs, Internet & Lecture — IGCSE French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f7f7fb; --ink:#0e1a2b; --muted:#5a6473;
+    --red:#7a1722; --red-dark:#5a0f18;
+    --blue:#0f2a4a; --blue-dark:#08182b;
+    --card:#ffffff; --border:#d9dde5; --shadow:0 10px 30px rgba(8,24,43,.08);
+    --gold:#c9a227;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  header{background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:#fff;padding:48px 24px;text-align:center;border-bottom:6px solid var(--red);position:relative;overflow:hidden}
+  header::before{content:"🎢";position:absolute;font-size:14rem;opacity:.07;top:-30px;right:-20px;transform:rotate(-12deg)}
+  header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);margin:.2em 0;position:relative}
+  header p{max-width:780px;margin:0 auto;opacity:.92;position:relative}
+  .badges{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap;position:relative}
+  .badge{background:rgba(255,255,255,.12);padding:6px 14px;border-radius:999px;font-size:.85rem;border:1px solid rgba(255,255,255,.2)}
+  main{max-width:1100px;margin:0 auto;padding:32px 20px}
+  section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:28px;box-shadow:var(--shadow)}
+  .tag{display:inline-block;background:var(--red);color:#fff;padding:4px 12px;border-radius:4px;font-weight:600;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+  .tag.gold{background:var(--gold);color:var(--blue-dark)}
+  h2{font-family:'Playfair Display',serif;font-size:1.9rem;margin:.3em 0 .5em;color:var(--blue)}
+  h3{margin-top:1.4em;color:var(--red)}
+  .sub{color:var(--muted);font-style:italic;font-size:.95rem}
+  .objectifs{background:#eef2f8;border-left:5px solid var(--blue);padding:18px 22px;border-radius:8px}
+  .objectifs ul{margin:8px 0 0 18px;padding:0}
+  .tip{background:#fff7e0;border-left:5px solid var(--gold);padding:14px 18px;border-radius:8px;margin:14px 0}
+  .tip strong{color:var(--blue)}
+
+  /* Audio player block */
+  .audio-box{background:linear-gradient(135deg,#eef2f8,#fff);border:2px solid var(--blue);border-radius:10px;padding:18px;margin:14px 0;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .audio-box .icon{font-size:2.4rem}
+  .audio-box .info{flex:1;min-width:200px}
+  .audio-box .info b{color:var(--blue);font-family:'Playfair Display',serif;font-size:1.1rem}
+  .audio-box .info .meta{color:var(--muted);font-size:.85rem}
+  .play-btn{background:var(--red);color:#fff;border:none;padding:10px 18px;border-radius:6px;font-weight:600;cursor:pointer;font-size:.95rem}
+  .play-btn:hover{background:var(--red-dark)}
+  .play-btn.slow{background:var(--blue)}
+  .play-btn.slow:hover{background:var(--blue-dark)}
+  .speak-btn{background:var(--blue);color:#fff;border:none;padding:8px 14px;border-radius:6px;cursor:pointer;font-weight:600;font-size:.88rem}
+  .speak-btn:hover{background:var(--red)}
+
+  /* Transcript */
+  .transcript{margin-top:10px;background:#fff;border:1px dashed var(--border);border-radius:8px;padding:14px;display:none;font-style:italic;color:var(--blue-dark)}
+  .transcript.show{display:block}
+  .transcript .en{margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);color:var(--muted);font-size:.9rem;font-style:italic}
+
+  /* Question blocks */
+  .q{background:#fff;border:1px solid var(--border);border-radius:8px;padding:16px;margin:12px 0;border-left:4px solid var(--blue)}
+  .q .qtext{margin:0 0 10px;font-weight:600;color:var(--blue)}
+  .q .qtext .mark{float:right;color:var(--muted);font-weight:500;font-size:.85rem}
+  .q input[type=text]{padding:7px 10px;border:2px solid var(--border);border-radius:6px;font-family:inherit;font-size:.95rem;min-width:140px}
+  .q input[type=text]:focus{outline:none;border-color:var(--blue)}
+  .q input.correct{border-color:#1e6b1e;background:#e6f3e6}
+  .q input.wrong{border-color:var(--red);background:#fbeef0}
+  .check-btn{background:var(--red);color:#fff;border:none;padding:10px 22px;border-radius:6px;font-weight:600;cursor:pointer;margin-top:10px}
+  .check-btn:hover{background:var(--red-dark)}
+  .reveal-btn{background:transparent;color:var(--blue);border:2px solid var(--blue);padding:8px 16px;border-radius:6px;font-weight:600;cursor:pointer;margin-top:10px;margin-left:8px}
+  .reveal-btn:hover{background:var(--blue);color:#fff}
+  .score{margin-top:10px;font-weight:700;color:var(--blue);font-family:'Playfair Display',serif;font-size:1.1rem}
+
+  /* Word bank */
+  .word-bank{display:flex;flex-wrap:wrap;gap:8px;background:#eef2f8;border:2px dashed var(--blue);border-radius:10px;padding:14px;margin:12px 0}
+  .word{background:#fff;border:1px solid var(--border);border-radius:6px;padding:6px 12px;font-weight:600;color:var(--blue);cursor:pointer;user-select:none;transition:.15s}
+  .word:hover{background:var(--blue);color:#fff;transform:translateY(-2px)}
+  .word .letter{background:var(--red);color:#fff;border-radius:4px;padding:1px 6px;margin-right:6px;font-size:.85rem}
+  .word.used{opacity:.35;text-decoration:line-through}
+
+  /* People profile cards */
+  .people-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:14px 0}
+  .person{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px;border-top:5px solid var(--blue)}
+  .person.maude{border-top-color:#7a1722}
+  .person.aicha{border-top-color:#c9a227}
+  .person.salim{border-top-color:#0f2a4a}
+  .person h4{margin:0 0 6px;font-family:'Playfair Display',serif;color:var(--blue);font-size:1.2rem;display:flex;align-items:center;gap:8px}
+  .person .avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--red));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Playfair Display',serif}
+  .person p{margin:6px 0;font-size:.93rem;color:var(--ink)}
+
+  /* Vocab */
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:14px}
+  .vocab-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:12px;border-left:4px solid var(--blue);cursor:pointer;transition:.15s}
+  .vocab-card:hover{border-left-color:var(--red);transform:translateY(-2px);box-shadow:var(--shadow)}
+  .vocab-card .fr{font-weight:700;color:var(--blue)}
+  .vocab-card .en{color:var(--muted);font-size:.85rem;font-style:italic;margin-top:3px}
+
+  /* Reading text */
+  .reading{background:linear-gradient(180deg,#fff,#faf7ed);border:1px solid var(--border);border-radius:10px;padding:20px;margin:14px 0;border-left:5px solid var(--gold);font-family:'Playfair Display',serif;font-size:1.02rem;line-height:1.8;color:#2a2418}
+  .reading h4{margin:0 0 10px;color:var(--red);font-size:1.1rem}
+  .reading p{margin:.6em 0}
+
+  footer{text-align:center;color:var(--muted);padding:28px;font-size:.85rem}
+  @media (max-width:600px){
+    section{padding:18px}
+    h2{font-size:1.5rem}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badges"><span class="badge">MODULE · Exam Skills</span><span class="badge">D4 The Media</span><span class="badge">E2 Loisirs</span></div>
+  <h1>Loisirs, Internet & Souvenirs de lecture</h1>
+  <p>Listening, reading and exam-technique practice — un parc d'attractions, un sportif, la sécurité en ligne et un souvenir de famille.</p>
+</header>
+
+<main>
+
+<section>
+  <span class="tag">Objectifs</span>
+  <h2>Ce que tu vas apprendre</h2>
+  <div class="objectifs">
+    <ul>
+      <li>Comprendre une <b>publicité</b> et noter des détails précis (chiffres, horaires).</li>
+      <li>Choisir le bon <b>mot</b> dans une banque de mots après écoute.</li>
+      <li>Identifier <b>qui dit quoi</b> dans un texte à plusieurs voix.</li>
+      <li>Prendre des <b>notes</b> en français à partir d'un texte littéraire.</li>
+    </ul>
+  </div>
+  <div class="tip"><strong>Astuce examen :</strong> lis toujours les questions <i>avant</i> d'écouter. Anticipe le type de réponse attendu (chiffre, jour, adjectif, verbe).</div>
+</section>
+
+<!-- ============ EXERCICE 1 — PARC D'ATTRACTIONS ============ -->
+<section>
+  <span class="tag">Écoute · Question 1</span>
+  <h2>Un parc d'attractions</h2>
+  <p class="sub">Écoute la publicité pour le Grand Parc du Puy du Fou. Note les détails en français ou en chiffres.</p>
+
+  <div class="audio-box">
+    <div class="icon">📻</div>
+    <div class="info">
+      <b>Publicité radio — Le Grand Parc du Puy du Fou</b>
+      <div class="meta">Cliquez pour écouter — voix de synthèse française</div>
+    </div>
+    <button class="play-btn" onclick="playAudio('parc')">▶ Écouter</button>
+    <button class="play-btn slow" onclick="playAudio('parc', .8)">🐢 Plus lent</button>
+    <button class="reveal-btn" onclick="toggleTranscript('t-parc')">📜 Transcription</button>
+  </div>
+
+  <div id="t-parc" class="transcript">
+    <p><b>Publicité :</b> Bienvenue au Grand Parc du Puy du Fou ! Le parc est ouvert tous les jours pendant l'été. Pour les fêtes de Noël, nous ouvrons exceptionnellement le <b>samedi</b> et le <b>dimanche</b>. En juin et juillet, notre grand spectacle commence à <b>21 heures 30</b>. À l'intérieur du parc, il est permis de <b>pique-niquer</b> en famille. Notre arène peut accueillir un minimum de <b>3000 spectateurs</b>. Cette année, venez découvrir <b>12 nouvelles scènes</b> spectaculaires ! Le Puy du Fou, l'aventure vous attend !</p>
+    <p class="en"><b>English:</b> Welcome to the Grand Park of Puy du Fou! Open every day in summer. For Christmas we exceptionally open on Saturday and Sunday. In June and July, the show starts at 9:30 pm. Inside the park you may picnic. Our arena seats a minimum of 3000 spectators. This year, discover 12 new scenes!</p>
+  </div>
+
+  <p style="margin-top:14px"><b>Exemple :</b> Nom du parc d'attractions : <i>Le Grand Parc du Puy du Fou</i></p>
+
+  <div id="parc-quiz">
+    <div class="q"><p class="qtext">a Jours d'ouverture vers Noël : les <input type="text" data-ans="samedi" size="10"> et <input type="text" data-ans="dimanche" size="10"> <span class="mark">(2 marks)</span></p></div>
+    <div class="q"><p class="qtext">b Début du spectacle en juin et juillet : <input type="text" data-ans="21" size="4">h<input type="text" data-ans="30" size="4"> <span class="mark">(1 mark)</span></p></div>
+    <div class="q"><p class="qtext">c Activité permise : <input type="text" data-ans="pique-niquer" size="16"> <span class="mark">(1 mark)</span></p></div>
+    <div class="q"><p class="qtext">d Nombre minimum de spectateurs : <input type="text" data-ans="3000" size="8"> <span class="mark">(1 mark)</span></p></div>
+    <div class="q"><p class="qtext">e Nombre de nouvelles scènes : <input type="text" data-ans="12" size="4"> <span class="mark">(1 mark)</span></p></div>
+    <button class="check-btn" onclick="checkSection('parc-quiz')">Vérifier mes réponses</button>
+    <button class="reveal-btn" onclick="revealSection('parc-quiz')">👁 Voir les réponses</button>
+    <div class="score" id="score-parc-quiz"></div>
+  </div>
+
+  <div class="tip"><strong>Exam skills :</strong> dans cette question tu écoutes une publicité touristique. Cible les <b>chiffres</b>, <b>jours de la semaine</b> et <b>verbes à l'infinitif</b> (pique-niquer, visiter…).</div>
+</section>
+
+<!-- ============ EXERCICE 2 — UN SPORTIF ============ -->
+<section>
+  <span class="tag">Écoute · Question 2</span>
+  <h2>Un sportif — Martin</h2>
+  <p class="sub">Que dit Martin ? Écoute et choisis la bonne lettre du tableau.</p>
+
+  <div class="audio-box">
+    <div class="icon">⚽</div>
+    <div class="info">
+      <b>Interview — Martin, jeune footballeur</b>
+      <div class="meta">Écoute attentivement les <b>mots-clés</b> avant de choisir.</div>
+    </div>
+    <button class="play-btn" onclick="playAudio('martin')">▶ Écouter</button>
+    <button class="play-btn slow" onclick="playAudio('martin', .8)">🐢 Plus lent</button>
+    <button class="reveal-btn" onclick="toggleTranscript('t-martin')">📜 Transcription</button>
+  </div>
+
+  <div id="t-martin" class="transcript">
+    <p><b>Martin :</b> Bonjour, je m'appelle Martin. Quand j'étais petit, je voulais être joueur de <b>foot</b> professionnel. Jouer au foot, ce n'était vraiment pas <b>dur</b> pour moi, c'était un plaisir. Un jour, un membre d'une équipe de foot locale m'a <b>repéré</b> pendant un match à l'école. Je n'ai pas passé beaucoup de temps à <b>anticiper</b> sa proposition – j'ai accepté tout de suite ! Comme joueur de foot, j'ai dû travailler <b>dur</b>, mais aujourd'hui je suis moins <b>stressé</b> qu'avant, parce que je fais ce que j'aime.</p>
+    <p class="en"><b>English:</b> When I was little, I wanted to be a footballer. Playing football wasn't hard. A member of a local team spotted me at school. I didn't spend long thinking. As a footballer I had to work hard, but now I'm less stressed.</p>
+  </div>
+
+  <p style="margin-top:14px"><b>Banque de mots</b> — clique pour barrer un mot utilisé :</p>
+  <div class="word-bank" id="bank">
+    <span class="word"><span class="letter">A</span>Martin</span>
+    <span class="word"><span class="letter">B</span>stressé</span>
+    <span class="word"><span class="letter">C</span>foot</span>
+    <span class="word"><span class="letter">D</span>bien</span>
+    <span class="word"><span class="letter">E</span>repéré</span>
+    <span class="word"><span class="letter">F</span>jouer</span>
+    <span class="word"><span class="letter">G</span>peu</span>
+    <span class="word"><span class="letter">H</span>dur</span>
+    <span class="word"><span class="letter">I</span>passionnant</span>
+    <span class="word"><span class="letter">J</span>motivé</span>
+    <span class="word"><span class="letter">K</span>anticiper</span>
+    <span class="word"><span class="letter">L</span>tennis</span>
+    <span class="word"><span class="letter">M</span>détendu</span>
+  </div>
+  <p class="sub"><b>repérer</b> = voir, remarquer</p>
+
+  <p><b>Exemple :</b> Il s'appelle : <b>A</b> (Martin)</p>
+
+  <div id="martin-quiz">
+    <div class="q"><p class="qtext">a Quand il était petit, Martin voulait être joueur de … <input type="text" data-ans="C" size="3" maxlength="1"></p></div>
+    <div class="q"><p class="qtext">b Jouer au foot, ce n'était pas … <input type="text" data-ans="H" size="3" maxlength="1"></p></div>
+    <div class="q"><p class="qtext">c Un membre d'une équipe de foot locale l'a … <input type="text" data-ans="E" size="3" maxlength="1"></p></div>
+    <div class="q"><p class="qtext">d Il n'a pas passé beaucoup de temps à … <input type="text" data-ans="K" size="3" maxlength="1"></p></div>
+    <div class="q"><p class="qtext">e Comme joueur de foot, il a dû travailler … <input type="text" data-ans="H" size="3" maxlength="1"></p></div>
+    <div class="q"><p class="qtext">f Maintenant, il est moins … <input type="text" data-ans="B" size="3" maxlength="1"></p></div>
+    <button class="check-btn" onclick="checkSection('martin-quiz', true)">Vérifier</button>
+    <button class="reveal-btn" onclick="revealSection('martin-quiz')">👁 Voir les réponses</button>
+    <div class="score" id="score-martin-quiz"></div>
+  </div>
+
+  <div class="tip"><strong>Exam skills :</strong> avant d'écouter, regarde la banque de mots. Pour chaque phrase, demande-toi : faut-il un <b>nom</b>, un <b>adjectif</b>, un <b>verbe à l'infinitif</b> ou un <b>adverbe</b> ? Cela élimine déjà la moitié des choix.</div>
+</section>
+
+<!-- ============ EXERCICE 3 — L'INTERNET ============ -->
+<section>
+  <span class="tag gold">Lecture · Question 1</span>
+  <h2>L'Internet — Protège ta vie privée !</h2>
+  <p class="sub">Qui parle ? Maude, Aïcha, Salim, plus d'une personne ou personne ? Une phrase peut correspondre à plusieurs personnes.</p>
+
+  <div class="people-grid">
+    <div class="person maude">
+      <h4><span class="avatar">M</span>Maude</h4>
+      <p>«J'apprécie de communiquer avec beaucoup de personnes. On partage et on échange. Mais je prends des précautions : je sais que les contacts en ligne ne sont pas forcément de vrais copains. Je ne télécharge jamais de photos compromettantes.»</p>
+      <button class="speak-btn" onclick="speakFR(this.previousElementSibling.innerText)">🔊 Écouter</button>
+    </div>
+    <div class="person aicha">
+      <h4><span class="avatar">A</span>Aïcha</h4>
+      <p>«Je fais très attention à ce que je révèle de mon identité sur Internet. Je ne mets jamais mon nom de famille, je n'affiche jamais de photos de moi et de mes copains. Je choisis aussi avec soin mon mot de passe.»</p>
+      <button class="speak-btn" onclick="speakFR(this.previousElementSibling.innerText)">🔊 Écouter</button>
+    </div>
+    <div class="person salim">
+      <h4><span class="avatar">S</span>Salim</h4>
+      <p>«J'ai prévenu mes parents et la direction du collège et ça s'est réglé, mais j'étais très déprimé. Ces personnes se sont attaquées à ma personnalité. Il faut toujours signaler les provocations.»</p>
+      <button class="speak-btn" onclick="speakFR(this.previousElementSibling.innerText)">🔊 Écouter</button>
+    </div>
+  </div>
+
+  <h3>Vocabulaire utile</h3>
+  <div class="vocab-grid">
+    <div class="vocab-card" onclick="speakFR('les réseaux sociaux')"><div class="fr">les réseaux sociaux</div><div class="en">social networks</div></div>
+    <div class="vocab-card" onclick="speakFR('télécharger')"><div class="fr">télécharger</div><div class="en">to upload / download</div></div>
+    <div class="vocab-card" onclick="speakFR('un mot de passe')"><div class="fr">un mot de passe</div><div class="en">a password</div></div>
+    <div class="vocab-card" onclick="speakFR('le harcèlement')"><div class="fr">le harcèlement</div><div class="en">bullying / harassment</div></div>
+    <div class="vocab-card" onclick="speakFR('prévenir')"><div class="fr">prévenir</div><div class="en">to warn / inform</div></div>
+    <div class="vocab-card" onclick="speakFR('signaler')"><div class="fr">signaler</div><div class="en">to report</div></div>
+    <div class="vocab-card" onclick="speakFR('mes coordonnées')"><div class="fr">mes coordonnées</div><div class="en">my personal details</div></div>
+    <div class="vocab-card" onclick="speakFR('un inconnu')"><div class="fr">un inconnu</div><div class="en">a stranger</div></div>
+  </div>
+
+  <p style="margin-top:14px"><b>Exemple :</b> Je suis fana des réseaux sociaux. → <b>Maude</b></p>
+
+  <div id="internet-quiz">
+    <div class="q"><p class="qtext">a J'ai plein d'amis en ligne. <input type="text" data-ans="Maude" size="14"></p></div>
+    <div class="q"><p class="qtext">b Je ne partage jamais mes coordonnées. <input type="text" data-ans="Aïcha" size="14"></p></div>
+    <div class="q"><p class="qtext">c Sur Internet, il est possible que je tchate avec des inconnus. <input type="text" data-ans="Maude" size="14"></p></div>
+    <div class="q"><p class="qtext">d On m'a intimidé sur Internet. <input type="text" data-ans="Salim" size="14"></p></div>
+    <div class="q"><p class="qtext">e Quand j'ai un problème, je demande de l'aide. <input type="text" data-ans="Salim" size="14"></p></div>
+    <div class="q"><p class="qtext">f Je me sentais triste. <input type="text" data-ans="Salim" size="14"></p></div>
+    <div class="q"><p class="qtext">g Je réfléchis avant d'afficher des photos. <input type="text" data-ans="Maude et Aïcha" size="20"></p></div>
+    <div class="q"><p class="qtext">h Je suis sociable. <input type="text" data-ans="Maude" size="14"></p></div>
+    <button class="check-btn" onclick="checkSection('internet-quiz')">Vérifier</button>
+    <button class="reveal-btn" onclick="revealSection('internet-quiz')">👁 Voir les réponses</button>
+    <div class="score" id="score-internet-quiz"></div>
+  </div>
+
+  <div class="tip"><strong>Exam skills :</strong> tu cherches des <b>paraphrases</b>, pas les mots exacts. <i>«Je suis fana»</i> dans la question = <i>«elle adore»</i> dans le texte. Une réponse peut être <b>deux personnes</b> à la fois !</div>
+</section>
+
+<!-- ============ EXERCICE 4 — SOUVENIR DE LECTURE ============ -->
+<section>
+  <span class="tag gold">Lecture · Question 2</span>
+  <h2>Souvenir de lecture — Maya</h2>
+  <p class="sub">Lis l'extrait du roman <i>La fille qui n'aimait pas les fins</i> de Yaël Hassan et Matthieu Radenac, puis prends des notes en français.</p>
+
+  <div class="reading">
+    <h4>La fille qui n'aimait pas les fins (abrégé)</h4>
+    <p>Pour mes neuf ans, une copine m'avait offert un livre : <i>Vendredi ou la vie sauvage</i> de Michel Tournier. Quand je l'avais montré à Papa, ses yeux étaient devenus tout brillants…</p>
+    <p>— Ce livre, Maya, est une adaptation de <i>Robinson Crusoé</i> qui était mon livre préféré quand j'étais petit. C'était mon père qui me l'avait offert. Si tu savais le nombre de fois où je l'ai lu et relu. Je devenais alors, tour à tour, <b>explorateur</b>, <b>navigateur</b>, <b>aventurier</b>… Il était toujours posé sur ma <b>table de chevet</b> et je ne pouvais m'endormir sans en lire quelques pages.</p>
+    <p>Depuis que j'étais toute petite, Papa me lisait des histoires le soir. C'était notre moment à nous. Il s'installait sur un <b>tabouret</b> et commençait son récit de sa voix grave et posée. Je l'écoutais en frémissant de bonheur. Ce rituel a perduré même après que j'avais su <b>lire toute seule</b>.</p>
+    <button class="speak-btn" onclick="speakFR(this.parentElement.innerText)">🔊 Lire à voix haute</button>
+  </div>
+
+  <h3>Vocabulaire utile</h3>
+  <div class="vocab-grid">
+    <div class="vocab-card" onclick="speakFR('une copine')"><div class="fr">une copine</div><div class="en">a friend (f)</div></div>
+    <div class="vocab-card" onclick="speakFR('offrir un cadeau')"><div class="fr">offrir un cadeau</div><div class="en">to give a present</div></div>
+    <div class="vocab-card" onclick="speakFR('un aventurier')"><div class="fr">un aventurier</div><div class="en">an adventurer</div></div>
+    <div class="vocab-card" onclick="speakFR('la table de chevet')"><div class="fr">la table de chevet</div><div class="en">bedside table</div></div>
+    <div class="vocab-card" onclick="speakFR('un tabouret')"><div class="fr">un tabouret</div><div class="en">a stool</div></div>
+    <div class="vocab-card" onclick="speakFR('un récit')"><div class="fr">un récit</div><div class="en">a story / narrative</div></div>
+  </div>
+
+  <p style="margin-top:14px"><b>Exemple :</b> L'âge de Maya : <i>9 (ans)</i></p>
+
+  <div id="lecture-quiz">
+    <div class="q"><p class="qtext">a L'occasion spéciale : <input type="text" data-ans="son anniversaire" size="22"> <span class="mark">(1)</span></p></div>
+    <div class="q"><p class="qtext">b Qui a donné le cadeau : <input type="text" data-ans="une copine" size="18"> <span class="mark">(1)</span></p></div>
+    <div class="q"><p class="qtext">c Le cadeau : <input type="text" data-ans="un livre" size="18"> <span class="mark">(1)</span></p></div>
+    <div class="q"><p class="qtext">d Le livre préféré du père de Maya : <input type="text" data-ans="Robinson Crusoé" size="22"> <span class="mark">(1)</span></p></div>
+    <div class="q"><p class="qtext">e Ce que le père devenait quand il lisait : <input type="text" data-ans="explorateur" size="14">, <input type="text" data-ans="navigateur" size="14">, <input type="text" data-ans="aventurier" size="14"> <span class="mark">(3)</span></p></div>
+    <div class="q"><p class="qtext">f L'endroit où il mettait le livre : <input type="text" data-ans="(sur) la table de chevet" size="26"> <span class="mark">(1)</span></p></div>
+    <div class="q"><p class="qtext">g L'endroit où il s'asseyait : <input type="text" data-ans="(sur) un tabouret" size="22"> <span class="mark">(1)</span></p></div>
+    <div class="q"><p class="qtext">h Ce qu'elle savait faire toute seule plus tard : <input type="text" data-ans="lire" size="14"> <span class="mark">(1)</span></p></div>
+    <button class="check-btn" onclick="checkSection('lecture-quiz')">Vérifier</button>
+    <button class="reveal-btn" onclick="revealSection('lecture-quiz')">👁 Voir les réponses</button>
+    <div class="score" id="score-lecture-quiz"></div>
+  </div>
+
+  <div class="tip"><strong>Exam skills :</strong> prendre des notes ≠ écrire des phrases complètes. Quelques <b>mots-clés</b> suffisent : « son anniversaire », « un livre », « explorateur, navigateur, aventurier ». Reprends le vocabulaire <b>directement du texte</b>.</div>
+</section>
+
+<!-- ============ RÉCAPITULATIF ============ -->
+<section>
+  <span class="tag">Récapitulatif</span>
+  <h2>Mes stratégies d'examen</h2>
+  <ol>
+    <li><b>Avant d'écouter :</b> lis toutes les questions, souligne les mots-clés, anticipe le type de réponse (chiffre, nom, adjectif).</li>
+    <li><b>Pendant l'écoute :</b> note tout, même en anglais ; corrige en français à la deuxième écoute.</li>
+    <li><b>En lecture :</b> cherche des <i>paraphrases</i>, pas les mots identiques. <i>fana → adore ; intimider → harcèlement.</i></li>
+    <li><b>Pour les notes :</b> 1–4 mots par réponse, recopie le vocabulaire du texte.</li>
+  </ol>
+</section>
+
+</main>
+
+<footer>
+  GCSE / IGCSE French — Exam Skills · Loisirs, Internet & Lecture · Conçu pour apprendre, pratiquer et briller.
+</footer>
+
+<script>
+  // --- Text-to-speech in French ---
+  function speakFR(text, rate=1){
+    if(!('speechSynthesis' in window)){alert('Votre navigateur ne supporte pas la synthèse vocale.');return}
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'fr-FR'; u.rate = rate; u.pitch = 1;
+    const voices = window.speechSynthesis.getVoices();
+    const fr = voices.find(v=>v.lang.startsWith('fr'));
+    if(fr) u.voice = fr;
+    window.speechSynthesis.speak(u);
+  }
+
+  // --- Pre-recorded "audio" via speech synthesis ---
+  const SCRIPTS = {
+    parc: "Bienvenue au Grand Parc du Puy du Fou ! Le parc est ouvert tous les jours pendant l'été. Pour les fêtes de Noël, nous ouvrons exceptionnellement le samedi et le dimanche. En juin et juillet, notre grand spectacle commence à vingt-et-une heures trente. À l'intérieur du parc, il est permis de pique-niquer en famille. Notre arène peut accueillir un minimum de trois mille spectateurs. Cette année, venez découvrir douze nouvelles scènes spectaculaires ! Le Puy du Fou, l'aventure vous attend !",
+    martin: "Bonjour, je m'appelle Martin. Quand j'étais petit, je voulais être joueur de foot professionnel. Jouer au foot, ce n'était vraiment pas dur pour moi, c'était un plaisir. Un jour, un membre d'une équipe de foot locale m'a repéré pendant un match à l'école. Je n'ai pas passé beaucoup de temps à anticiper sa proposition, j'ai accepté tout de suite ! Comme joueur de foot, j'ai dû travailler dur, mais aujourd'hui je suis moins stressé qu'avant, parce que je fais ce que j'aime."
+  };
+  function playAudio(key, rate=1){ speakFR(SCRIPTS[key], rate); }
+
+  function toggleTranscript(id){
+    document.getElementById(id).classList.toggle('show');
+  }
+
+  // --- Word bank cross-out toggle ---
+  document.querySelectorAll('#bank .word').forEach(w=>{
+    w.addEventListener('click',()=>w.classList.toggle('used'));
+  });
+
+  // --- Check answers ---
+  function norm(s){
+    return (s||'').toString().toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+      .replace(/[().,!?'"`]/g,'')
+      .replace(/\s+/g,' ').trim();
+  }
+  function checkAnswer(input, letterMode=false){
+    const user = norm(input.value);
+    const ans  = norm(input.dataset.ans);
+    if(!user){ input.classList.remove('correct','wrong'); return null; }
+    // accept partial: user answer contained in expected or vice-versa for short notes
+    const ok = letterMode
+      ? user.toUpperCase() === input.dataset.ans.toUpperCase()
+      : (user === ans || ans.includes(user) || user.includes(ans));
+    input.classList.toggle('correct', ok);
+    input.classList.toggle('wrong', !ok);
+    return ok;
+  }
+  function checkSection(id, letterMode=false){
+    const root = document.getElementById(id);
+    const inputs = root.querySelectorAll('input[type=text]');
+    let correct=0, total=inputs.length;
+    inputs.forEach(i=>{
+      const r = checkAnswer(i, letterMode);
+      if(r) correct++;
+    });
+    document.getElementById('score-'+id).textContent = `Score : ${correct} / ${total}`;
+  }
+  function revealSection(id){
+    const root = document.getElementById(id);
+    root.querySelectorAll('input[type=text]').forEach(i=>{
+      i.value = i.dataset.ans;
+      i.classList.add('correct');
+    });
+    const inputs = root.querySelectorAll('input[type=text]');
+    document.getElementById('score-'+id).textContent = `Réponses affichées : ${inputs.length} / ${inputs.length}`;
+  }
+
+  // Pre-load voices
+  if('speechSynthesis' in window){ window.speechSynthesis.getVoices(); window.speechSynthesis.onvoiceschanged = ()=>window.speechSynthesis.getVoices(); }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GCSE French — Services, Nourriture & Fêtes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #7a1722;
+      --red-light: #a02030;
+      --blue: #0f2a4a;
+      --blue-light: #1a3a5a;
+      --navy: #1a2a3a;
+      --cream: #faf8f5;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --text-light: #4a4a4a;
+      --border: #e0e0e0;
+      --shadow: 0 4px 24px rgba(0,0,0,0.08);
+      --shadow-hover: 0 8px 32px rgba(0,0,0,0.12);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--blue);
+      color: var(--white);
+      padding: 80px 20px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; right: -20%;
+      width: 600px; height: 600px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 50%;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .hero h1 span { color: var(--red-light); }
+    .hero-subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 650px;
+      margin: 0 auto 30px;
+    }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .hero-meta span {
+      background: rgba(255,255,255,0.1);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+    }
+
+    /* NAV */
+    .nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; gap: 4px; overflow-x: auto; padding: 8px 16px; }
+    .nav a {
+      white-space: nowrap;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .nav a:hover, .nav a.active { background: var(--blue); color: var(--white); }
+
+    /* CONTAINER */
+    .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+
+    /* SECTIONS */
+    .section { background: var(--white); border-radius: 16px; padding: 32px; margin-bottom: 32px; box-shadow: var(--shadow); }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--blue);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .section-title .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px; height: 36px;
+      background: var(--red);
+      color: var(--white);
+      border-radius: 50%;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .section-subtitle { color: var(--text-light); margin-bottom: 24px; font-size: 0.95rem; }
+
+    /* OBJECTIVE */
+    .objective {
+      background: var(--blue);
+      color: var(--white);
+      padding: 20px 24px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .objective-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .objective-text { font-size: 0.95rem; }
+    .objective-text strong { display: block; font-size: 1.1rem; margin-bottom: 4px; }
+
+    /* READING TEXT */
+    .reading-text {
+      background: var(--cream);
+      border-left: 4px solid var(--red);
+      padding: 20px 24px;
+      border-radius: 0 12px 12px 0;
+      margin: 20px 0;
+      line-height: 1.9;
+    }
+    .reading-author {
+      font-style: normal;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .reading-text p { margin-bottom: 10px; }
+    .reading-text p:last-child { margin-bottom: 0; }
+
+    /* DIALOGUE */
+    .dialogue-block { margin: 8px 0; }
+    .dialogue-block .speaker-name { font-weight: 700; color: var(--red); }
+
+    /* QUESTIONS */
+    .question-list { margin-top: 20px; }
+    .question-item {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      border: 1px solid var(--border);
+    }
+    .question-label { font-weight: 600; color: var(--blue); margin-bottom: 8px; display: block; }
+    .question-input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+    }
+    .question-input:focus { border-color: var(--blue); outline: none; }
+
+    /* MCQ */
+    .mcq-item {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 14px;
+      border: 1px solid var(--border);
+    }
+    .mcq-question { font-weight: 600; color: var(--blue); margin-bottom: 10px; }
+    .mcq-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .mcq-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .mcq-option:hover { border-color: var(--blue); }
+    .mcq-option input[type="radio"] { margin-top: 3px; flex-shrink: 0; accent-color: var(--blue); }
+
+    /* EXAM BOX */
+    .exam-box { background: var(--navy); color: var(--white); border-radius: 16px; padding: 32px; margin-bottom: 32px; }
+    .exam-box h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .exam-box h3 .icon { font-size: 1.6rem; }
+    .exam-tip { background: rgba(255,255,255,0.08); border-radius: 10px; padding: 16px; margin-bottom: 12px; }
+    .exam-tip strong { color: var(--red-light); display: block; margin-bottom: 6px; }
+
+    /* CARDS */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 16px; }
+    .card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: var(--blue); }
+    .card .fr { font-weight: 600; color: var(--blue); font-size: 1.05rem; display: block; margin-bottom: 6px; }
+    .card .en { font-size: 0.85rem; color: var(--text-light); display: block; }
+    .card .speaker { position: absolute; top: 12px; right: 12px; width: 28px; height: 28px; background: var(--red); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; opacity: 0; transition: opacity 0.2s; }
+    .card:hover .speaker { opacity: 1; }
+
+    /* MODEL ANSWER */
+    .model-answer { margin-top: 16px; }
+    .model-answer-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--blue);
+      color: var(--white);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .model-answer-btn:hover { background: var(--blue-light); }
+    .model-answer-content {
+      display: none;
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 12px;
+      border: 1px solid var(--border);
+    }
+    .model-answer-content.show { display: block; }
+    .model-answer-content p { margin-bottom: 10px; line-height: 1.9; }
+    .model-answer-content .highlight { color: var(--red); font-weight: 600; }
+
+    /* INFO BOX */
+    .info-box {
+      background: #f0f7ff;
+      padding: 14px 18px;
+      border-radius: 10px;
+      border-left: 4px solid var(--blue);
+      font-size: 0.9rem;
+      margin: 16px 0;
+    }
+    .info-box strong { color: var(--blue); }
+
+    /* GRAMMAR BOX */
+    .grammar-box {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+    .grammar-box h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 12px; color: #fff; }
+    .grammar-box p { font-size: 0.9rem; margin-bottom: 8px; opacity: 0.9; }
+    .grammar-box em { color: #f0c040; font-style: normal; }
+    .grammar-box strong { color: var(--red-light); }
+
+    /* TABLE */
+    .table-wrap { overflow-x: auto; margin: 16px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th { background: var(--blue); color: var(--white); padding: 10px 14px; text-align: left; }
+    td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+    tr:nth-child(even) td { background: var(--cream); }
+    td input[type="text"] {
+      width: 100%;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.88rem;
+    }
+
+    /* WRITING PROMPTS */
+    .prompt-box {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 16px 0;
+      font-size: 0.9rem;
+      line-height: 2;
+    }
+    .prompt-box p { margin-bottom: 4px; }
+
+    /* ANSWER BOOSTER TABLE */
+    .booster-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 16px; }
+    .booster-table th { padding: 10px 14px; text-align: left; }
+    .booster-table th:first-child { background: var(--navy); color: var(--white); }
+    .booster-table th:nth-child(2) { background: #1a5276; color: var(--white); }
+    .booster-table th:nth-child(3) { background: #154360; color: var(--white); }
+    .booster-table th:nth-child(4) { background: #0e3250; color: var(--white); }
+    .booster-table td { padding: 10px 14px; border: 1px solid var(--border); vertical-align: top; }
+    .booster-table tr:nth-child(even) td { background: var(--cream); }
+
+    /* VOICE OVERLAY */
+    .voice-overlay {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--navy);
+      color: var(--white);
+      padding: 14px 24px;
+      border-radius: 50px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      display: none;
+      align-items: center;
+      gap: 14px;
+      z-index: 1000;
+      max-width: 90vw;
+    }
+    .voice-overlay.active { display: flex; }
+    .voice-overlay .fr-text { font-weight: 600; }
+    .voice-overlay .en-text { opacity: 0.7; font-size: 0.9rem; }
+    .voice-overlay .close-voice { background: none; border: none; color: var(--white); font-size: 1.2rem; cursor: pointer; padding: 0 4px; }
+
+    /* FOOTER */
+    .footer { background: var(--blue); color: var(--white); text-align: center; padding: 40px 20px; margin-top: 40px; }
+    .footer h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 12px; }
+    .footer p { opacity: 0.8; font-size: 0.9rem; }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.6s ease-out; }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .hero { padding: 50px 16px 40px; }
+      .section { padding: 20px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .mcq-options { grid-template-columns: 1fr; }
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 4px; }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-badge">GCSE / IGCSE French</div>
+  <h1>Services, <span>Nourriture</span> &amp; Fêtes</h1>
+  <p class="hero-subtitle">Banque &amp; Poste · Repas de fête · Politesse · Traditions françaises · Fêtes de famille</p>
+  <div class="hero-meta">
+    <span>Reading</span>
+    <span>Listening</span>
+    <span>Writing</span>
+    <span>Grammar</span>
+    <span>Exam Skills</span>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#services" class="active">Services</a>
+    <a href="#nourriture">Nourriture &amp; Fêtes</a>
+    <a href="#politesse">Politesse</a>
+    <a href="#fetes">Fêtes en France</a>
+    <a href="#famille">Fêtes de famille</a>
+    <a href="#writing">Écriture</a>
+    <a href="#vocab">Vocabulaire</a>
+    <a href="#exam">Exam Skills</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- LEARNING OBJECTIVES -->
+  <div class="objective fade-up">
+    <div class="objective-icon">&#x1F4DA;</div>
+    <div class="objective-text">
+      <strong>Learning Objectives</strong>
+      Comprendre les services de banque, de poste et des objets trouvés · Parler des repas de fête · Utiliser les expressions de politesse · Décrire les festivals et les traditions · Utiliser venir de + l'infinitif · Utiliser le pronom en
+    </div>
+  </div>
+
+  <!-- ===== UNIT 1: SERVICES ===== -->
+  <section class="section fade-up" id="services">
+    <h2 class="section-title"><span class="num">1</span> Merci, j'apprécie vos services!</h2>
+    <p class="section-subtitle">A3 Services — Banque, Poste, Objets trouvés</p>
+
+    <div class="info-box">
+      <strong>Rappel :</strong> Reliez chaque personne au bon service. Où doit-elle aller?<br>
+      <em>Exemple : 1 → Il doit aller au bureau de change.</em>
+    </div>
+
+    <div class="reading-text">
+      <div class="dialogue-block"><span class="speaker-name">1 Mohamed :</span> Il me faut des dollars, car je vais aux États-Unis cet été, et le taux de change à ma banque est très mauvais.</div>
+      <div class="dialogue-block"><span class="speaker-name">2 Sandrine :</span> Je vais envoyer un cadeau à ma tante, car c'est bientôt son anniversaire.</div>
+      <div class="dialogue-block"><span class="speaker-name">3 Thierry :</span> Ma banque est fermée mais je dois retirer de l'argent.</div>
+      <div class="dialogue-block"><span class="speaker-name">4 Luc et Léa :</span> Nous adorons lire, mais ça coûte trop cher d'acheter tout le temps de nouveaux livres. Nous préférons emprunter des livres.</div>
+      <div class="dialogue-block"><span class="speaker-name">5 Yasmine :</span> Je viens d'avoir seize ans. Hourra ! Je peux enfin ouvrir un compte bancaire, avec l'autorisation de mes parents, bien sûr.</div>
+      <div class="dialogue-block"><span class="speaker-name">6 Thérèse :</span> J'ai perdu mon portefeuille avec un billet de vingt euros, ma carte de crédit et ma carte bancaire dedans. Quelle catastrophe !</div>
+      <div class="dialogue-block"><span class="speaker-name">7 Sven :</span> Au secours ! Un jeune homme, qui portait un sweat à capuche, m'a demandé un renseignement et puis, tout d'un coup, il a volé mon portable.</div>
+    </div>
+
+    <div class="question-list">
+      <div class="question-item">
+        <span class="question-label">Où doit aller chaque personne ? Écris le service correct pour chaque numéro. (7 marks)</span>
+        <p style="font-size:0.88rem; color:var(--text-light); margin-bottom:8px;">Services : le bureau de poste · le bureau des objets trouvés · la banque · le commissariat de police · la bibliothèque · le distributeur automatique de billets · le bureau de change</p>
+        <input type="text" class="question-input" placeholder="1 Mohamed → ...">
+        <input type="text" class="question-input" placeholder="2 Sandrine → ..." style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="3 Thierry → ..." style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="4 Luc et Léa → ..." style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="5 Yasmine → ..." style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="6 Thérèse → ..." style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="7 Sven → ..." style="margin-top:8px;">
+      </div>
+    </div>
+
+    <div class="model-answer">
+      <button class="model-answer-btn" onclick="toggleModel(this)"><span>&#x1F4DD;</span> Show Answers</button>
+      <div class="model-answer-content">
+        <p><span class="highlight">1 Mohamed →</span> le bureau de change</p>
+        <p><span class="highlight">2 Sandrine →</span> le bureau de poste</p>
+        <p><span class="highlight">3 Thierry →</span> le distributeur automatique de billets</p>
+        <p><span class="highlight">4 Luc et Léa →</span> la bibliothèque</p>
+        <p><span class="highlight">5 Yasmine →</span> la banque</p>
+        <p><span class="highlight">6 Thérèse →</span> le bureau des objets trouvés</p>
+        <p><span class="highlight">7 Sven →</span> le commissariat de police</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTENING: LA BANQUE -->
+  <section class="section fade-up">
+    <h2 class="section-title"><span class="num">2</span> Exercice d'écoute — La banque</h2>
+    <p class="section-subtitle">Choisissez la bonne lettre pour chaque phrase.</p>
+
+    <div class="question-list">
+
+      <div class="mcq-item">
+        <p class="mcq-question">1. Tania à l'intention …</p>
+        <div class="mcq-options">
+          <label class="mcq-option"><input type="radio" name="q1" value="a"> a) d'acheter des choses inutiles avec son argent de poche.</label>
+          <label class="mcq-option"><input type="radio" name="q1" value="b"> b) de dépenser son argent de poche.</label>
+          <label class="mcq-option"><input type="radio" name="q1" value="c"> c) d'économiser son argent de poche.</label>
+          <label class="mcq-option"><input type="radio" name="q1" value="d"> d) d'étudier les sciences économiques.</label>
+        </div>
+      </div>
+
+      <div class="mcq-item">
+        <p class="mcq-question">2. Nadim ne demande pas d'informations à sa banque …</p>
+        <div class="mcq-options">
+          <label class="mcq-option"><input type="radio" name="q2" value="a"> a) par téléphone.</label>
+          <label class="mcq-option"><input type="radio" name="q2" value="b"> b) par courriel.</label>
+          <label class="mcq-option"><input type="radio" name="q2" value="c"> c) sur le site web.</label>
+          <label class="mcq-option"><input type="radio" name="q2" value="d"> d) par lettre.</label>
+        </div>
+      </div>
+
+      <div class="mcq-item">
+        <p class="mcq-question">3. Il se sert du sans contact quand il …</p>
+        <div class="mcq-options">
+          <label class="mcq-option"><input type="radio" name="q3" value="a"> a) n'a pas d'argent liquide.</label>
+          <label class="mcq-option"><input type="radio" name="q3" value="b"> b) prend le train.</label>
+          <label class="mcq-option"><input type="radio" name="q3" value="c"> c) n'a pas de chéquier.</label>
+          <label class="mcq-option"><input type="radio" name="q3" value="d"> d) veut payer des sommes supérieures à trente euros.</label>
+        </div>
+      </div>
+
+      <div class="mcq-item">
+        <p class="mcq-question">4. La banque de Victor est fermée …</p>
+        <div class="mcq-options">
+          <label class="mcq-option"><input type="radio" name="q4" value="a"> a) le week-end.</label>
+          <label class="mcq-option"><input type="radio" name="q4" value="b"> b) deux jours par semaine.</label>
+          <label class="mcq-option"><input type="radio" name="q4" value="c"> c) seulement le dimanche.</label>
+          <label class="mcq-option"><input type="radio" name="q4" value="d"> d) un jour et demi par semaine.</label>
+        </div>
+      </div>
+
+      <div class="mcq-item">
+        <p class="mcq-question">5. Victor va à sa banque …</p>
+        <div class="mcq-options">
+          <label class="mcq-option"><input type="radio" name="q5" value="a"> a) quand il a besoin d'argent.</label>
+          <label class="mcq-option"><input type="radio" name="q5" value="b"> b) à de rares occasions.</label>
+          <label class="mcq-option"><input type="radio" name="q5" value="c"> c) pour consulter son compte.</label>
+          <label class="mcq-option"><input type="radio" name="q5" value="d"> d) quand il a un problème.</label>
+        </div>
+      </div>
+
+      <div class="mcq-item">
+        <p class="mcq-question">6. Samia a dû présenter …</p>
+        <div class="mcq-options">
+          <label class="mcq-option"><input type="radio" name="q6" value="a"> a) deux pièces d'identité.</label>
+          <label class="mcq-option"><input type="radio" name="q6" value="b"> b) trois pièces d'identité.</label>
+          <label class="mcq-option"><input type="radio" name="q6" value="c"> c) quatre pièces d'identité.</label>
+          <label class="mcq-option"><input type="radio" name="q6" value="d"> d) une pièce d'identité.</label>
+        </div>
+      </div>
+
+      <div class="mcq-item">
+        <p class="mcq-question">7. Elle pense que le contact avec sa banque est …</p>
+        <div class="mcq-options">
+          <label class="mcq-option"><input type="radio" name="q7" value="a"> a) simple.</label>
+          <label class="mcq-option"><input type="radio" name="q7" value="b"> b) impersonnel.</label>
+          <label class="mcq-option"><input type="radio" name="q7" value="c"> c) amical.</label>
+          <label class="mcq-option"><input type="radio" name="q7" value="d"> d) rapide.</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="model-answer">
+      <button class="model-answer-btn" onclick="toggleModel(this)"><span>&#x1F4DD;</span> Show Answers</button>
+      <div class="model-answer-content">
+        <p><span class="highlight">1 →</span> c) d'économiser son argent de poche.</p>
+        <p><span class="highlight">2 →</span> d) par lettre.</p>
+        <p><span class="highlight">3 →</span> a) n'a pas d'argent liquide.</p>
+        <p><span class="highlight">4 →</span> d) un jour et demi par semaine.</p>
+        <p><span class="highlight">5 →</span> b) à de rares occasions.</p>
+        <p><span class="highlight">6 →</span> d) une pièce d'identité.</p>
+        <p><span class="highlight">7 →</span> a) simple.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJETS TROUVES -->
+  <section class="section fade-up">
+    <h2 class="section-title"><span class="num">3</span> Le bureau des objets trouvés</h2>
+    <p class="section-subtitle">Lisez les e-mails et répondez aux questions en français.</p>
+
+    <div class="reading-text">
+      <span class="reading-author">Céline Dubois :</span>
+      <p>J'ai perdu mon sac il y a une semaine. Je pense que je l'ai laissé dans le bus que je prenais samedi dernier pour rentrer chez moi. Mon sac était en cuir vert foncé et assez petit. À l'intérieur il y avait mon porte-monnaie. Mes salutations distinguées — Céline Dubois</p>
+    </div>
+    <div class="reading-text">
+      <span class="reading-author">Arthur Faure :</span>
+      <p>J'ai perdu mes clefs il y a quinze jours. Je crois que je les ai perdues dans le Parc de Procé quand j'y étais avec mes amis. Les avez-vous trouvées par hasard ? Mes salutations distinguées — Arthur Faure</p>
+    </div>
+    <div class="reading-text">
+      <span class="reading-author">Dounia Dati :</span>
+      <p>J'ai perdu mon portefeuille et ma carte bancaire. Je les ai sûrement perdus quand je faisais du shopping samedi dernier dans le rayon cuisine des Galeries Lafayette. Mes salutations distinguées — Dounia Dati</p>
+    </div>
+
+    <div class="grammar-box">
+      <h4>Les pronoms compléments d'objet direct au passé composé</h4>
+      <p>In the perfect tense, direct object pronouns go in front of the part of <strong>avoir</strong> or <strong>être</strong>. The past participle must agree with <strong>la</strong> or <strong>les</strong>.</p>
+      <p><em>J'ai perdu mon portefeuille.</em> → <em>Je l'ai perdu.</em></p>
+      <p><em>Il a perdu sa carte de crédit.</em> → <em>Il l'a perdue.</em></p>
+      <p><em>Nous avons oublié nos gants.</em> → <em>Nous les avons oubliés.</em></p>
+      <p><em>Elles ont laissé leurs sacs à dos dans le car.</em> → <em>Elles les ont laissés dans le car.</em></p>
+    </div>
+
+    <div class="question-list">
+      <div class="question-item">
+        <span class="question-label">1. Qui a perdu quelque chose dans les transports en commun ?</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+      <div class="question-item">
+        <span class="question-label">2. Qui a perdu quelque chose dans un grand magasin ?</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+      <div class="question-item">
+        <span class="question-label">3. Qui a perdu quelque chose il y a deux semaines ?</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+      <div class="question-item">
+        <span class="question-label">4. Qu'est-ce qu'il y avait dans le sac de Céline ?</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+      <div class="question-item">
+        <span class="question-label">5. Où est-ce qu'Arthur a perdu ses clefs ?</span>
+        <input type="text" class="question-input" placeholder="Write your answer in French...">
+      </div>
+    </div>
+
+    <div class="model-answer">
+      <button class="model-answer-btn" onclick="toggleModel(this)"><span>&#x1F4DD;</span> Show Answers</button>
+      <div class="model-answer-content">
+        <p><span class="highlight">1.</span> Céline (elle l'a laissé dans le bus).</p>
+        <p><span class="highlight">2.</span> Dounia (aux Galeries Lafayette).</p>
+        <p><span class="highlight">3.</span> Arthur (il y a quinze jours).</p>
+        <p><span class="highlight">4.</span> Son porte-monnaie.</p>
+        <p><span class="highlight">5.</span> Dans le Parc de Procé.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== UNIT 2: NOURRITURE & FÊTES ===== -->
+  <section class="section fade-up" id="nourriture">
+    <h2 class="section-title"><span class="num">4</span> Regarde ce que je mange !</h2>
+    <p class="section-subtitle">A4 Customs · E5 Food and Drink — Les repas de fête</p>
+
+    <div class="reading-text">
+      <div class="dialogue-block"><span class="speaker-name">Message 1 — Noël :</span> Voici notre repas de Noël ! De la dinde, bien sûr (on en mange tous les ans), suivie de … devine quoi ? Une bûche de Noël ! C'est pareil chez toi ? Tu as eu beaucoup de cadeaux ? #Joyeux_Noël !</div>
+      <div class="dialogue-block"><span class="speaker-name">Message 2 — La Chandeleur :</span> Coucou ! Je suis à la crêperie avec ma famille pour fêter la Chandeleur. Ça, c'est ma troisième crêpe ! Dedans, il y a des bananes, du chocolat et du sucre glace. Tu en veux ?????</div>
+      <div class="dialogue-block"><span class="speaker-name">Message 3 — Anniversaire :</span> Regarde mon gâteau d'anniversaire ! C'est un gâteau au chocolat avec de la crème dedans : trop bon ! Ne t'en fais pas, j'en garde une tranche pour toi !</div>
+      <div class="dialogue-block"><span class="speaker-name">Message 4 — Pâques :</span> Coucou ! On est en train de chercher les œufs en chocolat que Papa a cachés dans le jardin. J'en ai déjà trouvé trois ! #Joyeuses_Pâques !</div>
+      <div class="dialogue-block"><span class="speaker-name">Message 5 — Nouvel An :</span> On fête le réveillon du Nouvel An à la maison ! Voici notre buffet froid : assortiment de charcuterie, saumon fumé, salades composées, et comme dessert, mini-gâteaux et verrines ! #Bonne_année !</div>
+      <div class="dialogue-block"><span class="speaker-name">Message 6 — La fête des Rois :</span> On appelle ça une galette des Rois ! C'est ce qu'on mange ici le 6 janvier, pour la fête des Rois. Vous fêtez ça en Angleterre aussi ? On met une fève dedans et si tu la trouves, tu deviens le roi ou la reine !</div>
+    </div>
+
+    <div class="grammar-box">
+      <h4>Le pronom <em>en</em></h4>
+      <p>The pronoun <strong>en</strong> is often used to replace a partitive article. It can mean 'some', 'of it' or 'of them'. It goes in front of the verb.</p>
+      <p>On mange <strong>du</strong> gâteau. <em>J'en garde une tranche pour toi.</em></p>
+      <p>Il y a <strong>des</strong> champignons dedans. <em>Tu en veux ?</em></p>
+    </div>
+
+    <div class="question-list">
+      <div class="question-item">
+        <span class="question-label">Relisez les textes. De quelle fête s'agit-il ? Notez en français pour chaque message. (6 marks)</span>
+        <input type="text" class="question-input" placeholder="Message 1 →">
+        <input type="text" class="question-input" placeholder="Message 2 →" style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="Message 3 →" style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="Message 4 →" style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="Message 5 →" style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="Message 6 →" style="margin-top:8px;">
+      </div>
+    </div>
+
+    <div class="model-answer">
+      <button class="model-answer-btn" onclick="toggleModel(this)"><span>&#x1F4DD;</span> Show Answers</button>
+      <div class="model-answer-content">
+        <p><span class="highlight">1 →</span> Noël</p>
+        <p><span class="highlight">2 →</span> La Chandeleur</p>
+        <p><span class="highlight">3 →</span> Un anniversaire</p>
+        <p><span class="highlight">4 →</span> Pâques</p>
+        <p><span class="highlight">5 →</span> Le réveillon du Nouvel An</p>
+        <p><span class="highlight">6 →</span> La fête des Rois / L'Épiphanie</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTENING: NOËL -->
+  <section class="section fade-up">
+    <h2 class="section-title"><span class="num">5</span> Noël chez Louis — Vrai ou Faux ?</h2>
+    <p class="section-subtitle">Écoutez Louis qui parle de Noël chez lui. Écrivez V (vrai) ou F (faux).</p>
+
+    <div class="question-list">
+      <div class="question-item">
+        <span class="question-label">1. Sa fête préférée est Pâques, parce qu'il adore ce qu'on mange.</span>
+        <input type="text" class="question-input" placeholder="V ou F ?">
+      </div>
+      <div class="question-item">
+        <span class="question-label">2. Dans sa famille, on fait un grand repas le vingt-quatre décembre.</span>
+        <input type="text" class="question-input" placeholder="V ou F ?">
+      </div>
+      <div class="question-item">
+        <span class="question-label">3. Ils commencent le repas par des pâtes, suivies d'une dinde rôtie.</span>
+        <input type="text" class="question-input" placeholder="V ou F ?">
+      </div>
+      <div class="question-item">
+        <span class="question-label">4. Il y a aussi des légumes, tels que des pommes de terre vapeur, des carottes, des choux de Bruxelles et des haricots verts.</span>
+        <input type="text" class="question-input" placeholder="V ou F ?">
+      </div>
+      <div class="question-item">
+        <span class="question-label">5. La famille finit le repas avec une bûche au chocolat et aux poires.</span>
+        <input type="text" class="question-input" placeholder="V ou F ?">
+      </div>
+      <div class="question-item">
+        <span class="question-label">6. Après, ils s'offrent des cadeaux et ils admirent le sapin de Noël que son père a décoré.</span>
+        <input type="text" class="question-input" placeholder="V ou F ?">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== UNIT 3: POLITESSE ===== -->
+  <section class="section fade-up" id="politesse">
+    <h2 class="section-title"><span class="num">6</span> On peut se tutoyer ?</h2>
+    <p class="section-subtitle">A4 Customs · E5 Food and Drink — Exprimer la politesse, poser des questions avec tu et vous</p>
+
+    <div class="reading-text">
+      <span class="reading-author">Bande dessinée — Léo est invité chez sa meilleure copine pour la première fois :</span>
+      <p>— Bonsoir, monsieur. — Enchanté.</p>
+      <p>— Aimez-vous les fleurs, madame ? — Oh là là ! J'y suis allergique ! — Mais il ne fallait pas ! Merci.</p>
+      <p>— À table, tout le monde ! Léo et Sarah, asseyez-vous là. — Merci, madame, vous êtes très gentille.</p>
+      <p>— Bon appétit ! C'est du saumon avec des épinards. Aimez-tu ça, Léo ? — J'ai horreur de ça ! Mais il faut être poli. — Oui, madame, j'adore ça. Merci.</p>
+      <p>— Alors, Léo, que fais-tu pendant ton temps libre ? — Je chante dans un groupe de rock. — Quelle horreur ! A-t-il des tatouages ou des piercings ?</p>
+      <p>— Merci, madame, c'était délicieux. Je peux vous aider ? — Mais il est charmant, quand même !</p>
+      <p>— Tu peux me tutoyer si tu veux.</p>
+    </div>
+
+    <div class="grammar-box">
+      <h4>Poser des questions avec <em>tu</em> et <em>vous</em></h4>
+      <p>Use <strong>vous</strong> with people you don't know well or with more than one person.</p>
+      <p>Use <strong>tu</strong> with younger people, your family or when someone invites you to call them <em>tu</em>.</p>
+      <p>Form questions like this: verb–subject pronoun. <em>Que <strong>fais-tu</strong> pendant ton temps libre ?</em></p>
+      <p>With il/elle questions, add a <strong>-t-</strong> : <em>A-<strong>t</strong>-il des tatouages ?</em></p>
+    </div>
+
+    <div class="question-list">
+      <div class="question-item">
+        <span class="question-label">Qu'est-ce qu'on dit … ? Répondez en français. (6 questions)</span>
+        <input type="text" class="question-input" placeholder="1. … quand on rencontre quelqu'un pour la première fois ?">
+        <input type="text" class="question-input" placeholder="2. … quand on reçoit un cadeau inattendu ?" style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="3. … quand on demande à ses invités de venir manger ?" style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="4. … à ses invités avant de commencer le repas ?" style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="5. … à l'hôtesse, à la fin du repas ?" style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="6. … quand on donne la permission de tutoyer ?" style="margin-top:8px;">
+      </div>
+    </div>
+
+    <div class="question-list" style="margin-top:16px;">
+      <p style="font-weight:600; color:var(--blue); margin-bottom:12px;">Formulez ces questions avec <em>tu</em> ET <em>vous</em>.</p>
+      <div class="question-item">
+        <span class="question-label">1. [Aimer] la musique rock ?</span>
+        <input type="text" class="question-input" placeholder="avec tu →">
+        <input type="text" class="question-input" placeholder="avec vous →" style="margin-top:8px;">
+      </div>
+      <div class="question-item">
+        <span class="question-label">2. Depuis quand [habiter] ici ?</span>
+        <input type="text" class="question-input" placeholder="avec tu →">
+        <input type="text" class="question-input" placeholder="avec vous →" style="margin-top:8px;">
+      </div>
+      <div class="question-item">
+        <span class="question-label">3. Quel genre de livres [lire] ?</span>
+        <input type="text" class="question-input" placeholder="avec tu →">
+        <input type="text" class="question-input" placeholder="avec vous →" style="margin-top:8px;">
+      </div>
+      <div class="question-item">
+        <span class="question-label">4. D'habitude, où [aller] en vacances ?</span>
+        <input type="text" class="question-input" placeholder="avec tu →">
+        <input type="text" class="question-input" placeholder="avec vous →" style="margin-top:8px;">
+      </div>
+    </div>
+
+    <div class="model-answer">
+      <button class="model-answer-btn" onclick="toggleModel(this)"><span>&#x1F4DD;</span> Show Answers</button>
+      <div class="model-answer-content">
+        <p><span class="highlight">Exemple :</span> 1a Aimes-tu la musique rock ? 1b Aimez-vous la musique rock ?</p>
+        <p><span class="highlight">2a</span> Depuis quand habites-tu ici ? <span class="highlight">2b</span> Depuis quand habitez-vous ici ?</p>
+        <p><span class="highlight">3a</span> Quel genre de livres lis-tu ? <span class="highlight">3b</span> Quel genre de livres lisez-vous ?</p>
+        <p><span class="highlight">4a</span> D'habitude, où vas-tu en vacances ? <span class="highlight">4b</span> D'habitude, où allez-vous en vacances ?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== UNIT 4: FÊTES EN FRANCE ===== -->
+  <section class="section fade-up" id="fetes">
+    <h2 class="section-title"><span class="num">7</span> C'est la fête !</h2>
+    <p class="section-subtitle">A4 Customs · A5 Everyday Life, Traditions and Communities</p>
+
+    <div class="reading-text">
+      <span class="reading-author">Les fêtes en France — Calendrier</span>
+      <p><strong>Janvier :</strong> 1er janvier : le jour de l'An (jour férié). 6 janvier : la fête des Rois / l'Épiphanie — C'est l'occasion de manger la galette des Rois !</p>
+      <p><strong>Février :</strong> 2 février : la Chandeleur — C'est la fête des crêpes ! Bon appétit ! · 14 février : la Saint-Valentin — La fête de l'amour : les amoureux s'envoient des cartes et des fleurs.</p>
+      <p><strong>Février/Mars :</strong> Mardi gras — Il y a plusieurs carnavals en France, dont le plus célèbre est à Nice, avec des défilés de chars fleuris et une bataille de fleurs.</p>
+      <p><strong>Avril :</strong> 1er avril — Attention ! Les enfants vont essayer de te coller un poisson dans le dos : Poisson d'avril ! · Pâques — Un jour férié : le lundi de Pâques.</p>
+      <p><strong>Mai :</strong> 1er mai : la fête du Travail (jour férié) — On s'offre du muguet en geste d'amitié. · Le dernier dimanche du mois, c'est la fête des Mères : on donne un cadeau à sa maman, pour la remercier.</p>
+      <p><strong>Juin :</strong> 21 juin : la fête de la Musique — Il y a de nombreux concerts gratuits où on peut écouter de la musique de toutes sortes.</p>
+      <p><strong>Juillet :</strong> 14 juillet : la fête nationale (jour férié) — À Paris, on célèbre l'anniversaire de la Révolution française avec un défilé militaire sur les Champs-Élysées, suivi d'un discours fait par le président de la République. La journée se termine par un immense feu d'artifice près de la tour Eiffel. Certaines villes organisent aussi un bal.</p>
+      <p><strong>Août :</strong> Les entreprises sont parfois fermées. La circulation est souvent dense, parce que beaucoup de Français partent en vacances en même temps.</p>
+      <p><strong>Septembre :</strong> Quel dommage ! C'est la rentrée scolaire !</p>
+      <p><strong>Octobre :</strong> Le premier samedi du mois, c'est la Nuit blanche. Beaucoup de musées et de galeries d'art restent ouverts pendant vingt-quatre heures et … c'est gratuit !</p>
+      <p><strong>Novembre :</strong> 1er novembre : la Toussaint (jour férié) — C'est le jour où on pense aux membres de sa famille et aux amis qui sont morts.</p>
+      <p><strong>Décembre :</strong> 25 décembre : le jour de Noël (jour férié). 31 décembre : la Saint-Sylvestre — On fête la fin de l'année. Allez, c'est presque minuit ! Dix, neuf, huit, sept …</p>
+    </div>
+
+    <div class="question-list">
+      <div class="question-item">
+        <span class="question-label">Expliquez en français les fêtes suivantes :</span>
+        <input type="text" class="question-input" placeholder="1. la Chandeleur →">
+        <input type="text" class="question-input" placeholder="2. le 14 juillet →" style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="3. la Nuit blanche →" style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="4. la fête des Mères →" style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="5. Mardi gras →" style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="6. le 1er avril →" style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="7. la Toussaint →" style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="8. la Saint-Sylvestre →" style="margin-top:8px;">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== UNIT 5: FÊTES DE FAMILLE ===== -->
+  <section class="section fade-up" id="famille">
+    <h2 class="section-title"><span class="num">8</span> Félicitations ! — Les fêtes de famille</h2>
+    <p class="section-subtitle">E1 Special Occasions · E5 Food and Drink — venir de + l'infinitif</p>
+
+    <div class="reading-text">
+      <div class="dialogue-block"><span class="speaker-name">Message 1 :</span> Je suis devenu oncle ! Ma sœur vient d'avoir son premier bébé. Il s'appelle William et il est adorable !</div>
+      <div class="dialogue-block"><span class="speaker-name">Message 2 :</span> Je vais fêter mes seize ans dimanche prochain ! Tu veux venir à ma fête ?</div>
+      <div class="dialogue-block"><span class="speaker-name">Message 3 :</span> Je suis à la mairie ! Mon frère et sa compagne viennent de se marier ! Félicitations, Nathan et Hélène !</div>
+      <div class="dialogue-block"><span class="speaker-name">Message 4 :</span> Ma cousine Zohra va se marier avec son fiancé, Nassim, en juin. Je vais être témoin. Trop cool !</div>
+      <div class="dialogue-block"><span class="speaker-name">Message 5 :</span> Samedi dernier, mes grands-parents ont fêté leurs noces d'émeraude. Ils sont mariés depuis quarante ans !</div>
+      <div class="dialogue-block"><span class="speaker-name">Message 6 :</span> Je vais avoir une belle-mère ! Mon père et sa compagne se sont fiancés hier. Il a choisi la bague tout seul ! Comme c'est romantique !</div>
+    </div>
+
+    <div class="grammar-box">
+      <h4>venir de + l'infinitif</h4>
+      <p>You use the present tense of <strong>venir + de</strong> + an infinitive to say what has <strong>just</strong> happened:</p>
+      <p><em>Je <strong>viens de</strong> fêter mon anniversaire.</em></p>
+      <p><em>Ils <strong>viennent de</strong> se marier.</em></p>
+    </div>
+
+    <div class="question-list">
+      <div class="question-item">
+        <span class="question-label">C'est quand ? Écrivez PR (présent), PA (passé) ou FR (futur) pour chaque message. (6 marks)</span>
+        <input type="text" class="question-input" placeholder="Message 1 → PA / PR / FR">
+        <input type="text" class="question-input" placeholder="Message 2 → PA / PR / FR" style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="Message 3 → PA / PR / FR" style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="Message 4 → PA / PR / FR" style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="Message 5 → PA / PR / FR" style="margin-top:8px;">
+        <input type="text" class="question-input" placeholder="Message 6 → PA / PR / FR" style="margin-top:8px;">
+      </div>
+    </div>
+
+    <div class="model-answer">
+      <button class="model-answer-btn" onclick="toggleModel(this)"><span>&#x1F4DD;</span> Show Answers</button>
+      <div class="model-answer-content">
+        <p><span class="highlight">1 →</span> PR (vient d'avoir = just happened, present of venir)</p>
+        <p><span class="highlight">2 →</span> FR (je vais fêter)</p>
+        <p><span class="highlight">3 →</span> PR (viennent de se marier)</p>
+        <p><span class="highlight">4 →</span> FR (va se marier)</p>
+        <p><span class="highlight">5 →</span> PA (ont fêté)</p>
+        <p><span class="highlight">6 →</span> FR / PA (je vais avoir une belle-mère / se sont fiancés hier)</p>
+      </div>
+    </div>
+
+    <!-- NOÉMIE READING -->
+    <div style="margin-top:28px;">
+      <p class="section-subtitle" style="margin-bottom:8px;">Lisez le texte de Noémie et répondez aux questions en français.</p>
+      <div class="reading-text">
+        <span class="reading-author">Noémie :</span>
+        <p>Il y a deux ans, quand j'avais treize ans, je suis allée au mariage de mon cousin. Ça s'est passé à la mairie. Mon cousin portait un costume blanc, et la mariée était en robe traditionnelle blanche avec un voile blanc. Il y avait beaucoup d'invités : toute notre famille et les amis des mariés étaient présents.</p>
+        <p>À la fin de la cérémonie, quand les mariés sont sortis de la mairie, nous avons lancé des confettis, selon la tradition. Ensuite, tout le monde est allé dans une salle louée pour l'occasion. D'abord, on a participé au vin d'honneur. Mon frère et moi avons bu du coca, mais nos parents ont bu de l'eau pétillante. On a aussi pris beaucoup de photos du couple marié.</p>
+        <p>Après le vin d'honneur, nous avons mangé. Il y avait de nombreux plats, y compris un énorme croquembouche traditionnel. C'était tellement bon que j'en ai mangé une deuxième portion ! Entre les plats, il y a eu des discours et des jeux.</p>
+        <p>À la fin du repas, les mariés ont ouvert le bal par un slow et tout le monde a dansé jusqu'à tard dans la nuit. C'était une excellente soirée !</p>
+      </div>
+
+      <div class="question-list">
+        <div class="question-item">
+          <span class="question-label">1. Noémie a quel âge maintenant ? (Elle a …)</span>
+          <input type="text" class="question-input" placeholder="Write your answer in French...">
+        </div>
+        <div class="question-item">
+          <span class="question-label">2. Le mariage était une cérémonie civile ou religieuse ? (C'était …)</span>
+          <input type="text" class="question-input" placeholder="Write your answer in French...">
+        </div>
+        <div class="question-item">
+          <span class="question-label">3. Pourquoi a-t-on lancé des confettis ? (Parce que c'est …)</span>
+          <input type="text" class="question-input" placeholder="Write your answer in French...">
+        </div>
+        <div class="question-item">
+          <span class="question-label">4. Où est-ce que le vin d'honneur s'est passé ? (Dans une …)</span>
+          <input type="text" class="question-input" placeholder="Write your answer in French...">
+        </div>
+        <div class="question-item">
+          <span class="question-label">5. Combien de portions de gâteau Noémie a-t-elle mangé ? (Elle en a mangé …)</span>
+          <input type="text" class="question-input" placeholder="Write your answer in French...">
+        </div>
+        <div class="question-item">
+          <span class="question-label">6. Qu'est-ce que les invités ont fait après le repas ? (Ils ont …)</span>
+          <input type="text" class="question-input" placeholder="Write your answer in French...">
+        </div>
+      </div>
+
+      <div class="model-answer">
+        <button class="model-answer-btn" onclick="toggleModel(this)"><span>&#x1F4DD;</span> Show Answers</button>
+        <div class="model-answer-content">
+          <p><span class="highlight">1.</span> Elle a quinze ans.</p>
+          <p><span class="highlight">2.</span> C'était une cérémonie civile (à la mairie).</p>
+          <p><span class="highlight">3.</span> Parce que c'est la tradition.</p>
+          <p><span class="highlight">4.</span> Dans une salle louée pour l'occasion.</p>
+          <p><span class="highlight">5.</span> Elle en a mangé deux (une deuxième portion).</p>
+          <p><span class="highlight">6.</span> Ils ont dansé jusqu'à tard dans la nuit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== UNIT 6: WRITING ===== -->
+  <section class="section fade-up" id="writing">
+    <h2 class="section-title"><span class="num">9</span> Exercices d'écriture</h2>
+    <p class="section-subtitle">Utilisez les phrases ci-dessous pour vous aider.</p>
+
+    <p style="font-weight:600; color:var(--blue); margin-bottom:10px;">Mon dernier anniversaire — Présentation orale / écrite</p>
+    <div class="prompt-box">
+      <p>Je suis né(e) en … / Je viens de fêter … / Il y a (trois) mois, j'ai fêté …</p>
+      <p>C'était mon quatorzième / quinzième anniversaire …</p>
+      <p>J'ai reçu beaucoup de …</p>
+      <p>J'ai invité … à un barbecue / une fête chez moi / une boum / une soirée / un pique-nique.</p>
+      <p>Je suis allé(e) au … / à la … avec …</p>
+      <p>On a mangé / écouté / dansé / joué / fait / vu …</p>
+      <p>C'était … / Pour fêter mon prochain anniversaire, je vais …</p>
+    </div>
+
+    <div class="question-list">
+      <div class="question-item">
+        <span class="question-label">Écrivez de 60 à 75 mots en français au sujet des services que vous utilisez. Vous devez employer tous les mots : <em>services · hier · opinion · la semaine prochaine</em></span>
+        <textarea class="question-input" rows="5" placeholder="Write your answer here (60–75 words)..." style="resize:vertical;"></textarea>
+      </div>
+      <div class="question-item">
+        <span class="question-label">Écrivez entre 130 et 150 mots sur l'alimentation et les repas chez vous. Mentionnez : quand vous prenez vos repas · si vous mangez en famille · ce que vous avez mangé hier · ce que vous aimiez manger quand vous étiez petit(e).</span>
+        <textarea class="question-input" rows="7" placeholder="Write your answer here (130–150 words)..." style="resize:vertical;"></textarea>
+      </div>
+      <div class="question-item">
+        <span class="question-label">Écrivez la description d'une fête familiale (130–150 mots). Mentionnez : où et quand la fête a eu lieu · les vêtements · ce que vous avez fait · votre opinion.</span>
+        <textarea class="question-input" rows="7" placeholder="Write your answer here (130–150 words)..." style="resize:vertical;"></textarea>
+      </div>
+      <div class="question-item">
+        <span class="question-label">Écrivez la description d'une fête dans votre pays (130–150 mots). Mentionnez : quand elle a lieu · comment vous la célébrez · ce que vous faisiez plus jeune · vos projets pour la prochaine fois.</span>
+        <textarea class="question-input" rows="7" placeholder="Write your answer here (130–150 words)..." style="resize:vertical;"></textarea>
+      </div>
+    </div>
+
+    <!-- Answer Booster -->
+    <p style="font-weight:700; color:var(--blue); margin:24px 0 12px; font-size:1.05rem;">Answer Booster</p>
+    <div class="table-wrap">
+      <table class="booster-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Aiming for a solid answer</th>
+            <th>Aiming higher</th>
+            <th>Aiming for the top</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Verbes</strong></td>
+            <td>Different tenses: present, perfect and immediate future. Modal verbs: <em>pouvoir, devoir</em></td>
+            <td>Different persons: not just <em>je</em> but <em>il/elle/on/nous/ils/elles</em>. <em>Il faut</em> + infinitive</td>
+            <td>Perfect, present, immediate future <strong>and imperfect</strong>. <em>venir de</em> + infinitive: <em>Je viens de …</em></td>
+          </tr>
+          <tr>
+            <td><strong>Opinions</strong></td>
+            <td><em>C'est mon/ma … préféré(e). J'aime/J'adore … parce que c'est …</em></td>
+            <td><em>À mon avis … Je crois que … Je pense que …</em></td>
+            <td>Opinions in different tenses: <em>J'ai beaucoup aimé … C'était … Ça va être …</em></td>
+          </tr>
+          <tr>
+            <td><strong>Connecteurs</strong></td>
+            <td><em>et, mais, aussi, ou, parce que, quand</em></td>
+            <td><em>où, car, donc, alors, puisque, comme, pourtant</em></td>
+            <td><em>Si … sinon … suivi(e)(s) de/d' …</em></td>
+          </tr>
+          <tr>
+            <td><strong>Autres</strong></td>
+            <td>Séquenceurs : <em>d'abord, ensuite, puis, après, finalement</em>. Expressions de fréquence : <em>d'habitude, tous les ans, parfois, cette année</em></td>
+            <td><em>chez</em> + pronom emphatique. Pronom relatif <em>qui</em> : <em>mes grands-parents, qui habitent à …</em> Pronoms COD au présent : <em>Je les invite …</em></td>
+            <td>Le pronom <em>en</em> : <em>J'en mange trois.</em> Pronoms COD au passé composé : <em>On les a mangé(e)s … Je l'ai acheté(e) …</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- KEY VOCABULARY -->
+  <section class="section fade-up" id="vocab">
+    <h2 class="section-title"><span class="num">&#x1F4D6;</span> Vocabulaire clé</h2>
+    <p class="section-subtitle">Cliquez sur une carte pour entendre la prononciation.</p>
+    <div class="card-grid">
+      <div class="card" onclick="speak('le bureau de change', 'currency exchange office')"><span class="speaker">&#x25B6;</span><span class="fr">le bureau de change</span><span class="en">currency exchange office</span></div>
+      <div class="card" onclick="speak('le bureau de poste', 'the post office')"><span class="speaker">&#x25B6;</span><span class="fr">le bureau de poste</span><span class="en">the post office</span></div>
+      <div class="card" onclick="speak('le distributeur automatique', 'cash machine / ATM')"><span class="speaker">&#x25B6;</span><span class="fr">le distributeur automatique</span><span class="en">cash machine / ATM</span></div>
+      <div class="card" onclick="speak('le commissariat de police', 'police station')"><span class="speaker">&#x25B6;</span><span class="fr">le commissariat de police</span><span class="en">police station</span></div>
+      <div class="card" onclick="speak('le bureau des objets trouvés', 'lost property office')"><span class="speaker">&#x25B6;</span><span class="fr">le bureau des objets trouvés</span><span class="en">lost property office</span></div>
+      <div class="card" onclick="speak('retirer de l\'argent', 'to withdraw money')"><span class="speaker">&#x25B6;</span><span class="fr">retirer de l'argent</span><span class="en">to withdraw money</span></div>
+      <div class="card" onclick="speak('ouvrir un compte bancaire', 'to open a bank account')"><span class="speaker">&#x25B6;</span><span class="fr">ouvrir un compte bancaire</span><span class="en">to open a bank account</span></div>
+      <div class="card" onclick="speak('un portefeuille', 'a wallet')"><span class="speaker">&#x25B6;</span><span class="fr">un portefeuille</span><span class="en">a wallet</span></div>
+      <div class="card" onclick="speak('la Chandeleur', 'Candlemas / Pancake Day')"><span class="speaker">&#x25B6;</span><span class="fr">la Chandeleur</span><span class="en">Candlemas / Pancake Day</span></div>
+      <div class="card" onclick="speak('la galette des Rois', 'kings\' cake / Epiphany cake')"><span class="speaker">&#x25B6;</span><span class="fr">la galette des Rois</span><span class="en">kings' cake / Epiphany cake</span></div>
+      <div class="card" onclick="speak('le réveillon', 'Christmas / New Year\'s Eve celebration')"><span class="speaker">&#x25B6;</span><span class="fr">le réveillon</span><span class="en">Christmas/New Year's Eve celebration</span></div>
+      <div class="card" onclick="speak('une bûche de Noël', 'a Yule log cake')"><span class="speaker">&#x25B6;</span><span class="fr">une bûche de Noël</span><span class="en">a Yule log cake</span></div>
+      <div class="card" onclick="speak('un feu d\'artifice', 'fireworks')"><span class="speaker">&#x25B6;</span><span class="fr">un feu d'artifice</span><span class="en">fireworks</span></div>
+      <div class="card" onclick="speak('la fête nationale', 'national holiday / Bastille Day')"><span class="speaker">&#x25B6;</span><span class="fr">la fête nationale</span><span class="en">national holiday / Bastille Day</span></div>
+      <div class="card" onclick="speak('un jour férié', 'a public holiday')"><span class="speaker">&#x25B6;</span><span class="fr">un jour férié</span><span class="en">a public holiday</span></div>
+      <div class="card" onclick="speak('se marier', 'to get married')"><span class="speaker">&#x25B6;</span><span class="fr">se marier</span><span class="en">to get married</span></div>
+      <div class="card" onclick="speak('se fiancer', 'to get engaged')"><span class="speaker">&#x25B6;</span><span class="fr">se fiancer</span><span class="en">to get engaged</span></div>
+      <div class="card" onclick="speak('venir de + infinitif', 'to have just done something')"><span class="speaker">&#x25B6;</span><span class="fr">venir de + infinitif</span><span class="en">to have just done something</span></div>
+      <div class="card" onclick="speak('le pronom en', 'the pronoun en — some / of it / of them')"><span class="speaker">&#x25B6;</span><span class="fr">le pronom en</span><span class="en">some / of it / of them</span></div>
+      <div class="card" onclick="speak('tutoyer', 'to use tu with someone')"><span class="speaker">&#x25B6;</span><span class="fr">tutoyer</span><span class="en">to use tu with someone</span></div>
+      <div class="card" onclick="speak('vouvoyer', 'to use vous with someone')"><span class="speaker">&#x25B6;</span><span class="fr">vouvoyer</span><span class="en">to use vous with someone</span></div>
+      <div class="card" onclick="speak('félicitations', 'congratulations')"><span class="speaker">&#x25B6;</span><span class="fr">félicitations</span><span class="en">congratulations</span></div>
+      <div class="card" onclick="speak('les noces d\'émeraude', 'emerald wedding anniversary')"><span class="speaker">&#x25B6;</span><span class="fr">les noces d'émeraude</span><span class="en">emerald wedding anniversary</span></div>
+      <div class="card" onclick="speak('emprunter', 'to borrow')"><span class="speaker">&#x25B6;</span><span class="fr">emprunter</span><span class="en">to borrow</span></div>
+    </div>
+  </section>
+
+  <!-- EXAM SKILLS -->
+  <section class="exam-box fade-up" id="exam">
+    <h3><span class="icon">&#x1F3C6;</span> Exam Skills — IGCSE Tips</h3>
+
+    <div class="exam-tip">
+      <strong>Reading — Read the questions first</strong>
+      <p>Before reading the text, read all the questions. This tells you what information to look for and prevents you from wasting time re-reading unnecessarily.</p>
+    </div>
+    <div class="exam-tip">
+      <strong>Writing — Justify your opinions</strong>
+      <p>Always give a reason for your opinion. Instead of just writing <em>J'aime Noël</em>, write <em>J'aime Noël parce que c'est l'occasion d'être en famille et de se détendre.</em></p>
+    </div>
+    <div class="exam-tip">
+      <strong>Grammar — Past participle agreement</strong>
+      <p>When using direct object pronouns before the verb in the passé composé, check agreement: <em>Je les ai <strong>perdues</strong></em> (feminine plural). Look for <em>la / les</em> before <em>avoir</em> as your signal.</p>
+    </div>
+    <div class="exam-tip">
+      <strong>Writing — Use different tenses</strong>
+      <p>Aim for at least three tenses: present, perfect and immediate future. Adding the imperfect (<em>c'était, il y avait, je portais</em>) pushes your answer to the highest grades.</p>
+    </div>
+    <div class="exam-tip">
+      <strong>Grammar — tu vs vous</strong>
+      <p>In role-play tasks, choose your register carefully. Use <em>vous</em> with adults you don't know. Only switch to <em>tu</em> when explicitly invited to do so. Never mix them in the same exchange.</p>
+    </div>
+    <div class="exam-tip">
+      <strong>Writing — Adjective / verb agreement</strong>
+      <p>When the question asks you to modify a word in brackets, first decide: is it a verb or an adjective? If a verb, identify the tense and person. If an adjective, check the gender and number of the noun it describes.</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <h3>GCSE / IGCSE French</h3>
+  <p>Services, Nourriture &amp; Fêtes — Conçu pour apprendre, pratiquer et briller.</p>
+</footer>
+
+<!-- VOICE OVERLAY -->
+<div class="voice-overlay" id="voiceOverlay">
+  <span class="fr-text" id="voiceFr"></span>
+  <span style="opacity:0.4">|</span>
+  <span class="en-text" id="voiceEn"></span>
+  <button class="close-voice" onclick="stopVoice()">&#x2715;</button>
+</div>
+
+<script>
+  let currentUtterance = null;
+
+  function speak(fr, en) {
+    if (!window.speechSynthesis) { alert('Text-to-speech not supported.'); return; }
+    window.speechSynthesis.cancel();
+    const overlay = document.getElementById('voiceOverlay');
+    document.getElementById('voiceFr').textContent = fr;
+    document.getElementById('voiceEn').textContent = en;
+    overlay.classList.add('active');
+    const utter = new SpeechSynthesisUtterance(fr);
+    utter.lang = 'fr-FR'; utter.rate = 0.9; utter.pitch = 1;
+    const voices = window.speechSynthesis.getVoices();
+    const frVoice = voices.find(v => v.lang.startsWith('fr'));
+    if (frVoice) utter.voice = frVoice;
+    utter.onend = () => { setTimeout(() => overlay.classList.remove('active'), 2000); };
+    currentUtterance = utter;
+    window.speechSynthesis.speak(utter);
+  }
+
+  function stopVoice() {
+    window.speechSynthesis.cancel();
+    document.getElementById('voiceOverlay').classList.remove('active');
+  }
+
+  window.speechSynthesis?.getVoices();
+  if (window.speechSynthesis?.onvoiceschanged !== undefined) {
+    window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+  }
+
+  const navLinks = document.querySelectorAll('.nav a');
+  const sections = document.querySelectorAll('.section, .exam-box');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
+    navLinks.forEach(l => {
+      l.classList.remove('active');
+      if (l.getAttribute('href') === '#' + current) l.classList.add('active');
+    });
+  });
+
+  function toggleModel(btn) {
+    const content = btn.nextElementSibling;
+    content.classList.toggle('show');
+    btn.innerHTML = content.classList.contains('show')
+      ? '<span>&#x1F4DD;</span> Hide Answers'
+      : '<span>&#x1F4DD;</span> Show Answers';
+  }
+</script>
+
+</body>
+</html>
